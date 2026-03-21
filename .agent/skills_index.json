@@ -1,0 +1,608 @@
+[
+  {
+    "id": "accessibility-design",
+    "path": "skills/accessibility-design",
+    "name": "Accessibility Design",
+    "description": ">"
+  },
+  {
+    "id": "accessibility-testing",
+    "path": "skills/accessibility-testing",
+    "name": "Accessibility Testing",
+    "description": ">"
+  },
+  {
+    "id": "admin-dashboards",
+    "path": "skills/admin-dashboards",
+    "name": "Admin Dashboards",
+    "description": ">"
+  },
+  {
+    "id": "angular-development",
+    "path": "skills/angular-development",
+    "name": "Angular Development",
+    "description": ">"
+  },
+  {
+    "id": "api-design",
+    "path": "skills/api-design",
+    "name": "Api Design",
+    "description": ">"
+  },
+  {
+    "id": "auth-architecture",
+    "path": "skills/auth-architecture",
+    "name": "Auth Architecture",
+    "description": ">"
+  },
+  {
+    "id": "blog-cms",
+    "path": "skills/blog-cms",
+    "name": "Blog Cms",
+    "description": ">"
+  },
+  {
+    "id": "build-optimization",
+    "path": "skills/build-optimization",
+    "name": "Build Optimization",
+    "description": ">"
+  },
+  {
+    "id": "business-process-modeling",
+    "path": "skills/business-process-modeling",
+    "name": "Business Process Modeling",
+    "description": ">"
+  },
+  {
+    "id": "caching-strategy",
+    "path": "skills/caching-strategy",
+    "name": "Caching Strategy",
+    "description": ">"
+  },
+  {
+    "id": "change-readiness",
+    "path": "skills/change-readiness",
+    "name": "Change Readiness",
+    "description": ">"
+  },
+  {
+    "id": "cloud-functions",
+    "path": "skills/cloud-functions",
+    "name": "Cloud Functions",
+    "description": ">"
+  },
+  {
+    "id": "code-review",
+    "path": "skills/code-review",
+    "name": "Code Review",
+    "description": ">"
+  },
+  {
+    "id": "competitive-intelligence",
+    "path": "skills/competitive-intelligence",
+    "name": "Competitive Intelligence",
+    "description": ">"
+  },
+  {
+    "id": "compliance-assessment",
+    "path": "skills/compliance-assessment",
+    "name": "Compliance Assessment",
+    "description": ">"
+  },
+  {
+    "id": "component-architecture",
+    "path": "skills/component-architecture",
+    "name": "Component Architecture",
+    "description": ">"
+  },
+  {
+    "id": "cost-estimation",
+    "path": "skills/cost-estimation",
+    "name": "Cost Estimation",
+    "description": ">"
+  },
+  {
+    "id": "cross-browser-testing",
+    "path": "skills/cross-browser-testing",
+    "name": "Cross Browser Testing",
+    "description": ">"
+  },
+  {
+    "id": "css-animation",
+    "path": "skills/css-animation",
+    "name": "Css Animation",
+    "description": ">"
+  },
+  {
+    "id": "css-architecture",
+    "path": "skills/css-architecture",
+    "name": "Css Architecture",
+    "description": ">"
+  },
+  {
+    "id": "dark-mode",
+    "path": "skills/dark-mode",
+    "name": "Dark Mode",
+    "description": ">"
+  },
+  {
+    "id": "data-strategy",
+    "path": "skills/data-strategy",
+    "name": "Data Strategy",
+    "description": ">"
+  },
+  {
+    "id": "data-visualization",
+    "path": "skills/data-visualization",
+    "name": "Data Visualization",
+    "description": ">"
+  },
+  {
+    "id": "database-design",
+    "path": "skills/database-design",
+    "name": "Database Design",
+    "description": ">"
+  },
+  {
+    "id": "deployment-checklist",
+    "path": "skills/deployment-checklist",
+    "name": "Deployment Checklist",
+    "description": ">"
+  },
+  {
+    "id": "design-system",
+    "path": "skills/design-system",
+    "name": "Design System",
+    "description": ">"
+  },
+  {
+    "id": "discovery-orchestration",
+    "path": "skills/discovery-orchestration",
+    "name": "Discovery Orchestration",
+    "description": ">"
+  },
+  {
+    "id": "domain-driven-design",
+    "path": "skills/domain-driven-design",
+    "name": "Domain Driven Design",
+    "description": ">"
+  },
+  {
+    "id": "domain-management",
+    "path": "skills/domain-management",
+    "name": "Domain Management",
+    "description": ">"
+  },
+  {
+    "id": "e2e-testing",
+    "path": "skills/e2e-testing",
+    "name": "E2e Testing",
+    "description": ">"
+  },
+  {
+    "id": "ecommerce-frontend",
+    "path": "skills/ecommerce-frontend",
+    "name": "Ecommerce Frontend",
+    "description": ">"
+  },
+  {
+    "id": "email-sending",
+    "path": "skills/email-sending",
+    "name": "Email Sending",
+    "description": ">"
+  },
+  {
+    "id": "email-templates",
+    "path": "skills/email-templates",
+    "name": "Email Templates",
+    "description": ">"
+  },
+  {
+    "id": "event-architecture",
+    "path": "skills/event-architecture",
+    "name": "Event Architecture",
+    "description": ">"
+  },
+  {
+    "id": "executive-pitch",
+    "path": "skills/executive-pitch",
+    "name": "Executive Pitch",
+    "description": ">"
+  },
+  {
+    "id": "feasibility-validation",
+    "path": "skills/feasibility-validation",
+    "name": "Feasibility Validation",
+    "description": ">"
+  },
+  {
+    "id": "firebase-auth",
+    "path": "skills/firebase-auth",
+    "name": "Firebase Auth",
+    "description": ">"
+  },
+  {
+    "id": "firebase-deployment",
+    "path": "skills/firebase-deployment",
+    "name": "Firebase Deployment",
+    "description": ">"
+  },
+  {
+    "id": "firebase-extensions",
+    "path": "skills/firebase-extensions",
+    "name": "Firebase Extensions",
+    "description": ">"
+  },
+  {
+    "id": "firebase-hosting",
+    "path": "skills/firebase-hosting",
+    "name": "Firebase Hosting",
+    "description": ">"
+  },
+  {
+    "id": "firebase-setup",
+    "path": "skills/firebase-setup",
+    "name": "Firebase Setup",
+    "description": ">"
+  },
+  {
+    "id": "firebase-storage",
+    "path": "skills/firebase-storage",
+    "name": "Firebase Storage",
+    "description": ">"
+  },
+  {
+    "id": "firestore-modeling",
+    "path": "skills/firestore-modeling",
+    "name": "Firestore Modeling",
+    "description": ">"
+  },
+  {
+    "id": "firestore-queries",
+    "path": "skills/firestore-queries",
+    "name": "Firestore Queries",
+    "description": ">"
+  },
+  {
+    "id": "firestore-security-rules",
+    "path": "skills/firestore-security-rules",
+    "name": "Firestore Security Rules",
+    "description": ">"
+  },
+  {
+    "id": "flow-mapping",
+    "path": "skills/flow-mapping",
+    "name": "Flow Mapping",
+    "description": ">"
+  },
+  {
+    "id": "font-optimization",
+    "path": "skills/font-optimization",
+    "name": "Font Optimization",
+    "description": ">"
+  },
+  {
+    "id": "form-engineering",
+    "path": "skills/form-engineering",
+    "name": "Form Engineering",
+    "description": ">"
+  },
+  {
+    "id": "github-actions-ci",
+    "path": "skills/github-actions-ci",
+    "name": "Github Actions Ci",
+    "description": ">"
+  },
+  {
+    "id": "google-analytics",
+    "path": "skills/google-analytics",
+    "name": "Google Analytics",
+    "description": ">"
+  },
+  {
+    "id": "google-maps-integration",
+    "path": "skills/google-maps-integration",
+    "name": "Google Maps Integration",
+    "description": ">"
+  },
+  {
+    "id": "google-workspace-apis",
+    "path": "skills/google-workspace-apis",
+    "name": "Google Workspace Apis",
+    "description": ">"
+  },
+  {
+    "id": "hostinger-deployment",
+    "path": "skills/hostinger-deployment",
+    "name": "Hostinger Deployment",
+    "description": ">"
+  },
+  {
+    "id": "html-semantic",
+    "path": "skills/html-semantic",
+    "name": "Html Semantic",
+    "description": ">"
+  },
+  {
+    "id": "image-optimization",
+    "path": "skills/image-optimization",
+    "name": "Image Optimization",
+    "description": ">"
+  },
+  {
+    "id": "infrastructure-design",
+    "path": "skills/infrastructure-design",
+    "name": "Infrastructure Design",
+    "description": ">"
+  },
+  {
+    "id": "input-analysis",
+    "path": "skills/input-analysis",
+    "name": "Input Analysis",
+    "description": ">"
+  },
+  {
+    "id": "internationalization",
+    "path": "skills/internationalization",
+    "name": "Internationalization",
+    "description": ">"
+  },
+  {
+    "id": "landing-pages",
+    "path": "skills/landing-pages",
+    "name": "Landing Pages",
+    "description": ">"
+  },
+  {
+    "id": "linting-formatting",
+    "path": "skills/linting-formatting",
+    "name": "Linting Formatting",
+    "description": ">"
+  },
+  {
+    "id": "mermaid-diagramming",
+    "path": "skills/mermaid-diagramming",
+    "name": "Mermaid Diagramming",
+    "description": ">"
+  },
+  {
+    "id": "migration-planning",
+    "path": "skills/migration-planning",
+    "name": "Migration Planning",
+    "description": ">"
+  },
+  {
+    "id": "modal-dialog-patterns",
+    "path": "skills/modal-dialog-patterns",
+    "name": "Modal Dialog Patterns",
+    "description": ">"
+  },
+  {
+    "id": "navigation-patterns",
+    "path": "skills/navigation-patterns",
+    "name": "Navigation Patterns",
+    "description": ">"
+  },
+  {
+    "id": "node-development",
+    "path": "skills/node-development",
+    "name": "Node Development",
+    "description": ">"
+  },
+  {
+    "id": "payment-integration",
+    "path": "skills/payment-integration",
+    "name": "Payment Integration",
+    "description": ">"
+  },
+  {
+    "id": "performance-architecture",
+    "path": "skills/performance-architecture",
+    "name": "Performance Architecture",
+    "description": ">"
+  },
+  {
+    "id": "performance-testing",
+    "path": "skills/performance-testing",
+    "name": "Performance Testing",
+    "description": ">"
+  },
+  {
+    "id": "portfolio-sites",
+    "path": "skills/portfolio-sites",
+    "name": "Portfolio Sites",
+    "description": ">"
+  },
+  {
+    "id": "print-stylesheet",
+    "path": "skills/print-stylesheet",
+    "name": "Print Stylesheet",
+    "description": ">"
+  },
+  {
+    "id": "product-roadmapping",
+    "path": "skills/product-roadmapping",
+    "name": "Product Roadmapping",
+    "description": ">"
+  },
+  {
+    "id": "push-notifications",
+    "path": "skills/push-notifications",
+    "name": "Push Notifications",
+    "description": ">"
+  },
+  {
+    "id": "pwa-architecture",
+    "path": "skills/pwa-architecture",
+    "name": "Pwa Architecture",
+    "description": ">"
+  },
+  {
+    "id": "react-development",
+    "path": "skills/react-development",
+    "name": "React Development",
+    "description": ">"
+  },
+  {
+    "id": "realtime-architecture",
+    "path": "skills/realtime-architecture",
+    "name": "Realtime Architecture",
+    "description": ">"
+  },
+  {
+    "id": "recaptcha-integration",
+    "path": "skills/recaptcha-integration",
+    "name": "Recaptcha Integration",
+    "description": ">"
+  },
+  {
+    "id": "requirements-engineering",
+    "path": "skills/requirements-engineering",
+    "name": "Requirements Engineering",
+    "description": ">"
+  },
+  {
+    "id": "responsive-design",
+    "path": "skills/responsive-design",
+    "name": "Responsive Design",
+    "description": ">"
+  },
+  {
+    "id": "rest-api-development",
+    "path": "skills/rest-api-development",
+    "name": "Rest Api Development",
+    "description": ">"
+  },
+  {
+    "id": "risk-assessment",
+    "path": "skills/risk-assessment",
+    "name": "Risk Assessment",
+    "description": ">"
+  },
+  {
+    "id": "scenario-analysis",
+    "path": "skills/scenario-analysis",
+    "name": "Scenario Analysis",
+    "description": ">"
+  },
+  {
+    "id": "scheduled-functions",
+    "path": "skills/scheduled-functions",
+    "name": "Scheduled Functions",
+    "description": ">"
+  },
+  {
+    "id": "scroll-interaction",
+    "path": "skills/scroll-interaction",
+    "name": "Scroll Interaction",
+    "description": ">"
+  },
+  {
+    "id": "sector-intelligence",
+    "path": "skills/sector-intelligence",
+    "name": "Sector Intelligence",
+    "description": ">"
+  },
+  {
+    "id": "security-architecture",
+    "path": "skills/security-architecture",
+    "name": "Security Architecture",
+    "description": ">"
+  },
+  {
+    "id": "security-testing",
+    "path": "skills/security-testing",
+    "name": "Security Testing",
+    "description": ">"
+  },
+  {
+    "id": "seo-architecture",
+    "path": "skills/seo-architecture",
+    "name": "Seo Architecture",
+    "description": ">"
+  },
+  {
+    "id": "serverless-patterns",
+    "path": "skills/serverless-patterns",
+    "name": "Serverless Patterns",
+    "description": ">"
+  },
+  {
+    "id": "stakeholder-mapping",
+    "path": "skills/stakeholder-mapping",
+    "name": "Stakeholder Mapping",
+    "description": ">"
+  },
+  {
+    "id": "state-management",
+    "path": "skills/state-management",
+    "name": "State Management",
+    "description": ">"
+  },
+  {
+    "id": "system-architecture",
+    "path": "skills/system-architecture",
+    "name": "System Architecture",
+    "description": ">"
+  },
+  {
+    "id": "test-strategy",
+    "path": "skills/test-strategy",
+    "name": "Test Strategy",
+    "description": ">"
+  },
+  {
+    "id": "trade-off-analysis",
+    "path": "skills/trade-off-analysis",
+    "name": "Trade Off Analysis",
+    "description": ">"
+  },
+  {
+    "id": "typescript-patterns",
+    "path": "skills/typescript-patterns",
+    "name": "Typescript Patterns",
+    "description": ">"
+  },
+  {
+    "id": "unit-testing",
+    "path": "skills/unit-testing",
+    "name": "Unit Testing",
+    "description": ">"
+  },
+  {
+    "id": "user-research",
+    "path": "skills/user-research",
+    "name": "User Research",
+    "description": ">"
+  },
+  {
+    "id": "vanilla-javascript",
+    "path": "skills/vanilla-javascript",
+    "name": "Vanilla Javascript",
+    "description": ">"
+  },
+  {
+    "id": "visual-regression",
+    "path": "skills/visual-regression",
+    "name": "Visual Regression",
+    "description": ">"
+  },
+  {
+    "id": "web-components",
+    "path": "skills/web-components",
+    "name": "Web Components",
+    "description": ">"
+  },
+  {
+    "id": "webhook-handling",
+    "path": "skills/webhook-handling",
+    "name": "Webhook Handling",
+    "description": ">"
+  },
+  {
+    "id": "workshop-design",
+    "path": "skills/workshop-design",
+    "name": "Workshop Design",
+    "description": ">"
+  }
+]

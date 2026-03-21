@@ -1,0 +1,14 @@
+{
+  "hooks": [
+    {
+      "type": "SessionStart",
+      "command": "bash scripts/session-init.sh",
+      "description": "Initialize ADK session: load skill index, detect project type, set context"
+    },
+    {
+      "type": "PostToolUse",
+      "command": "bash scripts/post-tool-check.sh",
+      "description": "Post-tool validation: lint check, evidence tags, quality gate enforcement"
+    }
+  ]
+}

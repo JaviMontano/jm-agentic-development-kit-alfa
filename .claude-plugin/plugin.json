@@ -1,0 +1,25 @@
+{
+  "name": "jm-adk",
+  "version": "1.0.0",
+  "description": "JM Agentic Development Kit — Analyze like MAO, Develop like SA, Deploy to Hostinger. 101 skills · 101 agents · 101 prompts · Firebase + HTML/CSS/JS + Angular/React + Google Ecosystem. From requirements to production in one plugin.",
+  "author": {
+    "name": "Javier Montaño (JM Labs)",
+    "url": "https://metodologia.info"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/javimontano/jm-agentic-development-kit",
+  "keywords": [
+    "agentic-development",
+    "firebase",
+    "angular",
+    "react",
+    "hostinger",
+    "html-css-js",
+    "google-ecosystem",
+    "full-stack",
+    "discovery-to-deployment"
+  ],
+  "engines": {
+    "claude-code": ">=1.0.0"
+  }
+}
