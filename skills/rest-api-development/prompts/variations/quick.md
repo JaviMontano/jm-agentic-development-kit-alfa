@@ -1,0 +1,9 @@
+---
+name: rest-api-development-quick
+type: variation
+audience: general
+description: "Quick execution mode for Rest Api Development — minimal overhead."
+---
+# Rest Api Development — Quick Mode
+Skip deep analysis. Apply the most common pattern directly.
+Use when the task is well-defined and time-constrained.
