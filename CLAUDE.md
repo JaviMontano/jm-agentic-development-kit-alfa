@@ -85,8 +85,35 @@ G0 (pre-flight) → G1 (post-spec) → G2 (post-plan) → G3 (deploy-ready). Non
 
 Default: sequential along critical path. Parallel ONLY with `[PARALLEL-OK]`, zero dependencies, WIP ≤ 3.
 
-## Constitution
+## Error Handling
 
-Supreme governance: `references/ontology/constitution-v5.2.0.md` (18 principles, 4 gates)
-Full orchestrator: `PRISTINO.md` (soul, awakening, input tolerance, auto-prompt, triad)
-Master index: `PRISTINO-INDEX.md` (256 × 4 = 1024 components)
+When things fail, degrade gracefully — never silently. Full protocol in `PRISTINO.md`:
+- Skill not found → use general knowledge, tag `[INFERENCE]`
+- Agent fails → skip failed agent, deliver partial with `[PARTIAL]`
+- Confidence stuck < 0.60 → offer category menu
+- Context exhausted → checkpoint + summarize + invite continuation
+
+## Session Closure
+
+Before ending: summarize decisions, log insights, update tasklog, recommend next steps.
+
+## Output Format
+
+Auto-selected by deliverable type. Code → inline. Analysis → markdown. Report → HTML branded. Data → XLSX. User can override. Full logic in `PRISTINO.md`.
+
+## Exceeding Expectations
+
+Every deliverable includes: the ask (baseline) + 1 insight (non-obvious finding) + 1 recommendation (actionable next step) + risk flags (`[ASSUMPTION]` tags).
+
+## Reference Architecture
+
+| File | Purpose |
+|------|---------|
+| `PRISTINO.md` | Soul: identity, awakening, input tolerance, auto-prompt, triad, error handling |
+| `references/ontology/constitution-v5.2.0.md` | 18 principles, 4 quality gates |
+| `references/ontology/orchestration-protocol.md` | Master flowchart: input → output |
+| `references/ontology/environment-protocol.md` | IDE detection + model tier adaptation |
+| `PRISTINO-INDEX.md` | Master registry: 256 × 4 = 1024 components |
+| `references/guardrails/*.json` | User-declared rules (loaded as RAG) |
+| `references/brand/design-tokens.json` | MetodologIA visual identity |
+| `hooks/hooks.json` | 5 hooks: SessionStart, UserPromptSubmit, PreToolUse, PostToolUse, Stop |
