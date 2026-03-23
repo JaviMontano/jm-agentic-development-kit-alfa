@@ -5,6 +5,23 @@ All notable changes to the JM Agentic Development Kit will be documented in this
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2026-03-22
+
+### Added — 128x4 Complementarity (Socratic Debate)
+- **4 New Skills**: `error-handling`, `seo-content`, `git-workflow`, `api-documentation`
+- **25 New Agents**: `brand-html-crafter`, `client-prospector`, `dossier-builder`, `cv-specialist`, `bdd-strategist`, `guardrails-enforcer`, `lighthouse-auditor`, `git-strategist`, `session-manager`, `changelog-tracker`, `indexability-auditor`, `workspace-manager`, `learning-engine`, `mermaid-diagrammer`, `image-optimizer`, `modal-dialog-builder`, `scheduled-task-builder`, `recaptcha-integrator`, `trade-off-analyst`, `visual-qa-tester`, `error-handler`, `seo-content-writer`, `api-documenter`, `ssh-deployer`, `market-researcher`
+- **22 New Commands**: `prospect`, `dossier`, `cv`, `market`, `brand-html`, `bdd`, `optimize-images`, `optimize-fonts`, `git-init`, `session`, `insights`, `index`, `workspace`, `error-patterns`, `seo-content`, `api-docs`, `recaptcha`, `lighthouse`, `ssh-deploy`, `trade-off`, `visual-test`, `constitution`
+- **25 New Prompts**: 9 quality (error-handling, visual-regression, lighthouse, BDD, guardrails, indexability, dual-layer, git, API docs), 9 meta (session, environment, triad, guardrail, insight, amendment, workspace, index, brand-html), 7 development (error-boundary, recaptcha, scheduled-function, webhook, bundle, service-worker, schema-markup)
+
+### Architecture — 128x4 Symmetry
+All four component types reach 128 through genuine complementarity:
+- Skills filled gaps in error handling, SEO content, Git workflow, API docs
+- Agents mapped to all 23 new skills from v1.1-v1.5 (Constitution, workshop, guardrails, environment)
+- Commands exposed all new agent capabilities to users
+- Prompts covered quality, meta, and development gaps
+
+**Total**: 128 Skills · 128 Agents · 128 Commands · 128 Prompts = **512 components**
+
 ## [1.5.0] - 2026-03-22
 
 ### Added — Brand Design System + Guardrails + Workshop Skills
