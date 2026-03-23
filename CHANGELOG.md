@@ -5,6 +5,20 @@ All notable changes to the JM Agentic Development Kit will be documented in this
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.1] - 2026-03-22
+
+### Changed — Sequential-First Discipline (Constitution v5.2.0)
+- **Principle XVI rewritten**: "Parallel-Ready Workflow" → "Sequential-First, Parallel-Ready Workflow"
+  - Default: sequential along critical path (marco logico)
+  - Parallel ONLY when plan has `[PARALLEL-OK]` tags
+  - WIP limit: 3 agents maximum concurrent
+  - Forward-only: no parallel task waits for another
+  - 4-point eligibility check required before parallel launch
+- `parallel-workflow` skill v2.0.0 — Sequential-first with eligibility checklist and batch execution
+- `pipeline-conductor` agent — Sequential-by-default anti-pattern, plan-gated parallelism
+- Constitution version bumped to v5.2.0
+- Governance section: sequential-first enforcement, burden of proof on parallelism
+
 ## [1.2.0] - 2026-03-22
 
 ### Added — Constitution v5.1.0 Upgrade

@@ -1,12 +1,12 @@
 ---
 name: parallel-workflow
 author: JM Labs (Javier Montaño)
-version: 1.0.0
+version: 2.0.0
 description: >
-  Parallel development using git worktrees, branch-per-task isolation, contract-first
-  integration, and atomic mergeable units. Enables multi-agent or multi-developer
-  concurrent work without merge conflicts.
-  Trigger: "parallel work", "worktree", "concurrent development", "branch strategy", "contract-first"
+  Sequential-first execution with controlled parallelism. WIP limit: 3 agents max.
+  Parallel only when plan has [PARALLEL-OK] tags, zero dependencies, forward-only.
+  Git worktrees, contract-first integration, atomic mergeable units.
+  Trigger: "parallel work", "worktree", "concurrent development", "sequential first", "WIP limit"
 allowed-tools:
   - Read
   - Glob
@@ -14,35 +14,46 @@ allowed-tools:
   - Bash
 ---
 
-# Parallel Workflow
+# Sequential-First, Parallel-Ready Workflow
 
-> "Parallelism without contracts is just concurrent chaos."
+> "Sequential is safe. Parallel is fast. Smart is knowing when to switch."
 
 ## TL;DR
 
-Structures development for safe parallel execution across independent work streams using git worktrees (Constitution XVI). Each task gets its own branch and worktree. Parallel streams agree on interface contracts BEFORE implementation begins. Branches are atomic, short-lived, and independently mergeable. Designed for multi-agent workflows where human + AI agents work concurrently.
+**Default: sequential.** All tasks execute one after another along the critical path. Parallelism is activated ONLY when the approved plan explicitly marks tasks `[PARALLEL-OK]` with zero pre-dependencies, zero co-dependencies, and WIP <= 3 agents. Forward-only execution — no task waits for another parallel task. When in doubt: sequential. The burden of proof is on parallelism.
 
 ## Procedure
 
 ### Step 1: Discover
-- Read the plan file to identify all tasks
-- Map task dependencies: which tasks are truly independent?
-- Identify integration points: where do parallel streams need to agree on interfaces?
+- Read the plan file — is parallelism explicitly approved? Look for `[PARALLEL-OK]` tags
+- If no `[PARALLEL-OK]` tags: **STOP — execute sequentially along critical path**
+- Map task dependencies: pre-dependencies (A must finish before B), co-dependencies (A and B share state), output dependencies (A's output is B's input)
 - Check current git state: clean working tree, up-to-date with remote
 
-### Step 2: Analyze
-- Group tasks into independent work streams (no shared file dependencies)
-- For each integration point, define the contract: API signatures, data shapes, event names, component interfaces
-- Plan merge order: independent tasks first, integration tasks last
-- Assess risk: which parallel streams are most likely to conflict?
+### Step 2: Analyze — Parallel Eligibility Check
+Run the 4-point checklist. ALL must pass:
+1. **Plan approval**: plan has explicit `[PARALLEL-OK]` on candidate tasks
+2. **Zero dependencies**: no pre-deps, co-deps, or shared mutable files between candidates
+3. **WIP <= 3**: no more than 3 agents will run simultaneously
+4. **Forward-only**: each task can complete independently without waiting for another
+
+If ANY check fails → **fall back to sequential execution**
+
+- For eligible tasks: define interface contracts at integration points
+- Plan merge order: contracts first → implementations → integration tests
+- Assess operational risk: shared files, merge complexity, review bottleneck
 
 ### Step 3: Execute
-- Create worktrees for independent streams:
+- **Batch parallel tasks**: if 5 eligible, run in batches of 3 + 2 (never 5)
+- Create worktrees for the current batch (max 3):
   ```bash
-  # Create worktree for each independent task
+  # Batch 1: max 3 concurrent
   git worktree add ../task-auth feat/auth
   git worktree add ../task-dashboard feat/dashboard
   git worktree add ../task-api feat/api-contracts
+  # Batch 2: after batch 1 completes
+  git worktree add ../task-nav feat/navigation
+  git worktree add ../task-footer feat/footer
   ```
 - Define contracts before parallel work begins:
   ```typescript
@@ -75,11 +86,13 @@ Structures development for safe parallel execution across independent work strea
 
 ## Quality Criteria
 
-- [ ] Tasks decomposed into independent work streams
+- [ ] Plan has explicit `[PARALLEL-OK]` tags for parallelized tasks
+- [ ] 4-point eligibility check passed (plan, zero-deps, WIP<=3, forward-only)
+- [ ] WIP never exceeds 3 concurrent agents
 - [ ] Interface contracts defined before parallel work begins
 - [ ] Git worktrees used for isolation (not just branches)
 - [ ] Each branch is atomic and independently mergeable
-- [ ] No long-lived feature branches (merge within sprint)
+- [ ] No task waits for another parallel task (forward-only)
 - [ ] Contract tests verify integration points
 - [ ] All quality gates pass on merged result
 - [ ] Worktrees cleaned up after merge
@@ -89,11 +102,13 @@ Structures development for safe parallel execution across independent work strea
 
 | Anti-Pattern | Why It's Bad | Do This Instead |
 |-------------|-------------|-----------------|
+| Defaulting to parallel | Merge risk, context fragmentation | Default to sequential; parallel requires plan approval |
+| WIP > 3 | Cognitive overload, review bottleneck | Batch: 3 max concurrent, then next batch |
+| Parallel with dependencies | Deadlocks, waiting, broken merges | Zero-dependency check BEFORE launching |
+| Task waiting for another parallel task | Violates forward-only, creates deadlock | Stop dependent task, return to sequential queue |
 | Parallel work without contracts | Integration breaks on merge | Define interfaces BEFORE parallel work |
-| Long-lived feature branches | Merge hell, context loss | Keep branches short-lived, merge frequently |
 | Force-pushing to shared branches | Destroys others' work history | Use merge commits, never force-push |
 | Worktrees without cleanup | Disk bloat, stale references | Remove worktrees after merge |
-| Assuming no conflicts | Blind optimism | Assess shared file risk before parallelizing |
 
 ## Related Skills
 

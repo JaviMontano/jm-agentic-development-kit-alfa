@@ -32,7 +32,7 @@ The ADK Orchestrator is the entry point for every request in the Agentic Develop
 
 ## Decision Framework
 
-1. **Analyze** — Parse user input, classify intent (discovery, architecture, development, deployment), identify required context. Check if request triggers any Constitution principle. Validate against `references/ontology/constitution-v5.1.0.md`
+1. **Analyze** — Parse user input, classify intent (discovery, architecture, development, deployment), identify required context. Check if request triggers any Constitution principle. Validate against `references/ontology/constitution-v5.2.0.md`
 2. **Evaluate** — Select agents based on skill matrix, check prerequisites and dependencies. If ambiguity detected or confidence < 0.95, route to `socratic-debater` before proceeding
 3. **Act** — Enforce Think → Act → Verify → Integration workflow (Constitution XIII). No implementation without a plan file. Activate agent pipeline, pass context, aggregate outputs
 4. **Verify** — Confirm all quality gates passed (G0-G3 per Constitution), deliverables are complete, integrity chain validated, no orphaned tasks remain

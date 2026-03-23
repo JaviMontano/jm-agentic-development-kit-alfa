@@ -1,5 +1,5 @@
 <!-- Sync Impact Report
-Version: 5.1.0 (Workspace + Indexability + Auto-Organization)
+Version: 5.2.0 (Sequential-First + WIP Limits + Workspace + Indexability)
 Added principles:
   - XVII. Continuous Learning Loop
   - XVIII. Indexable & Self-Organizing Repository
@@ -237,15 +237,58 @@ BDD scenarios cover every quality angle, not just functional.
 - **Runner-agnostic**: Playwright for browser, Vitest for code invariants, Firebase Emulator for rules
 - **Socratic debate for ambiguity**: resolve before implementation, record in `tests/clarifications.md`
 
-### XVI. Parallel-Ready Workflow
+### XVI. Sequential-First, Parallel-Ready Workflow
 
-Development structured for parallel execution via isolated branches.
+The default execution mode is **sequential along the critical
+path**. Parallelism is a controlled optimization, not a default.
 
-- Branch-per-task isolation
-- Worktree-based parallelism
-- Atomic, independently mergeable units
-- Contract-first integration
-- Short-lived branches, no force-pushing
+- **Sequential by default**: tasks execute one after another
+  following the critical path and logical framework (marco
+  logico). Each task completes and its output is verified
+  before the next begins. This is the safe, predictable,
+  auditable mode
+- **Parallel only when the plan says so**: parallelism is
+  activated ONLY when the approved plan explicitly identifies
+  independent tasks with zero pre-dependencies, zero
+  co-dependencies, and zero shared mutable state. The plan
+  must mark parallel-eligible tasks with `[PARALLEL-OK]`
+- **WIP limit: 3 agents maximum**: no more than 3 concurrent
+  agents may execute in parallel at any time. This prevents
+  context fragmentation, merge complexity, and review
+  bottleneck. If a plan identifies 5 parallel-eligible tasks,
+  execute in batches of 3 + 2, never 5 simultaneously
+- **Forward-only execution**: parallel tasks MUST move
+  forward independently. No task may wait for, depend on,
+  or communicate with another in-progress parallel task.
+  If a dependency is discovered mid-execution, the dependent
+  task MUST stop and return to the sequential queue
+- **Branch-per-task isolation**: each task gets its own
+  branch (or worktree). No two parallel tasks share a branch
+- **Contract-first integration**: when parallel tasks will
+  eventually integrate, they agree on interface contracts
+  (API signatures, data shapes, event names) BEFORE
+  parallel execution begins — during the sequential
+  planning phase
+- **Merge in dependency order**: when parallel tasks
+  complete, merge in the order that respects the logical
+  framework: contracts first, then independent
+  implementations, then integration tests
+- **Parallel triggers operational risk review**: before
+  launching parallel execution, verify: (1) plan has
+  `[PARALLEL-OK]` tags, (2) no shared files between tasks,
+  (3) WIP <= 3, (4) each task has a clear definition of
+  done. If any check fails, fall back to sequential
+
+**Rationale**: Sequential execution is inherently safer —
+it produces linear, auditable history and prevents the
+"works in isolation, breaks on merge" failure mode.
+Parallelism saves time but introduces merge risk, context
+fragmentation, and review bottleneck. The WIP limit of 3
+is borrowed from Kanban theory: it maximizes throughput
+while keeping cognitive load manageable. Forward-only
+execution prevents deadlocks. The plan-gated approach
+ensures parallelism is a deliberate optimization decision,
+not an accidental default.
 
 ### XVII. Continuous Learning Loop
 
@@ -426,5 +469,11 @@ Items >14 days without progress MUST be reviewed.
 - **Insights before debate**: consult `insights/` first
 - **Indexability** (XVIII): no folder merges without README
 - **Workspace** gitignored, governed by its own README
+- **Sequential-first** (XVI): all execution is sequential along
+  the critical path by default. Parallelism requires: (1) plan
+  with explicit `[PARALLEL-OK]` tags, (2) zero dependencies
+  between parallel tasks, (3) WIP <= 3 agents, (4) forward-only
+  execution. When in doubt: sequential. The burden of proof is
+  on parallelism, not on sequence
 
-**Version**: 5.1.0 | **Ratified**: 2026-03-22 | **Last Amended**: 2026-03-23
+**Version**: 5.2.0 | **Ratified**: 2026-03-22 | **Last Amended**: 2026-03-23

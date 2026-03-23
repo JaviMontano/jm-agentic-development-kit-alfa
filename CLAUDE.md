@@ -53,10 +53,10 @@ Intent → RQL-NNN → plan-DATE-TASK.md → ADR-NNN → Spec → Tests → Code
 | `DL-NNN.md` | `.specify/decisions/` | Before process/tooling decisions |
 | `RQL-NNN.md` | `.specify/requirements/` | For every requirement |
 | `CONSTITUTION.md` | `.specify/` | Project governance (validate against) |
-| `constitution-v5.1.0.md` | `references/ontology/` | Kit-level supreme governance (18 principles, 4 gates, workspace, session protocol) |
+| `constitution-v5.2.0.md` | `references/ontology/` | Kit-level supreme governance (18 principles, 4 gates, workspace, session protocol) |
 
 Full protocol: `references/ontology/intent-integrity-governance.md`
-Supreme governance: `references/ontology/constitution-v5.1.0.md`
+Supreme governance: `references/ontology/constitution-v5.2.0.md`
 
 ## Two-Phase Workflow
 

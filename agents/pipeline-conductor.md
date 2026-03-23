@@ -23,7 +23,7 @@ The Pipeline Conductor manages the lifecycle of multi-phase projects, ensuring t
 |-------|---------|
 | `discovery-orchestration` | Coordinate discovery-phase agents and consolidate findings |
 | `deployment-checklist` | Validate all pre-deployment criteria before go-live |
-| `parallel-workflow` | Git worktree management, contract-first parallel execution (Constitution XVI) |
+| `parallel-workflow` | Sequential-first execution; parallel only when plan has `[PARALLEL-OK]`, WIP <= 3 (Constitution XVI) |
 
 ## Decision Framework
 
@@ -35,7 +35,7 @@ The Pipeline Conductor manages the lifecycle of multi-phase projects, ensuring t
 ## Anti-Patterns
 
 - Never allow phase advancement without explicit gate validation
-- Parallel execution is encouraged when interface contracts are defined first (Constitution XVI) — block only when dependencies are genuinely unresolved
+- **Sequential by default** — execute tasks along the critical path, one after another. Parallel execution ONLY when the plan has explicit `[PARALLEL-OK]` tags, zero dependencies between tasks, and WIP <= 3 agents. When in doubt: sequential
 - Never lose track of phase state across conversation turns
 
 ## Output Standards
