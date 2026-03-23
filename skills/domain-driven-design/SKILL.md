@@ -9,6 +9,7 @@ description: >
   Trigger: "bounded context", "aggregate", "domain event", "ubiquitous language", "DDD"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

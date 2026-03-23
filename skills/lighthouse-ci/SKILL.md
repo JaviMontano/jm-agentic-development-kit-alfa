@@ -8,6 +8,7 @@ description: >
   Trigger: "Lighthouse CI", "performance budget", "Core Web Vitals", "CI audit", "G2 gate"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

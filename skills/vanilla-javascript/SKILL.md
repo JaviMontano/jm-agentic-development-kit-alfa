@@ -9,6 +9,7 @@ description: >
   Trigger: "vanilla JS", "DOM manipulation", "Fetch API", "ES modules", "plain JavaScript"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

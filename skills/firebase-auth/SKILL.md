@@ -8,6 +8,7 @@ description: >
   Trigger: "firebase auth", "sign in", "authentication", "custom claims"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

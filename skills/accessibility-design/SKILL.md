@@ -9,6 +9,7 @@ description: >
   Trigger: "accessibility", "WCAG", "ARIA", "a11y", "screen reader", "inclusive design"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

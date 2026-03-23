@@ -9,6 +9,7 @@ description: >
   Trigger: "chart", "D3", "data visualization", "dashboard", "graph", "Chart.js"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

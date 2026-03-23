@@ -8,6 +8,7 @@ description: >
   Trigger: "Hostinger", "cPanel", "FTP deploy", ".htaccess", "shared hosting"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

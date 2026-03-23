@@ -9,6 +9,7 @@ description: >
   Trigger: "responsive", "breakpoints", "fluid typography", "container queries", "mobile-first"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

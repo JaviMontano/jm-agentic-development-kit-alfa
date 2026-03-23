@@ -9,6 +9,7 @@ description: >
   Trigger: "TypeScript", "branded types", "generics", "utility types", "strict mode"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

@@ -9,6 +9,7 @@ description: >
   Trigger: "change management", "ADKAR", "adoption", "resistance", "change readiness"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

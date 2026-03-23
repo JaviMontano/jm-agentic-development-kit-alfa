@@ -9,6 +9,7 @@ description: >
   Trigger: "database", "schema", "Firestore", "data model", "indexing"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

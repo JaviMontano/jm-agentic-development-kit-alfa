@@ -8,6 +8,7 @@ description: >
   Trigger: "firebase hosting", "firebase deploy", "preview channel", "hosting config"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

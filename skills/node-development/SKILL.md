@@ -8,6 +8,7 @@ description: >
   Trigger: "node.js", "node patterns", "streams", "ESM modules"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

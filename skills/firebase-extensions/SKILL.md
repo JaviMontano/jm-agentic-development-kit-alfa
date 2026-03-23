@@ -8,6 +8,7 @@ description: >
   Trigger: "firebase extension", "stripe extension", "algolia extension", "resize images"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

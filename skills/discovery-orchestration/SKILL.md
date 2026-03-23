@@ -9,6 +9,7 @@ description: >
   Trigger: "discovery pipeline", "orchestrate", "gate enforcement", "deliverable tracking"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

@@ -8,6 +8,7 @@ description: >
   Trigger: "ESLint", "Prettier", "linting", "code formatting", "Stylelint"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

@@ -8,6 +8,7 @@ description: >
   Trigger: "cloud function", "firebase function", "serverless function", "trigger"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

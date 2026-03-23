@@ -8,6 +8,7 @@ description: >
   Trigger: "firebase deploy", "deploy functions", "preview channel", "rollback"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

@@ -9,6 +9,7 @@ description: >
   Trigger: "SEO", "structured data", "sitemap", "robots.txt", "meta tags"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

@@ -8,6 +8,7 @@ description: >
   Trigger: "payment", "Stripe", "PayPal", "checkout", "subscription billing"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

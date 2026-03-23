@@ -9,6 +9,7 @@ description: >
   Trigger: "roadmap", "prioritization", "backlog", "product strategy", "release plan"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

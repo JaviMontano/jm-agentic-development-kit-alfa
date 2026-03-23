@@ -9,6 +9,7 @@ description: >
   Trigger: "BDD", "Gherkin", "Given When Then", "full-spectrum testing", "acceptance scenarios"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

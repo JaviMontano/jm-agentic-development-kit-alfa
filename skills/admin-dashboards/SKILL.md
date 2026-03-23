@@ -8,6 +8,7 @@ description: >
   Trigger: "admin panel", "dashboard", "data table", "CRUD interface"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

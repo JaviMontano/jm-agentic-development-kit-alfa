@@ -8,6 +8,7 @@ description: >
   Trigger: "landing page", "hero section", "CTA", "conversion optimization"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

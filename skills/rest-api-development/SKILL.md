@@ -8,6 +8,7 @@ description: >
   Trigger: "REST API", "express API", "API endpoint", "API design"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

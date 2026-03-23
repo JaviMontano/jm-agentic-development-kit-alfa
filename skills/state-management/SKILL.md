@@ -9,6 +9,7 @@ description: >
   Trigger: "state management", "Redux", "NgRx", "Zustand", "Context API"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

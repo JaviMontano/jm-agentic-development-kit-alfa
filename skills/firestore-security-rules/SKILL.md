@@ -8,6 +8,7 @@ description: >
   Trigger: "firestore rules", "security rules", "firestore permissions", "custom claims"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

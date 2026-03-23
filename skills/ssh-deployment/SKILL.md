@@ -8,6 +8,7 @@ description: >
   Trigger: "SSH deploy", "Hostinger SSH", "git push deploy", "remote deployment", "SFTP"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

@@ -9,6 +9,7 @@ description: >
   Trigger: "migration", "strangler fig", "data migration", "rollback", "modernization"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

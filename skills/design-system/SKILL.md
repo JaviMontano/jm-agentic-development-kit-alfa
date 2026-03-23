@@ -9,6 +9,7 @@ description: >
   Trigger: "design tokens", "design system", "component library", "CSS variables", "theme"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

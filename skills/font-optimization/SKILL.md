@@ -8,6 +8,7 @@ description: >
   Trigger: "font loading", "web fonts", "FOIT", "font-display", "variable fonts"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

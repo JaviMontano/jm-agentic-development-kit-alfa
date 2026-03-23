@@ -9,6 +9,7 @@ description: >
   Trigger: "mermaid", "diagram", "C4 diagram", "sequence diagram", "flowchart", "ER diagram"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

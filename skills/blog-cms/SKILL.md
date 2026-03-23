@@ -8,6 +8,7 @@ description: >
   Trigger: "blog", "CMS", "markdown", "content management"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

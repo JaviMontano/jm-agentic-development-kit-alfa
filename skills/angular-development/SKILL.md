@@ -9,6 +9,7 @@ description: >
   Trigger: "Angular", "Signals", "standalone component", "NgRx", "RxJS", "Angular SSR"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

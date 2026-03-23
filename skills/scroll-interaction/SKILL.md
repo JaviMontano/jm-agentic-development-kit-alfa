@@ -8,6 +8,7 @@ description: >
   Trigger: "scroll animation", "intersection observer", "parallax", "scroll-driven"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

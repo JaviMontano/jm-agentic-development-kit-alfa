@@ -9,6 +9,7 @@ description: >
   Trigger: "React", "hooks", "Server Components", "RSC", "Suspense", "Next.js"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

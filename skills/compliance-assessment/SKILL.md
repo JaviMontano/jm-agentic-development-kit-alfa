@@ -9,6 +9,7 @@ description: >
   Trigger: "GDPR", "compliance", "accessibility audit", "data protection", "legal review"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

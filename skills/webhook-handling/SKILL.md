@@ -8,6 +8,7 @@ description: >
   Trigger: "webhook", "stripe webhook", "github webhook", "webhook handler"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

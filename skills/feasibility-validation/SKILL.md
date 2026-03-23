@@ -9,6 +9,7 @@ description: >
   Trigger: "feasibility", "technical assessment", "go/no-go", "viability"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

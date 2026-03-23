@@ -9,6 +9,7 @@ description: >
   Trigger: "performance", "Core Web Vitals", "LCP", "lazy loading", "code splitting"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

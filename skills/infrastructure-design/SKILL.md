@@ -9,6 +9,7 @@ description: >
   Trigger: "infrastructure", "hosting", "CDN", "DNS", "SSL", "load balancing"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

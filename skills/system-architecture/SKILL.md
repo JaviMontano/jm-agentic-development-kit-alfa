@@ -9,6 +9,7 @@ description: >
   Trigger: "C4 diagram", "architecture", "ADR", "quality attributes", "system design"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

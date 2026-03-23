@@ -9,6 +9,7 @@ description: >
   Trigger: "animation", "keyframes", "transitions", "GSAP", "View Transitions", "scroll animation"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

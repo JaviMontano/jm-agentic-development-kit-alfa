@@ -9,6 +9,7 @@ description: >
   Trigger: "debate", "ambiguity", "resolve conflict", "low confidence", "Socratic"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

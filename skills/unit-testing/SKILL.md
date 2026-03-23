@@ -8,6 +8,7 @@ description: >
   Trigger: "unit test", "Jest", "Vitest", "mock", "test case"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

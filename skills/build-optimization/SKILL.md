@@ -8,6 +8,7 @@ description: >
   Trigger: "build optimization", "Vite config", "tree-shaking", "code splitting", "bundle size"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

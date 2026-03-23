@@ -1,6 +1,6 @@
 # JM-ADK Architecture
 
-> 101 Skills · 101 Agents · 101 Prompts — From Analysis to Deployment
+> 256 Skills · 256 Agents · 256 Prompts — From Analysis to Deployment
 
 ## Directory Structure
 
@@ -39,7 +39,7 @@ jm-agentic-development-kit/
 
 ---
 
-## 101 Agents
+## 256 Agents
 
 ### Orchestration (5)
 | # | Agent | Description |
@@ -176,7 +176,7 @@ jm-agentic-development-kit/
 
 ---
 
-## 101 Skills
+## 256 Skills
 
 ### Discovery & Analysis (20)
 | # | Skill | Description |
@@ -305,7 +305,7 @@ jm-agentic-development-kit/
 
 ---
 
-## 101 Prompts
+## 256 Prompts
 
 ### Discovery Prompts (20)
 | # | Prompt | Purpose |

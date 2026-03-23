@@ -8,6 +8,7 @@ description: >
   Trigger: "dark mode", "dark theme", "color scheme", "theme toggle"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

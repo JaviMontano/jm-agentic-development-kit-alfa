@@ -9,6 +9,7 @@ description: >
   Trigger: "workshop", "event storming", "design sprint", "impact mapping", "facilitation"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

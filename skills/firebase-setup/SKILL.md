@@ -8,6 +8,7 @@ description: >
   Trigger: "firebase init", "firebase setup", "firebase emulator", "firebase config"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

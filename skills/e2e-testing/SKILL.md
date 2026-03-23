@@ -8,6 +8,7 @@ description: >
   Trigger: "e2e test", "Playwright", "Cypress", "user flow test"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

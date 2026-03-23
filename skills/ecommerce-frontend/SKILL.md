@@ -8,6 +8,7 @@ description: >
   Trigger: "ecommerce", "shopping cart", "checkout", "product page"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

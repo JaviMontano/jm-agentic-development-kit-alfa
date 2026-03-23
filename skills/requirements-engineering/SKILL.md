@@ -9,6 +9,7 @@ description: >
   Trigger: "user stories", "acceptance criteria", "requirements"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

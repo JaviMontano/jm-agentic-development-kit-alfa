@@ -8,6 +8,7 @@ description: >
   Trigger: "print stylesheet", "print CSS", "PDF layout", "@media print"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

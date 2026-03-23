@@ -8,6 +8,7 @@ description: >
   Trigger: "push notification", "FCM", "web push", "notification"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

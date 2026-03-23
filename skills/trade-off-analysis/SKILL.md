@@ -9,6 +9,7 @@ description: >
   Trigger: "trade-off", "decision matrix", "ATAM", "weighted scoring", "pros and cons"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

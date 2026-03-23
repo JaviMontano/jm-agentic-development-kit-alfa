@@ -8,6 +8,7 @@ description: >
   Trigger: "deployment checklist", "pre-deploy", "go live", "launch checklist"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

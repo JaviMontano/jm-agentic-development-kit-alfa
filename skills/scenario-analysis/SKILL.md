@@ -9,6 +9,7 @@ description: >
   Trigger: "scenario analysis", "tree of thought", "weighted scoring", "compare options"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

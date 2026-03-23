@@ -9,6 +9,7 @@ description: >
   Trigger: "Firebase Auth", "OAuth2", "RBAC", "authentication", "authorization", "custom claims"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

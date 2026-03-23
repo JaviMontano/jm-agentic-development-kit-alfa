@@ -8,6 +8,7 @@ description: >
   Trigger: "firebase storage", "file upload", "image resize", "storage rules"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

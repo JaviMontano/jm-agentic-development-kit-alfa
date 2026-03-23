@@ -9,6 +9,7 @@ description: >
   Trigger: "BPMN", "value stream", "capability map", "business process"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

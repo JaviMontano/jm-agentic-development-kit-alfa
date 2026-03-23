@@ -9,6 +9,7 @@ description: >
   Trigger: "real-time", "Firestore listeners", "WebSocket", "SSE", "live updates"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

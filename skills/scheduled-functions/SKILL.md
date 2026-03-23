@@ -8,6 +8,7 @@ description: >
   Trigger: "scheduled function", "cron job", "batch processing", "Cloud Scheduler"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

@@ -8,6 +8,7 @@ description: >
   Trigger: "performance test", "Lighthouse", "Core Web Vitals", "bundle size"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

@@ -9,6 +9,7 @@ description: >
   Trigger: "clarify input", "what did you mean", "input analysis", "disambiguate"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

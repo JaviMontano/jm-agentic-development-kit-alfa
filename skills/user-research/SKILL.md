@@ -9,6 +9,7 @@ description: >
   Trigger: "persona", "empathy map", "user journey", "user research", "interview"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

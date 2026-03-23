@@ -9,6 +9,7 @@ description: >
   Trigger: "API design", "REST", "GraphQL", "OpenAPI", "API contract"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

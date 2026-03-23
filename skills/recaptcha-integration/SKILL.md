@@ -8,6 +8,7 @@ description: >
   Trigger: "reCAPTCHA", "bot protection", "app check", "spam prevention"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

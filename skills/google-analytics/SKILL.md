@@ -8,6 +8,7 @@ description: >
   Trigger: "google analytics", "GA4", "event tracking", "GTM", "conversions"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

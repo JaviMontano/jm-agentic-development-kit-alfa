@@ -9,6 +9,7 @@ description: >
   Trigger: "competitive analysis", "market research", "build vs buy", "technology landscape"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

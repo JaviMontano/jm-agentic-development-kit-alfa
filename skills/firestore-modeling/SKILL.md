@@ -8,6 +8,7 @@ description: >
   Trigger: "firestore model", "firestore schema", "collection design", "denormalization"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

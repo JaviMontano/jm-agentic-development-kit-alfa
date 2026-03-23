@@ -9,6 +9,7 @@ description: >
   Trigger: "sanitize input", "XSS prevention", "input validation", "strip HTML", "DOMParser"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

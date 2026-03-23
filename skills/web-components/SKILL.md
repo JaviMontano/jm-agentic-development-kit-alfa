@@ -8,6 +8,7 @@ description: >
   Trigger: "web component", "custom element", "shadow DOM", "Lit element"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

@@ -9,6 +9,7 @@ description: >
   Trigger: "semantic HTML", "HTML5", "forms", "tables", "landmarks", "markup"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

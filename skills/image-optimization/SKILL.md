@@ -8,6 +8,7 @@ description: >
   Trigger: "image optimization", "WebP", "AVIF", "lazy loading", "srcset"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

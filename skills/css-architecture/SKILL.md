@@ -9,6 +9,7 @@ description: >
   Trigger: "CSS architecture", "CSS Layers", "@scope", "Tailwind", "custom properties", "CSS methodology"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

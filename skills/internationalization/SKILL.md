@@ -9,6 +9,7 @@ description: >
   Trigger: "i18n", "localization", "RTL support", "translate app"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

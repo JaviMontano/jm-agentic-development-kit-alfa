@@ -8,6 +8,7 @@ description: >
   Trigger: "modal", "dialog", "popup", "focus trap", "overlay"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

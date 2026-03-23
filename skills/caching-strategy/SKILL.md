@@ -9,6 +9,7 @@ description: >
   Trigger: "caching", "CDN cache", "cache invalidation", "Firestore offline", "TTL"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

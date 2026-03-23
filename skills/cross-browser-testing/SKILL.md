@@ -8,6 +8,7 @@ description: >
   Trigger: "cross-browser", "browser compatibility", "polyfill", "progressive enhancement"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

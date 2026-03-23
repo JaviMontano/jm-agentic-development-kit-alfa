@@ -8,6 +8,7 @@ description: >
   Trigger: "visual regression", "screenshot testing", "Chromatic", "Percy"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

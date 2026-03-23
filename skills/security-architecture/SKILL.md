@@ -9,6 +9,7 @@ description: >
   Trigger: "threat model", "STRIDE", "security architecture", "auth flow", "encryption"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

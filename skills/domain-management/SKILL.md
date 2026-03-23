@@ -8,6 +8,7 @@ description: >
   Trigger: "DNS records", "domain setup", "nameserver", "SSL certificate", "email routing"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

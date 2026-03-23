@@ -8,6 +8,7 @@ description: >
   Trigger: "serverless", "cold start", "idempotency", "connection pooling"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

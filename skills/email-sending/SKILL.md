@@ -8,6 +8,7 @@ description: >
   Trigger: "send email", "SendGrid", "Mailgun", "transactional email"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

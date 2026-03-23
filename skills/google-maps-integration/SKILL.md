@@ -9,6 +9,7 @@ description: >
   Trigger: "Google Maps", "maps API", "geocoding", "Places API", "Directions API", "markers"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

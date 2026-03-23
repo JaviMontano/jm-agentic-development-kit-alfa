@@ -9,6 +9,7 @@ description: >
   Trigger: "pub/sub", "event-driven", "Cloud Functions", "event sourcing", "CQRS"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

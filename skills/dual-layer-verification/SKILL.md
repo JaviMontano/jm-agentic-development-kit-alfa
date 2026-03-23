@@ -9,6 +9,7 @@ description: >
   Trigger: "dual-layer", "static + runtime", "security verification", "runtime inspection"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

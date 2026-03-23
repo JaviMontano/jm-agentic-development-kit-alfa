@@ -9,6 +9,7 @@ description: >
   Trigger: "form validation", "multi-step form", "file upload", "form engineering", "wizard"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

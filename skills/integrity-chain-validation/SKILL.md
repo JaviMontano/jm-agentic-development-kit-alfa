@@ -9,6 +9,7 @@ description: >
   Trigger: "validate chain", "traceability", "integrity check", "orphaned code", "governance audit"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

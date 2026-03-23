@@ -8,6 +8,7 @@ description: >
   Trigger: "email template", "HTML email", "MJML", "newsletter design"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

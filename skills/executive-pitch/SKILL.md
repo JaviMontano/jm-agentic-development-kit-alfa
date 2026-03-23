@@ -9,6 +9,7 @@ description: >
   Trigger: "executive pitch", "business case", "ROI", "cost of inaction", "C-level"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

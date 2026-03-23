@@ -8,6 +8,7 @@ description: >
   Trigger: "detect environment", "what IDE", "configure environment", "auto-prime"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

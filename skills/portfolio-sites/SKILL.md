@@ -8,6 +8,7 @@ description: >
   Trigger: "portfolio", "showcase site", "case study", "gallery website"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

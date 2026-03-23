@@ -8,6 +8,7 @@ description: >
   Trigger: "accessibility", "a11y", "WCAG", "screen reader", "axe-core"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

@@ -8,6 +8,7 @@ description: >
   Trigger: "code review", "PR review", "pull request", "review checklist"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

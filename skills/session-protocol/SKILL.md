@@ -9,6 +9,7 @@ description: >
   Trigger: "session start", "initialize session", "context recovery", "session protocol", "state recovery"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

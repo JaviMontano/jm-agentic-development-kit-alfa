@@ -9,6 +9,7 @@ description: >
   Trigger: "parallel work", "worktree", "concurrent development", "sequential first", "WIP limit"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

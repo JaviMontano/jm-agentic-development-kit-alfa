@@ -9,6 +9,7 @@ description: >
   Trigger: "data architecture", "data governance", "data quality", "data pipeline", "data strategy"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

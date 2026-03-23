@@ -9,6 +9,7 @@ description: >
   Trigger: "stakeholder", "RACI", "communication plan"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

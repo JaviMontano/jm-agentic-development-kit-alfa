@@ -8,6 +8,7 @@ description: >
   Trigger: "navigation", "navbar", "mega menu", "breadcrumbs", "sidebar nav"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

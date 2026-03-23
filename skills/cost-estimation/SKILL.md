@@ -9,6 +9,7 @@ description: >
   Trigger: "estimation", "cost estimate", "effort", "T-shirt sizing", "Monte Carlo"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

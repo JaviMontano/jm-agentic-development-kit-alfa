@@ -8,6 +8,7 @@ description: >
   Trigger: "test strategy", "test plan", "test pyramid", "TDD", "BDD"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

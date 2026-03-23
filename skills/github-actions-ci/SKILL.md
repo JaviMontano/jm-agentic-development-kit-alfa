@@ -8,6 +8,7 @@ description: >
   Trigger: "GitHub Actions", "CI/CD", "CI pipeline", "deploy workflow"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

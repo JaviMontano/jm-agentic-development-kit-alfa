@@ -9,6 +9,7 @@ description: >
   Trigger: "risk register", "risk matrix", "mitigation", "risk assessment"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

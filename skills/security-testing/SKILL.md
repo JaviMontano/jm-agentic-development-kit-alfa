@@ -8,6 +8,7 @@ description: >
   Trigger: "security test", "OWASP", "vulnerability scan", "secrets detection"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

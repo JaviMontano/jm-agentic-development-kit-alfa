@@ -9,6 +9,7 @@ description: >
   Trigger: "component architecture", "module boundary", "composition pattern", "interface contract"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

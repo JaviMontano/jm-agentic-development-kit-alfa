@@ -9,6 +9,7 @@ description: >
   Trigger: "PWA", "service worker", "offline-first", "web manifest", "Web Push"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

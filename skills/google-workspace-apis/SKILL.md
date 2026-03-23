@@ -8,6 +8,7 @@ description: >
   Trigger: "google sheets API", "google docs API", "google drive", "workspace API"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

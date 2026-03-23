@@ -9,6 +9,7 @@ description: >
   Trigger: "flow diagram", "data flow", "process flow", "integration diagram"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

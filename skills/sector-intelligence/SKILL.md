@@ -9,6 +9,7 @@ description: >
   Trigger: "industry context", "sector analysis", "regulatory landscape", "vertical"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash

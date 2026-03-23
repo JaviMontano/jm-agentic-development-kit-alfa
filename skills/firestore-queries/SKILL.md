@@ -8,6 +8,7 @@ description: >
   Trigger: "firestore query", "firestore index", "firestore pagination", "firestore where"
 allowed-tools:
   - Read
+  - Write
   - Glob
   - Grep
   - Bash
