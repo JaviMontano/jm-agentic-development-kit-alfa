@@ -5,6 +5,31 @@ All notable changes to the JM Agentic Development Kit will be documented in this
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2026-03-22
+
+### Added — Brand Design System + Guardrails + Workshop Skills
+- **Brand Design System** (`references/brand/`):
+  - `design-tokens.json` — Canonical MetodologIA palette, typography, effects
+  - `html-template.html` — Base HTML: navy bg, gold accents, glassmorphism, Swiss grid, print-ready
+  - All HTML outputs now use this aesthetic by default
+- **Guardrails System** (`references/guardrails/`):
+  - `guidelines.json`, `constraints.json`, `guardrails.json` — User-declared rules stored as JSON
+  - Pristino double-confirms before saving any rule
+  - Loaded at bootstrap as internal RAG
+  - Guardian checks compliance
+- **7 New Skills**:
+  - `guardrails-management` — Detect, confirm, store, enforce user rules
+  - `client-prospecting` — AI-driven prospecting by geography/sector → branded HTML
+  - `client-dossier` — Deep company research → branded HTML dossier
+  - `cv-enhancement` — CV/resume improvement → branded HTML
+  - `workshop-proposal` — Workshop design → branded HTML proposal
+  - `market-intelligence` — Geographic market analysis → branded HTML report
+  - `branded-html-output` — Base skill for MetodologIA-branded HTML generation
+- **1 New Command**: `/jm-adk:guardrails` — list, add, remove working rules
+
+### Changed
+- `PRISTINO.md` — Bootstrap now loads guardrails + brand tokens between Constitution and Index
+
 ## [1.4.0] - 2026-03-22
 
 ### Added — Environment Detection Protocol + Init/Demo Commands

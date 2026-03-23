@@ -1,0 +1,56 @@
+{
+  "brand": "MetodologIA",
+  "version": "1.0.0",
+  "description": "Canonical design tokens for all HTML outputs. Navy-dark aesthetic with gold accents, glassmorphism, Swiss grid. Source: Manifiesto Deontologico + B2B Dossiers.",
+  "palette": {
+    "navy": "#0A122A",
+    "surface": "#1E293B",
+    "surfaceAlt": "#0F172A",
+    "gold": "#FFD700",
+    "goldDark": "#E5A100",
+    "goldLight": "#FFF176",
+    "cyan": "#137DC5",
+    "lavender": "#BBA0CC",
+    "dark": "#1F2833",
+    "text": "#FFFFFF",
+    "textMuted": "#94A3B8",
+    "textSecondary": "#F8F9FA",
+    "border": "rgba(255, 255, 255, 0.05)",
+    "borderHover": "rgba(255, 215, 0, 0.3)"
+  },
+  "typography": {
+    "heading": {
+      "family": "Poppins, sans-serif",
+      "weights": [600, 700, 800],
+      "import": "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+    },
+    "body": {
+      "family": "Montserrat, sans-serif",
+      "weights": [300, 400, 500, 600],
+      "import": "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    },
+    "mono": {
+      "family": "JetBrains Mono, monospace",
+      "weights": [400, 500],
+      "import": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"
+    }
+  },
+  "effects": {
+    "glassBg": "rgba(30, 41, 59, 0.4)",
+    "glassBlur": "blur(24px)",
+    "glassBorder": "1px solid rgba(255, 255, 255, 0.05)",
+    "glassShadow": "0 4px 30px rgba(0, 0, 0, 0.5)",
+    "goldGlow": "0 0 20px rgba(255, 215, 0, 0.2)",
+    "goldHoverShadow": "0 8px 32px rgba(255, 215, 0, 0.1)",
+    "hoverScale": "scale(1.01)",
+    "transition": "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+    "gridSize": "32px",
+    "gridColor": "rgba(255, 255, 255, 0.03)"
+  },
+  "layout": {
+    "maxWidth": "1200px",
+    "padding": "2rem",
+    "borderRadius": "12px",
+    "gap": "1.5rem"
+  }
+}

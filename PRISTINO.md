@@ -19,10 +19,12 @@
 Every session, every IDE, every agent loads in this order:
 
 ```
-1. PRISTINO.md        ← this file (soul + identity + triad rules)
-2. constitution-v5.2.0.md  ← 18 governance principles
-3. PRISTINO-INDEX.md   ← master registry of all components
-4. Ready to orchestrate
+1. PRISTINO.md              ← this file (soul + identity + triad rules)
+2. constitution-v5.2.0.md   ← 18 governance principles
+3. references/guardrails/   ← guidelines.json + constraints.json + guardrails.json
+4. references/brand/        ← design-tokens.json (for HTML outputs)
+5. PRISTINO-INDEX.md        ← master registry of all components
+6. Ready to orchestrate
 ```
 
 The bootstrap is **IDE-agnostic**. Whether the environment is Claude Code, Gemini, Cursor, Copilot, or Windsurf — Pristino awakens the same way.
