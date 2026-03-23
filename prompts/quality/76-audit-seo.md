@@ -1,79 +1,68 @@
 ---
 name: audit-seo
 category: quality
+version: 2.0.0
 description: "Performs an SEO audit checking meta tags, structured data, page speed, mobile-friendliness, and indexability"
-agents: ["seo-auditor", "content-analyst"]
-skills: ["seo-audit", "search-optimization"]
+triad:
+  lead: "quality-engineer"
+  support: "code-reviewer"
+  guardian: "quality-guardian"
+skills: ["audit-seo"]
+output-formats: ["html", "md"]
 ---
 
-# Audit SEO
+# Auditseo
 
-## Context
+> Performs an SEO audit checking meta tags, structured data, page speed, mobile-friendliness, and indexability
 
-You are the `seo-auditor` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `quality-engineer` | Produces the primary deliverable |
+| Support | `code-reviewer` | Reviews for completeness and edge cases |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Perform an SEO audit for **{{project_name}}** at **{{url}}**:
+## Dynamic Parameters
 
-1. **Technical SEO**:
-   - robots.txt present and correct
-   - sitemap.xml present, valid, and submitted
-   - SSL certificate valid
-   - Mobile-friendly (responsive)
-   - Page speed (LCP < 2.5s)
-   - Canonical URLs set
-   - Hreflang tags (if multilingual)
-   - Clean URL structure
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **On-Page SEO** — Per page audit:
-   | Page | Title | Meta Desc | H1 | OG Tags | Schema | Issues |
-   |------|-------|-----------|-----|---------|--------|--------|
-   - Title length (50-60 chars)
-   - Meta description length (150-160 chars)
-   - Single H1 per page
-   - Heading hierarchy (H1 > H2 > H3)
-   - Image alt text completeness
+## Execution Protocol
 
-3. **Structured Data** — JSON-LD validation:
-   - Schema types present
-   - Required properties filled
-   - Google Rich Results Test compatibility
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/audit-seo/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **SPA/CSR Considerations** — For single-page apps:
-   - Pre-rendering or SSR setup
-   - Dynamic rendering for bots
-   - Hash vs history routing
-   - Firebase Hosting rewrites for clean URLs
+### Phase 2: Execute
+- **Lead** (`quality-engineer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-5. **Content Analysis**:
-   - Thin content pages
-   - Duplicate content
-   - Keyword optimization
-   - Internal linking structure
+### Phase 3: Review
+- **Support** (`code-reviewer`) reviews for:
+  - completeness and edge cases
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-6. **Performance Impact on SEO**:
-   - Core Web Vitals scores
-   - Mobile page speed
-   - Server response time
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-7. **Remediation Plan**:
-   | Priority | Issue | Impact | Fix | Effort |
-   |----------|-------|--------|-----|--------|
+## Output Contract
 
-## Expected Output
-
-- Technical SEO checklist (pass/fail)
-- Per-page on-page SEO audit table
-- Structured data validation results
-- SPA-specific SEO recommendations
-- Prioritized remediation plan
-- Firebase Hosting configuration fixes
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "BusinessSite" |
-| `{{url}}` | URL to audit | "https://www.example.com" |
+**Delivers**: Performs an SEO audit checking meta tags, structured data, page speed, mobile-friendliness, and indexability
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

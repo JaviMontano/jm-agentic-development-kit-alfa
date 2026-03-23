@@ -1,60 +1,68 @@
 ---
 name: orchestrate-discovery
 category: discovery
+version: 2.0.0
 description: "Orchestrates a complete discovery phase by sequencing discovery prompts and synthesizing all outputs into a project charter"
-agents: ["discovery-orchestrator", "project-manager"]
-skills: ["discovery-orchestration", "project-charter"]
+triad:
+  lead: "requirements-analyst"
+  support: "domain-modeler"
+  guardian: "quality-guardian"
+skills: ["orchestrate-discovery"]
+output-formats: ["html", "md"]
 ---
 
-# Orchestrate Discovery
+# Orchestratediscovery
 
-## Context
+> Orchestrates a complete discovery phase by sequencing discovery prompts and synthesizing all outputs into a project charter
 
-You are the `discovery-orchestrator` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `requirements-analyst` | Produces the primary deliverable |
+| Support | `domain-modeler` | Reviews for business viability and stakeholder alignment |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Orchestrate the full discovery phase for **{{project_name}}**:
+## Dynamic Parameters
 
-```
-{{project_brief}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Discovery Plan** — Sequence the following activities and specify which prompts to run:
-   | Phase | Activity | Prompt | Inputs Needed | Duration |
-   |-------|----------|--------|---------------|----------|
-   | 1 | Requirements Gathering | 01-analyze-requirements | Stakeholder input | 2 days |
-   | 2 | Stakeholder Mapping | 02-map-stakeholders | Org chart | 1 day |
-   | ... | ... | ... | ... | ... |
+## Execution Protocol
 
-2. **Input Collection Checklist** — What information must be gathered before each prompt can run effectively.
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/orchestrate-discovery/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Dependency Graph** — Which discovery outputs feed into which subsequent prompts.
+### Phase 2: Execute
+- **Lead** (`requirements-analyst`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Synthesis Template** — After all prompts complete, synthesize into:
-   - **Project Charter**: Vision, scope, objectives, constraints, assumptions, risks
-   - **Technical Brief**: Stack decisions, Firebase services needed, hosting choice
-   - **Roadmap Draft**: Phases and milestones
-   - **Team Requirements**: Roles and skills needed
+### Phase 3: Review
+- **Support** (`domain-modeler`) reviews for:
+  - business viability and stakeholder alignment
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Quality Gates** — Define checkpoints where stakeholder sign-off is required before proceeding.
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Discovery Timeline** — A realistic schedule for completing all discovery activities given {{team_size}} people.
+## Output Contract
 
-## Expected Output
-
-- Discovery plan table with sequencing
-- Input collection checklist
-- Dependency graph (Mermaid)
-- Project charter template (pre-filled where possible)
-- Quality gate definitions
-- Discovery timeline
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "DigitalTransformation" |
-| `{{project_brief}}` | Initial project brief | "The client wants to digitize…" |
-| `{{team_size}}` | Discovery team size | "3 people" |
+**Delivers**: Orchestrates a complete discovery phase by sequencing discovery prompts and synthesizing all outputs into a project charter
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

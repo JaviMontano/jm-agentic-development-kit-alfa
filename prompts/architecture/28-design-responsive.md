@@ -1,80 +1,68 @@
 ---
 name: design-responsive
 category: architecture
+version: 2.0.0
 description: "Designs a responsive layout strategy with breakpoints, grid system, and mobile-first component adaptations"
-agents: ["responsive-designer", "css-architect"]
-skills: ["responsive-design", "css-architecture"]
+triad:
+  lead: "architecture-designer"
+  support: "security-architect"
+  guardian: "quality-guardian"
+skills: ["design-responsive"]
+output-formats: ["html", "md"]
 ---
 
-# Design Responsive Layout
+# Designresponsive
 
-## Context
+> Designs a responsive layout strategy with breakpoints, grid system, and mobile-first component adaptations
 
-You are the `responsive-designer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `architecture-designer` | Produces the primary deliverable |
+| Support | `security-architect` | Reviews for security and scalability |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Design the responsive strategy for **{{project_name}}**:
+## Dynamic Parameters
 
-Target devices: {{target_devices}}
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Breakpoint System** — Define breakpoints:
-   ```css
-   /* Mobile First */
-   --bp-sm: 576px;   /* Small devices */
-   --bp-md: 768px;   /* Tablets */
-   --bp-lg: 992px;   /* Desktops */
-   --bp-xl: 1200px;  /* Large desktops */
-   --bp-xxl: 1400px; /* Extra large */
-   ```
+## Execution Protocol
 
-2. **Grid System** — Define the layout grid:
-   - Column count per breakpoint
-   - Gutter widths
-   - Container max-widths
-   - CSS Grid vs Flexbox decision per layout
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/design-responsive/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Layout Patterns** — For each page, specify behavior at each breakpoint:
-   | Page | Mobile | Tablet | Desktop |
-   |------|--------|--------|---------|
-   | Dashboard | Stack cards | 2-col grid | 3-col + sidebar |
+### Phase 2: Execute
+- **Lead** (`architecture-designer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Navigation Adaptation** — How nav changes:
-   - Mobile: Hamburger menu / bottom nav
-   - Tablet: Collapsible sidebar
-   - Desktop: Full sidebar or top nav
+### Phase 3: Review
+- **Support** (`security-architect`) reviews for:
+  - security and scalability
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Typography Scale** — Fluid typography using clamp():
-   ```css
-   --fs-h1: clamp(1.75rem, 4vw, 3rem);
-   ```
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Image Strategy** — Responsive images:
-   - `<picture>` with srcset
-   - Lazy loading
-   - Aspect ratio preservation
-   - WebP with fallbacks
+## Output Contract
 
-7. **Touch Targets** — Minimum 44x44px touch targets on mobile. Identify components needing adaptation.
-
-8. **Testing Matrix** — Devices and browsers to test:
-   | Device | OS | Browser | Breakpoint |
-   |--------|-----|---------|------------|
-
-## Expected Output
-
-- Breakpoint system CSS custom properties
-- Grid system CSS code
-- Per-page responsive behavior table
-- Navigation adaptation specification
-- Typography scale
-- Image strategy code examples
-- Testing matrix
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "EcommerceSite" |
-| `{{target_devices}}` | Priority devices | "iPhone 14, iPad, Desktop 1920px" |
+**Delivers**: Designs a responsive layout strategy with breakpoints, grid system, and mobile-first component adaptations
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

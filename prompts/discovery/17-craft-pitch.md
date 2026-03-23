@@ -1,72 +1,68 @@
 ---
 name: craft-pitch
 category: discovery
+version: 2.0.0
 description: "Creates a compelling project pitch with value proposition, elevator pitch, and stakeholder-specific talking points"
-agents: ["pitch-crafter", "storyteller"]
-skills: ["pitch-creation", "value-proposition-design"]
+triad:
+  lead: "requirements-analyst"
+  support: "domain-modeler"
+  guardian: "quality-guardian"
+skills: ["craft-pitch"]
+output-formats: ["html", "md"]
 ---
 
-# Craft Pitch
+# Craftpitch
 
-## Context
+> Creates a compelling project pitch with value proposition, elevator pitch, and stakeholder-specific talking points
 
-You are the `pitch-crafter` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `requirements-analyst` | Produces the primary deliverable |
+| Support | `domain-modeler` | Reviews for business viability and stakeholder alignment |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Craft a compelling pitch for **{{project_name}}**:
+## Dynamic Parameters
 
-```
-{{project_summary}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-Target audience for the pitch: **{{pitch_audience}}**
+## Execution Protocol
 
-1. **Value Proposition Canvas**
-   - Customer Jobs: What are they trying to get done?
-   - Pains: What annoys them about current solutions?
-   - Gains: What would delight them?
-   - Pain Relievers: How does our solution address pains?
-   - Gain Creators: How does our solution create gains?
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/craft-pitch/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-2. **Elevator Pitch** (30 seconds)
-   - For [target customer]
-   - Who [statement of need]
-   - The [product name] is a [product category]
-   - That [key benefit]
-   - Unlike [competitor], our product [key differentiator]
+### Phase 2: Execute
+- **Lead** (`requirements-analyst`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-3. **One-Page Pitch** — A structured one-pager with:
-   - Problem (2 sentences)
-   - Solution (2 sentences)
-   - Key Features (3-5 bullets)
-   - Technical Approach (Firebase + modern web stack highlights)
-   - Timeline & Investment (FTE-months)
-   - Expected Impact (metrics)
+### Phase 3: Review
+- **Support** (`domain-modeler`) reviews for:
+  - business viability and stakeholder alignment
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-4. **Stakeholder-Specific Angles** — Tailor the message for:
-   - Executive sponsor (ROI focus)
-   - Technical lead (architecture focus)
-   - End user (UX focus)
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-5. **Objection Handling** — Top 5 likely objections and prepared responses.
+## Output Contract
 
-6. **Demo Script** — If a prototype exists, outline a 5-minute demo flow.
-
-## Expected Output
-
-- Value Proposition Canvas
-- 30-second elevator pitch (word-for-word)
-- One-page pitch document
-- Stakeholder talking points
-- Objection handling guide
-- Demo script outline
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "SmartScheduler" |
-| `{{project_summary}}` | Brief project description | "An AI-powered scheduling tool…" |
-| `{{pitch_audience}}` | Who the pitch is for | "C-suite executives" |
+**Delivers**: Creates a compelling project pitch with value proposition, elevator pitch, and stakeholder-specific talking points
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

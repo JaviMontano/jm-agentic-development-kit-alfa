@@ -1,92 +1,68 @@
 ---
 name: audit-bundle
 category: quality
+version: 2.0.0
 description: "Analyzes the JavaScript bundle for size, tree-shaking effectiveness, code splitting, and dependency optimization"
-agents: ["bundle-auditor", "build-optimizer"]
-skills: ["bundle-analysis", "build-optimization"]
+triad:
+  lead: "quality-engineer"
+  support: "code-reviewer"
+  guardian: "quality-guardian"
+skills: ["audit-bundle"]
+output-formats: ["html", "md"]
 ---
 
-# Audit Bundle Size
+# Auditbundle
 
-## Context
+> Analyzes the JavaScript bundle for size, tree-shaking effectiveness, code splitting, and dependency optimization
 
-You are the `bundle-auditor` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `quality-engineer` | Produces the primary deliverable |
+| Support | `code-reviewer` | Reviews for completeness and edge cases |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Analyze the bundle for **{{project_name}}**:
+## Dynamic Parameters
 
-Build configuration:
-```
-{{build_config}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Bundle Size Report**:
-   | Chunk | Raw Size | Gzipped | Brotli |
-   |-------|----------|---------|--------|
-   | main.js | | | |
-   | vendor.js | | | |
-   - Total JavaScript
-   - Total CSS
-   - Total assets
+## Execution Protocol
 
-2. **Dependency Analysis** — Largest dependencies:
-   | Package | Size (KB) | Used Features | Tree-Shakeable |
-   |---------|----------|---------------|----------------|
-   - Firebase SDK modules imported
-   - Framework bundle size
-   - Utility library sizes (lodash, moment, etc.)
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/audit-bundle/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Firebase SDK Audit** — Modular imports check:
-   ```javascript
-   // BAD: imports entire SDK
-   import firebase from 'firebase/app';
-   // GOOD: modular imports
-   import { getFirestore, collection } from 'firebase/firestore';
-   ```
-   - List all Firebase imports
-   - Identify non-modular imports
-   - Estimate savings from modular migration
+### Phase 2: Execute
+- **Lead** (`quality-engineer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Code Splitting Analysis**:
-   - Route-based splits present?
-   - Dynamic imports used?
-   - Shared chunks configured?
-   - Entry point count
+### Phase 3: Review
+- **Support** (`code-reviewer`) reviews for:
+  - completeness and edge cases
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Dead Code Detection**:
-   - Unused exports
-   - Unreachable code paths
-   - Unused CSS classes
-   - Unused dependencies in package.json
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Optimization Recommendations**:
-   | Action | Current Size | Projected Size | Savings |
-   |--------|-------------|----------------|---------|
-   - Replace heavy libraries with lighter alternatives
-   - Enable tree-shaking properly
-   - Add code splitting where missing
-   - Lazy load heavy components
-   - Remove unused dependencies
+## Output Contract
 
-7. **Performance Budget Enforcement**:
-   - Set budget limits in build config
-   - CI check for budget violations
-
-## Expected Output
-
-- Bundle size report tables
-- Dependency size breakdown
-- Firebase SDK audit findings
-- Code splitting recommendations
-- Dead code removal list
-- Optimization action plan with projected savings
-- Build configuration changes
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "LargeApp" |
-| `{{build_config}}` | Build tool configuration | "Webpack 5 / Vite / Angular CLI" |
+**Delivers**: Analyzes the JavaScript bundle for size, tree-shaking effectiveness, code splitting, and dependency optimization
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

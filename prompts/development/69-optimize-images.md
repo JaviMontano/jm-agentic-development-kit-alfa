@@ -1,87 +1,68 @@
 ---
 name: optimize-images
 category: development
+version: 2.0.0
 description: "Implements an image optimization pipeline with format conversion, responsive sizing, lazy loading, and CDN delivery"
-agents: ["image-optimizer", "performance-developer"]
-skills: ["image-optimization", "responsive-images"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["optimize-images"]
+output-formats: ["html", "md"]
 ---
 
-# Optimize Images
+# Optimizeimages
 
-## Context
+> Implements an image optimization pipeline with format conversion, responsive sizing, lazy loading, and CDN delivery
 
-You are the `image-optimizer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Implement image optimization for **{{project_name}}**:
+## Dynamic Parameters
 
-1. **Format Strategy** — Modern formats with fallbacks:
-   ```html
-   <picture>
-     <source srcset="image.avif" type="image/avif">
-     <source srcset="image.webp" type="image/webp">
-     <img src="image.jpg" alt="..." loading="lazy">
-   </picture>
-   ```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **Responsive Images** — Size adaptation:
-   ```html
-   <img
-     srcset="image-320w.webp 320w, image-640w.webp 640w, image-1280w.webp 1280w"
-     sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
-     src="image-640w.webp"
-     alt="..."
-   >
-   ```
+## Execution Protocol
 
-3. **Build-Time Optimization** — Automation:
-   - Sharp.js script for batch conversion
-   - Generate WebP + AVIF from source images
-   - Multiple sizes per image (320, 640, 960, 1280, 1920)
-   - Quality settings (WebP: 80, AVIF: 65, JPEG: 85)
-   - Strip metadata (EXIF) for privacy
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/optimize-images/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **Upload-Time Optimization** — Firebase Storage:
-   - Cloud Function triggered on upload
-   - Resize to predefined sizes
-   - Convert to WebP
-   - Generate thumbnail (150x150)
-   - Store variants in predictable paths
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-5. **Lazy Loading** — Defer off-screen images:
-   - Native `loading="lazy"`
-   - LQIP (Low Quality Image Placeholder)
-   - Blur-up effect with CSS transition
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-6. **CSS Background Images** — Optimize:
-   ```css
-   .hero {
-     background-image: image-set(
-       url("hero.avif") type("image/avif"),
-       url("hero.webp") type("image/webp"),
-       url("hero.jpg") type("image/jpeg")
-     );
-   }
-   ```
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-7. **Performance Metrics** — Track improvement:
-   - Total image weight before/after
-   - LCP impact measurement
-   - Lighthouse score improvement
+## Output Contract
 
-## Expected Output
-
-- Image optimization build script
-- Cloud Function for upload-time optimization
-- Responsive image helper component
-- Lazy loading utility
-- CSS image optimization patterns
-- Performance measurement guide
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "PhotoGallery" |
+**Delivers**: Implements an image optimization pipeline with format conversion, responsive sizing, lazy loading, and CDN delivery
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

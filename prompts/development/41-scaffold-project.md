@@ -1,92 +1,68 @@
 ---
 name: scaffold-project
 category: development
+version: 2.0.0
 description: "Scaffolds a complete project structure with Firebase config, folder hierarchy, base files, and development tooling"
-agents: ["project-scaffolder", "devops-engineer"]
-skills: ["project-scaffolding", "firebase-init"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["scaffold-project"]
+output-formats: ["html", "md"]
 ---
 
-# Scaffold Project
+# Scaffoldproject
 
-## Context
+> Scaffolds a complete project structure with Firebase config, folder hierarchy, base files, and development tooling
 
-You are the `project-scaffolder` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Scaffold a new project for **{{project_name}}** using **{{framework}}**:
+## Dynamic Parameters
 
-1. **Project Structure** — Create the complete folder hierarchy:
-   ```
-   {{project_name}}/
-   ├── public/              # Static assets
-   │   ├── index.html
-   │   ├── manifest.json
-   │   ├── robots.txt
-   │   └── assets/
-   ├── src/
-   │   ├── components/      # Reusable UI components
-   │   ├── pages/           # Page/route components
-   │   ├── services/        # Firebase service wrappers
-   │   ├── utils/           # Helper functions
-   │   ├── styles/          # Global styles, tokens
-   │   ├── hooks/           # Custom hooks (React) or services (Angular)
-   │   └── config/          # App configuration
-   ├── functions/           # Firebase Cloud Functions
-   │   ├── src/
-   │   └── package.json
-   ├── firebase.json        # Firebase config
-   ├── firestore.rules      # Security rules
-   ├── firestore.indexes.json
-   ├── storage.rules
-   ├── .firebaserc          # Project aliases
-   ├── .env.example
-   ├── .gitignore
-   └── package.json
-   ```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **Firebase Configuration** — Generate:
-   - `firebase.json` with hosting, functions, firestore, storage config
-   - `.firebaserc` with project aliases (dev, staging, prod)
-   - Initial `firestore.rules` (locked down by default)
-   - Initial `storage.rules`
+## Execution Protocol
 
-3. **Base Files** — Generate starter code:
-   - `src/services/firebase.js` — Firebase app initialization
-   - `src/services/auth.js` — Auth helper functions
-   - `src/services/firestore.js` — Firestore helper functions
-   - `src/config/constants.js` — App constants
-   - `src/styles/tokens.css` — Design tokens
-   - `src/styles/reset.css` — CSS reset
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/scaffold-project/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **Development Tooling** — Configure:
-   - ESLint configuration
-   - Prettier configuration
-   - `.gitignore` (node_modules, .env, firebase-debug.log, etc.)
-   - `.env.example` with required variables
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-5. **Package Dependencies** — `package.json` with:
-   - Firebase SDK
-   - Framework-specific dependencies
-   - Dev dependencies (linters, formatters)
-   - Scripts (dev, build, deploy, emulators)
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-6. **Firebase Emulator Setup** — Local development configuration.
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-## Expected Output
+## Output Contract
 
-- Complete folder structure with all files
-- Firebase configuration files
-- Base service files with Firebase SDK initialization
-- Development tooling configs
-- package.json with all dependencies
-- README with setup instructions
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "my-app" |
-| `{{framework}}` | Framework choice | "vanilla", "react", or "angular" |
-| `{{firebase_services}}` | Firebase services to enable | "auth, firestore, storage, functions, hosting" |
+**Delivers**: Scaffolds a complete project structure with Firebase config, folder hierarchy, base files, and development tooling
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

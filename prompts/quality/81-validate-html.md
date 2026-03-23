@@ -1,77 +1,68 @@
 ---
 name: validate-html
 category: quality
+version: 2.0.0
 description: "Validates HTML markup for W3C compliance, semantic correctness, and best practices"
-agents: ["html-validator", "quality-analyst"]
-skills: ["html-validation", "semantic-html"]
+triad:
+  lead: "quality-engineer"
+  support: "code-reviewer"
+  guardian: "quality-guardian"
+skills: ["validate-html"]
+output-formats: ["html", "md"]
 ---
 
-# Validate HTML
+# Validatehtml
 
-## Context
+> Validates HTML markup for W3C compliance, semantic correctness, and best practices
 
-You are the `html-validator` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `quality-engineer` | Produces the primary deliverable |
+| Support | `code-reviewer` | Reviews for completeness and edge cases |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Validate the HTML for **{{project_name}}**:
+## Dynamic Parameters
 
-```html
-{{html_code}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **W3C Validation** — Check against HTML5 standard:
-   - Missing required attributes
-   - Invalid nesting (e.g., `<p>` inside `<p>`)
-   - Deprecated elements/attributes
-   - Unclosed tags
-   - Duplicate IDs
+## Execution Protocol
 
-2. **Semantic HTML Audit**:
-   - Correct use of landmarks (`<header>`, `<nav>`, `<main>`, `<footer>`, `<aside>`)
-   - Heading hierarchy (`<h1>` → `<h2>` → `<h3>`, no skipped levels)
-   - Lists for list content (`<ul>`, `<ol>`, `<dl>`)
-   - `<button>` for actions, `<a>` for navigation
-   - `<table>` for tabular data (not layout)
-   - `<figure>` and `<figcaption>` for images
-   - `<time>` for dates
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/validate-html/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Document Structure**:
-   - DOCTYPE declaration
-   - `<html lang>` attribute
-   - `<meta charset="utf-8">`
-   - `<meta viewport>` for responsive
-   - `<title>` present and meaningful
+### Phase 2: Execute
+- **Lead** (`quality-engineer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Form Validation**:
-   - Labels associated with inputs
-   - Fieldsets and legends for groups
-   - Input types appropriate (email, tel, url, number)
-   - Required attributes present
-   - Autocomplete attributes set
+### Phase 3: Review
+- **Support** (`code-reviewer`) reviews for:
+  - completeness and edge cases
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Media Elements**:
-   - `<img>` alt text (meaningful, not "image of…")
-   - `<video>`/`<audio>` with controls and captions
-   - `<svg>` with title and role
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Fixes** — For each issue:
-   | Line | Issue | Severity | Fix |
-   |------|-------|----------|-----|
+## Output Contract
 
-## Expected Output
-
-- Validation error/warning list with line numbers
-- Semantic HTML recommendations
-- Document structure checklist
-- Form validation checklist
-- Corrected HTML code
-- Summary of changes
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "WebPage" |
-| `{{html_code}}` | HTML to validate | "<!DOCTYPE html>…" |
+**Delivers**: Validates HTML markup for W3C compliance, semantic correctness, and best practices
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

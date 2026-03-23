@@ -1,61 +1,68 @@
 ---
 name: analyze-competition
 category: discovery
+version: 2.0.0
 description: "Performs competitive analysis identifying strengths, weaknesses, differentiators, and market positioning"
-agents: ["competitive-analyst", "strategist"]
-skills: ["competitive-analysis", "market-research"]
+triad:
+  lead: "requirements-analyst"
+  support: "domain-modeler"
+  guardian: "quality-guardian"
+skills: ["analyze-competition"]
+output-formats: ["html", "md"]
 ---
 
-# Analyze Competition
+# Analyzecompetition
 
-## Context
+> Performs competitive analysis identifying strengths, weaknesses, differentiators, and market positioning
 
-You are the `competitive-analyst` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `requirements-analyst` | Produces the primary deliverable |
+| Support | `domain-modeler` | Reviews for business viability and stakeholder alignment |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Perform a competitive analysis for **{{project_name}}** against these competitors:
+## Dynamic Parameters
 
-```
-{{competitors}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Competitor Profiles** — For each competitor:
-   - Core value proposition
-   - Target audience
-   - Pricing model
-   - Key features (top 10)
-   - Technology stack (if discoverable)
-   - Market share / traction signals
+## Execution Protocol
 
-2. **Feature Comparison Matrix** — Create a feature grid comparing our planned features ({{our_features}}) against each competitor. Use: ✅ Has it, ⚠️ Partial, ❌ Missing.
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/analyze-competition/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **SWOT per Competitor** — Strengths, Weaknesses, Opportunities, Threats.
+### Phase 2: Execute
+- **Lead** (`requirements-analyst`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Differentiation Opportunities** — Where can **{{project_name}}** win?
-   - Underserved segments
-   - Feature gaps in the market
-   - UX/performance advantages achievable with our stack
-   - Price positioning
+### Phase 3: Review
+- **Support** (`domain-modeler`) reviews for:
+  - business viability and stakeholder alignment
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Threat Assessment** — What could competitors do that would undermine our position? Rank by likelihood and impact.
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Strategic Recommendations** — Top 5 actionable recommendations for positioning.
+## Output Contract
 
-## Expected Output
-
-- Competitor profile cards
-- Feature comparison matrix (table)
-- SWOT analysis per competitor
-- Differentiation strategy
-- Threat heat map
-- Top 5 recommendations
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "InvoiceApp" |
-| `{{competitors}}` | List of competitors with URLs | "FreshBooks, Wave, Zoho Invoice" |
-| `{{our_features}}` | Planned features for our product | "Auto-invoicing, payment tracking…" |
+**Delivers**: Performs competitive analysis identifying strengths, weaknesses, differentiators, and market positioning
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

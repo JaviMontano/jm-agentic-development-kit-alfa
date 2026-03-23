@@ -1,72 +1,68 @@
 ---
 name: find-agent
 category: meta
+version: 2.0.0
 description: "Finds the best agent(s) from the JM-ADK roster to handle a specific task, considering expertise and workload"
-agents: ["agent-router", "meta-orchestrator"]
-skills: ["agent-search", "task-routing"]
+triad:
+  lead: "adk-orchestrator"
+  support: "integrity-validator"
+  guardian: "quality-guardian"
+skills: ["find-agent"]
+output-formats: ["html", "md"]
 ---
 
-# Find Agent
+# Findagent
 
-## Context
+> Finds the best agent(s) from the JM-ADK roster to handle a specific task, considering expertise and workload
 
-You are the `agent-router` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `adk-orchestrator` | Produces the primary deliverable |
+| Support | `integrity-validator` | Reviews for consistency and constitutional compliance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Find the best agent(s) for this task:
+## Dynamic Parameters
 
-**Task description:**
-```
-{{task_description}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Task Analysis** — Break down the task:
-   - Primary domain: {{domain}}
-   - Required expertise: {{expertise_areas}}
-   - Complexity level: simple | moderate | complex
-   - Estimated duration: quick (minutes) | medium (hours) | long (days)
+## Execution Protocol
 
-2. **Agent Search** — Search the 101-agent roster:
-   - Match by primary skill
-   - Match by domain expertise
-   - Match by previous task history
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/find-agent/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Agent Recommendations**:
-   | Priority | Agent | Role | Match Reason | Skills |
-   |----------|-------|------|-------------|--------|
-   | Primary | | | | |
-   | Support | | | | |
-   | Review | | | | |
+### Phase 2: Execute
+- **Lead** (`adk-orchestrator`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Agent Capabilities** — For the recommended primary agent:
-   - Core competencies
-   - Tools and frameworks expertise
-   - Firebase services knowledge
-   - Typical outputs
-   - Quality standards
+### Phase 3: Review
+- **Support** (`integrity-validator`) reviews for:
+  - consistency and constitutional compliance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Collaboration Plan** — If multiple agents needed:
-   ```
-   {{agent_1}} → produces {{artifact_1}} → handoff to {{agent_2}} → produces {{artifact_2}}
-   ```
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Escalation Path** — If the primary agent cannot complete:
-   - Fallback agent
-   - Human intervention triggers
-   - External resource needs
+## Output Contract
 
-## Expected Output
-
-- Primary agent recommendation with justification
-- Supporting agent assignments
-- Collaboration workflow
-- Escalation path
-- Expected deliverables per agent
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{task_description}}` | Description of the task | "Design and implement a Firestore data model for multi-tenant SaaS" |
+**Delivers**: Finds the best agent(s) from the JM-ADK roster to handle a specific task, considering expertise and workload
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

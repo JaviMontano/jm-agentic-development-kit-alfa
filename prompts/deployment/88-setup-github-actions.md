@@ -1,112 +1,68 @@
 ---
 name: setup-github-actions
 category: deployment
+version: 2.0.0
 description: "Creates GitHub Actions CI/CD workflows for testing, building, and deploying to Firebase or Hostinger"
-agents: ["cicd-engineer", "devops-engineer"]
-skills: ["github-actions", "ci-cd-pipeline"]
+triad:
+  lead: "deployment-specialist"
+  support: "security-scanner"
+  guardian: "quality-guardian"
+skills: ["setup-github-actions"]
+output-formats: ["html", "md"]
 ---
 
-# Setup GitHub Actions
+# Setupgithub Actions
 
-## Context
+> Creates GitHub Actions CI/CD workflows for testing, building, and deploying to Firebase or Hostinger
 
-You are the `cicd-engineer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `deployment-specialist` | Produces the primary deliverable |
+| Support | `security-scanner` | Reviews for security and rollback |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Setup GitHub Actions CI/CD for **{{project_name}}**:
+## Dynamic Parameters
 
-Deployment target: {{deployment_target}}
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **CI Workflow** — `.github/workflows/ci.yml`:
-   ```yaml
-   name: CI
-   on:
-     pull_request:
-       branches: [main, develop]
-   jobs:
-     lint:
-       runs-on: ubuntu-latest
-       steps:
-         - uses: actions/checkout@v4
-         - uses: actions/setup-node@v4
-           with: { node-version: '18' }
-         - run: npm ci
-         - run: npm run lint
-     test:
-       runs-on: ubuntu-latest
-       steps:
-         - uses: actions/checkout@v4
-         - uses: actions/setup-node@v4
-           with: { node-version: '18' }
-         - run: npm ci
-         - run: npm test -- --coverage
-     build:
-       runs-on: ubuntu-latest
-       steps:
-         - uses: actions/checkout@v4
-         - uses: actions/setup-node@v4
-           with: { node-version: '18' }
-         - run: npm ci
-         - run: npm run build
-   ```
+## Execution Protocol
 
-2. **CD Workflow — Firebase** — `.github/workflows/deploy.yml`:
-   ```yaml
-   name: Deploy to Firebase
-   on:
-     push:
-       branches: [main]
-   jobs:
-     deploy:
-       runs-on: ubuntu-latest
-       steps:
-         - uses: actions/checkout@v4
-         - uses: actions/setup-node@v4
-         - run: npm ci && npm run build
-         - uses: FirebaseExtended/action-hosting-deploy@v0
-           with:
-             repoToken: '${{ secrets.GITHUB_TOKEN }}'
-             firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
-             channelId: live
-             projectId: {{project_id}}
-   ```
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/setup-github-actions/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **CD Workflow — Hostinger** — FTP deployment.
+### Phase 2: Execute
+- **Lead** (`deployment-specialist`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Preview Deployments** — On PR:
-   ```yaml
-   - uses: FirebaseExtended/action-hosting-deploy@v0
-     with:
-       channelId: 'pr-${{ github.event.pull_request.number }}'
-   ```
+### Phase 3: Review
+- **Support** (`security-scanner`) reviews for:
+  - security and rollback
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Environment Secrets** — Required GitHub secrets:
-   - `FIREBASE_SERVICE_ACCOUNT` — Service account JSON
-   - `FTP_HOST`, `FTP_USER`, `FTP_PASS` — If Hostinger
-   - Other API keys
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Branch Strategy**:
-   - `main` → Production deploy
-   - `develop` → Staging deploy
-   - `feature/*` → CI only + preview channel
+## Output Contract
 
-7. **Notifications** — Slack/email on failure.
-
-## Expected Output
-
-- CI workflow file (ci.yml)
-- CD workflow file (deploy.yml)
-- Preview deployment workflow
-- Secrets documentation
-- Branch strategy document
-- Status badge markdown
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "WebApp" |
-| `{{deployment_target}}` | Where to deploy | "firebase" or "hostinger" |
-| `{{project_id}}` | Firebase project ID | "my-app-prod" |
+**Delivers**: Creates GitHub Actions CI/CD workflows for testing, building, and deploying to Firebase or Hostinger
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

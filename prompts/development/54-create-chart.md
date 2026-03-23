@@ -1,84 +1,68 @@
 ---
 name: create-chart
 category: development
+version: 2.0.0
 description: "Creates interactive chart components using Chart.js with Firestore data source, responsive sizing, and accessible colors"
-agents: ["chart-developer", "data-viz-developer"]
-skills: ["chart-creation", "data-visualization"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["create-chart"]
+output-formats: ["html", "md"]
 ---
 
-# Create Chart
+# Createchart
 
-## Context
+> Creates interactive chart components using Chart.js with Firestore data source, responsive sizing, and accessible colors
 
-You are the `chart-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Create a **{{chart_type}}** chart for **{{project_name}}**:
+## Dynamic Parameters
 
-Data requirements:
-```
-{{data_requirements}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Chart Component** — Using Chart.js:
-   ```javascript
-   import { Chart } from 'chart.js/auto';
+## Execution Protocol
 
-   const chart = new Chart(ctx, {
-     type: '{{chart_type}}',
-     data: { labels: [], datasets: [] },
-     options: {
-       responsive: true,
-       maintainAspectRatio: false,
-       plugins: { legend: {}, tooltip: {} }
-     }
-   });
-   ```
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/create-chart/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-2. **Data Fetching** — Query Firestore:
-   - Aggregation logic for chart data
-   - Date grouping (daily, weekly, monthly)
-   - Real-time updates (chart.update())
-   - Data transformation pipeline
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-3. **Styling** — Visual design:
-   - Colors from design tokens
-   - Accessible color palette (distinguishable for color-blind users)
-   - Custom tooltips
-   - Annotation lines (targets, averages)
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-4. **Interactions** — User interactions:
-   - Hover tooltips with formatted values
-   - Click to drill down (optional)
-   - Legend toggle to show/hide datasets
-   - Zoom and pan (for time series)
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-5. **Responsive** — Size adaptation:
-   - Container-responsive
-   - Adjust label density on small screens
-   - Hide legend on mobile (or move to bottom)
+## Output Contract
 
-6. **Loading State** — Placeholder while data loads.
-
-7. **No Data State** — When there is no data to chart.
-
-8. **Export** — Download chart as PNG image.
-
-## Expected Output
-
-- Chart component code
-- Firestore data fetching logic
-- Chart configuration object
-- CSS for container
-- Usage example with sample data
-- Export utility
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "AnalyticsDash" |
-| `{{chart_type}}` | Type of chart | "line", "bar", "doughnut", "pie", "radar" |
-| `{{data_requirements}}` | What data to visualize | "Monthly revenue over the past 12 months" |
+**Delivers**: Creates interactive chart components using Chart.js with Firestore data source, responsive sizing, and accessible colors
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

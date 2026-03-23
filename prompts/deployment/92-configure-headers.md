@@ -1,96 +1,68 @@
 ---
 name: configure-headers
 category: deployment
+version: 2.0.0
 description: "Configures HTTP response headers for security, caching, and performance on Firebase Hosting or Hostinger"
-agents: ["headers-engineer", "security-engineer"]
-skills: ["http-headers", "security-headers"]
+triad:
+  lead: "deployment-specialist"
+  support: "security-scanner"
+  guardian: "quality-guardian"
+skills: ["configure-headers"]
+output-formats: ["html", "md"]
 ---
 
-# Configure HTTP Headers
+# Configureheaders
 
-## Context
+> Configures HTTP response headers for security, caching, and performance on Firebase Hosting or Hostinger
 
-You are the `headers-engineer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `deployment-specialist` | Produces the primary deliverable |
+| Support | `security-scanner` | Reviews for security and rollback |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Configure HTTP headers for **{{project_name}}** on **{{hosting_provider}}**:
+## Dynamic Parameters
 
-1. **Security Headers**:
-   | Header | Value | Purpose |
-   |--------|-------|---------|
-   | Strict-Transport-Security | max-age=31536000; includeSubDomains | Force HTTPS |
-   | X-Content-Type-Options | nosniff | Prevent MIME sniffing |
-   | X-Frame-Options | DENY | Prevent clickjacking |
-   | Referrer-Policy | strict-origin-when-cross-origin | Control referrer info |
-   | Permissions-Policy | camera=(), microphone=(), geolocation=() | Restrict APIs |
-   | Content-Security-Policy | (detailed below) | XSS prevention |
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **Content Security Policy** — Detailed CSP:
-   ```
-   Content-Security-Policy:
-     default-src 'self';
-     script-src 'self' https://apis.google.com https://www.gstatic.com;
-     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-     img-src 'self' data: https://firebasestorage.googleapis.com;
-     font-src 'self' https://fonts.gstatic.com;
-     connect-src 'self' https://*.firebaseio.com https://*.googleapis.com;
-     frame-src https://accounts.google.com;
-   ```
-   - Firebase SDK domains whitelisted
-   - Google Auth domains whitelisted
-   - Report-URI for CSP violations
+## Execution Protocol
 
-3. **Caching Headers** — Per resource type:
-   | Resource | Cache-Control | Rationale |
-   |----------|--------------|-----------|
-   | HTML | no-cache | Always fresh |
-   | JS/CSS (hashed) | public, max-age=31536000, immutable | Long cache, hash busts |
-   | Images | public, max-age=86400 | 1 day cache |
-   | Fonts | public, max-age=31536000 | Long cache |
-   | API responses | no-store | Never cache |
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/configure-headers/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **Firebase Hosting Configuration**:
-   ```json
-   {
-     "hosting": {
-       "headers": [
-         { "source": "**/*.@(js|css)", "headers": [...] },
-         { "source": "**/*.@(jpg|jpeg|png|gif|webp|svg)", "headers": [...] },
-         { "source": "**", "headers": [...] }
-       ]
-     }
-   }
-   ```
+### Phase 2: Execute
+- **Lead** (`deployment-specialist`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-5. **Hostinger Configuration** — Via .htaccess.
+### Phase 3: Review
+- **Support** (`security-scanner`) reviews for:
+  - security and rollback
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-6. **CORS Headers** — If API access needed:
-   ```
-   Access-Control-Allow-Origin: https://{{domain}}
-   Access-Control-Allow-Methods: GET, POST, PUT, DELETE
-   Access-Control-Allow-Headers: Content-Type, Authorization
-   ```
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-7. **Verification** — Check headers are applied:
-   ```bash
-   curl -I https://{{domain}}
-   ```
+## Output Contract
 
-## Expected Output
-
-- Complete header configuration (Firebase or Hostinger format)
-- CSP policy tailored to Firebase stack
-- Caching strategy per resource type
-- CORS configuration
-- Verification commands
-- Security headers test report
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "SecureApp" |
-| `{{hosting_provider}}` | Hosting provider | "firebase" or "hostinger" |
-| `{{domain}}` | Domain name | "app.example.com" |
+**Delivers**: Configures HTTP response headers for security, caching, and performance on Firebase Hosting or Hostinger
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

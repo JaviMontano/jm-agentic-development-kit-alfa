@@ -1,67 +1,68 @@
 ---
 name: plan-adoption
 category: discovery
+version: 2.0.0
 description: "Creates a user adoption strategy with onboarding flows, engagement tactics, and success metrics"
-agents: ["adoption-strategist", "growth-planner"]
-skills: ["adoption-planning", "onboarding-design"]
+triad:
+  lead: "requirements-analyst"
+  support: "domain-modeler"
+  guardian: "quality-guardian"
+skills: ["plan-adoption"]
+output-formats: ["html", "md"]
 ---
 
-# Plan Adoption
+# Planadoption
 
-## Context
+> Creates a user adoption strategy with onboarding flows, engagement tactics, and success metrics
 
-You are the `adoption-strategist` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `requirements-analyst` | Produces the primary deliverable |
+| Support | `domain-modeler` | Reviews for business viability and stakeholder alignment |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Design an adoption plan for **{{project_name}}** targeting **{{target_users}}**:
+## Dynamic Parameters
 
-1. **Adoption Funnel** — Map the full funnel:
-   - Awareness → Interest → Evaluation → Trial → Adoption → Advocacy
-   - For each stage, define tactics and channels
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **Onboarding Flow** — Design a step-by-step onboarding:
-   - Welcome screen content
-   - Progressive disclosure steps (max 5)
-   - First-value moment (what action proves value?)
-   - Tooltips and guided tour elements
-   - Checklist/progress bar design
+## Execution Protocol
 
-3. **Engagement Loops** — Design 3 engagement mechanisms:
-   - Notification strategy (Firebase Cloud Messaging)
-   - Email drip campaign (triggers and content outlines)
-   - In-app engagement prompts
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/plan-adoption/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **Gamification** — If appropriate, suggest:
-   - Progress indicators
-   - Achievements / badges
-   - Streaks or challenges
+### Phase 2: Execute
+- **Lead** (`requirements-analyst`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-5. **Success Metrics** — Define KPIs:
-   - Activation rate (% completing onboarding)
-   - Day-1, Day-7, Day-30 retention
-   - Feature adoption rate per feature
-   - NPS target
-   - Time-to-first-value
+### Phase 3: Review
+- **Support** (`domain-modeler`) reviews for:
+  - business viability and stakeholder alignment
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-6. **Firebase Analytics Events** — List custom events to track each metric:
-   ```javascript
-   firebase.analytics().logEvent('event_name', { param: 'value' });
-   ```
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-## Expected Output
+## Output Contract
 
-- Adoption funnel diagram (text-based)
-- Onboarding flow specification
-- Engagement loop designs
-- KPI dashboard specification
-- Firebase Analytics event catalog
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "FitnessApp" |
-| `{{target_users}}` | Target user description | "Gym members aged 25-40" |
-| `{{launch_date}}` | Planned launch date | "2026-07-01" |
+**Delivers**: Creates a user adoption strategy with onboarding flows, engagement tactics, and success metrics
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

@@ -1,27 +1,34 @@
 ---
 name: prompt-engineering-meta
-type: meta
-description: "Meta-prompt: improve this skill's own prompts and patterns."
+type: self-improvement
+version: 2.0.0
+description: "Evaluate and improve the Prompt Engineering skill."
 ---
 
-# Meta-Prompt: Self-Improvement
+# Prompt Engineering — Self-Improvement
 
-## Purpose
+## Evaluate
 
-Evaluate and improve the prompt-engineering skill itself.
+1. Is `knowledge/body-of-knowledge.md` current? New standards, deprecated practices?
+2. Are the 4 sub-agents (lead, support, guardian, specialist) covering all perspectives?
+3. Are templates producing useful deliverables? Test with a real scenario.
+4. What edge cases have been encountered that aren't documented?
+5. Are there new insights from `insights/` that apply to this skill?
+6. Has the related skill landscape changed? New cross-references needed?
 
-## Questions for Self-Evaluation
+## Improve
 
-1. Are the patterns in `knowledge/body-of-knowledge.md` still current?
-2. Are there new prompting techniques not yet cataloged?
-3. Do the sub-agents cover all necessary perspectives?
-4. Are the output templates producing useful deliverables?
-5. What edge cases have been encountered that aren't documented?
+1. Update body of knowledge with new findings (tag with `[DOC]`)
+2. Add prompt variations for newly discovered use cases
+3. Refine quality criteria based on real-world feedback
+4. Update knowledge graph: new concepts, new `[[wikilinks]]`
+5. Test templates with edge-case inputs to verify robustness
+6. Propose Constitution amendment if recurring ambiguity found (XVII)
 
-## Improvement Protocol
+## Trigger
 
-1. Search for new prompting research (papers, guides, community patterns)
-2. Test existing prompts against new models (model drift detection)
-3. Update knowledge graph with new concepts and relationships
-4. Add new variations for emerging use cases
-5. Update body of knowledge with new standards/references
+Run this meta-prompt when:
+- Skill hasn't been reviewed in 30+ days
+- User reports unexpected output quality
+- New related skills added to the kit
+- Insights file updated with relevant patterns

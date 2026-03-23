@@ -1,54 +1,68 @@
 ---
 name: evaluate-scenarios
 category: discovery
+version: 2.0.0
 description: "Evaluates business scenarios through impact analysis, scoring, and recommendation with evidence-based reasoning"
-agents: ["scenario-evaluator", "business-analyst"]
-skills: ["scenario-analysis", "decision-matrix"]
+triad:
+  lead: "requirements-analyst"
+  support: "domain-modeler"
+  guardian: "quality-guardian"
+skills: ["evaluate-scenarios"]
+output-formats: ["html", "md"]
 ---
 
-# Evaluate Scenarios
+# Evaluatescenarios
 
-## Context
+> Evaluates business scenarios through impact analysis, scoring, and recommendation with evidence-based reasoning
 
-You are the `scenario-evaluator` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `requirements-analyst` | Produces the primary deliverable |
+| Support | `domain-modeler` | Reviews for business viability and stakeholder alignment |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Evaluate the following scenarios for **{{project_name}}**:
+## Dynamic Parameters
 
-```
-{{scenarios}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-For each scenario:
+## Execution Protocol
 
-1. **Description** — Restate the scenario clearly in one paragraph.
-2. **Assumptions** — List every assumption this scenario relies on.
-3. **Impact Analysis** — Assess impact across:
-   - Revenue / cost
-   - User experience
-   - Technical complexity
-   - Time-to-market
-   - Maintenance burden
-   - Security posture
-4. **Scoring** — Rate each dimension 1-5. Compute a weighted total using weights: Revenue (3), UX (3), Complexity (2), Time (2), Maintenance (1), Security (2).
-5. **Firebase Implications** — For each scenario, estimate Firebase usage (reads/writes per day, storage, bandwidth) and cost tier (free/Blaze).
-6. **Recommendation** — Rank all scenarios. Recommend the top choice and state the deciding factors.
-7. **Contingency** — For the recommended scenario, describe a fallback plan if the key assumption fails.
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/evaluate-scenarios/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-## Expected Output
+### Phase 2: Execute
+- **Lead** (`requirements-analyst`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-- Scenario comparison matrix (table)
-- Weighted scoring table
-- Firebase cost estimate per scenario
-- Final recommendation with justification
-- Contingency plan
+### Phase 3: Review
+- **Support** (`domain-modeler`) reviews for:
+  - business viability and stakeholder alignment
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-## Variables
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "MarketplaceApp" |
-| `{{scenarios}}` | List of scenarios to evaluate | "Scenario A: Build custom auth…" |
-| `{{evaluation_criteria}}` | Additional criteria to consider | "Must support 10K concurrent users" |
+## Output Contract
+
+**Delivers**: Evaluates business scenarios through impact analysis, scoring, and recommendation with evidence-based reasoning
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

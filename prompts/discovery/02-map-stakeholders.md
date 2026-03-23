@@ -1,54 +1,68 @@
 ---
 name: map-stakeholders
 category: discovery
+version: 2.0.0
 description: "Identifies all stakeholders, maps their influence and interest, and produces a communication plan"
-agents: ["stakeholder-analyst", "communication-planner"]
-skills: ["stakeholder-mapping", "influence-analysis"]
+triad:
+  lead: "requirements-analyst"
+  support: "domain-modeler"
+  guardian: "quality-guardian"
+skills: ["map-stakeholders"]
+output-formats: ["html", "md"]
 ---
 
-# Map Stakeholders
+# Mapstakeholders
 
-## Context
+> Identifies all stakeholders, maps their influence and interest, and produces a communication plan
 
-You are the `stakeholder-analyst` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `requirements-analyst` | Produces the primary deliverable |
+| Support | `domain-modeler` | Reviews for business viability and stakeholder alignment |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-For the project **{{project_name}}** in the **{{domain}}** domain:
+## Dynamic Parameters
 
-1. **Identify Stakeholders** — From the following context, extract every person, role, team, or external entity with a stake in this project:
-   ```
-   {{project_context}}
-   ```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **Power/Interest Grid** — Classify each stakeholder into one of four quadrants:
-   - **High Power / High Interest** → Manage Closely
-   - **High Power / Low Interest** → Keep Satisfied
-   - **Low Power / High Interest** → Keep Informed
-   - **Low Power / Low Interest** → Monitor
+## Execution Protocol
 
-3. **RACI Matrix** — For each major project activity (Requirements, Design, Development, Testing, Deployment, Maintenance), assign each stakeholder as Responsible, Accountable, Consulted, or Informed.
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/map-stakeholders/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **Communication Plan** — For each stakeholder group, define:
-   - Communication frequency (daily, weekly, bi-weekly, monthly)
-   - Preferred channel (email, Slack, meetings, dashboard)
-   - Key information needs
-   - Escalation path
+### Phase 2: Execute
+- **Lead** (`requirements-analyst`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-5. **Risk of Disengagement** — Flag stakeholders who may disengage and suggest mitigation strategies.
+### Phase 3: Review
+- **Support** (`domain-modeler`) reviews for:
+  - business viability and stakeholder alignment
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-## Expected Output
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-- Stakeholder register table (Name, Role, Organization, Power, Interest, Quadrant)
-- RACI matrix in table format
-- Communication plan in table format
-- Risk mitigation notes
+## Output Contract
 
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "E-Commerce Redesign" |
-| `{{domain}}` | Business domain | "Retail" |
-| `{{project_context}}` | Description of the project, org structure, known players | "The CEO wants a new portal…" |
+**Delivers**: Identifies all stakeholders, maps their influence and interest, and produces a communication plan
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

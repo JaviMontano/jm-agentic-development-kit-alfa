@@ -1,85 +1,68 @@
 ---
 name: plan-infrastructure
 category: architecture
+version: 2.0.0
 description: "Plans the complete infrastructure setup including Firebase project config, Hostinger setup, DNS, and monitoring"
-agents: ["infra-planner", "devops-architect"]
-skills: ["infrastructure-planning", "firebase-setup"]
+triad:
+  lead: "architecture-designer"
+  support: "security-architect"
+  guardian: "quality-guardian"
+skills: ["plan-infrastructure"]
+output-formats: ["html", "md"]
 ---
 
-# Plan Infrastructure
+# Planinfrastructure
 
-## Context
+> Plans the complete infrastructure setup including Firebase project config, Hostinger setup, DNS, and monitoring
 
-You are the `infra-planner` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `architecture-designer` | Produces the primary deliverable |
+| Support | `security-architect` | Reviews for security and scalability |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Plan the infrastructure for **{{project_name}}**:
+## Dynamic Parameters
 
-Requirements:
-```
-{{infra_requirements}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Firebase Project Setup** — Configuration:
-   - Project naming convention (dev/staging/prod)
-   - Region selection (closest to {{primary_region}})
-   - Services to enable:
-     - [ ] Authentication
-     - [ ] Firestore
-     - [ ] Storage
-     - [ ] Cloud Functions
-     - [ ] Hosting
-     - [ ] Analytics
-     - [ ] Performance Monitoring
-     - [ ] Crashlytics
+## Execution Protocol
 
-2. **Hosting Decision** — Firebase Hosting vs Hostinger:
-   | Criteria | Firebase Hosting | Hostinger |
-   |----------|-----------------|-----------|
-   - Recommendation with justification
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/plan-infrastructure/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Environment Strategy** — Multi-environment setup:
-   - Development (local emulators + dev Firebase project)
-   - Staging (staging Firebase project)
-   - Production (prod Firebase project)
-   - Environment variable management
+### Phase 2: Execute
+- **Lead** (`architecture-designer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Domain & DNS** — Setup:
-   - Domain registration/transfer
-   - DNS configuration (A records, CNAME)
-   - SSL certificate (auto via Firebase or Let's Encrypt via Hostinger)
-   - Subdomain strategy (app.domain.com, api.domain.com)
+### Phase 3: Review
+- **Support** (`security-architect`) reviews for:
+  - security and scalability
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Monitoring & Alerting** — Setup:
-   - Firebase Performance Monitoring
-   - Uptime monitoring (UptimeRobot, Pingdom)
-   - Error tracking (Firebase Crashlytics or Sentry)
-   - Alert channels (email, Slack)
-   - Dashboard (Firebase Console, custom)
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Backup Strategy** — Data protection:
-   - Firestore scheduled exports (Cloud Function + Cloud Scheduler)
-   - Storage bucket backup
-   - Configuration backup (firebase.json, firestore.rules, etc.)
+## Output Contract
 
-7. **Cost Monitoring** — Budget alerts and usage dashboards.
-
-## Expected Output
-
-- Firebase project setup checklist
-- Hosting recommendation
-- Environment configuration files
-- DNS configuration guide
-- Monitoring setup checklist
-- Backup automation code
-- Cost alert configuration
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "GlobalApp" |
-| `{{infra_requirements}}` | Infrastructure requirements | "99.9% uptime, <200ms response…" |
-| `{{primary_region}}` | Primary user region | "us-central1" |
+**Delivers**: Plans the complete infrastructure setup including Firebase project config, Hostinger setup, DNS, and monitoring
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

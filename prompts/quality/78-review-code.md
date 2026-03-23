@@ -1,89 +1,68 @@
 ---
 name: review-code
 category: quality
+version: 2.0.0
 description: "Performs a comprehensive code review checking code quality, patterns, security, performance, and best practices"
-agents: ["code-reviewer", "senior-developer"]
-skills: ["code-review", "best-practices"]
+triad:
+  lead: "quality-engineer"
+  support: "code-reviewer"
+  guardian: "quality-guardian"
+skills: ["review-code"]
+output-formats: ["html", "md"]
 ---
 
-# Review Code
+# Reviewcode
 
-## Context
+> Performs a comprehensive code review checking code quality, patterns, security, performance, and best practices
 
-You are the `code-reviewer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `quality-engineer` | Produces the primary deliverable |
+| Support | `code-reviewer` | Reviews for completeness and edge cases |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Review the following code for **{{project_name}}**:
+## Dynamic Parameters
 
-```{{language}}
-{{code}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-Review across these dimensions:
+## Execution Protocol
 
-1. **Correctness** — Does it work?
-   - Logic errors
-   - Off-by-one errors
-   - Race conditions
-   - Null/undefined handling
-   - Error handling completeness
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/review-code/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-2. **Security** — Is it safe?
-   - XSS vulnerabilities (innerHTML, eval)
-   - SQL/NoSQL injection
-   - Sensitive data exposure
-   - Auth/authz bypass
-   - Input validation
+### Phase 2: Execute
+- **Lead** (`quality-engineer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-3. **Performance** — Is it efficient?
-   - Unnecessary re-renders (React) or change detection (Angular)
-   - Memory leaks (listeners not removed)
-   - N+1 Firestore queries
-   - Unbounded data fetching
-   - Missing debounce/throttle
+### Phase 3: Review
+- **Support** (`code-reviewer`) reviews for:
+  - completeness and edge cases
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-4. **Maintainability** — Is it clean?
-   - Naming conventions (clear, consistent)
-   - Function length (< 30 lines recommended)
-   - Single Responsibility Principle
-   - DRY violations
-   - Code comments (where needed)
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-5. **Firebase Best Practices**:
-   - Modular SDK imports
-   - Listener cleanup
-   - Transaction usage for multi-doc writes
-   - Security rules alignment
-   - Error handling for Firebase operations
+## Output Contract
 
-6. **Accessibility** — If UI code:
-   - Semantic HTML
-   - ARIA attributes
-   - Keyboard support
-   - Screen reader experience
-
-7. **Review Summary**:
-   | Category | Grade | Issues |
-   |----------|-------|--------|
-   - Must Fix (blocking)
-   - Should Fix (important)
-   - Nice to Fix (suggestions)
-   - Praise (what's done well)
-
-## Expected Output
-
-- Line-by-line review comments
-- Issue severity classification
-- Corrected code examples for each issue
-- Review summary table
-- Overall assessment
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "MyApp" |
-| `{{code}}` | Code to review | "function handleSubmit() {…}" |
-| `{{language}}` | Programming language | "javascript" |
+**Delivers**: Performs a comprehensive code review checking code quality, patterns, security, performance, and best practices
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

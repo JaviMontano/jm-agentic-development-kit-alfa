@@ -1,85 +1,68 @@
 ---
 name: create-landing
 category: development
+version: 2.0.0
 description: "Creates a high-converting landing page with hero, features, testimonials, CTA, and SEO optimization"
-agents: ["landing-developer", "conversion-designer"]
-skills: ["landing-page", "conversion-optimization"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["create-landing"]
+output-formats: ["html", "md"]
 ---
 
-# Create Landing Page
+# Createlanding
 
-## Context
+> Creates a high-converting landing page with hero, features, testimonials, CTA, and SEO optimization
 
-You are the `landing-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Create a landing page for **{{project_name}}**:
+## Dynamic Parameters
 
-Brand: {{brand_info}}
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Hero Section** — Above the fold:
-   - Headline (attention-grabbing, max 10 words)
-   - Subheadline (value proposition, max 25 words)
-   - Primary CTA button
-   - Hero image/illustration area
-   - Social proof snippet (e.g., "Trusted by 500+ companies")
+## Execution Protocol
 
-2. **Features Section** — Key features:
-   ```
-   {{features}}
-   ```
-   - Icon + title + description per feature
-   - 3-column grid (desktop), single column (mobile)
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/create-landing/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **How It Works** — 3-4 step process:
-   - Numbered steps with icons
-   - Brief description per step
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Social Proof** — Trust elements:
-   - Testimonials (card layout)
-   - Client logos
-   - Statistics (counters)
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Pricing** — If applicable:
-   - Pricing cards (free, pro, enterprise)
-   - Feature comparison table
-   - FAQ accordion
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **CTA Section** — Final conversion push:
-   - Compelling headline
-   - Email signup form or CTA button
-   - Firebase Analytics event on click
+## Output Contract
 
-7. **Footer** — Links, social media, legal.
-
-8. **Technical Requirements**:
-   - Pure HTML/CSS/JS (no framework overhead for landing)
-   - Lighthouse score > 95 on all categories
-   - Optimized images (WebP, lazy load)
-   - SEO meta tags and structured data
-   - Open Graph tags for social sharing
-   - Deployed to Firebase Hosting or Hostinger
-
-9. **Animations** — Subtle scroll-triggered animations:
-   - Intersection Observer for reveal animations
-   - CSS transitions (no heavy JS libraries)
-
-## Expected Output
-
-- Complete index.html
-- styles.css
-- script.js (minimal, for interactions)
-- SEO meta tags
-- Structured data (JSON-LD)
-- Image optimization guidelines
-- Firebase Hosting configuration
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "LaunchPage" |
-| `{{brand_info}}` | Brand name and colors | "Acme Corp, #2563EB, #10B981" |
-| `{{features}}` | Key features to highlight | "Real-time sync, offline mode, team collaboration" |
+**Delivers**: Creates a high-converting landing page with hero, features, testimonials, CTA, and SEO optimization
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

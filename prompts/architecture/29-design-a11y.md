@@ -1,74 +1,68 @@
 ---
 name: design-a11y
 category: architecture
+version: 2.0.0
 description: "Designs an accessibility-first architecture ensuring WCAG 2.1 AA compliance across all components and interactions"
-agents: ["a11y-architect", "ux-designer"]
-skills: ["accessibility-design", "wcag-compliance"]
+triad:
+  lead: "architecture-designer"
+  support: "security-architect"
+  guardian: "quality-guardian"
+skills: ["design-a11y"]
+output-formats: ["html", "md"]
 ---
 
-# Design Accessibility Architecture
+# Designa11y
 
-## Context
+> Designs an accessibility-first architecture ensuring WCAG 2.1 AA compliance across all components and interactions
 
-You are the `a11y-architect` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `architecture-designer` | Produces the primary deliverable |
+| Support | `security-architect` | Reviews for security and scalability |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Design the accessibility architecture for **{{project_name}}** targeting **{{wcag_level}}**:
+## Dynamic Parameters
 
-1. **Semantic HTML Plan** — For each page, define:
-   - Landmark regions (header, nav, main, footer, aside)
-   - Heading hierarchy (h1-h6 outline)
-   - Document structure
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **ARIA Strategy** — Define ARIA usage patterns:
-   - Roles for custom components
-   - aria-live regions for dynamic content (Firestore real-time updates)
-   - aria-expanded, aria-controls for interactive elements
-   - aria-describedby for form validation errors
+## Execution Protocol
 
-3. **Keyboard Navigation** — For each interactive component:
-   | Component | Tab Order | Key Bindings | Focus Management |
-   |-----------|-----------|-------------|-----------------|
-   | Modal | Trap focus | Escape to close | Return focus on close |
-   | Dropdown | Tab to trigger | Arrow keys, Enter, Escape | Focus first item |
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/design-a11y/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **Color & Contrast** — Design constraints:
-   - Minimum contrast ratios (4.5:1 text, 3:1 large text, 3:1 UI elements)
-   - Color-blind safe palette
-   - Focus indicator design (visible, high contrast)
+### Phase 2: Execute
+- **Lead** (`architecture-designer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-5. **Form Accessibility** — Standard patterns:
-   - Labels associated with inputs (for/id or wrapping)
-   - Error message association (aria-describedby)
-   - Required field indication (aria-required + visual)
-   - Inline validation timing
+### Phase 3: Review
+- **Support** (`security-architect`) reviews for:
+  - security and scalability
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-6. **Dynamic Content** — How to handle:
-   - Firestore real-time updates (aria-live polite)
-   - Loading states (aria-busy)
-   - Toast notifications (role="alert")
-   - Route changes (focus management, page title updates)
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-7. **Testing Plan** — Accessibility testing tools and procedures:
-   - Automated: axe-core, Lighthouse
-   - Manual: keyboard-only testing, screen reader testing
-   - Screen readers to test: VoiceOver (Mac), NVDA (Windows), TalkBack (Android)
+## Output Contract
 
-## Expected Output
-
-- Semantic HTML templates per page
-- ARIA pattern library
-- Keyboard navigation matrix
-- Color/contrast specification
-- Form accessibility patterns
-- Dynamic content handling patterns
-- Testing checklist
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "GovPortal" |
-| `{{wcag_level}}` | Target WCAG compliance level | "WCAG 2.1 AA" |
+**Delivers**: Designs an accessibility-first architecture ensuring WCAG 2.1 AA compliance across all components and interactions
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

@@ -1,77 +1,68 @@
 ---
 name: create-modal
 category: development
+version: 2.0.0
 description: "Creates an accessible modal/dialog component with focus trapping, backdrop, animations, and keyboard support"
-agents: ["modal-developer", "ui-developer"]
-skills: ["modal-component", "a11y-dialog"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["create-modal"]
+output-formats: ["html", "md"]
 ---
 
-# Create Modal
+# Createmodal
 
-## Context
+> Creates an accessible modal/dialog component with focus trapping, backdrop, animations, and keyboard support
 
-You are the `modal-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Create a modal component for **{{project_name}}** using **{{framework}}**:
+## Dynamic Parameters
 
-1. **Modal Component** — Reusable dialog:
-   - Header (title + close button)
-   - Body (content slot/children)
-   - Footer (action buttons slot)
-   - Sizes: small (400px), medium (600px), large (800px), fullscreen
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **Backdrop** — Overlay behavior:
-   - Semi-transparent backdrop
-   - Click backdrop to close (configurable)
-   - Prevent body scroll when open
+## Execution Protocol
 
-3. **Animations** — Open/close transitions:
-   - Fade in backdrop
-   - Scale/slide in modal
-   - CSS-only animations (no JS libraries)
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/create-modal/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **Accessibility** — WCAG compliant dialog:
-   ```html
-   <div role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
-   ```
-   - Focus trap (Tab cycles within modal)
-   - Return focus to trigger on close
-   - Escape key to close
-   - Screen reader announcements
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-5. **API** — Component interface:
-   ```javascript
-   // Imperative
-   modal.open();
-   modal.close();
-   // Declarative
-   <Modal isOpen={true} onClose={handleClose} title="...">
-   ```
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-6. **Variants** — Pre-built modal types:
-   - Confirmation dialog (Are you sure? + Yes/No)
-   - Alert dialog (Message + OK)
-   - Form modal (form content + Save/Cancel)
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-7. **Nested Modals** — Support stacking (z-index management).
+## Output Contract
 
-8. **Responsive** — Full-width on mobile, centered on desktop.
-
-## Expected Output
-
-- Modal component code
-- CSS with animations
-- Focus trap utility
-- Confirmation dialog variant
-- Usage examples
-- Unit test outline
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "AdminApp" |
-| `{{framework}}` | Frontend framework | "react" |
+**Delivers**: Creates an accessible modal/dialog component with focus trapping, backdrop, animations, and keyboard support
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

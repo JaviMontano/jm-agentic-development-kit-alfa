@@ -1,75 +1,68 @@
 ---
 name: analyze-tradeoffs
 category: architecture
+version: 2.0.0
 description: "Analyzes architectural tradeoffs between competing approaches and produces a decision matrix with ADR"
-agents: ["tradeoff-analyst", "architect"]
-skills: ["tradeoff-analysis", "decision-making"]
+triad:
+  lead: "architecture-designer"
+  support: "security-architect"
+  guardian: "quality-guardian"
+skills: ["analyze-tradeoffs"]
+output-formats: ["html", "md"]
 ---
 
-# Analyze Tradeoffs
+# Analyzetradeoffs
 
-## Context
+> Analyzes architectural tradeoffs between competing approaches and produces a decision matrix with ADR
 
-You are the `tradeoff-analyst` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `architecture-designer` | Produces the primary deliverable |
+| Support | `security-architect` | Reviews for security and scalability |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Analyze the tradeoffs between the following options for **{{decision_topic}}** in **{{project_name}}**:
+## Dynamic Parameters
 
-Options:
-```
-{{options}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Option Analysis** — For each option:
-   - Description and how it works
-   - Pros (minimum 3)
-   - Cons (minimum 3)
-   - Best suited for (scenarios)
-   - Not suited for (scenarios)
-   - Real-world examples
+## Execution Protocol
 
-2. **Comparison Matrix** — Score each option on:
-   | Criteria | Weight | Option A | Option B | Option C |
-   |----------|--------|----------|----------|----------|
-   | Performance | 3 | 4/5 | 3/5 | 5/5 |
-   | Complexity | 2 | 3/5 | 5/5 | 2/5 |
-   | Firebase Compatibility | 3 | 5/5 | 4/5 | 3/5 |
-   | Maintainability | 2 | 4/5 | 3/5 | 4/5 |
-   | Learning Curve | 1 | 3/5 | 5/5 | 2/5 |
-   | Community/Support | 1 | 4/5 | 5/5 | 3/5 |
-   | **Weighted Total** | | | | |
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/analyze-tradeoffs/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Risk Analysis** — For each option, what could go wrong?
+### Phase 2: Execute
+- **Lead** (`architecture-designer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Reversibility** — How hard is it to switch away from each option?
+### Phase 3: Review
+- **Support** (`security-architect`) reviews for:
+  - security and scalability
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Team Fit** — Given team experience ({{team_experience}}), which option has the lowest adoption friction?
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Recommendation** — Clear recommendation with justification.
+## Output Contract
 
-7. **ADR** — Architecture Decision Record:
-   - Title
-   - Status: Proposed
-   - Context
-   - Decision
-   - Consequences (positive and negative)
-
-## Expected Output
-
-- Option analysis cards
-- Weighted comparison matrix
-- Risk assessment per option
-- Reversibility assessment
-- Final recommendation
-- ADR document
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "DashboardApp" |
-| `{{decision_topic}}` | What decision is being made | "State management library" |
-| `{{options}}` | Options to compare | "NgRx vs Akita vs Signals" |
-| `{{team_experience}}` | Team's current skills | "Strong Angular, limited RxJS" |
+**Delivers**: Analyzes architectural tradeoffs between competing approaches and produces a decision matrix with ADR
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

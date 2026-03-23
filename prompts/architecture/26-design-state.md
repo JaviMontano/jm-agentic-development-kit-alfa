@@ -1,76 +1,68 @@
 ---
 name: design-state
 category: architecture
+version: 2.0.0
 description: "Designs the frontend state management architecture including stores, selectors, effects, and Firestore synchronization"
-agents: ["frontend-architect", "state-designer"]
-skills: ["state-management", "reactive-patterns"]
+triad:
+  lead: "architecture-designer"
+  support: "security-architect"
+  guardian: "quality-guardian"
+skills: ["design-state"]
+output-formats: ["html", "md"]
 ---
 
-# Design State Management
+# Designstate
 
-## Context
+> Designs the frontend state management architecture including stores, selectors, effects, and Firestore synchronization
 
-You are the `frontend-architect` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `architecture-designer` | Produces the primary deliverable |
+| Support | `security-architect` | Reviews for security and scalability |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Design the state management architecture for **{{project_name}}** using **{{framework}}**:
+## Dynamic Parameters
 
-Features:
-```
-{{features}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **State Tree Design** — Define the global state shape:
-   ```typescript
-   interface AppState {
-     auth: AuthState;
-     // ... other slices
-   }
-   ```
+## Execution Protocol
 
-2. **State Slices** — For each feature:
-   - Slice name and interface
-   - Initial state
-   - Properties and their types
-   - Loading/error states
-   - Derived state (selectors/computed)
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/design-state/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **State Management Choice** — Justify the approach:
-   - **Angular**: NgRx, NGXS, Akita, or Signals
-   - **React**: Redux Toolkit, Zustand, Jotai, or Context API
-   - **Vanilla JS**: Custom pub/sub or state machine
+### Phase 2: Execute
+- **Lead** (`architecture-designer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Firestore Synchronization** — For each state slice connected to Firestore:
-   - Real-time listener setup and teardown
-   - Optimistic updates strategy
-   - Conflict resolution
-   - Offline persistence integration
+### Phase 3: Review
+- **Support** (`security-architect`) reviews for:
+  - security and scalability
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Actions/Events** — Catalog of all state mutations:
-   | Action | Payload | State Change | Side Effect |
-   |--------|---------|-------------|-------------|
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Selectors/Derived State** — Complex computed values:
-   - Memoization strategy
-   - Composition patterns
+## Output Contract
 
-7. **DevTools Integration** — How to debug state (Redux DevTools, etc.).
-
-## Expected Output
-
-- State tree interface (TypeScript)
-- State slice definitions
-- Action catalog
-- Firestore sync patterns
-- Selector definitions
-- Code examples for key patterns
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "TaskBoard" |
-| `{{framework}}` | Frontend framework | "React" |
-| `{{features}}` | Features requiring state | "Auth, tasks, projects, notifications" |
+**Delivers**: Designs the frontend state management architecture including stores, selectors, effects, and Firestore synchronization
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

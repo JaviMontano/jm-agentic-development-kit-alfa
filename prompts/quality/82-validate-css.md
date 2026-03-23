@@ -1,82 +1,68 @@
 ---
 name: validate-css
 category: quality
+version: 2.0.0
 description: "Validates CSS for correctness, unused rules, specificity issues, and optimization opportunities"
-agents: ["css-validator", "style-auditor"]
-skills: ["css-validation", "css-optimization"]
+triad:
+  lead: "quality-engineer"
+  support: "code-reviewer"
+  guardian: "quality-guardian"
+skills: ["validate-css"]
+output-formats: ["html", "md"]
 ---
 
-# Validate CSS
+# Validatecss
 
-## Context
+> Validates CSS for correctness, unused rules, specificity issues, and optimization opportunities
 
-You are the `css-validator` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `quality-engineer` | Produces the primary deliverable |
+| Support | `code-reviewer` | Reviews for completeness and edge cases |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Validate and optimize CSS for **{{project_name}}**:
+## Dynamic Parameters
 
-```css
-{{css_code}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Syntax Validation** — W3C CSS Validator checks:
-   - Invalid properties
-   - Invalid values
-   - Vendor prefix necessity
-   - Unknown at-rules
+## Execution Protocol
 
-2. **Unused CSS** — Identify dead rules:
-   - Selectors with no matching HTML elements
-   - Percentage of unused CSS
-   - Removal candidates
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/validate-css/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Specificity Analysis** — Identify problematic specificity:
-   - Overly specific selectors
-   - !important usage count
-   - ID selectors in styling (prefer classes)
-   - Specificity graph (should trend low to high)
+### Phase 2: Execute
+- **Lead** (`quality-engineer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Performance Issues**:
-   - Expensive selectors (universal *, deep nesting)
-   - Large file size optimization
-   - Render-blocking analysis
-   - Reflow-triggering properties
+### Phase 3: Review
+- **Support** (`code-reviewer`) reviews for:
+  - completeness and edge cases
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Best Practices Check**:
-   - BEM or consistent naming convention
-   - CSS custom properties for theming
-   - Logical properties for RTL support
-   - Modern layout (Grid, Flexbox vs floats)
-   - Responsive units (rem, em, vw vs px)
-   - Mobile-first media queries
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Duplication Analysis**:
-   - Repeated property values → extract to custom property
-   - Repeated patterns → extract to utility class
-   - Similar selectors → combine
+## Output Contract
 
-7. **Optimized CSS** — Provide the cleaned-up version:
-   - Remove unused rules
-   - Reduce specificity
-   - Replace !important
-   - Use shorthand properties
-   - Organize by component/section
-
-## Expected Output
-
-- Validation error list
-- Unused CSS report
-- Specificity analysis
-- Performance recommendations
-- Best practices checklist
-- Optimized CSS code
-- Before/after size comparison
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "StyleRefactor" |
-| `{{css_code}}` | CSS to validate | ".header { color: red; }…" |
+**Delivers**: Validates CSS for correctness, unused rules, specificity issues, and optimization opportunities
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

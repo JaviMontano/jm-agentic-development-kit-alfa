@@ -1,92 +1,68 @@
 ---
 name: write-unit-tests
 category: quality
+version: 2.0.0
 description: "Generates comprehensive unit tests for functions, components, and services using Jest or Vitest with Firebase mocking"
-agents: ["test-engineer", "quality-analyst"]
-skills: ["unit-testing", "test-design"]
+triad:
+  lead: "quality-engineer"
+  support: "code-reviewer"
+  guardian: "quality-guardian"
+skills: ["write-unit-tests"]
+output-formats: ["html", "md"]
 ---
 
-# Write Unit Tests
+# Writeunit Tests
 
-## Context
+> Generates comprehensive unit tests for functions, components, and services using Jest or Vitest with Firebase mocking
 
-You are the `test-engineer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `quality-engineer` | Produces the primary deliverable |
+| Support | `code-reviewer` | Reviews for completeness and edge cases |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Write unit tests for **{{target_module}}** in **{{project_name}}**:
+## Dynamic Parameters
 
-Source code:
-```
-{{source_code}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Test Framework Setup** — Configure {{test_framework}}:
-   ```javascript
-   import { describe, it, expect, vi, beforeEach } from 'vitest';
-   // or Jest equivalent
-   ```
+## Execution Protocol
 
-2. **Firebase Mocking** — Mock Firebase services:
-   ```javascript
-   vi.mock('firebase/firestore', () => ({
-     getDoc: vi.fn(),
-     getDocs: vi.fn(),
-     addDoc: vi.fn(),
-     updateDoc: vi.fn(),
-     deleteDoc: vi.fn(),
-     collection: vi.fn(),
-     doc: vi.fn(),
-     query: vi.fn(),
-   }));
-   ```
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/write-unit-tests/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Test Categories** — Write tests for:
-   - **Happy path** — Normal expected behavior
-   - **Edge cases** — Empty inputs, null values, max values
-   - **Error handling** — Network errors, auth failures, invalid data
-   - **Boundary conditions** — Limits, overflows, type coercion
-   - **State transitions** — Before/after side effects
+### Phase 2: Execute
+- **Lead** (`quality-engineer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Test Structure** — For each test:
-   ```javascript
-   describe('{{functionName}}', () => {
-     beforeEach(() => { /* setup */ });
+### Phase 3: Review
+- **Support** (`code-reviewer`) reviews for:
+  - completeness and edge cases
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-     it('should {{expected_behavior}} when {{condition}}', async () => {
-       // Arrange
-       // Act
-       // Assert
-     });
-   });
-   ```
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-5. **Coverage Targets**:
-   - Statements: > 80%
-   - Branches: > 75%
-   - Functions: > 90%
-   - Lines: > 80%
+## Output Contract
 
-6. **Assertion Patterns** — Use appropriate matchers:
-   - `expect(value).toBe(expected)` — strict equality
-   - `expect(value).toEqual(expected)` — deep equality
-   - `expect(fn).toThrow(ErrorType)` — error throwing
-   - `expect(mock).toHaveBeenCalledWith(args)` — mock verification
-
-## Expected Output
-
-- Complete test file with all test cases
-- Firebase mock setup
-- Test utility helpers
-- Coverage configuration
-- Test run command
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "TaskApp" |
-| `{{target_module}}` | Module/file to test | "src/services/taskService.js" |
-| `{{source_code}}` | Source code to test | "export function createTask(data) {…}" |
-| `{{test_framework}}` | Test framework | "vitest" or "jest" |
+**Delivers**: Generates comprehensive unit tests for functions, components, and services using Jest or Vitest with Firebase mocking
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

@@ -1,87 +1,68 @@
 ---
 name: implement-infinite-scroll
 category: development
+version: 2.0.0
 description: "Implements infinite scroll with Firestore cursor-based pagination, loading indicators, and scroll restoration"
-agents: ["scroll-developer", "frontend-developer"]
-skills: ["infinite-scroll", "firestore-pagination"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["implement-infinite-scroll"]
+output-formats: ["html", "md"]
 ---
 
-# Implement Infinite Scroll
+# Implementinfinite Scroll
 
-## Context
+> Implements infinite scroll with Firestore cursor-based pagination, loading indicators, and scroll restoration
 
-You are the `scroll-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Implement infinite scroll for **{{project_name}}** on the **{{target_page}}** page:
+## Dynamic Parameters
 
-1. **Intersection Observer Trigger**:
-   ```javascript
-   const sentinel = document.getElementById('scroll-sentinel');
-   const observer = new IntersectionObserver((entries) => {
-     if (entries[0].isIntersecting && !loading && hasMore) {
-       loadMore();
-     }
-   }, { rootMargin: '200px' });
-   observer.observe(sentinel);
-   ```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **Firestore Cursor Pagination**:
-   ```javascript
-   let lastDoc = null;
-   async function loadMore() {
-     let q = query(collection(db, '{{collection}}'), orderBy('{{sort_field}}', 'desc'), limit({{page_size}}));
-     if (lastDoc) q = query(q, startAfter(lastDoc));
-     const snapshot = await getDocs(q);
-     lastDoc = snapshot.docs[snapshot.docs.length - 1];
-     const hasMore = snapshot.docs.length === {{page_size}};
-     return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-   }
-   ```
+## Execution Protocol
 
-3. **Loading State** — Bottom of list:
-   - Spinner/skeleton while loading
-   - "Load more" fallback button
-   - "No more items" end message
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/implement-infinite-scroll/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **Error Handling** — Failed loads:
-   - Retry button on error
-   - Maintain existing items
-   - Error toast notification
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-5. **Scroll Restoration** — On back navigation:
-   - Save scroll position
-   - Restore position and loaded items
-   - Use sessionStorage or state management
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-6. **Performance** — Prevent memory issues:
-   - Virtual scrolling for very long lists (1000+ items)
-   - DOM recycling
-   - Image cleanup for off-screen items
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-7. **Accessibility** — Screen reader experience:
-   - aria-live region for new items announcement
-   - Focus management
-   - Status message: "Loading more items" / "25 of 100 items loaded"
+## Output Contract
 
-## Expected Output
-
-- Infinite scroll utility/hook
-- Firestore pagination service
-- Sentinel element and observer setup
-- Loading/error/end-of-list components
-- Scroll restoration logic
-- Virtual scroll implementation (if needed)
-- Usage example
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "SocialFeed" |
-| `{{target_page}}` | Page to add infinite scroll | "Feed" |
-| `{{collection}}` | Firestore collection | "posts" |
-| `{{sort_field}}` | Sort field | "createdAt" |
-| `{{page_size}}` | Items per page | "20" |
+**Delivers**: Implements infinite scroll with Firestore cursor-based pagination, loading indicators, and scroll restoration
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

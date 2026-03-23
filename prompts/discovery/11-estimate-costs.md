@@ -1,74 +1,68 @@
 ---
 name: estimate-costs
 category: discovery
+version: 2.0.0
 description: "Estimates project costs including Firebase usage, hosting, development effort, and ongoing maintenance"
-agents: ["cost-estimator", "financial-analyst"]
-skills: ["cost-estimation", "firebase-pricing"]
+triad:
+  lead: "requirements-analyst"
+  support: "domain-modeler"
+  guardian: "quality-guardian"
+skills: ["estimate-costs"]
+output-formats: ["html", "md"]
 ---
 
-# Estimate Costs
+# Estimatecosts
 
-## Context
+> Estimates project costs including Firebase usage, hosting, development effort, and ongoing maintenance
 
-You are the `cost-estimator` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `requirements-analyst` | Produces the primary deliverable |
+| Support | `domain-modeler` | Reviews for business viability and stakeholder alignment |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Estimate the total cost for **{{project_name}}**:
+## Dynamic Parameters
 
-Project scope:
-```
-{{project_scope}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Development Costs** — Break down by phase:
-   - Discovery & Design: person-weeks
-   - Frontend Development: person-weeks
-   - Backend/Firebase Setup: person-weeks
-   - Testing & QA: person-weeks
-   - Deployment & Launch: person-weeks
-   Express in FTE-months. *Note: Do not provide dollar amounts — use FTE-months only.*
+## Execution Protocol
 
-2. **Firebase Costs (Monthly)** — Estimate at three tiers:
-   | Service | 1K MAU | 10K MAU | 100K MAU |
-   |---------|--------|---------|----------|
-   | Firestore reads | | | |
-   | Firestore writes | | | |
-   | Storage | | | |
-   | Cloud Functions invocations | | | |
-   | Authentication | | | |
-   | Hosting bandwidth | | | |
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/estimate-costs/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Hosting Costs** — Compare:
-   - Hostinger (shared, VPS tiers)
-   - Firebase Hosting (free tier vs. Blaze)
+### Phase 2: Execute
+- **Lead** (`requirements-analyst`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Third-Party Services** — Domain, email, CDN, monitoring, analytics, etc.
+### Phase 3: Review
+- **Support** (`domain-modeler`) reviews for:
+  - business viability and stakeholder alignment
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Ongoing Maintenance** — Monthly FTE-hours for:
-   - Bug fixes
-   - Security updates
-   - Content updates
-   - Monitoring & alerting
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Cost Optimization Recommendations** — Top 5 ways to reduce costs without compromising quality.
+## Output Contract
 
-*Disclaimer: All estimates are approximate and subject to actual usage patterns.*
-
-## Expected Output
-
-- Development effort table (FTE-months)
-- Firebase cost projection table at 3 tiers
-- Hosting comparison table
-- Third-party costs list
-- Maintenance budget (monthly FTE-hours)
-- Cost optimization recommendations
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "EventPlatform" |
-| `{{project_scope}}` | Scope description with features | "User registration, event creation…" |
-| `{{team_rate}}` | Team composition for effort calc | "2 senior devs, 1 junior dev" |
+**Delivers**: Estimates project costs including Firebase usage, hosting, development effort, and ongoing maintenance
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

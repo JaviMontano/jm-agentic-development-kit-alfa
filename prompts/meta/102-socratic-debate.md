@@ -1,84 +1,68 @@
 ---
 name: socratic-debate-protocol
 category: meta
+version: 2.0.0
 description: "Run a structured Socratic debate to resolve ambiguity with constitutional alignment"
-agents: ["socratic-debater", "adk-orchestrator"]
-skills: ["socratic-debate"]
+triad:
+  lead: "adk-orchestrator"
+  support: "integrity-validator"
+  guardian: "quality-guardian"
+skills: ["socratic-debate-protocol"]
+output-formats: ["html", "md"]
 ---
 
-# Socratic Debate Protocol
+# Socraticdebate Protocol
 
-## Context
+> Run a structured Socratic debate to resolve ambiguity with constitutional alignment
 
-You are conducting a formal Socratic debate to resolve an ambiguity that has divergent implementation consequences. The debate must be grounded in constitutional principles and produce an auditable record.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `adk-orchestrator` | Produces the primary deliverable |
+| Support | `integrity-validator` | Reviews for consistency and constitutional compliance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-**Topic**: {{thesis}}
-**Context**: {{context}}
-**Constitutional principles at stake**: {{principles}}
+## Dynamic Parameters
 
-Execute the 5-step Socratic debate protocol:
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-### Step 1: Frame Thesis
-State the proposed/default position clearly. What evidence supports it?
+## Execution Protocol
 
-### Step 2: Generate Antithesis
-What is the strongest opposing position? Who would advocate for it and why?
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/socratic-debate-protocol/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-### Step 3: Counter-Evidence
-Search for evidence that challenges both positions:
-- In the codebase: existing patterns, precedents, constraints
-- In documentation: Constitution principles, ADRs, specs
-- External: WebSearch for best practices, known failure modes
+### Phase 2: Execute
+- **Lead** (`adk-orchestrator`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-### Step 4: Synthesize
-Eliminate options that contradict constitutional principles.
-Score surviving options: constitutional alignment (40%), simplicity (25%),
-evidence strength (20%), risk (15%).
-Produce the single surviving answer.
+### Phase 3: Review
+- **Support** (`integrity-validator`) reviews for:
+  - consistency and constitutional compliance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-### Step 5: Confidence Update
-What is the confidence in the synthesis? (must reach >= 0.95)
-If < 0.95: what additional information would increase confidence?
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-## Output Format
+## Output Contract
 
-```markdown
-# Debate Record: {{thesis}}
-
-**Date**: YYYY-MM-DD
-**Trigger**: {what caused the debate}
-
-## Thesis
-{position, evidence}
-
-## Antithesis
-{opposing position, evidence}
-
-## Counter-Evidence
-{findings from codebase, docs, web}
-
-## Constitutional Alignment
-| Option | Principles Supported | Principles Violated |
-|--------|---------------------|-------------------|
-| A | ... | ... |
-| B | ... | ... |
-
-## Synthesis
-{final answer with rationale}
-
-## Confidence
-{score} — {justification}
-
-## Integrated Into
-{ADR-NNN / plan / spec reference}
-```
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{thesis}}` | The position or question to debate | "Use Firestore for real-time chat" |
-| `{{context}}` | Background and constraints | "Chat needs < 100ms latency, team size < 50" |
-| `{{principles}}` | Constitution principles involved | "VII (Security), XIV (Simple First), I (Client-Rendered)" |
+**Delivers**: Run a structured Socratic debate to resolve ambiguity with constitutional alignment
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

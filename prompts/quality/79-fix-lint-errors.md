@@ -1,82 +1,68 @@
 ---
 name: fix-lint-errors
 category: quality
+version: 2.0.0
 description: "Analyzes and fixes ESLint, Stylelint, and HTML validation errors with explanations for each fix"
-agents: ["lint-fixer", "code-quality-engineer"]
-skills: ["linting", "code-formatting"]
+triad:
+  lead: "quality-engineer"
+  support: "code-reviewer"
+  guardian: "quality-guardian"
+skills: ["fix-lint-errors"]
+output-formats: ["html", "md"]
 ---
 
-# Fix Lint Errors
+# Fixlint Errors
 
-## Context
+> Analyzes and fixes ESLint, Stylelint, and HTML validation errors with explanations for each fix
 
-You are the `lint-fixer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `quality-engineer` | Produces the primary deliverable |
+| Support | `code-reviewer` | Reviews for completeness and edge cases |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Fix lint errors in **{{project_name}}**:
+## Dynamic Parameters
 
-Lint output:
-```
-{{lint_output}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Error Analysis** — Categorize each error:
-   | Rule | Count | Severity | Auto-fixable | Category |
-   |------|-------|----------|-------------|----------|
-   - Style errors (formatting, naming)
-   - Logic errors (unused vars, unreachable code)
-   - Security errors (eval, innerHTML)
-   - Accessibility errors (missing alt, no-noninteractive-tabindex)
-   - Best practice errors (no-var, prefer-const)
+## Execution Protocol
 
-2. **Auto-Fix** — Apply automatic fixes:
-   ```bash
-   npx eslint --fix src/
-   npx stylelint --fix "src/**/*.css"
-   npx prettier --write "src/**/*.{js,css,html}"
-   ```
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/fix-lint-errors/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Manual Fixes** — For each non-auto-fixable error:
-   - Show the current code
-   - Explain why it is an error
-   - Show the corrected code
-   - Explain the fix
+### Phase 2: Execute
+- **Lead** (`quality-engineer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Rule Configuration** — If rules need adjustment:
-   - Overly strict rules to relax
-   - Missing rules to add
-   - Project-specific rule overrides
+### Phase 3: Review
+- **Support** (`code-reviewer`) reviews for:
+  - completeness and edge cases
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **ESLint Configuration** — Recommended `.eslintrc.json`:
-   ```json
-   {
-     "extends": ["eslint:recommended"],
-     "rules": {
-       "no-unused-vars": "warn",
-       "no-console": ["warn", { "allow": ["error"] }]
-     }
-   }
-   ```
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Prevention** — Setup for future prevention:
-   - Pre-commit hook (husky + lint-staged)
-   - CI/CD lint check
-   - Editor integration (VS Code settings)
+## Output Contract
 
-## Expected Output
-
-- Categorized error analysis
-- Auto-fix results summary
-- Manual fix explanations and corrected code
-- Updated ESLint configuration
-- Pre-commit hook setup
-- CI lint check configuration
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "WebApp" |
-| `{{lint_output}}` | Raw lint error output | "src/app.js: 15:5 error 'x' is assigned but never used" |
+**Delivers**: Analyzes and fixes ESLint, Stylelint, and HTML validation errors with explanations for each fix
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

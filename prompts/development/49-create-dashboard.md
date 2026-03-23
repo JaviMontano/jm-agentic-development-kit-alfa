@@ -1,86 +1,68 @@
 ---
 name: create-dashboard
 category: development
+version: 2.0.0
 description: "Creates a data dashboard with KPI cards, charts, filters, and real-time Firestore data updates"
-agents: ["dashboard-developer", "data-visualization-developer"]
-skills: ["dashboard-creation", "data-visualization"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["create-dashboard"]
+output-formats: ["html", "md"]
 ---
 
-# Create Dashboard
+# Createdashboard
 
-## Context
+> Creates a data dashboard with KPI cards, charts, filters, and real-time Firestore data updates
 
-You are the `dashboard-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Create a dashboard for **{{project_name}}**:
+## Dynamic Parameters
 
-Dashboard requirements:
-```
-{{dashboard_requirements}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Layout** — Dashboard grid layout:
-   - KPI cards row (top)
-   - Chart area (middle, 2-column)
-   - Recent activity / table (bottom)
-   - Responsive: stack on mobile
+## Execution Protocol
 
-2. **KPI Cards** — Key metrics:
-   ```
-   {{kpi_definitions}}
-   ```
-   - Card component: icon, label, value, trend indicator (up/down/neutral)
-   - Real-time updates from Firestore
-   - Loading skeleton
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/create-dashboard/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Charts** — Data visualizations:
-   - Library: Chart.js or lightweight alternative
-   - Chart types needed: {{chart_types}}
-   - Responsive sizing
-   - Accessible colors
-   - Tooltips
-   - Legend
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Firestore Queries** — Data fetching:
-   - Aggregation queries for KPIs
-   - Time-series data for charts
-   - Real-time listeners for live updates
-   - Date range filtering
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Filters** — Dashboard controls:
-   - Date range picker (today, 7d, 30d, 90d, custom)
-   - Category filter
-   - Search/filter within tables
-   - Filter state in URL params
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Export** — Data export options:
-   - Export table as CSV
-   - Print-friendly layout
+## Output Contract
 
-7. **Performance** — Dashboard-specific optimizations:
-   - Lazy load charts below the fold
-   - Cache aggregated data
-   - Throttle real-time updates
-   - Skeleton loading states
-
-## Expected Output
-
-- Dashboard page component
-- KPI card component
-- Chart components
-- Filter components
-- Firestore query service
-- CSS with responsive grid
-- Chart configuration
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "SalesTracker" |
-| `{{dashboard_requirements}}` | What the dashboard shows | "Sales metrics, order trends, top products" |
-| `{{kpi_definitions}}` | KPI definitions | "Total Revenue, Orders Today, Avg Order Value, Active Users" |
-| `{{chart_types}}` | Types of charts needed | "line, bar, doughnut" |
+**Delivers**: Creates a data dashboard with KPI cards, charts, filters, and real-time Firestore data updates
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

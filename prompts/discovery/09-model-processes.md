@@ -1,63 +1,68 @@
 ---
 name: model-processes
 category: discovery
+version: 2.0.0
 description: "Models business processes using BPMN notation with swimlanes, decision gates, and automation opportunities"
-agents: ["process-modeler", "business-analyst"]
-skills: ["bpmn-modeling", "process-optimization"]
+triad:
+  lead: "requirements-analyst"
+  support: "domain-modeler"
+  guardian: "quality-guardian"
+skills: ["model-processes"]
+output-formats: ["html", "md"]
 ---
 
-# Model Processes
+# Modelprocesses
 
-## Context
+> Models business processes using BPMN notation with swimlanes, decision gates, and automation opportunities
 
-You are the `process-modeler` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `requirements-analyst` | Produces the primary deliverable |
+| Support | `domain-modeler` | Reviews for business viability and stakeholder alignment |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Model the following business process for **{{project_name}}**:
+## Dynamic Parameters
 
-```
-{{process_description}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Process Inventory** — List all sub-processes involved. For each:
-   - Process name
-   - Owner / responsible role
-   - Trigger (event, schedule, manual)
-   - Inputs and outputs
+## Execution Protocol
 
-2. **BPMN Diagram (Text)** — Describe the process using BPMN elements:
-   - Start/End events
-   - Tasks (user tasks, service tasks, script tasks)
-   - Gateways (exclusive, parallel, inclusive)
-   - Swimlanes by role
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/model-processes/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Mermaid Sequence Diagram** — Provide a Mermaid diagram showing interactions between actors and systems.
+### Phase 2: Execute
+- **Lead** (`requirements-analyst`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Automation Opportunities** — For each manual step, assess:
-   - Can it be automated with Firebase Cloud Functions?
-   - Can it be a Firestore trigger?
-   - Can it use Firebase Auth triggers?
-   - Effort to automate (Low/Medium/High)
+### Phase 3: Review
+- **Support** (`domain-modeler`) reviews for:
+  - business viability and stakeholder alignment
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **KPIs** — Define 3-5 process KPIs (cycle time, error rate, throughput, etc.) and how to measure them using Firestore data.
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Bottleneck Analysis** — Identify likely bottlenecks and propose mitigations.
+## Output Contract
 
-## Expected Output
-
-- Process inventory table
-- BPMN description (textual with element types noted)
-- Mermaid sequence diagram code block
-- Automation opportunity matrix
-- KPI definitions
-- Bottleneck analysis with mitigations
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "OrderFulfillment" |
-| `{{process_description}}` | Narrative of the business process | "When a customer places an order…" |
-| `{{roles}}` | Roles involved | "Customer, Sales Rep, Warehouse, Shipping" |
+**Delivers**: Models business processes using BPMN notation with swimlanes, decision gates, and automation opportunities
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

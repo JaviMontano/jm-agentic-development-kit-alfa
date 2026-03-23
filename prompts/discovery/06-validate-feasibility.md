@@ -1,69 +1,68 @@
 ---
 name: validate-feasibility
 category: discovery
+version: 2.0.0
 description: "Validates technical, financial, and operational feasibility of a proposed solution against constraints"
-agents: ["feasibility-analyst", "architect"]
-skills: ["feasibility-study", "constraint-analysis"]
+triad:
+  lead: "requirements-analyst"
+  support: "domain-modeler"
+  guardian: "quality-guardian"
+skills: ["validate-feasibility"]
+output-formats: ["html", "md"]
 ---
 
-# Validate Feasibility
+# Validatefeasibility
 
-## Context
+> Validates technical, financial, and operational feasibility of a proposed solution against constraints
 
-You are the `feasibility-analyst` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `requirements-analyst` | Produces the primary deliverable |
+| Support | `domain-modeler` | Reviews for business viability and stakeholder alignment |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Validate the feasibility of the proposed solution for **{{project_name}}**:
+## Dynamic Parameters
 
-```
-{{proposed_solution}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-Constraints:
-```
-{{constraints}}
-```
+## Execution Protocol
 
-Analyze across four dimensions:
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/validate-feasibility/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-1. **Technical Feasibility**
-   - Can this be built with Firebase + HTML/CSS/JS + Angular/React?
-   - Are there Firebase service limits that could block this? (Firestore document size 1MB, 1 write/sec per document, etc.)
-   - Are required third-party APIs available and reliable?
-   - What is the team's skill gap (if any)?
+### Phase 2: Execute
+- **Lead** (`requirements-analyst`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-2. **Financial Feasibility**
-   - Estimate Firebase costs at 100, 1K, 10K, and 100K monthly active users
-   - Estimate development effort in person-weeks
-   - Hostinger hosting tier required
-   - Total cost of ownership over 12 months
+### Phase 3: Review
+- **Support** (`domain-modeler`) reviews for:
+  - business viability and stakeholder alignment
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-3. **Operational Feasibility**
-   - Can the team maintain this post-launch?
-   - What monitoring and alerting is needed?
-   - What is the support burden?
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-4. **Schedule Feasibility**
-   - Can this be delivered by **{{deadline}}**?
-   - What is the minimum viable scope that fits the deadline?
-   - Critical path activities
+## Output Contract
 
-5. **Go / No-Go Recommendation** — Provide a clear verdict with conditions.
-
-## Expected Output
-
-- Feasibility assessment document with RAG status (Red/Amber/Green) per dimension
-- Firebase cost projection table
-- Effort estimate in person-weeks
-- Go/No-Go verdict with conditions
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "CustomerPortal" |
-| `{{proposed_solution}}` | Description of the proposed solution | "A real-time dashboard using…" |
-| `{{constraints}}` | Budget, timeline, team, and tech constraints | "Budget: $5K, Team: 2 devs…" |
-| `{{deadline}}` | Target delivery date | "2026-06-30" |
+**Delivers**: Validates technical, financial, and operational feasibility of a proposed solution against constraints
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

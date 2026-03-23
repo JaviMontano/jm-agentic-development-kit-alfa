@@ -1,75 +1,68 @@
 ---
 name: design-pwa
 category: architecture
+version: 2.0.0
 description: "Designs Progressive Web App architecture including service worker, manifest, caching strategy, and install experience"
-agents: ["pwa-architect", "frontend-architect"]
-skills: ["pwa-design", "service-worker"]
+triad:
+  lead: "architecture-designer"
+  support: "security-architect"
+  guardian: "quality-guardian"
+skills: ["design-pwa"]
+output-formats: ["html", "md"]
 ---
 
-# Design PWA
+# Designpwa
 
-## Context
+> Designs Progressive Web App architecture including service worker, manifest, caching strategy, and install experience
 
-You are the `pwa-architect` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `architecture-designer` | Produces the primary deliverable |
+| Support | `security-architect` | Reviews for security and scalability |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Design the PWA architecture for **{{project_name}}**:
+## Dynamic Parameters
 
-1. **Web App Manifest** — Complete `manifest.json`:
-   - App name, short_name, description
-   - Icons (192x192, 512x512, maskable)
-   - Theme color, background color
-   - Display mode (standalone, fullscreen)
-   - Start URL, scope
-   - Screenshots for install prompt
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **Service Worker Strategy** — Caching strategies per resource type:
-   | Resource | Strategy | Max Age | Fallback |
-   |----------|----------|---------|----------|
-   | HTML shell | Cache First | 1 day | offline.html |
-   | CSS/JS | Stale While Revalidate | 1 week | - |
-   | Images | Cache First | 30 days | placeholder |
-   | API (Firestore) | Network First | - | cached data |
-   | Fonts | Cache First | 1 year | system font |
+## Execution Protocol
 
-3. **Offline Experience** — What works offline:
-   - Cached pages and data
-   - Offline indicator UI
-   - Queue for pending writes (sync with Firestore when back online)
-   - Firestore offline persistence configuration
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/design-pwa/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **Install Experience** — Custom install prompt:
-   - When to show (after N visits or specific action)
-   - Dismiss handling
-   - Platform-specific instructions (iOS Safari, Android Chrome)
+### Phase 2: Execute
+- **Lead** (`architecture-designer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-5. **Push Notifications** — Firebase Cloud Messaging setup:
-   - Permission request timing
-   - Notification payload structure
-   - Background vs foreground handling
-   - Topic subscriptions
+### Phase 3: Review
+- **Support** (`security-architect`) reviews for:
+  - security and scalability
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-6. **Update Strategy** — How to handle new versions:
-   - Skip waiting pattern
-   - User prompt for update
-   - Cache busting strategy
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-7. **Lighthouse PWA Checklist** — Ensure all criteria pass.
+## Output Contract
 
-## Expected Output
-
-- Complete manifest.json
-- Service worker code (sw.js)
-- Caching strategy configuration
-- Offline page HTML
-- FCM integration code
-- Lighthouse PWA checklist
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "FieldServiceApp" |
-| `{{offline_features}}` | Features that must work offline | "View tasks, submit reports" |
+**Delivers**: Designs Progressive Web App architecture including service worker, manifest, caching strategy, and install experience
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

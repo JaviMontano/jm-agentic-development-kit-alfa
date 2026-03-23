@@ -1,91 +1,68 @@
 ---
 name: create-table
 category: development
+version: 2.0.0
 description: "Creates a data table component with sorting, filtering, pagination, and Firestore data source integration"
-agents: ["table-developer", "data-display-developer"]
-skills: ["data-table", "pagination"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["create-table"]
+output-formats: ["html", "md"]
 ---
 
-# Create Data Table
+# Createtable
 
-## Context
+> Creates a data table component with sorting, filtering, pagination, and Firestore data source integration
 
-You are the `table-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Create a data table for **{{project_name}}** displaying **{{data_entity}}** data:
+## Dynamic Parameters
 
-Columns:
-```
-{{columns}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Table Structure** — Semantic HTML table:
-   ```html
-   <table>
-     <thead><tr><th scope="col">...</th></tr></thead>
-     <tbody><tr><td>...</td></tr></tbody>
-   </table>
-   ```
-   - Caption for screen readers
-   - Responsive: horizontal scroll or card layout on mobile
+## Execution Protocol
 
-2. **Sorting** — Column sorting:
-   - Click header to sort (asc → desc → none)
-   - Sort indicator (arrow icon)
-   - aria-sort attribute
-   - Firestore orderBy integration
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/create-table/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Filtering** — Data filtering:
-   - Search input (debounced, 300ms)
-   - Column-specific filters
-   - Active filter indicators
-   - Clear all filters button
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Pagination** — Cursor-based pagination:
-   ```javascript
-   // Firestore cursor pagination
-   const nextPage = query(
-     collection(db, '{{collection}}'),
-     orderBy('createdAt'),
-     startAfter(lastDoc),
-     limit(pageSize)
-   );
-   ```
-   - Page size selector (10, 25, 50)
-   - Previous/Next buttons
-   - Current page indicator
-   - Total count display
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Row Actions** — Per-row operations:
-   - View, Edit, Delete buttons
-   - Row click to expand/navigate
-   - Bulk selection (checkboxes)
-   - Bulk actions (delete selected, export selected)
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Loading States** — Skeleton rows during fetch.
+## Output Contract
 
-7. **Empty State** — No data message with illustration.
-
-8. **Export** — Download as CSV.
-
-## Expected Output
-
-- Table component code
-- Sorting logic
-- Firestore pagination service
-- Filter components
-- CSS (responsive)
-- Export utility
-- Usage examples
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "UserAdmin" |
-| `{{data_entity}}` | What data the table shows | "Users" |
-| `{{columns}}` | Column definitions | "Name (sortable), Email (sortable), Role (filterable), Created (sortable), Actions" |
-| `{{collection}}` | Firestore collection | "users" |
+**Delivers**: Creates a data table component with sorting, filtering, pagination, and Firestore data source integration
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

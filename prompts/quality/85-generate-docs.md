@@ -1,96 +1,68 @@
 ---
 name: generate-docs
 category: quality
+version: 2.0.0
 description: "Generates project documentation including API docs, component docs, setup guides, and architecture overview"
-agents: ["docs-generator", "technical-writer"]
-skills: ["documentation", "api-docs"]
+triad:
+  lead: "quality-engineer"
+  support: "code-reviewer"
+  guardian: "quality-guardian"
+skills: ["generate-docs"]
+output-formats: ["html", "md"]
 ---
 
-# Generate Documentation
+# Generatedocs
 
-## Context
+> Generates project documentation including API docs, component docs, setup guides, and architecture overview
 
-You are the `docs-generator` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `quality-engineer` | Produces the primary deliverable |
+| Support | `code-reviewer` | Reviews for completeness and edge cases |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Generate documentation for **{{project_name}}**:
+## Dynamic Parameters
 
-Documentation type: **{{doc_type}}**
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-Source material:
-```
-{{source_material}}
-```
+## Execution Protocol
 
-1. **API Documentation** — For each function/endpoint:
-   ```
-   ### functionName(param1, param2)
-   Description of what it does.
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/generate-docs/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-   **Parameters:**
-   | Name | Type | Required | Description |
-   |------|------|----------|-------------|
+### Phase 2: Execute
+- **Lead** (`quality-engineer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-   **Returns:** `Promise<ReturnType>`
+### Phase 3: Review
+- **Support** (`code-reviewer`) reviews for:
+  - completeness and edge cases
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-   **Throws:** `ErrorType` when condition
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-   **Example:**
-   ```javascript
-   const result = await functionName('value');
-   ```
-   ```
+## Output Contract
 
-2. **Component Documentation** — For each component:
-   - Description and purpose
-   - Props/Inputs table
-   - Events/Outputs table
-   - Slots/Content projection
-   - Usage examples (3+ scenarios)
-   - Accessibility notes
-
-3. **Setup Guide** — Getting started:
-   - Prerequisites
-   - Installation steps
-   - Environment configuration
-   - Firebase project setup
-   - Running locally (with emulators)
-   - Deployment
-
-4. **Architecture Overview** — System documentation:
-   - Architecture diagram (Mermaid)
-   - Technology stack rationale
-   - Folder structure explanation
-   - Data flow description
-   - Firebase services used
-
-5. **Contributing Guide** — For team members:
-   - Code style and conventions
-   - Branch naming convention
-   - Commit message format
-   - PR review process
-   - Testing requirements
-
-6. **Troubleshooting** — Common issues:
-   | Problem | Cause | Solution |
-   |---------|-------|----------|
-
-## Expected Output
-
-- Documentation files in requested format
-- API reference
-- Component catalog
-- Setup guide
-- Architecture document
-- Contributing guide
-- Troubleshooting guide
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "PlatformSDK" |
-| `{{doc_type}}` | Type of documentation | "api", "components", "setup", "architecture" |
-| `{{source_material}}` | Code or specs to document | "export function createUser(data) {…}" |
+**Delivers**: Generates project documentation including API docs, component docs, setup guides, and architecture overview
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

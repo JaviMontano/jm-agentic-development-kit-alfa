@@ -1,89 +1,68 @@
 ---
 name: configure-domain
 category: deployment
+version: 2.0.0
 description: "Configures custom domain with DNS records, SSL, redirects, and email for Firebase Hosting or Hostinger"
-agents: ["domain-engineer", "dns-specialist"]
-skills: ["domain-configuration", "dns-management"]
+triad:
+  lead: "deployment-specialist"
+  support: "security-scanner"
+  guardian: "quality-guardian"
+skills: ["configure-domain"]
+output-formats: ["html", "md"]
 ---
 
-# Configure Domain
+# Configuredomain
 
-## Context
+> Configures custom domain with DNS records, SSL, redirects, and email for Firebase Hosting or Hostinger
 
-You are the `domain-engineer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `deployment-specialist` | Produces the primary deliverable |
+| Support | `security-scanner` | Reviews for security and rollback |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Configure the domain **{{domain}}** for **{{project_name}}**:
+## Dynamic Parameters
 
-Hosting: {{hosting_provider}}
-Registrar: {{registrar}}
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **DNS Records** — Required records:
-   | Type | Name | Value | TTL | Purpose |
-   |------|------|-------|-----|---------|
-   | A | @ | (hosting IP) | 3600 | Root domain |
-   | CNAME | www | (hosting CNAME) | 3600 | WWW subdomain |
-   | TXT | @ | firebase-verification | 3600 | Ownership verification |
-   | MX | @ | (mail server) | 3600 | Email |
+## Execution Protocol
 
-2. **Firebase Hosting Domain Setup**:
-   ```bash
-   # Add custom domain in Firebase Console
-   # Firebase provides TXT and A records
-   # Wait for SSL provisioning (can take 24-48h)
-   ```
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/configure-domain/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Hostinger Domain Setup**:
-   - Point nameservers OR add A/CNAME records
-   - Configure in hPanel
+### Phase 2: Execute
+- **Lead** (`deployment-specialist`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Redirects**:
-   - www → non-www (or vice versa) — pick one canonical
-   - HTTP → HTTPS (force SSL)
-   - Old URLs → new URLs (301 redirects)
+### Phase 3: Review
+- **Support** (`security-scanner`) reviews for:
+  - security and rollback
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **SSL Certificate**:
-   - Firebase: Automatic provisioning
-   - Hostinger: Auto-SSL (Let's Encrypt)
-   - HSTS configuration
-   - Mixed content prevention
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Email Configuration** — If using domain email:
-   - MX records for email provider
-   - SPF record (TXT)
-   - DKIM record (TXT)
-   - DMARC record (TXT)
+## Output Contract
 
-7. **Subdomain Strategy**:
-   - `www.{{domain}}` → main site
-   - `app.{{domain}}` → web app (if separate)
-   - `api.{{domain}}` → Cloud Functions (if needed)
-
-8. **Verification**:
-   - [ ] Domain resolves to correct server
-   - [ ] SSL certificate valid and trusted
-   - [ ] WWW redirect working
-   - [ ] HTTP → HTTPS redirect working
-   - [ ] Email deliverability (if configured)
-   - [ ] DNS propagation complete
-
-## Expected Output
-
-- Complete DNS record table
-- Step-by-step configuration guide
-- SSL verification procedure
-- Email DNS records
-- Redirect configuration
-- Verification checklist
-- Troubleshooting guide
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "BusinessSite" |
-| `{{domain}}` | Domain name | "example.com" |
-| `{{hosting_provider}}` | Where the site is hosted | "firebase" or "hostinger" |
-| `{{registrar}}` | Domain registrar | "Namecheap", "GoDaddy", "Hostinger" |
+**Delivers**: Configures custom domain with DNS records, SSL, redirects, and email for Firebase Hosting or Hostinger
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

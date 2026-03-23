@@ -1,72 +1,68 @@
 ---
 name: search-skills
 category: meta
+version: 2.0.0
 description: "Searches the JM-ADK skill catalog to find the most relevant skills for a given task or requirement"
-agents: ["skill-router", "meta-orchestrator"]
-skills: ["skill-search", "catalog-navigation"]
+triad:
+  lead: "adk-orchestrator"
+  support: "integrity-validator"
+  guardian: "quality-guardian"
+skills: ["search-skills"]
+output-formats: ["html", "md"]
 ---
 
-# Search Skills
+# Searchskills
 
-## Context
+> Searches the JM-ADK skill catalog to find the most relevant skills for a given task or requirement
 
-You are the `skill-router` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `adk-orchestrator` | Produces the primary deliverable |
+| Support | `integrity-validator` | Reviews for consistency and constitutional compliance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Search the JM-ADK skill catalog for skills matching this need:
+## Dynamic Parameters
 
-**User request:**
-```
-{{user_request}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Intent Classification** — What is the user trying to accomplish?
-   - Category: {{discovery|architecture|development|quality|deployment|meta}}
-   - Action type: analyze, design, create, validate, deploy, optimize
-   - Complexity: simple (1 skill), moderate (2-3 skills), complex (pipeline)
+## Execution Protocol
 
-2. **Skill Search** — Search across all 101 skills:
-   - Exact match by name
-   - Keyword match in description
-   - Category match
-   - Tag match
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/search-skills/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Relevance Ranking** — Score each matching skill:
-   | Rank | Skill | Category | Match Score | Why |
-   |------|-------|----------|-------------|-----|
-   | 1 | | | 95% | |
-   | 2 | | | 80% | |
-   | 3 | | | 65% | |
+### Phase 2: Execute
+- **Lead** (`adk-orchestrator`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Recommended Pipeline** — If the task requires multiple skills:
-   ```
-   Step 1: [skill-name] — Purpose
-   Step 2: [skill-name] — Purpose (depends on Step 1 output)
-   Step 3: [skill-name] — Purpose
-   ```
+### Phase 3: Review
+- **Support** (`integrity-validator`) reviews for:
+  - consistency and constitutional compliance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Agents Involved** — Which agents should execute:
-   - Primary agent
-   - Supporting agents
-   - Handoff points
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Alternative Approaches** — If no exact match:
-   - Closest available skill
-   - Combination of skills that achieves the goal
-   - Custom prompt suggestion
+## Output Contract
 
-## Expected Output
-
-- Ranked skill list with match scores
-- Recommended skill pipeline
-- Agent assignment
-- Estimated effort
-- Alternative approaches
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{user_request}}` | What the user wants to accomplish | "I need to add real-time chat to my app" |
+**Delivers**: Searches the JM-ADK skill catalog to find the most relevant skills for a given task or requirement
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

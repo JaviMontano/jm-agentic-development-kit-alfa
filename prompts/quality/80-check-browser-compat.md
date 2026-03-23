@@ -1,92 +1,68 @@
 ---
 name: check-browser-compat
 category: quality
+version: 2.0.0
 description: "Checks browser compatibility for CSS features, JavaScript APIs, and Web APIs against target browser matrix"
-agents: ["compat-checker", "frontend-qa"]
-skills: ["browser-compatibility", "polyfill-planning"]
+triad:
+  lead: "quality-engineer"
+  support: "code-reviewer"
+  guardian: "quality-guardian"
+skills: ["check-browser-compat"]
+output-formats: ["html", "md"]
 ---
 
-# Check Browser Compatibility
+# Checkbrowser Compat
 
-## Context
+> Checks browser compatibility for CSS features, JavaScript APIs, and Web APIs against target browser matrix
 
-You are the `compat-checker` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `quality-engineer` | Produces the primary deliverable |
+| Support | `code-reviewer` | Reviews for completeness and edge cases |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Check browser compatibility for **{{project_name}}**:
+## Dynamic Parameters
 
-Target browsers: {{target_browsers}}
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-Codebase features to check:
-```
-{{features_used}}
-```
+## Execution Protocol
 
-1. **CSS Feature Compatibility**:
-   | Feature | Chrome | Firefox | Safari | Edge | iOS Safari | Status |
-   |---------|--------|---------|--------|------|------------|--------|
-   - CSS Grid / Subgrid
-   - CSS Custom Properties
-   - CSS Container Queries
-   - CSS :has() selector
-   - CSS aspect-ratio
-   - backdrop-filter
-   - Scroll snap
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/check-browser-compat/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-2. **JavaScript API Compatibility**:
-   | API | Chrome | Firefox | Safari | Edge | Polyfill |
-   |-----|--------|---------|--------|------|----------|
-   - Optional chaining (?.)
-   - Nullish coalescing (??)
-   - Intersection Observer
-   - ResizeObserver
-   - Structured Clone
-   - Top-level await
+### Phase 2: Execute
+- **Lead** (`quality-engineer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-3. **Web API Compatibility**:
-   - Service Workers
-   - Web Push API
-   - Web Share API
-   - Geolocation API
-   - IndexedDB
-   - WebSockets
+### Phase 3: Review
+- **Support** (`code-reviewer`) reviews for:
+  - completeness and edge cases
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-4. **Polyfill Plan** — For unsupported features:
-   - Polyfill library (core-js, unfetch)
-   - Ponyfill vs polyfill decision
-   - Bundle size impact of polyfills
-   - Feature detection with fallback
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-5. **CSS Fallback Strategy**:
-   ```css
-   /* Fallback for older browsers */
-   .grid { display: flex; flex-wrap: wrap; }
-   /* Modern browsers */
-   @supports (display: grid) {
-     .grid { display: grid; grid-template-columns: repeat(3, 1fr); }
-   }
-   ```
+## Output Contract
 
-6. **Testing Plan** — Browser testing matrix:
-   - Manual testing checklist per browser
-   - BrowserStack/Sauce Labs configuration
-   - Key flows to test in each browser
-
-## Expected Output
-
-- CSS compatibility matrix
-- JS API compatibility matrix
-- Web API compatibility matrix
-- Polyfill requirements list
-- CSS fallback code examples
-- Browser testing checklist
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "PublicSite" |
-| `{{target_browsers}}` | Browser support targets | "Chrome 90+, Firefox 90+, Safari 15+, Edge 90+" |
-| `{{features_used}}` | Features to check | "CSS Grid, IntersectionObserver, ES2022" |
+**Delivers**: Checks browser compatibility for CSS features, JavaScript APIs, and Web APIs against target browser matrix
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

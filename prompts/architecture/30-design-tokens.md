@@ -1,84 +1,68 @@
 ---
 name: design-tokens
 category: architecture
+version: 2.0.0
 description: "Creates a design token system with color, typography, spacing, and elevation tokens as CSS custom properties"
-agents: ["design-system-architect", "ui-designer"]
-skills: ["design-tokens", "css-custom-properties"]
+triad:
+  lead: "architecture-designer"
+  support: "security-architect"
+  guardian: "quality-guardian"
+skills: ["design-tokens"]
+output-formats: ["html", "md"]
 ---
 
-# Design Tokens
+# Designtokens
 
-## Context
+> Creates a design token system with color, typography, spacing, and elevation tokens as CSS custom properties
 
-You are the `design-system-architect` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `architecture-designer` | Produces the primary deliverable |
+| Support | `security-architect` | Reviews for security and scalability |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Create a design token system for **{{project_name}}** with brand colors **{{brand_colors}}**:
+## Dynamic Parameters
 
-1. **Color Tokens**
-   ```css
-   :root {
-     /* Brand */
-     --color-primary-50: ;  /* lightest */
-     --color-primary-500: ; /* base */
-     --color-primary-900: ; /* darkest */
-     /* Generate full scale: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900 */
-     /* Semantic */
-     --color-success: ;
-     --color-warning: ;
-     --color-error: ;
-     --color-info: ;
-     /* Surface */
-     --color-bg-primary: ;
-     --color-bg-secondary: ;
-     --color-text-primary: ;
-     --color-text-secondary: ;
-   }
-   ```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **Typography Tokens**
-   ```css
-   :root {
-     --font-family-sans: ;
-     --font-family-mono: ;
-     --fs-xs: ; --fs-sm: ; --fs-base: ; --fs-lg: ; --fs-xl: ;
-     --fw-regular: 400; --fw-medium: 500; --fw-bold: 700;
-     --lh-tight: 1.25; --lh-normal: 1.5; --lh-relaxed: 1.75;
-   }
-   ```
+## Execution Protocol
 
-3. **Spacing Tokens** — Based on a {{spacing_base}}px base:
-   ```css
-   :root {
-     --space-1: 4px; --space-2: 8px; /* ... */ --space-16: 64px;
-   }
-   ```
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/design-tokens/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **Border & Radius Tokens**
-5. **Shadow/Elevation Tokens** — 5 levels
-6. **Motion Tokens** — Duration and easing curves
-7. **Z-Index Scale** — Systematic layering
+### Phase 2: Execute
+- **Lead** (`architecture-designer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-8. **Dark Mode Tokens** — Override surface and text colors:
-   ```css
-   [data-theme="dark"] { /* overrides */ }
-   ```
+### Phase 3: Review
+- **Support** (`security-architect`) reviews for:
+  - security and scalability
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-9. **Token Documentation** — Usage guidelines for each token category.
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-## Expected Output
+## Output Contract
 
-- Complete CSS custom properties file
-- Dark mode overrides
-- Token usage guide
-- Figma-compatible token structure (JSON)
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "BrandApp" |
-| `{{brand_colors}}` | Primary and secondary brand colors | "#2563EB, #10B981" |
-| `{{spacing_base}}` | Base spacing unit in px | "4" |
+**Delivers**: Creates a design token system with color, typography, spacing, and elevation tokens as CSS custom properties
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

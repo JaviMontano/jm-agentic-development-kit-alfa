@@ -1,91 +1,68 @@
 ---
 name: generate-changelog
 category: quality
+version: 2.0.0
 description: "Generates a structured changelog from git commits using Conventional Commits format with categorized entries"
-agents: ["changelog-generator", "release-manager"]
-skills: ["changelog-generation", "semantic-versioning"]
+triad:
+  lead: "quality-engineer"
+  support: "code-reviewer"
+  guardian: "quality-guardian"
+skills: ["generate-changelog"]
+output-formats: ["html", "md"]
 ---
 
-# Generate Changelog
+# Generatechangelog
 
-## Context
+> Generates a structured changelog from git commits using Conventional Commits format with categorized entries
 
-You are the `changelog-generator` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `quality-engineer` | Produces the primary deliverable |
+| Support | `code-reviewer` | Reviews for completeness and edge cases |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Generate a changelog for **{{project_name}}** version **{{version}}**:
+## Dynamic Parameters
 
-Git log:
-```
-{{git_log}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Parse Commits** — Extract from Conventional Commits format:
-   - `feat:` → Features
-   - `fix:` → Bug Fixes
-   - `perf:` → Performance
-   - `docs:` → Documentation
-   - `refactor:` → Code Refactoring
-   - `test:` → Tests
-   - `chore:` → Maintenance
-   - `BREAKING CHANGE:` → Breaking Changes
+## Execution Protocol
 
-2. **Changelog Format**:
-   ```markdown
-   # Changelog
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/generate-changelog/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-   ## [{{version}}] - {{date}}
+### Phase 2: Execute
+- **Lead** (`quality-engineer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-   ### Breaking Changes
-   - **auth**: Removed legacy login endpoint ([#123](link))
+### Phase 3: Review
+- **Support** (`code-reviewer`) reviews for:
+  - completeness and edge cases
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-   ### Features
-   - **dashboard**: Added real-time KPI cards ([#456](link))
-   - **search**: Implemented full-text search with Algolia ([#789](link))
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-   ### Bug Fixes
-   - **forms**: Fixed validation not triggering on blur ([#101](link))
+## Output Contract
 
-   ### Performance
-   - **images**: Implemented lazy loading for gallery ([#202](link))
-
-   ### Documentation
-   - Updated API reference for v2 endpoints
-
-   ### Maintenance
-   - Upgraded Firebase SDK to v10.x
-   ```
-
-3. **Version Determination** — Based on changes:
-   - BREAKING CHANGE → Major version bump
-   - feat → Minor version bump
-   - fix → Patch version bump
-
-4. **Migration Guide** — If breaking changes:
-   - What changed
-   - Why it changed
-   - How to migrate (code examples)
-
-5. **Statistics**:
-   - Total commits
-   - Contributors
-   - Files changed
-   - Lines added/removed
-
-## Expected Output
-
-- Formatted CHANGELOG.md content
-- Version recommendation (semver)
-- Migration guide (if breaking changes)
-- Commit statistics
-- Release notes (user-facing summary)
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "MyApp" |
-| `{{version}}` | Version number | "2.1.0" |
-| `{{git_log}}` | Git log output | "feat(auth): add Google sign-in…" |
+**Delivers**: Generates a structured changelog from git commits using Conventional Commits format with categorized entries
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

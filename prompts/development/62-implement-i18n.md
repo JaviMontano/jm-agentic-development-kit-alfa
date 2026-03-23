@@ -1,91 +1,68 @@
 ---
 name: implement-i18n
 category: development
+version: 2.0.0
 description: "Implements internationalization with language detection, translation files, RTL support, and locale-aware formatting"
-agents: ["i18n-developer", "frontend-developer"]
-skills: ["internationalization", "localization"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["implement-i18n"]
+output-formats: ["html", "md"]
 ---
 
-# Implement Internationalization
+# Implementi18n
 
-## Context
+> Implements internationalization with language detection, translation files, RTL support, and locale-aware formatting
 
-You are the `i18n-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Implement i18n for **{{project_name}}** supporting **{{languages}}**:
+## Dynamic Parameters
 
-1. **Translation Files** — JSON structure:
-   ```json
-   // en.json
-   {
-     "common": {
-       "save": "Save",
-       "cancel": "Cancel",
-       "loading": "Loading..."
-     },
-     "auth": {
-       "login": "Log In",
-       "register": "Create Account"
-     }
-   }
-   ```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **i18n Service** — Translation engine:
-   ```javascript
-   class I18n {
-     constructor(locale, translations) { ... }
-     t(key, params = {}) { ... }  // Get translation with interpolation
-     setLocale(locale) { ... }     // Switch language
-     getLocale() { ... }
-   }
-   ```
-   - Key-based lookups with dot notation
-   - Interpolation: `t('greeting', { name: 'John' })` → "Hello, John"
-   - Pluralization: `t('items', { count: 5 })` → "5 items"
-   - Fallback to default language if key missing
+## Execution Protocol
 
-3. **Language Switcher** — UI component:
-   - Dropdown or flag buttons
-   - Persist choice in localStorage
-   - Update `<html lang="...">` attribute
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/implement-i18n/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **Language Detection** — Priority:
-   - URL parameter (?lang=es)
-   - localStorage
-   - Browser navigator.language
-   - Default: {{default_language}}
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-5. **Date/Number Formatting** — Locale-aware:
-   ```javascript
-   new Intl.DateTimeFormat(locale).format(date);
-   new Intl.NumberFormat(locale, { style: 'currency', currency }).format(amount);
-   ```
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-6. **RTL Support** — If supporting RTL languages:
-   - `dir="rtl"` on `<html>`
-   - CSS logical properties (margin-inline-start vs margin-left)
-   - Mirrored layouts
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-7. **Firestore Integration** — Multilingual content:
-   - Content stored with language suffix or subcollections
-   - User language preference in profile
+## Output Contract
 
-## Expected Output
-
-- Translation JSON files per language
-- i18n service with t() function
-- Language switcher component
-- Date/number formatting utilities
-- RTL CSS adjustments
-- Firestore multilingual content strategy
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "GlobalApp" |
-| `{{languages}}` | Languages to support | "en, es, pt, fr" |
-| `{{default_language}}` | Default language | "en" |
+**Delivers**: Implements internationalization with language detection, translation files, RTL support, and locale-aware formatting
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

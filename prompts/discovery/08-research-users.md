@@ -1,57 +1,68 @@
 ---
 name: research-users
 category: discovery
+version: 2.0.0
 description: "Creates user personas, empathy maps, and interview guides based on target audience analysis"
-agents: ["ux-researcher", "persona-designer"]
-skills: ["user-research", "persona-creation"]
+triad:
+  lead: "requirements-analyst"
+  support: "domain-modeler"
+  guardian: "quality-guardian"
+skills: ["research-users"]
+output-formats: ["html", "md"]
 ---
 
-# Research Users
+# Researchusers
 
-## Context
+> Creates user personas, empathy maps, and interview guides based on target audience analysis
 
-You are the `ux-researcher` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `requirements-analyst` | Produces the primary deliverable |
+| Support | `domain-modeler` | Reviews for business viability and stakeholder alignment |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-For **{{project_name}}** targeting **{{target_audience}}**:
+## Dynamic Parameters
 
-1. **User Personas** — Create {{persona_count}} detailed personas. Each includes:
-   - Name, age, occupation, location
-   - Goals and motivations
-   - Frustrations and pain points
-   - Technology comfort level
-   - Quote that captures their mindset
-   - A day-in-the-life scenario relevant to the product
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **Empathy Maps** — For each persona, fill out:
-   - Says / Thinks / Does / Feels
+## Execution Protocol
 
-3. **Jobs-to-be-Done** — Frame the top 3 JTBD for each persona using the format: "When {{situation}}, I want to {{motivation}}, so I can {{outcome}}."
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/research-users/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **User Interview Guide** — Create a 15-question semi-structured interview guide covering:
-   - Current workflow (questions 1-5)
-   - Pain points (questions 6-10)
-   - Desired outcomes (questions 11-15)
+### Phase 2: Execute
+- **Lead** (`requirements-analyst`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-5. **Survey Template** — A 10-question quantitative survey with mix of Likert scale, multiple choice, and open-ended questions.
+### Phase 3: Review
+- **Support** (`domain-modeler`) reviews for:
+  - business viability and stakeholder alignment
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-6. **Accessibility Considerations** — For each persona, note relevant accessibility needs (screen readers, color contrast, motor limitations, etc.).
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-## Expected Output
+## Output Contract
 
-- Persona cards (structured markdown)
-- Empathy map tables
-- JTBD statements
-- Interview guide with probing follow-ups
-- Survey template ready to deploy
-- Accessibility notes per persona
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "HealthTracker" |
-| `{{target_audience}}` | Description of target users | "Diabetic patients aged 40-65" |
-| `{{persona_count}}` | Number of personas to create | "3" |
+**Delivers**: Creates user personas, empathy maps, and interview guides based on target audience analysis
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

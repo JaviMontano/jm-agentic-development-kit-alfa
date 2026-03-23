@@ -1,88 +1,68 @@
 ---
 name: create-email-template
 category: development
+version: 2.0.0
 description: "Creates responsive HTML email templates for transactional emails sent via Firebase Cloud Functions"
-agents: ["email-developer", "template-developer"]
-skills: ["email-templates", "transactional-email"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["create-email-template"]
+output-formats: ["html", "md"]
 ---
 
-# Create Email Template
+# Createemail Template
 
-## Context
+> Creates responsive HTML email templates for transactional emails sent via Firebase Cloud Functions
 
-You are the `email-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Create an email template for **{{email_type}}** in **{{project_name}}**:
+## Dynamic Parameters
 
-1. **HTML Email Template** — Compatible with major email clients:
-   ```html
-   <!DOCTYPE html>
-   <html>
-   <head>
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <!--[if mso]><style>table{border-collapse:collapse;}</style><![endif]-->
-   </head>
-   <body style="margin:0; padding:0; background:#f4f4f4;">
-     <!-- Table-based layout for email client compatibility -->
-   </body>
-   </html>
-   ```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **Design Elements** — Include:
-   - Header with logo
-   - Main content area
-   - Call-to-action button (bulletproof button technique)
-   - Footer with unsubscribe link
-   - Brand colors and typography
+## Execution Protocol
 
-3. **Template Variables** — Handlebars-style placeholders:
-   ```
-   {{userName}}, {{actionUrl}}, {{expirationDate}}
-   ```
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/create-email-template/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **Cloud Function** — Send email via Cloud Function:
-   ```typescript
-   import * as functions from 'firebase-functions';
-   import * as nodemailer from 'nodemailer';
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-   export const send{{EmailType}} = functions.firestore
-     .document('{{trigger_collection}}/{docId}')
-     .onCreate(async (snap) => {
-       // Build email from template
-       // Send via SMTP or SendGrid/Mailgun
-     });
-   ```
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Responsive** — Mobile-friendly:
-   - Stack columns on small screens
-   - Min font-size 14px
-   - CTA button full-width on mobile
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Testing** — Email testing checklist:
-   - Gmail (web, iOS, Android)
-   - Outlook (desktop, web)
-   - Apple Mail
-   - Dark mode rendering
+## Output Contract
 
-7. **Plain Text Version** — Fallback for non-HTML clients.
-
-## Expected Output
-
-- Complete HTML email template
-- Cloud Function to send email
-- Plain text version
-- Template variable documentation
-- Email client compatibility notes
-- Testing checklist
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "SaaSApp" |
-| `{{email_type}}` | Type of email | "welcome", "password-reset", "invoice" |
-| `{{trigger_collection}}` | Firestore collection that triggers email | "mail_queue" |
+**Delivers**: Creates responsive HTML email templates for transactional emails sent via Firebase Cloud Functions
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

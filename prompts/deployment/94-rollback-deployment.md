@@ -1,91 +1,68 @@
 ---
 name: rollback-deployment
 category: deployment
+version: 2.0.0
 description: "Creates a deployment rollback plan with procedures for Firebase Hosting, Cloud Functions, and Firestore rules"
-agents: ["rollback-engineer", "incident-responder"]
-skills: ["rollback-procedures", "incident-response"]
+triad:
+  lead: "deployment-specialist"
+  support: "security-scanner"
+  guardian: "quality-guardian"
+skills: ["rollback-deployment"]
+output-formats: ["html", "md"]
 ---
 
-# Rollback Deployment
+# Rollbackdeployment
 
-## Context
+> Creates a deployment rollback plan with procedures for Firebase Hosting, Cloud Functions, and Firestore rules
 
-You are the `rollback-engineer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `deployment-specialist` | Produces the primary deliverable |
+| Support | `security-scanner` | Reviews for security and rollback |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Create a rollback plan for **{{project_name}}**:
+## Dynamic Parameters
 
-1. **Firebase Hosting Rollback**:
-   ```bash
-   # List previous deployments
-   firebase hosting:channel:list
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-   # Rollback to previous version
-   firebase hosting:clone {{project_id}}:live {{project_id}}:live --version {{previous_version}}
-   ```
-   - Firebase Console → Hosting → Release History → Rollback
+## Execution Protocol
 
-2. **Cloud Functions Rollback**:
-   ```bash
-   # Redeploy previous version from git
-   git checkout {{previous_commit}}
-   cd functions && npm install
-   firebase deploy --only functions
-   ```
-   - Note: No built-in version rollback for Functions
-   - Keep tagged releases in git
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/rollback-deployment/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Firestore Rules Rollback**:
-   ```bash
-   # Restore previous rules from git
-   git checkout {{previous_commit}} -- firestore.rules
-   firebase deploy --only firestore:rules
-   ```
+### Phase 2: Execute
+- **Lead** (`deployment-specialist`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Firestore Data Rollback** — If data was corrupted:
-   ```bash
-   # Import from scheduled backup
-   gcloud firestore import gs://{{backup_bucket}}/{{backup_path}}
-   ```
+### Phase 3: Review
+- **Support** (`security-scanner`) reviews for:
+  - security and rollback
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Rollback Decision Matrix**:
-   | Symptom | Check | Rollback Scope | Priority |
-   |---------|-------|---------------|----------|
-   | Site down | Hosting | Hosting only | P0 |
-   | API errors | Functions logs | Functions only | P0 |
-   | Data access denied | Rules | Firestore rules | P1 |
-   | Wrong data shown | Firestore | Data restore | P1 |
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Rollback Procedure** — Step by step:
-   - Detect issue (monitoring alert or user report)
-   - Assess scope (which service affected)
-   - Communicate (status page, team notification)
-   - Execute rollback (specific to affected service)
-   - Verify fix (smoke tests)
-   - Post-mortem (root cause analysis)
+## Output Contract
 
-7. **Prevention**:
-   - Staged rollouts (preview channels first)
-   - Canary deployments
-   - Automated smoke tests post-deploy
-   - Feature flags for risky features
-
-8. **Runbook** — Copy-paste commands for each scenario.
-
-## Expected Output
-
-- Rollback procedures per service
-- Decision matrix
-- Step-by-step runbook
-- Verification checklist
-- Post-mortem template
-- Prevention recommendations
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "ProdApp" |
-| `{{project_id}}` | Firebase project ID | "my-app-prod" |
+**Delivers**: Creates a deployment rollback plan with procedures for Firebase Hosting, Cloud Functions, and Firestore rules
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

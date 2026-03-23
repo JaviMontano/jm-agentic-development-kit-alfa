@@ -1,102 +1,68 @@
 ---
 name: pre-deploy-checklist
 category: deployment
+version: 2.0.0
 description: "Generates a comprehensive pre-deployment checklist covering code, security, performance, SEO, and operations"
-agents: ["release-manager", "qa-lead"]
-skills: ["release-management", "deployment-readiness"]
+triad:
+  lead: "deployment-specialist"
+  support: "security-scanner"
+  guardian: "quality-guardian"
+skills: ["pre-deploy-checklist"]
+output-formats: ["html", "md"]
 ---
 
-# Pre-Deploy Checklist
+# Predeploy Checklist
 
-## Context
+> Generates a comprehensive pre-deployment checklist covering code, security, performance, SEO, and operations
 
-You are the `release-manager` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `deployment-specialist` | Produces the primary deliverable |
+| Support | `security-scanner` | Reviews for security and rollback |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Generate a pre-deployment checklist for **{{project_name}}** version **{{version}}**:
+## Dynamic Parameters
 
-1. **Code Quality**:
-   - [ ] All lint errors resolved (`npm run lint`)
-   - [ ] No console.log statements in production code
-   - [ ] No debugger statements
-   - [ ] No TODO/FIXME comments for this release
-   - [ ] Code reviewed and approved
-   - [ ] All merge conflicts resolved
-   - [ ] Feature branch merged to main
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **Testing**:
-   - [ ] Unit tests passing (`npm test`)
-   - [ ] E2E tests passing
-   - [ ] Manual testing on staging complete
-   - [ ] Cross-browser testing done (Chrome, Firefox, Safari, Edge)
-   - [ ] Mobile testing done (iOS Safari, Android Chrome)
-   - [ ] Responsive design verified at all breakpoints
+## Execution Protocol
 
-3. **Security**:
-   - [ ] Firestore security rules reviewed and updated
-   - [ ] Storage security rules reviewed
-   - [ ] No API keys/secrets in client code
-   - [ ] Dependencies audited (`npm audit`)
-   - [ ] CORS properly configured
-   - [ ] CSP headers set
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/pre-deploy-checklist/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **Performance**:
-   - [ ] Lighthouse score > 90 (all categories)
-   - [ ] Bundle size within budget
-   - [ ] Images optimized
-   - [ ] Lazy loading implemented
-   - [ ] No memory leaks
+### Phase 2: Execute
+- **Lead** (`deployment-specialist`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-5. **SEO** (if public-facing):
-   - [ ] Meta tags on all pages
-   - [ ] Structured data valid
-   - [ ] sitemap.xml updated
-   - [ ] robots.txt correct
-   - [ ] Canonical URLs set
+### Phase 3: Review
+- **Support** (`security-scanner`) reviews for:
+  - security and rollback
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-6. **Accessibility**:
-   - [ ] axe-core audit clean
-   - [ ] Keyboard navigation tested
-   - [ ] Screen reader tested
-   - [ ] Color contrast verified
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-7. **Firebase**:
-   - [ ] Firestore indexes deployed
-   - [ ] Cloud Functions tested on staging
-   - [ ] Firebase environment config set
-   - [ ] Billing alerts configured
-   - [ ] Backup scheduled
+## Output Contract
 
-8. **Operations**:
-   - [ ] Monitoring configured
-   - [ ] Error tracking active
-   - [ ] Rollback plan documented
-   - [ ] Release notes written
-   - [ ] Stakeholders notified
-   - [ ] Deployment window confirmed
-
-9. **Post-Deploy Verification**:
-   - [ ] Site loads on production URL
-   - [ ] SSL certificate valid
-   - [ ] Auth flows working
-   - [ ] Data reads/writes working
-   - [ ] Email notifications sending
-   - [ ] Analytics tracking
-
-## Expected Output
-
-- Complete pre-deploy checklist (markdown with checkboxes)
-- Go/No-Go decision template
-- Post-deploy smoke test script
-- Stakeholder notification template
-- Release notes template
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "ProductionApp" |
-| `{{version}}` | Version being deployed | "1.0.0" |
-| `{{deploy_date}}` | Planned deployment date | "2026-04-15" |
+**Delivers**: Generates a comprehensive pre-deployment checklist covering code, security, performance, SEO, and operations
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

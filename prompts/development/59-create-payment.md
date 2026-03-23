@@ -1,91 +1,68 @@
 ---
 name: create-payment
 category: development
+version: 2.0.0
 description: "Creates a payment integration with Stripe or PayPal including checkout flow, webhooks, and Firestore order tracking"
-agents: ["payment-developer", "backend-developer"]
-skills: ["payment-integration", "stripe-setup"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["create-payment"]
+output-formats: ["html", "md"]
 ---
 
-# Create Payment Integration
+# Createpayment
 
-## Context
+> Creates a payment integration with Stripe or PayPal including checkout flow, webhooks, and Firestore order tracking
 
-You are the `payment-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Create a payment integration for **{{project_name}}** using **{{payment_provider}}**:
+## Dynamic Parameters
 
-1. **Checkout Flow** — UI and logic:
-   - Product/service selection
-   - Cart summary
-   - Payment form (Stripe Elements or PayPal buttons)
-   - Order review
-   - Payment processing (loading state)
-   - Success/failure page
-   - Email confirmation trigger
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **Cloud Functions** — Server-side payment logic:
-   ```typescript
-   // Create payment intent (Stripe)
-   export const createPaymentIntent = functions.https.onCall(async (data, context) => {
-     if (!context.auth) throw new functions.https.HttpsError('unauthenticated', '...');
-     const paymentIntent = await stripe.paymentIntents.create({
-       amount: data.amount,
-       currency: '{{currency}}',
-       metadata: { userId: context.auth.uid, orderId: data.orderId }
-     });
-     return { clientSecret: paymentIntent.client_secret };
-   });
-   ```
+## Execution Protocol
 
-3. **Webhook Handler** — Process payment events:
-   ```typescript
-   export const stripeWebhook = functions.https.onRequest(async (req, res) => {
-     const sig = req.headers['stripe-signature'];
-     const event = stripe.webhooks.constructEvent(req.rawBody, sig, endpointSecret);
-     // Handle: payment_intent.succeeded, payment_intent.failed, etc.
-   });
-   ```
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/create-payment/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **Firestore Order Schema**:
-   ```json
-   {
-     "userId": "uid",
-     "items": [{ "productId": "...", "quantity": 1, "price": 2999 }],
-     "total": 2999,
-     "currency": "usd",
-     "status": "pending|paid|failed|refunded",
-     "paymentIntentId": "pi_...",
-     "createdAt": "timestamp",
-     "paidAt": "timestamp"
-   }
-   ```
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-5. **Security** — Payment security:
-   - Server-side price calculation (never trust client)
-   - Idempotency keys
-   - Webhook signature verification
-   - PCI compliance (Stripe Elements handles card data)
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-6. **Refund Flow** — Admin-initiated refunds.
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-7. **Testing** — Test mode configuration and test card numbers.
+## Output Contract
 
-## Expected Output
-
-- Checkout page component
-- Payment form component
-- Cloud Functions (createPaymentIntent, webhook handler)
-- Firestore order schema and rules
-- Refund Cloud Function
-- Testing guide with test credentials
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "ShopApp" |
-| `{{payment_provider}}` | Payment provider | "stripe" or "paypal" |
-| `{{currency}}` | Currency code | "usd" |
+**Delivers**: Creates a payment integration with Stripe or PayPal including checkout flow, webhooks, and Firestore order tracking
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

@@ -1,101 +1,68 @@
 ---
 name: session-retrospective
 category: meta
+version: 2.0.0
 description: "Conducts a retrospective analysis of a development session documenting decisions, learnings, and action items"
-agents: ["retrospective-facilitator", "meta-orchestrator"]
-skills: ["retrospective-analysis", "continuous-improvement"]
+triad:
+  lead: "adk-orchestrator"
+  support: "integrity-validator"
+  guardian: "quality-guardian"
+skills: ["session-retrospective"]
+output-formats: ["html", "md"]
 ---
 
-# Session Retrospective
+# Sessionretrospective
 
-## Context
+> Conducts a retrospective analysis of a development session documenting decisions, learnings, and action items
 
-You are the `retrospective-facilitator` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `adk-orchestrator` | Produces the primary deliverable |
+| Support | `integrity-validator` | Reviews for consistency and constitutional compliance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Conduct a retrospective for the session on **{{project_name}}**:
+## Dynamic Parameters
 
-Session context:
-```
-{{session_summary}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Session Summary**:
-   - Date: {{session_date}}
-   - Duration: {{duration}}
-   - Goals set: [list]
-   - Goals achieved: [list]
-   - Goals not achieved: [list with reasons]
+## Execution Protocol
 
-2. **What Went Well** — Celebrate successes:
-   - Technical wins
-   - Process improvements
-   - Collaboration highlights
-   - Tools that worked well
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/session-retrospective/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **What Could Be Improved** — Identify friction:
-   - Technical challenges encountered
-   - Process bottlenecks
-   - Tool limitations
-   - Knowledge gaps
-   - Time estimation accuracy
+### Phase 2: Execute
+- **Lead** (`adk-orchestrator`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Key Decisions Made**:
-   | Decision | Rationale | Confidence | Revisit? |
-   |----------|-----------|------------|----------|
-   - Architecture decisions
-   - Technology choices
-   - Trade-offs accepted
+### Phase 3: Review
+- **Support** (`integrity-validator`) reviews for:
+  - consistency and constitutional compliance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Learnings** — New knowledge gained:
-   - Firebase patterns discovered
-   - Performance insights
-   - Accessibility learnings
-   - Security awareness
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Action Items** — Concrete next steps:
-   | ID | Action | Owner | Priority | Due |
-   |----|--------|-------|----------|-----|
-   - Immediate actions (before next session)
-   - Short-term actions (this sprint)
-   - Long-term actions (backlog)
+## Output Contract
 
-7. **Prompt Effectiveness** — Which JM-ADK prompts were used and their quality:
-   | Prompt | Used | Quality | Improvement Suggestion |
-   |--------|------|---------|----------------------|
-
-8. **Technical Debt** — Debt incurred during the session:
-   - What shortcuts were taken
-   - Why (time pressure, complexity, etc.)
-   - Plan to address
-
-9. **Metrics**:
-   - Lines of code written/modified
-   - Tests added
-   - Issues resolved
-   - Firebase operations used
-
-10. **Next Session Plan** — What to tackle next:
-    - Priority items
-    - Required preparation
-    - Tools/resources needed
-
-## Expected Output
-
-- Session retrospective document
-- Action items list with owners
-- Decision log entries
-- Technical debt register update
-- Next session preparation checklist
-- Lessons learned for future sessions
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "ActiveProject" |
-| `{{session_summary}}` | What was done in this session | "Implemented auth flow, designed database…" |
-| `{{session_date}}` | Date of the session | "2026-03-21" |
-| `{{duration}}` | Session duration | "4 hours" |
+**Delivers**: Conducts a retrospective analysis of a development session documenting decisions, learnings, and action items
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

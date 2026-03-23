@@ -1,105 +1,68 @@
 ---
 name: deploy-hostinger
 category: deployment
+version: 2.0.0
 description: "Guides deployment to Hostinger shared or VPS hosting with FTP/SSH setup, build process, and server configuration"
-agents: ["deployment-engineer", "hostinger-specialist"]
-skills: ["hostinger-deployment", "web-hosting"]
+triad:
+  lead: "deployment-specialist"
+  support: "security-scanner"
+  guardian: "quality-guardian"
+skills: ["deploy-hostinger"]
+output-formats: ["html", "md"]
 ---
 
-# Deploy to Hostinger
+# Deployhostinger
 
-## Context
+> Guides deployment to Hostinger shared or VPS hosting with FTP/SSH setup, build process, and server configuration
 
-You are the `deployment-engineer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `deployment-specialist` | Produces the primary deliverable |
+| Support | `security-scanner` | Reviews for security and rollback |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Deploy **{{project_name}}** to Hostinger:
+## Dynamic Parameters
 
-Hostinger plan: {{hostinger_plan}}
-Domain: {{domain}}
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Build Process** — Prepare production build:
-   ```bash
-   # Framework-specific build
-   npm run build
-   # Output directory: dist/ or build/
-   ```
-   - Minify HTML, CSS, JS
-   - Optimize images
-   - Generate source maps (keep separate)
-   - Environment variable replacement
+## Execution Protocol
 
-2. **Deployment Method** — Choose and configure:
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/deploy-hostinger/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-   **Option A: FTP/SFTP**
-   ```bash
-   # Using lftp for reliable sync
-   lftp -u {{ftp_user}},{{ftp_pass}} {{ftp_host}} -e "
-     mirror -R --delete dist/ public_html/
-     quit
-   "
-   ```
+### Phase 2: Execute
+- **Lead** (`deployment-specialist`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-   **Option B: SSH + Git Pull**
-   ```bash
-   ssh user@server "cd /home/user/public_html && git pull origin main && npm run build"
-   ```
+### Phase 3: Review
+- **Support** (`security-scanner`) reviews for:
+  - security and rollback
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-   **Option C: GitHub Actions (automated)**
-   ```yaml
-   - name: Deploy to Hostinger
-     uses: SamKirkland/FTP-Deploy-Action@v4
-     with:
-       server: ${{ secrets.FTP_HOST }}
-       username: ${{ secrets.FTP_USER }}
-       password: ${{ secrets.FTP_PASS }}
-       local-dir: ./dist/
-   ```
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-3. **Server Configuration** — `.htaccess` for SPA:
-   ```apache
-   RewriteEngine On
-   RewriteBase /
-   RewriteRule ^index\.html$ - [L]
-   RewriteCond %{REQUEST_FILENAME} !-f
-   RewriteCond %{REQUEST_FILENAME} !-d
-   RewriteRule . /index.html [L]
-   ```
+## Output Contract
 
-4. **SSL Setup** — HTTPS configuration:
-   - Hostinger auto-SSL (Let's Encrypt)
-   - Force HTTPS redirect
-   - HSTS header
-
-5. **Performance Configuration**:
-   - Gzip compression
-   - Browser caching headers
-   - CDN setup (Hostinger CDN or Cloudflare)
-
-6. **Post-Deployment Checklist**:
-   - [ ] Site loads on custom domain
-   - [ ] HTTPS working
-   - [ ] SPA routing works (no 404 on refresh)
-   - [ ] Assets loading (images, fonts, icons)
-   - [ ] Firebase SDK connecting successfully
-   - [ ] Forms submitting to Firestore
-   - [ ] Auth flows working
-
-## Expected Output
-
-- Build script
-- Deployment script/workflow
-- .htaccess configuration
-- SSL setup guide
-- Post-deployment checklist
-- Rollback procedure
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "ClientSite" |
-| `{{hostinger_plan}}` | Hostinger plan type | "Premium Shared" |
-| `{{domain}}` | Domain name | "www.example.com" |
+**Delivers**: Guides deployment to Hostinger shared or VPS hosting with FTP/SSH setup, build process, and server configuration
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

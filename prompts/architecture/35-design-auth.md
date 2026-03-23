@@ -1,83 +1,68 @@
 ---
 name: design-auth
 category: architecture
+version: 2.0.0
 description: "Designs the complete authentication and authorization architecture using Firebase Auth with custom claims and Firestore rules"
-agents: ["auth-architect", "security-architect"]
-skills: ["auth-design", "firebase-auth"]
+triad:
+  lead: "architecture-designer"
+  support: "security-architect"
+  guardian: "quality-guardian"
+skills: ["design-auth"]
+output-formats: ["html", "md"]
 ---
 
-# Design Auth Architecture
+# Designauth
 
-## Context
+> Designs the complete authentication and authorization architecture using Firebase Auth with custom claims and Firestore rules
 
-You are the `auth-architect` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `architecture-designer` | Produces the primary deliverable |
+| Support | `security-architect` | Reviews for security and scalability |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Design the authentication and authorization system for **{{project_name}}**:
+## Dynamic Parameters
 
-User roles: {{user_roles}}
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Auth Providers** — Configure Firebase Auth providers:
-   - Email/Password (with email verification)
-   - Google Sign-In
-   - Other providers: {{additional_providers}}
-   - Anonymous auth (if applicable)
+## Execution Protocol
 
-2. **Registration Flow** — Step by step:
-   - Sign-up form fields
-   - Email verification flow
-   - Profile completion
-   - Role assignment (default role, admin assignment)
-   - Welcome email trigger (Cloud Function)
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/design-auth/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Login Flow** — Including:
-   - Multi-provider sign-in
-   - Password reset flow
-   - Account linking (same email, different providers)
-   - Remember me / session persistence
-   - MFA setup (if required)
+### Phase 2: Execute
+- **Lead** (`architecture-designer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Custom Claims** — Role-based access via custom claims:
-   ```typescript
-   // Cloud Function to set claims
-   admin.auth().setCustomUserClaims(uid, { role: 'admin' });
-   ```
-   - Claim structure
-   - How claims are set/updated
-   - How claims propagate to the client
+### Phase 3: Review
+- **Support** (`security-architect`) reviews for:
+  - security and scalability
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Firestore Security Rules** — Role-based rules:
-   ```
-   match /collection/{docId} {
-     allow read: if request.auth != null;
-     allow write: if request.auth.token.role == 'admin';
-   }
-   ```
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Route Guards** — Frontend route protection:
-   - Auth guard (logged in?)
-   - Role guard (correct role?)
-   - Redirect logic
+## Output Contract
 
-7. **Session Management** — Token refresh, session timeout, concurrent sessions.
-
-8. **Security Considerations** — Brute force protection, account enumeration prevention, secure password requirements.
-
-## Expected Output
-
-- Auth provider configuration
-- Registration/login flow diagrams
-- Custom claims schema and Cloud Function code
-- Complete Firestore security rules
-- Route guard implementation code
-- Session management configuration
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "HRPortal" |
-| `{{user_roles}}` | Roles in the system | "admin, manager, employee, guest" |
-| `{{additional_providers}}` | Extra auth providers | "Microsoft, GitHub" |
+**Delivers**: Designs the complete authentication and authorization architecture using Firebase Auth with custom claims and Firestore rules
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

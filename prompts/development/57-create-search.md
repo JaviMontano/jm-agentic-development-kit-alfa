@@ -1,86 +1,68 @@
 ---
 name: create-search
 category: development
+version: 2.0.0
 description: "Creates a search feature with autocomplete, filters, highlighting, and Firestore query optimization"
-agents: ["search-developer", "frontend-developer"]
-skills: ["search-implementation", "firestore-queries"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["create-search"]
+output-formats: ["html", "md"]
 ---
 
-# Create Search
+# Createsearch
 
-## Context
+> Creates a search feature with autocomplete, filters, highlighting, and Firestore query optimization
 
-You are the `search-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Create a search feature for **{{project_name}}** searching **{{searchable_entities}}**:
+## Dynamic Parameters
 
-1. **Search Input** — UI component:
-   - Search icon
-   - Clear button (X) when has text
-   - Debounced input (300ms)
-   - Keyboard shortcut (Cmd/Ctrl + K)
-   - aria-role="search"
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **Autocomplete/Suggestions** — Dropdown results:
-   - Show results as user types (after 2+ characters)
-   - Highlight matching text in results
-   - Keyboard navigation (Up/Down/Enter/Escape)
-   - Category grouping (if multiple entity types)
-   - Recent searches (localStorage)
+## Execution Protocol
 
-3. **Firestore Search Strategy** — Since Firestore lacks full-text search:
-   - **Option A**: Array-contains with keywords array
-     ```javascript
-     // On document write, generate search keywords
-     function generateKeywords(text) {
-       const words = text.toLowerCase().split(' ');
-       // Generate prefixes for each word
-     }
-     ```
-   - **Option B**: Third-party search (Algolia, Typesense)
-   - **Option C**: Cloud Function with in-memory filtering (small datasets)
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/create-search/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **Search Results Page** — Full results display:
-   - Result cards with highlighted matches
-   - Result count
-   - Sort options (relevance, date, name)
-   - Filter sidebar
-   - Pagination
-   - No results state with suggestions
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-5. **Filters** — Refinement options:
-   - Category filter (checkbox)
-   - Date range filter
-   - Status filter
-   - Active filter chips with remove
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-6. **Performance** — Search optimization:
-   - Debounce queries
-   - Cancel previous requests
-   - Cache recent searches
-   - Limit result set
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-7. **Analytics** — Track search behavior:
-   - Search terms (Firebase Analytics)
-   - Zero-result searches
-   - Click-through rate
+## Output Contract
 
-## Expected Output
-
-- Search input component
-- Autocomplete dropdown component
-- Firestore search service with keyword generation
-- Search results page
-- Filter components
-- CSS styles
-- Analytics events
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "KnowledgeBase" |
-| `{{searchable_entities}}` | What can be searched | "Articles, FAQs, Users" |
+**Delivers**: Creates a search feature with autocomplete, filters, highlighting, and Firestore query optimization
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

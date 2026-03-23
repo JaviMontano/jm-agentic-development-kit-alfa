@@ -1,81 +1,68 @@
 ---
 name: create-map
 category: development
+version: 2.0.0
 description: "Creates an interactive map component with markers, clusters, popups, and geolocation using Leaflet or Google Maps"
-agents: ["map-developer", "frontend-developer"]
-skills: ["map-integration", "geolocation"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["create-map"]
+output-formats: ["html", "md"]
 ---
 
-# Create Map
+# Createmap
 
-## Context
+> Creates an interactive map component with markers, clusters, popups, and geolocation using Leaflet or Google Maps
 
-You are the `map-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Create a map component for **{{project_name}}** using **{{map_library}}**:
+## Dynamic Parameters
 
-Map requirements:
-```
-{{map_requirements}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Map Initialization** — Base map setup:
-   ```javascript
-   // Leaflet example
-   const map = L.map('map').setView([{{lat}}, {{lng}}], {{zoom}});
-   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-   ```
+## Execution Protocol
 
-2. **Markers** — Display data points:
-   - Custom marker icons
-   - Marker clusters for dense data
-   - Popup/tooltip on click
-   - Info window content from Firestore
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/create-map/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Firestore Integration** — Load markers from Firestore:
-   - GeoPoint fields for coordinates
-   - Real-time listener for marker updates
-   - Geospatial queries (using geohashing or GeoFirestore)
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **User Interactions**:
-   - Click on map to add marker (if editable)
-   - Search by address (geocoding)
-   - Current location (navigator.geolocation)
-   - Draw regions/polygons (if applicable)
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Responsive** — Full-width on mobile, contained on desktop.
-   - Touch-friendly controls
-   - Resize handling
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Performance** — Map optimizations:
-   - Lazy load map library
-   - Marker clustering for 100+ markers
-   - Viewport-based loading
+## Output Contract
 
-7. **Accessibility** — Map a11y:
-   - Keyboard navigation
-   - Alt text for markers
-   - Non-map fallback (list view)
-
-## Expected Output
-
-- Map component code
-- Marker management logic
-- Firestore geospatial query service
-- CSS for map container
-- Geocoding utility
-- Usage examples
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "StoreLocator" |
-| `{{map_library}}` | Map library | "leaflet" or "google-maps" |
-| `{{map_requirements}}` | What the map shows | "Store locations with address and hours" |
-| `{{lat}}` | Default center latitude | "4.6097" |
-| `{{lng}}` | Default center longitude | "-74.0817" |
-| `{{zoom}}` | Default zoom level | "12" |
+**Delivers**: Creates an interactive map component with markers, clusters, popups, and geolocation using Leaflet or Google Maps
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

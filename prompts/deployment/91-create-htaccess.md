@@ -1,101 +1,68 @@
 ---
 name: create-htaccess
 category: deployment
+version: 2.0.0
 description: "Creates a comprehensive .htaccess file for Apache servers with rewrites, security, caching, and compression"
-agents: ["server-config-engineer", "deployment-engineer"]
-skills: ["htaccess-configuration", "apache-config"]
+triad:
+  lead: "deployment-specialist"
+  support: "security-scanner"
+  guardian: "quality-guardian"
+skills: ["create-htaccess"]
+output-formats: ["html", "md"]
 ---
 
-# Create .htaccess
+# Createhtaccess
 
-## Context
+> Creates a comprehensive .htaccess file for Apache servers with rewrites, security, caching, and compression
 
-You are the `server-config-engineer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `deployment-specialist` | Produces the primary deliverable |
+| Support | `security-scanner` | Reviews for security and rollback |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Create an .htaccess file for **{{project_name}}** deployed on Hostinger (Apache):
+## Dynamic Parameters
 
-1. **SPA Routing** — All routes to index.html:
-   ```apache
-   RewriteEngine On
-   RewriteBase /
-   RewriteRule ^index\.html$ - [L]
-   RewriteCond %{REQUEST_FILENAME} !-f
-   RewriteCond %{REQUEST_FILENAME} !-d
-   RewriteRule . /index.html [L]
-   ```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **HTTPS Redirect**:
-   ```apache
-   RewriteCond %{HTTPS} off
-   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-   ```
+## Execution Protocol
 
-3. **WWW Redirect** (choose one):
-   ```apache
-   # Non-www to www
-   RewriteCond %{HTTP_HOST} !^www\. [NC]
-   RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
-   ```
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/create-htaccess/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **Compression** — Enable gzip:
-   ```apache
-   <IfModule mod_deflate.c>
-     AddOutputFilterByType DEFLATE text/html text/css text/javascript
-     AddOutputFilterByType DEFLATE application/javascript application/json
-     AddOutputFilterByType DEFLATE image/svg+xml
-   </IfModule>
-   ```
+### Phase 2: Execute
+- **Lead** (`deployment-specialist`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-5. **Browser Caching** — Cache headers:
-   ```apache
-   <IfModule mod_expires.c>
-     ExpiresActive On
-     ExpiresByType text/html "access plus 0 seconds"
-     ExpiresByType text/css "access plus 1 year"
-     ExpiresByType application/javascript "access plus 1 year"
-     ExpiresByType image/webp "access plus 1 year"
-     ExpiresByType image/png "access plus 1 year"
-     ExpiresByType font/woff2 "access plus 1 year"
-   </IfModule>
-   ```
+### Phase 3: Review
+- **Support** (`security-scanner`) reviews for:
+  - security and rollback
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-6. **Security Headers**:
-   ```apache
-   Header set X-Content-Type-Options "nosniff"
-   Header set X-Frame-Options "DENY"
-   Header set X-XSS-Protection "1; mode=block"
-   Header set Referrer-Policy "strict-origin-when-cross-origin"
-   Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
-   ```
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-7. **Block Access** — Protect sensitive files:
-   ```apache
-   <FilesMatch "\.(env|json|lock|md|yml|yaml)$">
-     Require all denied
-   </FilesMatch>
-   ```
+## Output Contract
 
-8. **Custom Error Pages**:
-   ```apache
-   ErrorDocument 404 /index.html
-   ErrorDocument 500 /error.html
-   ```
-
-9. **CORS** — If needed for API access.
-
-## Expected Output
-
-- Complete .htaccess file
-- Comments explaining each section
-- Testing checklist
-- Troubleshooting guide (common issues)
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "HostingerSite" |
-| `{{domain_preference}}` | WWW or non-WWW | "www" |
+**Delivers**: Creates a comprehensive .htaccess file for Apache servers with rewrites, security, caching, and compression
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

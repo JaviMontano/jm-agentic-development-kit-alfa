@@ -1,63 +1,68 @@
 ---
 name: amplify-input
 category: discovery
+version: 2.0.0
 description: "Takes a brief user input and expands it into a rich, multi-dimensional specification through 3-pass amplification"
-agents: ["input-amplifier", "meta-analyst"]
-skills: ["input-amplification", "requirement-expansion"]
+triad:
+  lead: "requirements-analyst"
+  support: "domain-modeler"
+  guardian: "quality-guardian"
+skills: ["amplify-input"]
+output-formats: ["html", "md"]
 ---
 
-# Amplify Input
+# Amplifyinput
 
-## Context
+> Takes a brief user input and expands it into a rich, multi-dimensional specification through 3-pass amplification
 
-You are the `input-amplifier` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `requirements-analyst` | Produces the primary deliverable |
+| Support | `domain-modeler` | Reviews for business viability and stakeholder alignment |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Amplify the following input through a 3-pass protocol:
+## Dynamic Parameters
 
-**Raw input:**
-```
-{{raw_input}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-### Pass 1: Literal Interpretation
-- What exactly did the user ask for?
-- Restate in precise technical terms
-- Identify the explicit scope
+## Execution Protocol
 
-### Pass 2: Contextual Expansion
-- What does the user likely ALSO need but did not say?
-- What adjacent concerns should be addressed?
-- What are the implicit quality requirements?
-- What Firebase services does this likely involve?
-- What deployment considerations exist (Hostinger vs Firebase Hosting)?
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/amplify-input/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-### Pass 3: Strategic Elevation
-- How does this fit into a larger system or business goal?
-- What would a senior architect add to this request?
-- What future-proofing should be considered?
-- What would make this truly excellent vs. merely adequate?
+### Phase 2: Execute
+- **Lead** (`requirements-analyst`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-### Synthesis
-Combine all three passes into:
-1. **Amplified Brief** — A rich 2-3 paragraph restatement
-2. **Scope Checklist** — Everything that should be in scope
-3. **Out-of-Scope Boundaries** — What is explicitly NOT included
-4. **Suggested Agents** — Which JM-ADK agents should handle this
-5. **Recommended Prompt Chain** — Sequence of prompts to execute
+### Phase 3: Review
+- **Support** (`domain-modeler`) reviews for:
+  - business viability and stakeholder alignment
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-## Expected Output
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-- 3-pass analysis document
-- Amplified brief
-- Scope checklist
-- Agent and prompt chain recommendation
+## Output Contract
 
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{raw_input}}` | The user's original brief input | "I need a login page" |
-| `{{context}}` | Any additional context available | "Building an e-commerce site" |
+**Delivers**: Takes a brief user input and expands it into a rich, multi-dimensional specification through 3-pass amplification
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

@@ -1,84 +1,68 @@
 ---
 name: design-caching
 category: architecture
+version: 2.0.0
 description: "Designs a multi-layer caching strategy covering browser cache, CDN, Firestore persistence, and application-level caching"
-agents: ["caching-architect", "performance-architect"]
-skills: ["caching-strategy", "cdn-configuration"]
+triad:
+  lead: "architecture-designer"
+  support: "security-architect"
+  guardian: "quality-guardian"
+skills: ["design-caching"]
+output-formats: ["html", "md"]
 ---
 
-# Design Caching Strategy
+# Designcaching
 
-## Context
+> Designs a multi-layer caching strategy covering browser cache, CDN, Firestore persistence, and application-level caching
 
-You are the `caching-architect` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `architecture-designer` | Produces the primary deliverable |
+| Support | `security-architect` | Reviews for security and scalability |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Design the caching strategy for **{{project_name}}**:
+## Dynamic Parameters
 
-1. **Cache Layers** — Define behavior at each layer:
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-   **Layer 1: Browser Cache**
-   - Cache-Control headers per resource type
-   - ETags / Last-Modified
-   - File hashing for cache busting (e.g., `app.[hash].js`)
+## Execution Protocol
 
-   **Layer 2: CDN (Firebase Hosting / Hostinger)**
-   - CDN cache TTL per resource type
-   - Cache invalidation strategy on deploy
-   - Firebase Hosting cache headers configuration
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/design-caching/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-   **Layer 3: Firestore Persistence**
-   - Offline persistence enabled/disabled per platform
-   - Cache size limit configuration
-   - Real-time listener vs. getDoc with cache
+### Phase 2: Execute
+- **Lead** (`architecture-designer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-   **Layer 4: Application Cache**
-   - In-memory cache for computed values
-   - IndexedDB for large datasets
-   - Session storage for ephemeral state
-   - LocalStorage for user preferences
+### Phase 3: Review
+- **Support** (`security-architect`) reviews for:
+  - security and scalability
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-2. **Cache Invalidation Strategy** — For each layer:
-   - When to invalidate
-   - How to invalidate
-   - Fallback if cache miss
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-3. **Firebase Hosting Headers** — Complete firebase.json headers config:
-   ```json
-   {
-     "hosting": {
-       "headers": [
-         {
-           "source": "**/*.@(js|css)",
-           "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
-         }
-       ]
-     }
-   }
-   ```
+## Output Contract
 
-4. **Stale Data Strategy** — How to handle stale data:
-   - Real-time listeners for critical data
-   - Periodic refresh for non-critical data
-   - User-initiated refresh
-   - Visual indicator for stale data
-
-5. **Cost Optimization** — How caching reduces Firebase costs (fewer Firestore reads).
-
-## Expected Output
-
-- Cache layer matrix with TTLs
-- Firebase Hosting headers configuration
-- Firestore persistence configuration code
-- Application caching utility code
-- Cache invalidation procedures
-- Cost savings estimate
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "AnalyticsDashboard" |
-| `{{data_freshness}}` | How fresh data must be | "Near real-time for dashboards, daily for reports" |
+**Delivers**: Designs a multi-layer caching strategy covering browser cache, CDN, Firestore persistence, and application-level caching
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

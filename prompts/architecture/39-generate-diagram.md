@@ -1,92 +1,68 @@
 ---
 name: generate-diagram
 category: architecture
+version: 2.0.0
 description: "Generates architecture diagrams in Mermaid syntax including C4, sequence, flow, ER, and state diagrams"
-agents: ["diagram-generator", "architect"]
-skills: ["mermaid-diagrams", "c4-modeling"]
+triad:
+  lead: "architecture-designer"
+  support: "security-architect"
+  guardian: "quality-guardian"
+skills: ["generate-diagram"]
+output-formats: ["html", "md"]
 ---
 
-# Generate Diagram
+# Generatediagram
 
-## Context
+> Generates architecture diagrams in Mermaid syntax including C4, sequence, flow, ER, and state diagrams
 
-You are the `diagram-generator` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `architecture-designer` | Produces the primary deliverable |
+| Support | `security-architect` | Reviews for security and scalability |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Generate a **{{diagram_type}}** diagram for **{{project_name}}**:
+## Dynamic Parameters
 
-Subject:
-```
-{{subject}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-Supported diagram types and their output:
+## Execution Protocol
 
-### C4 Context Diagram
-```mermaid
-C4Context
-  title System Context Diagram for {{project_name}}
-  Person(user, "User", "Description")
-  System(system, "{{project_name}}", "Description")
-  System_Ext(firebase, "Firebase", "BaaS")
-  Rel(user, system, "Uses")
-  Rel(system, firebase, "Stores data")
-```
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/generate-diagram/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-### Sequence Diagram
-```mermaid
-sequenceDiagram
-  actor User
-  participant App
-  participant Firebase
-  User->>App: Action
-  App->>Firebase: Request
-  Firebase-->>App: Response
-```
+### Phase 2: Execute
+- **Lead** (`architecture-designer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-### Flowchart
-```mermaid
-flowchart TD
-  A[Start] --> B{Decision}
-  B -->|Yes| C[Action]
-  B -->|No| D[Other]
-```
+### Phase 3: Review
+- **Support** (`security-architect`) reviews for:
+  - security and scalability
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-### Entity Relationship
-```mermaid
-erDiagram
-  USER ||--o{ ORDER : places
-  ORDER ||--|{ ITEM : contains
-```
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-### State Diagram
-```mermaid
-stateDiagram-v2
-  [*] --> Draft
-  Draft --> Published: publish
-  Published --> Archived: archive
-```
+## Output Contract
 
-Generate the diagram with:
-1. Proper labels and descriptions
-2. Color coding where supported
-3. Clear relationship labels
-4. Notes for complex interactions
-5. Multiple views if the system is complex
-
-## Expected Output
-
-- Mermaid diagram code block(s)
-- Diagram legend/key
-- Brief description of what the diagram shows
-- Suggestions for additional diagrams that would be useful
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "OrderSystem" |
-| `{{diagram_type}}` | Type of diagram | "sequence" |
-| `{{subject}}` | What to diagram | "User checkout flow" |
+**Delivers**: Generates architecture diagrams in Mermaid syntax including C4, sequence, flow, ER, and state diagrams
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

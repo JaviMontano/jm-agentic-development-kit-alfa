@@ -1,87 +1,68 @@
 ---
 name: threat-model
 category: architecture
+version: 2.0.0
 description: "Performs STRIDE threat modeling identifying attack vectors, vulnerabilities, and countermeasures for the application"
-agents: ["security-architect", "threat-analyst"]
-skills: ["threat-modeling", "security-analysis"]
+triad:
+  lead: "architecture-designer"
+  support: "security-architect"
+  guardian: "quality-guardian"
+skills: ["threat-model"]
+output-formats: ["html", "md"]
 ---
 
-# Threat Model
+# Threatmodel
 
-## Context
+> Performs STRIDE threat modeling identifying attack vectors, vulnerabilities, and countermeasures for the application
 
-You are the `security-architect` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `architecture-designer` | Produces the primary deliverable |
+| Support | `security-architect` | Reviews for security and scalability |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Perform STRIDE threat modeling for **{{project_name}}**:
+## Dynamic Parameters
 
-System description:
-```
-{{system_description}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Asset Inventory** — What are we protecting?
-   - User data (PII, credentials)
-   - Business data
-   - System configuration
-   - API keys and secrets
+## Execution Protocol
 
-2. **Trust Boundaries** — Identify boundaries:
-   - Browser ↔ Firebase Hosting
-   - Client SDK ↔ Firestore
-   - Client SDK ↔ Cloud Functions
-   - Cloud Functions ↔ External APIs
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/threat-model/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **STRIDE Analysis** — For each trust boundary:
-   | Threat | Category | Description | Likelihood | Impact | Risk |
-   |--------|----------|-------------|------------|--------|------|
-   | T-001 | Spoofing | ... | ... | ... | ... |
-   | T-002 | Tampering | ... | ... | ... | ... |
-   | T-003 | Repudiation | ... | ... | ... | ... |
-   | T-004 | Info Disclosure | ... | ... | ... | ... |
-   | T-005 | Denial of Service | ... | ... | ... | ... |
-   | T-006 | Elevation of Privilege | ... | ... | ... | ... |
+### Phase 2: Execute
+- **Lead** (`architecture-designer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Firebase-Specific Threats** — Deep dive:
-   - Insecure Firestore rules (open read/write)
-   - Firebase API key exposure (expected but mitigate abuse)
-   - Cloud Functions injection
-   - Storage bucket misconfiguration
-   - Auth enumeration attacks
+### Phase 3: Review
+- **Support** (`security-architect`) reviews for:
+  - security and scalability
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Countermeasures** — For each threat:
-   - Prevention control
-   - Detection mechanism
-   - Response procedure
-   - Firebase service/config that implements it
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Security Headers** — Required HTTP headers for Firebase Hosting:
-   ```json
-   {
-     "headers": [
-       { "key": "X-Content-Type-Options", "value": "nosniff" },
-       { "key": "X-Frame-Options", "value": "DENY" }
-     ]
-   }
-   ```
+## Output Contract
 
-7. **Penetration Test Plan** — Outline tests to validate countermeasures.
-
-## Expected Output
-
-- Asset inventory
-- Trust boundary diagram (Mermaid)
-- STRIDE threat table
-- Firebase-specific threat analysis
-- Countermeasure matrix
-- Security headers configuration
-- Penetration test checklist
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "FinancePortal" |
-| `{{system_description}}` | Architecture description | "SPA with Firebase Auth, Firestore…" |
+**Delivers**: Performs STRIDE threat modeling identifying attack vectors, vulnerabilities, and countermeasures for the application
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

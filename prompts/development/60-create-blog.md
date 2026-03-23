@@ -1,82 +1,68 @@
 ---
 name: create-blog
 category: development
+version: 2.0.0
 description: "Creates a blog system with article listing, rich text editor, categories, tags, and Firestore storage"
-agents: ["blog-developer", "content-developer"]
-skills: ["blog-system", "rich-text-editor"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["create-blog"]
+output-formats: ["html", "md"]
 ---
 
-# Create Blog System
+# Createblog
 
-## Context
+> Creates a blog system with article listing, rich text editor, categories, tags, and Firestore storage
 
-You are the `blog-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Create a blog system for **{{project_name}}**:
+## Dynamic Parameters
 
-1. **Blog Listing Page** — Article list:
-   - Featured article (hero card)
-   - Article cards (image, title, excerpt, date, author, tags)
-   - Category filter sidebar/tabs
-   - Tag cloud
-   - Pagination (cursor-based from Firestore)
-   - Search articles
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **Article Page** — Single article view:
-   - Title, author, date, read time
-   - Featured image
-   - Rich content rendering (HTML from Firestore)
-   - Table of contents (generated from headings)
-   - Social share buttons
-   - Related articles
-   - Comments section (optional)
-   - SEO: meta tags, structured data (Article schema)
+## Execution Protocol
 
-3. **Admin: Article Editor** — Content management:
-   - Rich text editor (Quill, TinyMCE, or Tiptap)
-   - Title, slug (auto-generated), excerpt
-   - Featured image upload (Firebase Storage)
-   - Category and tag selection
-   - Draft/Published status
-   - Scheduled publishing (publishAt date)
-   - SEO fields (meta title, description)
-   - Auto-save drafts
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/create-blog/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **Firestore Schema**:
-   ```
-   posts/{postId}: {
-     title, slug, excerpt, content (HTML), featuredImage,
-     author: { uid, displayName, photoURL },
-     category, tags[], status (draft|published|archived),
-     publishedAt, createdAt, updatedAt,
-     readTime, viewCount
-   }
-   ```
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-5. **URL Strategy** — SEO-friendly URLs:
-   - `/blog` — listing
-   - `/blog/{{slug}}` — article
-   - `/blog/category/{{category}}` — category filter
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-6. **RSS Feed** — Cloud Function to generate RSS XML.
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-## Expected Output
+## Output Contract
 
-- Blog listing page
-- Article page
-- Admin editor page
-- Firestore CRUD service for posts
-- Firebase Storage integration for images
-- SEO implementation
-- RSS Cloud Function
-- CSS styles
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "CompanyBlog" |
-| `{{editor_library}}` | Rich text editor choice | "quill" |
+**Delivers**: Creates a blog system with article listing, rich text editor, categories, tags, and Firestore storage
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

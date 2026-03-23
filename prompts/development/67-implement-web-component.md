@@ -1,98 +1,68 @@
 ---
 name: implement-web-component
 category: development
+version: 2.0.0
 description: "Creates a native Web Component using Custom Elements, Shadow DOM, and HTML templates for framework-agnostic reuse"
-agents: ["webcomponent-developer", "frontend-developer"]
-skills: ["web-components", "custom-elements"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["implement-web-component"]
+output-formats: ["html", "md"]
 ---
 
-# Implement Web Component
+# Implementweb Component
 
-## Context
+> Creates a native Web Component using Custom Elements, Shadow DOM, and HTML templates for framework-agnostic reuse
 
-You are the `webcomponent-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Create a Web Component **{{component_tag}}** for **{{project_name}}**:
+## Dynamic Parameters
 
-Component purpose:
-```
-{{component_purpose}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Custom Element Definition**:
-   ```javascript
-   class {{ClassName}} extends HTMLElement {
-     static get observedAttributes() { return [{{attributes}}]; }
+## Execution Protocol
 
-     constructor() {
-       super();
-       this.attachShadow({ mode: 'open' });
-     }
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/implement-web-component/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-     connectedCallback() { this.render(); }
-     disconnectedCallback() { /* cleanup */ }
-     attributeChangedCallback(name, oldVal, newVal) { this.render(); }
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-     render() {
-       this.shadowRoot.innerHTML = `
-         <style>${this.styles}</style>
-         ${this.template}
-       `;
-     }
-   }
-   customElements.define('{{component_tag}}', {{ClassName}});
-   ```
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-2. **Shadow DOM Styling** — Encapsulated styles:
-   - CSS custom properties for theming (pierces shadow boundary)
-   - `:host` selector for the element itself
-   - `:host([variant="primary"])` for variants
-   - `::slotted()` for projected content styling
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-3. **Slots** — Content projection:
-   ```html
-   <slot name="header"></slot>
-   <slot></slot> <!-- default slot -->
-   <slot name="footer"></slot>
-   ```
+## Output Contract
 
-4. **Properties & Attributes** — Reflected properties:
-   - String attributes reflected to properties
-   - Boolean attributes
-   - Complex properties (objects/arrays) via JS only
-
-5. **Events** — Custom events:
-   ```javascript
-   this.dispatchEvent(new CustomEvent('{{event_name}}', {
-     detail: { /* payload */ },
-     bubbles: true,
-     composed: true  // crosses shadow boundary
-   }));
-   ```
-
-6. **Framework Integration** — Usage in:
-   - Vanilla HTML
-   - React (event handling caveats)
-   - Angular (CUSTOM_ELEMENTS_SCHEMA)
-
-7. **Testing** — Web component testing with @open-wc/testing.
-
-## Expected Output
-
-- Complete Web Component class
-- CSS with theming support
-- Usage examples in HTML, React, Angular
-- NPM package structure
-- Unit tests
-- Documentation
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "SharedUI" |
-| `{{component_tag}}` | HTML tag name (must have hyphen) | "app-rating-stars" |
-| `{{component_purpose}}` | What the component does | "A star rating input with 1-5 stars" |
+**Delivers**: Creates a native Web Component using Custom Elements, Shadow DOM, and HTML templates for framework-agnostic reuse
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

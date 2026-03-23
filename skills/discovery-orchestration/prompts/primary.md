@@ -1,17 +1,44 @@
 ---
 name: discovery-orchestration-primary
 type: execution
-description: "Execute the primary workflow for Discovery Orchestration."
+version: 2.0.0
+description: "Execute the Discovery Orchestration workflow with triad orchestration."
+triad:
+  lead: "discovery-orchestration-lead"
+  support: "discovery-orchestration-support"
+  guardian: "discovery-orchestration-guardian"
 ---
-# Discovery Orchestration — Primary Prompt
-## Input
-- **Task**: {{task_description}}
-- **Context**: {{context}}
-- **Constraints**: {{constraints}}
+
+# Discovery Orchestration — Execute
+
+## Dynamic Parameters
+
+| Parameter | Description | Required | Filled By |
+|-----------|-------------|----------|-----------|
+| `{{task}}` | What to accomplish | Yes | User input |
+| `{{context}}` | Background and constraints | Yes | User or codebase |
+| `{{constraints}}` | Additional rules | No | Guardrails JSON |
+| `{{depth}}` | quick / standard / deep | No | Auto |
+| `{{output_format}}` | html / docx / xlsx / md | No | Auto |
+
 ## Execution
-1. Discover: gather requirements and context
-2. Analyze: select approach per Constitution XIII/XIV
-3. Execute: implement with evidence tags
-4. Validate: verify quality criteria
+
+1. **Load knowledge**: Read `knowledge/body-of-knowledge.md`
+2. **Check guardrails**: Read `references/guardrails/*.json`
+3. **Lead** (`discovery-orchestration-lead`): Execute SKILL.md Steps 1-4 for `{{task}}`
+   - Discover → Analyze → Execute → Validate
+   - Apply evidence tags on all claims
+4. **Support** (`discovery-orchestration-support`): Review for cross-cutting concerns
+   - Edge cases, security, accessibility, performance
+5. **Guardian** (`discovery-orchestration-guardian`): Validate
+   - Evidence tags complete
+   - Quality gate met
+   - Constitution XIII + XIV respected
+   - Output exceeds expectations
+
 ## Output
-Deliverable with evidence tags and quality gate compliance.
+
+- Primary deliverable for `{{task}}` in `{{output_format}}`
+- Evidence tags on every claim
+- Recommendations beyond the ask
+- Confidence score (>= 0.95)

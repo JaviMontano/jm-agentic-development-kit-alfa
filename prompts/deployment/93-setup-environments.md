@@ -1,111 +1,68 @@
 ---
 name: setup-environments
 category: deployment
+version: 2.0.0
 description: "Sets up development, staging, and production environments with separate Firebase projects and configuration"
-agents: ["environment-engineer", "devops-engineer"]
-skills: ["environment-management", "firebase-projects"]
+triad:
+  lead: "deployment-specialist"
+  support: "security-scanner"
+  guardian: "quality-guardian"
+skills: ["setup-environments"]
+output-formats: ["html", "md"]
 ---
 
-# Setup Environments
+# Setupenvironments
 
-## Context
+> Sets up development, staging, and production environments with separate Firebase projects and configuration
 
-You are the `environment-engineer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `deployment-specialist` | Produces the primary deliverable |
+| Support | `security-scanner` | Reviews for security and rollback |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Setup environments for **{{project_name}}**:
+## Dynamic Parameters
 
-1. **Environment Strategy**:
-   | Environment | Firebase Project | Domain | Purpose |
-   |-------------|-----------------|--------|---------|
-   | Development | {{project_id}}-dev | localhost:5000 | Local development |
-   | Staging | {{project_id}}-staging | staging.{{domain}} | Pre-production testing |
-   | Production | {{project_id}}-prod | {{domain}} | Live users |
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **Firebase Project Setup** — Per environment:
-   ```bash
-   firebase projects:create {{project_id}}-dev
-   firebase projects:create {{project_id}}-staging
-   firebase projects:create {{project_id}}-prod
-   ```
+## Execution Protocol
 
-3. **.firebaserc** — Project aliases:
-   ```json
-   {
-     "projects": {
-       "default": "{{project_id}}-dev",
-       "staging": "{{project_id}}-staging",
-       "production": "{{project_id}}-prod"
-     }
-   }
-   ```
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/setup-environments/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **Environment Variables** — Per environment:
-   ```javascript
-   // src/config/firebase.config.js
-   const config = {
-     development: {
-       apiKey: "...",
-       authDomain: "{{project_id}}-dev.firebaseapp.com",
-       projectId: "{{project_id}}-dev",
-       // ...
-     },
-     staging: { /* ... */ },
-     production: { /* ... */ }
-   };
-   export default config[process.env.NODE_ENV || 'development'];
-   ```
+### Phase 2: Execute
+- **Lead** (`deployment-specialist`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-5. **Environment Files**:
-   ```
-   .env.development
-   .env.staging
-   .env.production
-   .env.example  (template, committed to git)
-   ```
+### Phase 3: Review
+- **Support** (`security-scanner`) reviews for:
+  - security and rollback
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-6. **Build Scripts** — Per environment:
-   ```json
-   {
-     "scripts": {
-       "dev": "vite --mode development",
-       "build:staging": "vite build --mode staging",
-       "build:prod": "vite build --mode production",
-       "deploy:staging": "npm run build:staging && firebase use staging && firebase deploy",
-       "deploy:prod": "npm run build:prod && firebase use production && firebase deploy"
-     }
-   }
-   ```
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-7. **Local Development** — Firebase Emulators:
-   ```bash
-   firebase emulators:start --project {{project_id}}-dev
-   ```
-   - Emulated services: Auth, Firestore, Storage, Functions
-   - Seed data for development
-   - Emulator UI at localhost:4000
+## Output Contract
 
-8. **Data Isolation** — Ensure environments are completely separate:
-   - No cross-environment data access
-   - Different API keys
-   - Different Firestore databases
-
-## Expected Output
-
-- Firebase project creation commands
-- .firebaserc configuration
-- Environment variable files (.env.*)
-- Firebase config per environment
-- Build and deploy scripts
-- Emulator configuration
-- Data seeding scripts
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "MultiEnvApp" |
-| `{{project_id}}` | Base Firebase project ID | "my-app" |
-| `{{domain}}` | Production domain | "app.example.com" |
+**Delivers**: Sets up development, staging, and production environments with separate Firebase projects and configuration
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

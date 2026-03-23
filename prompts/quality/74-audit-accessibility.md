@@ -1,89 +1,68 @@
 ---
 name: audit-accessibility
 category: quality
+version: 2.0.0
 description: "Performs a WCAG 2.1 accessibility audit with automated and manual checks, producing a remediation plan"
-agents: ["a11y-auditor", "quality-analyst"]
-skills: ["accessibility-audit", "wcag-testing"]
+triad:
+  lead: "quality-engineer"
+  support: "code-reviewer"
+  guardian: "quality-guardian"
+skills: ["audit-accessibility"]
+output-formats: ["html", "md"]
 ---
 
-# Audit Accessibility
+# Auditaccessibility
 
-## Context
+> Performs a WCAG 2.1 accessibility audit with automated and manual checks, producing a remediation plan
 
-You are the `a11y-auditor` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `quality-engineer` | Produces the primary deliverable |
+| Support | `code-reviewer` | Reviews for completeness and edge cases |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Perform an accessibility audit of **{{project_name}}** against **{{wcag_level}}**:
+## Dynamic Parameters
 
-Pages to audit:
-```
-{{pages}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Automated Testing** — Run axe-core / Lighthouse accessibility:
-   - List all violations with WCAG criteria reference
-   - Severity: Critical, Serious, Moderate, Minor
-   - Affected elements (CSS selectors)
+## Execution Protocol
 
-2. **Manual Checks** — Per WCAG principle:
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/audit-accessibility/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-   **Perceivable**:
-   - [ ] All images have alt text
-   - [ ] Color contrast meets minimums (4.5:1 text, 3:1 large)
-   - [ ] Content readable without CSS
-   - [ ] Text resizable to 200% without loss
-   - [ ] No info conveyed by color alone
+### Phase 2: Execute
+- **Lead** (`quality-engineer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-   **Operable**:
-   - [ ] All functionality keyboard accessible
-   - [ ] No keyboard traps
-   - [ ] Focus order logical
-   - [ ] Focus indicators visible
-   - [ ] Skip navigation link present
-   - [ ] No content flashes more than 3 times/sec
+### Phase 3: Review
+- **Support** (`code-reviewer`) reviews for:
+  - completeness and edge cases
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-   **Understandable**:
-   - [ ] Language declared (`<html lang>`)
-   - [ ] Form labels present and associated
-   - [ ] Error messages descriptive and linked
-   - [ ] Navigation consistent across pages
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-   **Robust**:
-   - [ ] Valid HTML
-   - [ ] ARIA used correctly
-   - [ ] Custom widgets have proper roles
-   - [ ] Works with screen readers
+## Output Contract
 
-3. **Screen Reader Testing** — Test with:
-   - VoiceOver (Mac/iOS)
-   - Reading order logical
-   - All interactive elements announced correctly
-   - Dynamic content updates announced
-
-4. **Keyboard Testing** — Full keyboard walkthrough:
-   - Tab order document
-   - Trapped focus areas
-   - Missing keyboard access
-
-5. **Remediation Plan** — For each issue:
-   | ID | Issue | WCAG | Severity | Fix | Effort |
-   |----|-------|------|----------|-----|--------|
-
-## Expected Output
-
-- Accessibility audit report with all findings
-- WCAG compliance checklist (pass/fail per criterion)
-- Screen reader testing results
-- Keyboard navigation map
-- Prioritized remediation plan
-- Code fix examples for top issues
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "PublicPortal" |
-| `{{wcag_level}}` | Target WCAG level | "WCAG 2.1 AA" |
-| `{{pages}}` | Pages to audit | "Home, Login, Dashboard, Settings" |
+**Delivers**: Performs a WCAG 2.1 accessibility audit with automated and manual checks, producing a remediation plan
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

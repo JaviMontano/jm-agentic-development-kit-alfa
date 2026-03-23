@@ -1,34 +1,44 @@
 ---
 name: prompt-engineering-primary
 type: execution
-description: "Design a prompt for a given task using the optimal pattern."
+version: 2.0.0
+description: "Execute the Prompt Engineering workflow with triad orchestration."
+triad:
+  lead: "prompt-engineering-lead"
+  support: "prompt-engineering-support"
+  guardian: "prompt-engineering-guardian"
 ---
 
-# Design a Prompt
+# Prompt Engineering — Execute
 
-## Input
-- **Task**: {{task_description}}
-- **Target model**: {{model}} (Claude / Gemini / GPT / Llama)
-- **Output format**: {{format}} (text / JSON / markdown / code)
-- **Constraints**: {{constraints}}
+## Dynamic Parameters
+
+| Parameter | Description | Required | Filled By |
+|-----------|-------------|----------|-----------|
+| `{{task}}` | What to accomplish | Yes | User input |
+| `{{context}}` | Background and constraints | Yes | User or codebase |
+| `{{constraints}}` | Additional rules | No | Guardrails JSON |
+| `{{depth}}` | quick / standard / deep | No | Auto |
+| `{{output_format}}` | html / docx / xlsx / md | No | Auto |
 
 ## Execution
 
-1. Classify the task complexity (simple / reasoning / creative / multi-step)
-2. Select pattern from knowledge graph (zero-shot / few-shot / CoT / system / meta)
-3. Write prompt using RCTF structure:
-   - Role: define the persona
-   - Context: provide relevant background
-   - Task: state what to do clearly
-   - Format: specify output structure
-4. Add guardrails (output limits, safety filters, refusal patterns)
-5. Test with 3 diverse inputs
-6. Score: accuracy, consistency, format compliance
+1. **Load knowledge**: Read `knowledge/body-of-knowledge.md`
+2. **Check guardrails**: Read `references/guardrails/*.json`
+3. **Lead** (`prompt-engineering-lead`): Execute SKILL.md Steps 1-4 for `{{task}}`
+   - Discover → Analyze → Execute → Validate
+   - Apply evidence tags on all claims
+4. **Support** (`prompt-engineering-support`): Review for cross-cutting concerns
+   - Edge cases, security, accessibility, performance
+5. **Guardian** (`prompt-engineering-guardian`): Validate
+   - Evidence tags complete
+   - Quality gate met
+   - Constitution XIII + XIV respected
+   - Output exceeds expectations
 
 ## Output
 
-Deliver the prompt with:
-- The prompt text (ready to use)
-- Pattern justification [INFERENCE]
-- Test results [CODE]
-- Confidence score
+- Primary deliverable for `{{task}}` in `{{output_format}}`
+- Evidence tags on every claim
+- Recommendations beyond the ask
+- Confidence score (>= 0.95)

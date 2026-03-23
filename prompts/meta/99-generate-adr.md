@@ -1,107 +1,68 @@
 ---
 name: generate-adr
 category: meta
+version: 2.0.0
 description: "Generates an Architecture Decision Record documenting the context, decision, alternatives, and consequences"
-agents: ["adr-generator", "architect"]
-skills: ["adr-creation", "decision-documentation"]
+triad:
+  lead: "adk-orchestrator"
+  support: "integrity-validator"
+  guardian: "quality-guardian"
+skills: ["generate-adr"]
+output-formats: ["html", "md"]
 ---
 
-# Generate Architecture Decision Record
+# Generateadr
 
-## Context
+> Generates an Architecture Decision Record documenting the context, decision, alternatives, and consequences
 
-You are the `adr-generator` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `adk-orchestrator` | Produces the primary deliverable |
+| Support | `integrity-validator` | Reviews for consistency and constitutional compliance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Generate an ADR for the following decision in **{{project_name}}**:
+## Dynamic Parameters
 
-Decision topic: **{{decision_topic}}**
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-Context:
-```
-{{context}}
-```
+## Execution Protocol
 
-## ADR Template
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/generate-adr/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-```markdown
-# ADR-{{adr_number}}: {{decision_title}}
+### Phase 2: Execute
+- **Lead** (`adk-orchestrator`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-## Status
-{{Proposed | Accepted | Deprecated | Superseded by ADR-XXX}}
+### Phase 3: Review
+- **Support** (`integrity-validator`) reviews for:
+  - consistency and constitutional compliance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-## Date
-{{date}}
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-## Context
-What is the issue that we're seeing that is motivating this decision or change?
-- Technical context
-- Business context
-- Constraints (time, budget, team skills)
-- Relevant requirements
+## Output Contract
 
-## Decision Drivers
-- Driver 1: {{description}}
-- Driver 2: {{description}}
-- Driver 3: {{description}}
-
-## Considered Options
-### Option 1: {{option_name}}
-- Description
-- Pros: [list]
-- Cons: [list]
-- Firebase compatibility: [assessment]
-- Effort: [estimate]
-
-### Option 2: {{option_name}}
-- (same structure)
-
-### Option 3: {{option_name}}
-- (same structure)
-
-## Decision
-We will use **{{chosen_option}}** because:
-1. Reason 1
-2. Reason 2
-3. Reason 3
-
-## Consequences
-
-### Positive
-- Consequence 1
-- Consequence 2
-
-### Negative
-- Consequence 1 (with mitigation)
-- Consequence 2 (accepted risk)
-
-### Neutral
-- Consequence that is neither good nor bad
-
-## Compliance
-- [ ] Reviewed by: {{reviewer}}
-- [ ] Approved by: {{approver}}
-
-## References
-- Link to related documentation
-- Link to relevant Firebase documentation
-- Link to prior ADRs
-```
-
-## Expected Output
-
-- Complete ADR document
-- Comparison matrix of options
-- Implementation notes for the chosen option
-- Follow-up actions
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "CorePlatform" |
-| `{{decision_topic}}` | What decision is being made | "Choose state management library" |
-| `{{context}}` | Why this decision is needed now | "The app has grown complex enough to need…" |
-| `{{adr_number}}` | ADR sequence number | "005" |
+**Delivers**: Generates an Architecture Decision Record documenting the context, decision, alternatives, and consequences
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

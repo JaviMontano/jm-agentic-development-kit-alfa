@@ -1,78 +1,68 @@
 ---
 name: create-page
 category: development
+version: 2.0.0
 description: "Creates a complete page/route with layout, data fetching from Firestore, loading states, and error handling"
-agents: ["page-developer", "frontend-developer"]
-skills: ["page-creation", "route-setup"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["create-page"]
+output-formats: ["html", "md"]
 ---
 
-# Create Page
+# Createpage
 
-## Context
+> Creates a complete page/route with layout, data fetching from Firestore, loading states, and error handling
 
-You are the `page-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Create the **{{page_name}}** page for **{{project_name}}**:
+## Dynamic Parameters
 
-Page requirements:
-```
-{{page_requirements}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-Generate the following:
+## Execution Protocol
 
-1. **Page Component** — Complete page file:
-   - HTML structure with semantic elements
-   - CSS styles (scoped, using design tokens)
-   - JavaScript logic
-   - Responsive layout (mobile-first)
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/create-page/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-2. **Data Fetching** — Firestore integration:
-   ```javascript
-   import { collection, query, where, onSnapshot } from 'firebase/firestore';
-   // Real-time listener or one-time fetch based on requirements
-   ```
-   - Loading state (skeleton or spinner)
-   - Error state (user-friendly message + retry)
-   - Empty state (illustration + call to action)
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-3. **Route Configuration** — Add to router:
-   - Path definition
-   - Route guard (auth check if needed)
-   - Lazy loading setup
-   - Page title and meta tags
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-4. **Accessibility** — Ensure:
-   - Proper heading hierarchy
-   - Landmark regions
-   - Focus management on route change
-   - ARIA labels where needed
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-5. **SEO** — If public page:
-   - Meta tags (title, description, OG)
-   - Structured data (JSON-LD)
+## Output Contract
 
-6. **Responsive Behavior** — Specify layout at:
-   - Mobile (<768px)
-   - Tablet (768-1024px)
-   - Desktop (>1024px)
-
-## Expected Output
-
-- Complete page component code (HTML + CSS + JS)
-- Firestore query code
-- Route configuration
-- Loading/error/empty state components
-- Responsive CSS
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "TaskManager" |
-| `{{page_name}}` | Name of the page | "Dashboard" |
-| `{{page_requirements}}` | What the page should display and do | "Show user's tasks grouped by status…" |
-| `{{auth_required}}` | Does the page require authentication? | "yes" |
+**Delivers**: Creates a complete page/route with layout, data fetching from Firestore, loading states, and error handling
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

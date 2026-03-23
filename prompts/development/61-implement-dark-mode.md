@@ -1,87 +1,68 @@
 ---
 name: implement-dark-mode
 category: development
+version: 2.0.0
 description: "Implements dark mode with CSS custom properties, system preference detection, user toggle, and localStorage persistence"
-agents: ["theme-developer", "frontend-developer"]
-skills: ["dark-mode", "theme-switching"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["implement-dark-mode"]
+output-formats: ["html", "md"]
 ---
 
-# Implement Dark Mode
+# Implementdark Mode
 
-## Context
+> Implements dark mode with CSS custom properties, system preference detection, user toggle, and localStorage persistence
 
-You are the `theme-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Implement dark mode for **{{project_name}}**:
+## Dynamic Parameters
 
-1. **CSS Custom Properties** — Theme tokens:
-   ```css
-   :root {
-     --color-bg-primary: #ffffff;
-     --color-bg-secondary: #f5f5f5;
-     --color-text-primary: #111827;
-     --color-text-secondary: #6b7280;
-     --color-border: #e5e7eb;
-     --color-surface: #ffffff;
-     --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-   }
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-   [data-theme="dark"] {
-     --color-bg-primary: #111827;
-     --color-bg-secondary: #1f2937;
-     --color-text-primary: #f9fafb;
-     --color-text-secondary: #9ca3af;
-     --color-border: #374151;
-     --color-surface: #1f2937;
-     --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
-   }
-   ```
+## Execution Protocol
 
-2. **System Preference Detection**:
-   ```javascript
-   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-   ```
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/implement-dark-mode/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Theme Toggle** — UI component:
-   - Sun/Moon icon toggle button
-   - Smooth transition between themes
-   - aria-label update on toggle
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Persistence** — Remember user preference:
-   ```javascript
-   localStorage.setItem('theme', 'dark');
-   ```
-   - Priority: localStorage > system preference > default light
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Flash Prevention** — No white flash on dark mode load:
-   - Inline script in `<head>` to set theme before render
-   - `<meta name="color-scheme" content="light dark">`
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Image Handling** — Dark mode images:
-   - CSS filter for decorative images
-   - Alternative dark-mode image variants
-   - Logo swap (light/dark versions)
+## Output Contract
 
-7. **Component Audit** — Review all components for dark mode:
-   - Shadows and elevations
-   - Form inputs and borders
-   - Charts and data visualizations
-   - Third-party embeds
-
-## Expected Output
-
-- CSS custom property definitions (light + dark)
-- Theme toggle component
-- Theme initialization script (flash prevention)
-- localStorage persistence logic
-- Component audit checklist
-- Image handling utilities
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "PortfolioSite" |
+**Delivers**: Implements dark mode with CSS custom properties, system preference detection, user toggle, and localStorage persistence
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

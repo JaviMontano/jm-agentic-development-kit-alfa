@@ -1,86 +1,68 @@
 ---
 name: plan-migration
 category: architecture
+version: 2.0.0
 description: "Creates a detailed migration plan for moving from a legacy system to the new Firebase-based architecture"
-agents: ["migration-planner", "data-architect"]
-skills: ["migration-planning", "data-migration"]
+triad:
+  lead: "architecture-designer"
+  support: "security-architect"
+  guardian: "quality-guardian"
+skills: ["plan-migration"]
+output-formats: ["html", "md"]
 ---
 
-# Plan Migration
+# Planmigration
 
-## Context
+> Creates a detailed migration plan for moving from a legacy system to the new Firebase-based architecture
 
-You are the `migration-planner` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `architecture-designer` | Produces the primary deliverable |
+| Support | `security-architect` | Reviews for security and scalability |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Create a migration plan from **{{source_system}}** to the new Firebase-based system for **{{project_name}}**:
+## Dynamic Parameters
 
-Current state:
-```
-{{current_state}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-Target state:
-```
-{{target_state}}
-```
+## Execution Protocol
 
-1. **Migration Strategy** — Choose and justify:
-   - Big Bang (all at once)
-   - Phased (feature by feature)
-   - Parallel Run (both systems simultaneously)
-   - Strangler Fig (gradual replacement)
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/plan-migration/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-2. **Data Migration Plan** — For each data entity:
-   | Source | Target | Transformation | Volume | Strategy |
-   |--------|--------|---------------|--------|----------|
-   - ETL scripts (extract, transform, load)
-   - Data validation rules
-   - Rollback procedure
+### Phase 2: Execute
+- **Lead** (`architecture-designer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-3. **Schema Mapping** — Source schema to Firestore schema:
-   - Field mapping table
-   - Type conversions
-   - Relationship to denormalization conversion
-   - ID strategy (preserve old IDs vs. new Firestore IDs)
+### Phase 3: Review
+- **Support** (`security-architect`) reviews for:
+  - security and scalability
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-4. **Feature Migration Order** — Sequence of features to migrate:
-   - Dependencies between features
-   - Risk level per feature
-   - Fallback plan per feature
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-5. **Cutover Plan** — The actual switch:
-   - Pre-cutover checklist
-   - Cutover steps (minute-by-minute)
-   - Smoke tests
-   - Rollback trigger criteria
-   - Communication plan
+## Output Contract
 
-6. **Testing Strategy** — Migration-specific testing:
-   - Data integrity verification
-   - Feature parity testing
-   - Performance comparison
-   - User acceptance testing
-
-7. **Risk Register** — Migration-specific risks and mitigations.
-
-## Expected Output
-
-- Migration strategy document
-- Data migration scripts outline
-- Schema mapping table
-- Feature migration sequence
-- Cutover runbook
-- Testing plan
-- Risk register
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "LegacyModernization" |
-| `{{source_system}}` | Current system description | "MySQL + PHP monolith on shared hosting" |
-| `{{current_state}}` | Current architecture details | "WordPress with custom plugins…" |
-| `{{target_state}}` | Target architecture | "Angular SPA + Firebase" |
+**Delivers**: Creates a detailed migration plan for moving from a legacy system to the new Firebase-based architecture
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

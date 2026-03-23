@@ -1,90 +1,68 @@
 ---
 name: write-e2e-tests
 category: quality
+version: 2.0.0
 description: "Generates end-to-end tests using Playwright or Cypress covering critical user flows with Firebase Emulator integration"
-agents: ["e2e-test-engineer", "qa-engineer"]
-skills: ["e2e-testing", "playwright-tests"]
+triad:
+  lead: "quality-engineer"
+  support: "code-reviewer"
+  guardian: "quality-guardian"
+skills: ["write-e2e-tests"]
+output-formats: ["html", "md"]
 ---
 
-# Write E2E Tests
+# Writee2e Tests
 
-## Context
+> Generates end-to-end tests using Playwright or Cypress covering critical user flows with Firebase Emulator integration
 
-You are the `e2e-test-engineer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `quality-engineer` | Produces the primary deliverable |
+| Support | `code-reviewer` | Reviews for completeness and edge cases |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Write E2E tests for **{{project_name}}** using **{{e2e_framework}}**:
+## Dynamic Parameters
 
-Critical flows to test:
-```
-{{critical_flows}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Test Infrastructure** — Setup:
-   - Firebase Emulator Suite integration
-   - Test user seeding (create test accounts)
-   - Test data seeding (populate Firestore)
-   - Cleanup after each test
+## Execution Protocol
 
-2. **Test Structure** — For each flow:
-   ```javascript
-   // Playwright example
-   import { test, expect } from '@playwright/test';
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/write-e2e-tests/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-   test.describe('{{flow_name}}', () => {
-     test.beforeEach(async ({ page }) => {
-       // Seed data, login if needed
-     });
+### Phase 2: Execute
+- **Lead** (`quality-engineer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-     test('should complete {{flow_name}} successfully', async ({ page }) => {
-       await page.goto('/{{path}}');
-       // Step-by-step interaction
-       await expect(page.locator('[data-testid="success"]')).toBeVisible();
-     });
-   });
-   ```
+### Phase 3: Review
+- **Support** (`code-reviewer`) reviews for:
+  - completeness and edge cases
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-3. **Flows to Cover**:
-   - Authentication (register, login, logout, password reset)
-   - Core CRUD operations (create, read, update, delete)
-   - Navigation (all routes accessible, guards work)
-   - Form submission (validation, success, error)
-   - Error scenarios (network failure, unauthorized)
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-4. **Assertions** — Verify:
-   - Page content and elements visible
-   - URL changes after navigation
-   - Firestore data created/updated (via Admin SDK)
-   - Toast/notification messages
-   - Accessibility (no axe violations)
+## Output Contract
 
-5. **Visual Regression** — Screenshot comparison:
-   - Key pages captured
-   - Responsive breakpoints tested
-   - Dark mode captured
-
-6. **Performance Assertions** — During E2E:
-   - Page load time < threshold
-   - No console errors
-   - No failed network requests
-
-7. **CI Configuration** — GitHub Actions workflow for E2E.
-
-## Expected Output
-
-- E2E test files for each critical flow
-- Test utility functions (login, seed data)
-- Firebase Emulator configuration
-- Playwright/Cypress configuration
-- GitHub Actions CI workflow
-- Test data fixtures
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "EcommerceApp" |
-| `{{e2e_framework}}` | E2E framework | "playwright" |
-| `{{critical_flows}}` | Flows to test | "Registration, Login, Add to Cart, Checkout" |
+**Delivers**: Generates end-to-end tests using Playwright or Cypress covering critical user flows with Firebase Emulator integration
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

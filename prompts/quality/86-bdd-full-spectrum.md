@@ -1,51 +1,68 @@
 ---
 name: bdd-full-spectrum-scenarios
 category: quality
+version: 2.0.0
 description: "Generate Gherkin BDD scenarios across all quality angles for a feature"
-agents: ["quality-engineer", "e2e-test-writer"]
-skills: ["bdd-full-spectrum", "test-strategy"]
+triad:
+  lead: "quality-engineer"
+  support: "code-reviewer"
+  guardian: "quality-guardian"
+skills: ["bdd-full-spectrum-scenarios"]
+output-formats: ["html", "md"]
 ---
 
-# BDD Full-Spectrum Scenario Generation
+# Bddfull Spectrum Scenarios
 
-## Context
+> Generate Gherkin BDD scenarios across all quality angles for a feature
 
-You are a quality engineer generating BDD scenarios for a feature. Scenarios MUST cover all applicable quality angles — not just functional behavior. Each scenario traces to a requirement, success criterion, and constitutional principle.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `quality-engineer` | Produces the primary deliverable |
+| Support | `code-reviewer` | Reviews for completeness and edge cases |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Given the feature: **{{feature_name}}**
-Description: {{feature_description}}
-Requirements: {{requirements_list}}
+## Dynamic Parameters
 
-Generate Gherkin scenarios for each applicable quality angle:
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **@functional** — Does the feature work as specified?
-2. **@a11y** — Is it keyboard-navigable, ARIA-correct, screen-reader friendly?
-3. **@security** — Are inputs sanitized? Auth enforced? No secrets exposed?
-4. **@perf** — Meets Lighthouse budgets? Loads within 2s on 3G?
-5. **@seo** — Meta tags present? Structured data correct?
-6. **@offline** — Degrades gracefully? Cached content displayed?
-7. **@ui** — Design tokens used? No hardcoded colors/fonts?
-8. **@backend** — Security rules pass? Data model validates?
-9. **@data** — Schema enforced? Both languages present?
-10. **@devsecops** — No secrets in client code? Rules tested pre-deploy?
-11. **@cicd** — Gates block broken code? Tests run before merge?
+## Execution Protocol
 
-For each scenario:
-- Use Given/When/Then syntax
-- Tag with angle (`@functional`), requirement (`@TS-xxx`), and principle (`@P-xxx`)
-- Specify the recommended runner (Playwright, Vitest, Firebase Emulator, grep)
-- Keep step definitions runner-agnostic in the .feature file
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/bdd-full-spectrum-scenarios/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-## Expected Output
+### Phase 2: Execute
+- **Lead** (`quality-engineer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-A `.feature` file per angle with properly tagged Gherkin scenarios and runner recommendations.
+### Phase 3: Review
+- **Support** (`code-reviewer`) reviews for:
+  - completeness and edge cases
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-## Variables
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{feature_name}}` | Name of the feature | "Task creation" |
-| `{{feature_description}}` | What the feature does | "Users can create tasks with title and due date" |
-| `{{requirements_list}}` | Linked requirements | "FR-001, FR-002, SC-001" |
+## Output Contract
+
+**Delivers**: Generate Gherkin BDD scenarios across all quality angles for a feature
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

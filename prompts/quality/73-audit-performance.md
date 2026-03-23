@@ -1,85 +1,68 @@
 ---
 name: audit-performance
 category: quality
+version: 2.0.0
 description: "Performs a comprehensive performance audit with Lighthouse analysis, Core Web Vitals review, and optimization recommendations"
-agents: ["performance-auditor", "frontend-analyst"]
-skills: ["performance-audit", "lighthouse-analysis"]
+triad:
+  lead: "quality-engineer"
+  support: "code-reviewer"
+  guardian: "quality-guardian"
+skills: ["audit-performance"]
+output-formats: ["html", "md"]
 ---
 
-# Audit Performance
+# Auditperformance
 
-## Context
+> Performs a comprehensive performance audit with Lighthouse analysis, Core Web Vitals review, and optimization recommendations
 
-You are the `performance-auditor` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `quality-engineer` | Produces the primary deliverable |
+| Support | `code-reviewer` | Reviews for completeness and edge cases |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Perform a performance audit for **{{project_name}}** at **{{url}}**:
+## Dynamic Parameters
 
-1. **Core Web Vitals Assessment**:
-   | Metric | Target | Measured | Status |
-   |--------|--------|----------|--------|
-   | LCP | < 2.5s | | |
-   | INP | < 200ms | | |
-   | CLS | < 0.1 | | |
-   | FCP | < 1.8s | | |
-   | TTFB | < 800ms | | |
-   | TTI | < 3.5s | | |
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **Bundle Analysis** — JavaScript audit:
-   - Total JS size (compressed/uncompressed)
-   - Largest bundles/chunks
-   - Unused JavaScript percentage
-   - Tree-shaking effectiveness
-   - Duplicate dependencies
+## Execution Protocol
 
-3. **Network Analysis** — Request waterfall:
-   - Total requests count
-   - Total transfer size
-   - Render-blocking resources
-   - Third-party resource impact
-   - HTTP/2 multiplexing usage
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/audit-performance/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **Firebase-Specific** — Performance check:
-   - Firestore read count on initial load
-   - Listener count (active subscriptions)
-   - Auth initialization time
-   - Cloud Functions cold start impact
-   - Firebase SDK bundle size
+### Phase 2: Execute
+- **Lead** (`quality-engineer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-5. **Image Audit** — Image optimization:
-   - Unoptimized images (format, size)
-   - Missing lazy loading
-   - Missing responsive images
-   - Missing alt text
+### Phase 3: Review
+- **Support** (`code-reviewer`) reviews for:
+  - completeness and edge cases
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-6. **CSS Audit** — Stylesheet analysis:
-   - Total CSS size
-   - Unused CSS percentage
-   - Render-blocking stylesheets
-   - Critical CSS extraction needed
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-7. **Optimization Recommendations** — Prioritized list:
-   | Priority | Recommendation | Impact | Effort |
-   |----------|---------------|--------|--------|
-   | P0 | | High | Low |
-   - Quick wins (implement immediately)
-   - Medium-term improvements
-   - Long-term architectural changes
+## Output Contract
 
-## Expected Output
-
-- Core Web Vitals report card
-- Bundle analysis summary
-- Network waterfall analysis
-- Firebase performance review
-- Prioritized optimization checklist
-- Before/after projections
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "WebApp" |
-| `{{url}}` | URL to audit | "https://app.example.com" |
+**Delivers**: Performs a comprehensive performance audit with Lighthouse analysis, Core Web Vitals review, and optimization recommendations
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

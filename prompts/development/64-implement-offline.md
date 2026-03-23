@@ -1,94 +1,68 @@
 ---
 name: implement-offline
 category: development
+version: 2.0.0
 description: "Implements offline-first functionality with Firestore persistence, service worker caching, and sync queue"
-agents: ["offline-developer", "pwa-developer"]
-skills: ["offline-first", "sync-strategy"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["implement-offline"]
+output-formats: ["html", "md"]
 ---
 
-# Implement Offline Support
+# Implementoffline
 
-## Context
+> Implements offline-first functionality with Firestore persistence, service worker caching, and sync queue
 
-You are the `offline-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Implement offline support for **{{project_name}}**:
+## Dynamic Parameters
 
-Offline features:
-```
-{{offline_features}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Firestore Offline Persistence**:
-   ```javascript
-   import { enableIndexedDbPersistence } from 'firebase/firestore';
-   enableIndexedDbPersistence(db).catch((err) => {
-     if (err.code === 'failed-precondition') { /* Multiple tabs */ }
-     if (err.code === 'unimplemented') { /* Browser unsupported */ }
-   });
-   ```
+## Execution Protocol
 
-2. **Network Status Detection**:
-   ```javascript
-   window.addEventListener('online', handleOnline);
-   window.addEventListener('offline', handleOffline);
-   // Also check Firestore connection state
-   ```
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/implement-offline/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Offline UI Indicator** — Visual feedback:
-   - Banner showing "You are offline"
-   - Disable features that require connectivity
-   - Pending changes indicator
-   - Sync progress on reconnect
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Write Queue** — Handle writes while offline:
-   - Firestore automatically queues writes
-   - Custom queue for Cloud Function calls
-   - Conflict resolution on sync
-   - Retry logic with exponential backoff
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Cache Strategy** — What to cache for offline:
-   - App shell (HTML, CSS, JS)
-   - Critical data (user profile, recent items)
-   - Images (limited by storage quota)
-   - API responses (Cloud Function results)
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Service Worker** — Offline caching:
-   ```javascript
-   // sw.js - Cache app shell on install
-   self.addEventListener('install', (event) => {
-     event.waitUntil(
-       caches.open('app-shell-v1').then(cache => cache.addAll(APP_SHELL_FILES))
-     );
-   });
-   ```
+## Output Contract
 
-7. **Data Sync Strategy** — On reconnection:
-   - Priority order for sync
-   - Conflict detection and resolution
-   - User notification of sync results
-   - Error handling for stale data
-
-8. **Storage Management** — Handle storage limits:
-   - Estimate available storage
-   - Prioritize data to keep
-   - Clean up old cached data
-
-## Expected Output
-
-- Firestore persistence setup code
-- Network status service
-- Offline UI components
-- Service worker with caching strategy
-- Sync queue implementation
-- Storage management utilities
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "FieldServiceApp" |
-| `{{offline_features}}` | What must work offline | "View tasks, submit reports, capture photos" |
+**Delivers**: Implements offline-first functionality with Firestore persistence, service worker caching, and sync queue
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

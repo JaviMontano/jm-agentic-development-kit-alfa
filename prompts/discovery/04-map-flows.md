@@ -1,56 +1,68 @@
 ---
 name: map-flows
 category: discovery
+version: 2.0.0
 description: "Maps user flows and journey maps from entry point through task completion with decision points and error paths"
-agents: ["ux-analyst", "flow-designer"]
-skills: ["user-journey-mapping", "flow-diagramming"]
+triad:
+  lead: "requirements-analyst"
+  support: "domain-modeler"
+  guardian: "quality-guardian"
+skills: ["map-flows"]
+output-formats: ["html", "md"]
 ---
 
-# Map Flows
+# Mapflows
 
-## Context
+> Maps user flows and journey maps from entry point through task completion with decision points and error paths
 
-You are the `ux-analyst` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `requirements-analyst` | Produces the primary deliverable |
+| Support | `domain-modeler` | Reviews for business viability and stakeholder alignment |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-For the feature **{{feature_name}}** in project **{{project_name}}**, map all user flows:
+## Dynamic Parameters
 
-1. **Primary Flow (Happy Path)** — Step-by-step from entry to completion. Number each step. For each step specify:
-   - Screen/page name
-   - User action
-   - System response
-   - Data exchanged (read/write to Firestore, Auth state changes, etc.)
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **Alternative Flows** — Branch flows for legitimate variations (e.g., returning user vs. new user).
+## Execution Protocol
 
-3. **Error Flows** — Every error scenario:
-   - Validation failures
-   - Network errors
-   - Auth failures (expired token, insufficient permissions)
-   - Firebase quota limits
-   - Concurrent edit conflicts
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/map-flows/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **Edge Cases** — Unusual but valid scenarios (empty states, max-length inputs, special characters, etc.).
+### Phase 2: Execute
+- **Lead** (`requirements-analyst`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-5. **Decision Points** — At each fork, document the condition and all branches.
+### Phase 3: Review
+- **Support** (`domain-modeler`) reviews for:
+  - business viability and stakeholder alignment
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-6. **Touchpoints** — Identify every Firebase service touched (Auth, Firestore, Storage, Functions) at each step.
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-7. **Mermaid Diagram** — Produce a Mermaid flowchart of the primary + error flows.
+## Output Contract
 
-## Expected Output
-
-- Numbered step-by-step flow document
-- Mermaid flowchart code block
-- Error catalog with codes and user-facing messages
-- Firebase touchpoint matrix
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "TaskManager" |
-| `{{feature_name}}` | Feature to map | "User Registration" |
-| `{{user_roles}}` | Roles involved in this flow | "Admin, Member, Guest" |
+**Delivers**: Maps user flows and journey maps from entry point through task completion with decision points and error paths
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

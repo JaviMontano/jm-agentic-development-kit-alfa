@@ -1,81 +1,68 @@
 ---
 name: design-realtime
 category: architecture
+version: 2.0.0
 description: "Designs real-time data synchronization architecture using Firestore listeners, presence systems, and conflict resolution"
-agents: ["realtime-architect", "firebase-specialist"]
-skills: ["realtime-sync", "firestore-listeners"]
+triad:
+  lead: "architecture-designer"
+  support: "security-architect"
+  guardian: "quality-guardian"
+skills: ["design-realtime"]
+output-formats: ["html", "md"]
 ---
 
-# Design Real-time Architecture
+# Designrealtime
 
-## Context
+> Designs real-time data synchronization architecture using Firestore listeners, presence systems, and conflict resolution
 
-You are the `realtime-architect` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `architecture-designer` | Produces the primary deliverable |
+| Support | `security-architect` | Reviews for security and scalability |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Design the real-time architecture for **{{project_name}}**:
+## Dynamic Parameters
 
-Real-time features needed:
-```
-{{realtime_features}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Listener Architecture** — For each real-time feature:
-   - Firestore path to listen on (document vs. collection)
-   - Query constraints (where, orderBy, limit)
-   - Listener lifecycle (when to subscribe/unsubscribe)
-   - Data transformation on snapshot
+## Execution Protocol
 
-2. **Presence System** — Online/offline user tracking:
-   - Firebase Realtime Database for presence (`.info/connected`)
-   - Sync presence to Firestore for queries
-   - Last-seen timestamp
-   - Typing indicators (if chat)
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/design-realtime/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Optimistic Updates** — For user actions:
-   - Immediate local state update
-   - Firestore write in background
-   - Rollback on failure
-   - Conflict detection
+### Phase 2: Execute
+- **Lead** (`architecture-designer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Conflict Resolution** — When multiple users edit simultaneously:
-   - Last-write-wins vs. merge strategy
-   - Field-level vs. document-level locking
-   - User notification of conflicts
-   - Cloud Function-based resolution
+### Phase 3: Review
+- **Support** (`security-architect`) reviews for:
+  - security and scalability
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Performance Management** — Prevent listener overload:
-   - Maximum concurrent listeners
-   - Pagination for large collections
-   - Snapshot listener vs. poll strategy per feature
-   - Cost implications (reads per listener)
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Offline Behavior** — When connectivity is lost:
-   - Firestore offline persistence behavior
-   - Queue management for pending writes
-   - UI indicators for sync status
-   - Reconnection handling
+## Output Contract
 
-7. **Testing** — Test real-time features:
-   - Firebase Emulator Suite configuration
-   - Simulating multiple clients
-   - Network condition testing
-
-## Expected Output
-
-- Listener architecture document
-- Presence system implementation code
-- Optimistic update patterns
-- Conflict resolution strategy
-- Performance guidelines
-- Offline handling code
-- Testing procedures
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "CollaborativeEditor" |
-| `{{realtime_features}}` | Features requiring real-time | "Live chat, shared editing, notifications" |
+**Delivers**: Designs real-time data synchronization architecture using Firestore listeners, presence systems, and conflict resolution
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

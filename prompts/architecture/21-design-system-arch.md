@@ -1,78 +1,68 @@
 ---
 name: design-system-arch
 category: architecture
+version: 2.0.0
 description: "Designs the overall system architecture including frontend, backend, Firebase services, and deployment topology"
-agents: ["system-architect", "cloud-architect"]
-skills: ["system-design", "firebase-architecture"]
+triad:
+  lead: "architecture-designer"
+  support: "security-architect"
+  guardian: "quality-guardian"
+skills: ["design-system-arch"]
+output-formats: ["html", "md"]
 ---
 
-# Design System Architecture
+# Designsystem Arch
 
-## Context
+> Designs the overall system architecture including frontend, backend, Firebase services, and deployment topology
 
-You are the `system-architect` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `architecture-designer` | Produces the primary deliverable |
+| Support | `security-architect` | Reviews for security and scalability |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Design the system architecture for **{{project_name}}**:
+## Dynamic Parameters
 
-Requirements:
-```
-{{requirements}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Architecture Style** — Select and justify: Monolithic SPA, Micro-frontends, Jamstack, or Hybrid. Consider the team size ({{team_size}}) and project complexity.
+## Execution Protocol
 
-2. **Component Diagram** — High-level components:
-   - Frontend application (Angular or React)
-   - Firebase services (Auth, Firestore, Storage, Functions, Hosting)
-   - External integrations
-   - CDN layer
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/design-system-arch/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Data Architecture** — How data flows through the system:
-   - Client-side state management (NgRx, Redux, Context API, or signals)
-   - Firestore real-time subscriptions vs. REST-style reads
-   - Offline persistence strategy
-   - Caching layers
+### Phase 2: Execute
+- **Lead** (`architecture-designer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Security Architecture** — Defense in depth:
-   - Authentication flow (Firebase Auth providers)
-   - Authorization model (Firestore rules + custom claims)
-   - Input validation (client + Cloud Functions)
-   - CORS configuration
-   - Content Security Policy
+### Phase 3: Review
+- **Support** (`security-architect`) reviews for:
+  - security and scalability
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Deployment Architecture** — Infrastructure topology:
-   - Firebase Hosting multi-site setup OR Hostinger VPS
-   - CDN configuration
-   - Domain and SSL
-   - Environment strategy (dev/staging/prod)
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Scalability Plan** — How the architecture handles growth:
-   - Firestore sharding strategies
-   - Cloud Functions scaling
-   - Frontend bundle splitting
+## Output Contract
 
-7. **Architecture Decision Records** — Document key decisions using ADR format.
-
-Produce a Mermaid C4 diagram (Context level).
-
-## Expected Output
-
-- Architecture style justification
-- Component diagram (Mermaid)
-- Data flow diagram
-- Security architecture document
-- Deployment topology diagram
-- Scalability plan
-- ADRs for key decisions
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "MarketplaceApp" |
-| `{{requirements}}` | Key requirements summary | "Real-time inventory, multi-tenant…" |
-| `{{team_size}}` | Development team size | "3 developers" |
-| `{{framework}}` | Frontend framework choice | "Angular" or "React" |
+**Delivers**: Designs the overall system architecture including frontend, backend, Firebase services, and deployment topology
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

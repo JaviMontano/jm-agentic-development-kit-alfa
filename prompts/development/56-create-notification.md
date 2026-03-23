@@ -1,81 +1,68 @@
 ---
 name: create-notification
 category: development
+version: 2.0.0
 description: "Creates a notification system with toast messages, in-app notifications, and Firebase Cloud Messaging push notifications"
-agents: ["notification-developer", "frontend-developer"]
-skills: ["notification-system", "firebase-messaging"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["create-notification"]
+output-formats: ["html", "md"]
 ---
 
-# Create Notification System
+# Createnotification
 
-## Context
+> Creates a notification system with toast messages, in-app notifications, and Firebase Cloud Messaging push notifications
 
-You are the `notification-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Create a notification system for **{{project_name}}**:
+## Dynamic Parameters
 
-1. **Toast Notifications** — In-app toasts:
-   - Types: success, error, warning, info
-   - Position: top-right (configurable)
-   - Auto-dismiss after {{toast_duration}}ms
-   - Manual dismiss (close button)
-   - Stack multiple toasts
-   - Slide-in animation
-   - Progress bar for auto-dismiss
-   - API: `toast.success('Message')`, `toast.error('Message')`
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **Notification Center** — In-app notification list:
-   - Bell icon with unread count badge
-   - Dropdown panel with notification list
-   - Mark as read/unread
-   - Mark all as read
-   - Delete notification
-   - Firestore collection: `users/{uid}/notifications`
-   - Real-time listener for new notifications
+## Execution Protocol
 
-3. **Push Notifications** — Firebase Cloud Messaging:
-   ```javascript
-   import { getMessaging, getToken, onMessage } from 'firebase/messaging';
-   ```
-   - Permission request (with user-friendly prompt)
-   - Token storage in Firestore user profile
-   - Foreground message handling
-   - Background message handling (service worker)
-   - Topic subscriptions
-   - Cloud Function to send notifications
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/create-notification/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **Notification Triggers** — Cloud Functions:
-   - On Firestore document create/update
-   - On scheduled events
-   - On user actions
-   - Notification payload builder
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-5. **User Preferences** — Notification settings:
-   - Email notifications toggle
-   - Push notifications toggle
-   - Per-category preferences
-   - Quiet hours
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-6. **Accessibility** — Announcement:
-   - Toast: `role="alert"` or `aria-live="polite"`
-   - Badge: `aria-label="3 unread notifications"`
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-## Expected Output
+## Output Contract
 
-- Toast component code
-- Notification center component
-- FCM service setup
-- Cloud Function for sending notifications
-- Firestore notification schema
-- User preference UI
-- Service worker for background messages
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "TeamCollab" |
-| `{{toast_duration}}` | Auto-dismiss duration in ms | "5000" |
+**Delivers**: Creates a notification system with toast messages, in-app notifications, and Firebase Cloud Messaging push notifications
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

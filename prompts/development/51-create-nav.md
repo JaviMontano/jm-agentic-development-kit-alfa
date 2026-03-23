@@ -1,82 +1,68 @@
 ---
 name: create-nav
 category: development
+version: 2.0.0
 description: "Creates a responsive navigation component with mobile hamburger menu, dropdowns, and active state tracking"
-agents: ["nav-developer", "ui-developer"]
-skills: ["navigation-ui", "responsive-menu"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["create-nav"]
+output-formats: ["html", "md"]
 ---
 
-# Create Navigation
+# Createnav
 
-## Context
+> Creates a responsive navigation component with mobile hamburger menu, dropdowns, and active state tracking
 
-You are the `nav-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Create navigation for **{{project_name}}** using **{{framework}}**:
+## Dynamic Parameters
 
-Navigation items:
-```
-{{nav_items}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Desktop Navigation** — Top bar or sidebar:
-   - Logo/brand link
-   - Navigation links with active state
-   - Dropdown menus (if nested items)
-   - User avatar menu (profile, settings, logout)
-   - Notification bell (if applicable)
+## Execution Protocol
 
-2. **Mobile Navigation** — Responsive adaptation:
-   - Hamburger menu toggle
-   - Slide-in or full-screen menu
-   - Smooth open/close animation
-   - Close on link click
-   - Close on backdrop click
-   - Close on Escape key
-   - Body scroll lock when open
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/create-nav/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Auth-Aware** — Show/hide items based on auth:
-   - Logged out: Login, Register
-   - Logged in: Dashboard, Profile, Logout
-   - Role-based: Admin link only for admins
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Active State** — Highlight current route:
-   - CSS class on active link
-   - aria-current="page" on active link
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Accessibility** — Full keyboard/screen reader support:
-   - `<nav>` landmark with aria-label
-   - Mobile menu: aria-expanded, aria-controls
-   - Focus trap in mobile menu
-   - Skip-to-content link
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Sticky/Scroll Behavior** — Choose:
-   - Fixed header with scroll shadow
-   - Hide on scroll down, show on scroll up
-   - Transparent → solid on scroll
+## Output Contract
 
-7. **CSS** — Styles using design tokens:
-   - Transition animations
-   - Hover/focus states
-   - Z-index management
-
-## Expected Output
-
-- Navigation component code (HTML + CSS + JS)
-- Mobile menu implementation
-- Auth-aware logic
-- Accessibility features
-- CSS animations
-- Usage example
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "WebApp" |
-| `{{framework}}` | Frontend framework | "vanilla" |
-| `{{nav_items}}` | Navigation structure | "Home, Products (sub: Category A, B), About, Contact" |
-| `{{nav_style}}` | Navigation style | "top-bar" or "sidebar" |
+**Delivers**: Creates a responsive navigation component with mobile hamburger menu, dropdowns, and active state tracking
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

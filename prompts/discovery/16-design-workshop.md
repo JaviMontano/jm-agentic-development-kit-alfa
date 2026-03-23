@@ -1,68 +1,68 @@
 ---
 name: design-workshop
 category: discovery
+version: 2.0.0
 description: "Designs a facilitated workshop agenda with activities, timeboxes, and deliverables for stakeholder alignment"
-agents: ["workshop-designer", "facilitator"]
-skills: ["workshop-design", "facilitation-planning"]
+triad:
+  lead: "requirements-analyst"
+  support: "domain-modeler"
+  guardian: "quality-guardian"
+skills: ["design-workshop"]
+output-formats: ["html", "md"]
 ---
 
-# Design Workshop
+# Designworkshop
 
-## Context
+> Designs a facilitated workshop agenda with activities, timeboxes, and deliverables for stakeholder alignment
 
-You are the `workshop-designer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `requirements-analyst` | Produces the primary deliverable |
+| Support | `domain-modeler` | Reviews for business viability and stakeholder alignment |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Design a **{{workshop_type}}** workshop for **{{project_name}}**:
+## Dynamic Parameters
 
-Participants: {{participants}}
-Duration: {{duration}}
-Format: {{format}} (remote/in-person/hybrid)
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Workshop Objectives** — 3-5 clear, measurable outcomes.
+## Execution Protocol
 
-2. **Pre-Work** — What participants should prepare before the workshop:
-   - Reading materials
-   - Data to bring
-   - Tools to install (Miro, Figma, etc.)
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/design-workshop/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Agenda** — Detailed timeboxed agenda:
-   | Time | Activity | Method | Facilitator Notes | Output |
-   |------|----------|--------|-------------------|--------|
-   | 0:00 | Icebreaker | ... | ... | ... |
+### Phase 2: Execute
+- **Lead** (`requirements-analyst`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Activity Designs** — For each activity:
-   - Instructions (read-aloud script)
-   - Materials needed
-   - Group size and formation
-   - Timebox with warning signals
-   - Expected artifact
+### Phase 3: Review
+- **Support** (`domain-modeler`) reviews for:
+  - business viability and stakeholder alignment
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Decision Framework** — How decisions will be made (dot voting, fist-of-five, Roman voting, etc.)
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Post-Workshop** — Deliverables, follow-up actions, and communication plan.
+## Output Contract
 
-7. **Remote Tooling** — If remote/hybrid:
-   - Miro board template structure
-   - Breakout room plan
-   - Digital voting mechanism
-
-## Expected Output
-
-- Complete workshop agenda with timeboxes
-- Activity instruction cards
-- Pre-work communication template
-- Post-workshop summary template
-- Miro board structure (if remote)
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "BrandRedesign" |
-| `{{workshop_type}}` | Type of workshop | "Requirements Discovery" |
-| `{{participants}}` | Who will attend | "5 stakeholders, 2 developers, 1 designer" |
-| `{{duration}}` | Workshop length | "4 hours" |
-| `{{format}}` | Delivery format | "remote" |
+**Delivers**: Designs a facilitated workshop agenda with activities, timeboxes, and deliverables for stakeholder alignment
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

@@ -1,64 +1,68 @@
 ---
 name: prioritize-roadmap
 category: discovery
+version: 2.0.0
 description: "Creates a prioritized product roadmap with phases, milestones, and release plan using RICE or WSJF scoring"
-agents: ["product-strategist", "roadmap-planner"]
-skills: ["roadmap-planning", "prioritization-frameworks"]
+triad:
+  lead: "requirements-analyst"
+  support: "domain-modeler"
+  guardian: "quality-guardian"
+skills: ["prioritize-roadmap"]
+output-formats: ["html", "md"]
 ---
 
-# Prioritize Roadmap
+# Prioritizeroadmap
 
-## Context
+> Creates a prioritized product roadmap with phases, milestones, and release plan using RICE or WSJF scoring
 
-You are the `product-strategist` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `requirements-analyst` | Produces the primary deliverable |
+| Support | `domain-modeler` | Reviews for business viability and stakeholder alignment |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Create a prioritized roadmap for **{{project_name}}** given these features:
+## Dynamic Parameters
 
-```
-{{feature_list}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-Team capacity: **{{team_capacity}}**
-Timeline: **{{timeline}}**
+## Execution Protocol
 
-1. **RICE Scoring** — For each feature, estimate:
-   - **Reach**: How many users per quarter? (1-10 scale)
-   - **Impact**: How much will it move the needle? (0.25, 0.5, 1, 2, 3)
-   - **Confidence**: How sure are we? (50%, 80%, 100%)
-   - **Effort**: Person-weeks required
-   - RICE Score = (Reach × Impact × Confidence) / Effort
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/prioritize-roadmap/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-2. **Dependencies** — Map feature dependencies. No feature can be scheduled before its dependencies.
+### Phase 2: Execute
+- **Lead** (`requirements-analyst`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-3. **Phased Roadmap** — Organize into phases:
-   - **Phase 1 (MVP)**: Minimum features to launch. Must be deployable on Hostinger or Firebase Hosting.
-   - **Phase 2 (Growth)**: Features that drive adoption.
-   - **Phase 3 (Scale)**: Features for scale and retention.
-   - **Phase 4 (Optimize)**: Nice-to-haves and polish.
+### Phase 3: Review
+- **Support** (`domain-modeler`) reviews for:
+  - business viability and stakeholder alignment
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-4. **Milestones** — Define measurable milestones with dates and success criteria.
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-5. **Risk-Adjusted Timeline** — Add 20% buffer for unknowns. Flag high-risk features.
+## Output Contract
 
-6. **Release Plan** — For each phase, specify the deployment target (Hostinger vs. Firebase Hosting) and what changes in the CI/CD pipeline.
-
-## Expected Output
-
-- RICE scoring table sorted by score
-- Dependency graph (text-based)
-- Phased roadmap with dates
-- Milestone table
-- Risk-adjusted Gantt (text-based)
-- Release plan per phase
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "SaaSPlatform" |
-| `{{feature_list}}` | List of proposed features | "User auth, dashboard, reports…" |
-| `{{team_capacity}}` | Team size and availability | "2 full-time devs, 1 part-time designer" |
-| `{{timeline}}` | Overall timeline | "6 months starting April 2026" |
+**Delivers**: Creates a prioritized product roadmap with phases, milestones, and release plan using RICE or WSJF scoring
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

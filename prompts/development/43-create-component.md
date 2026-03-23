@@ -1,81 +1,68 @@
 ---
 name: create-component
 category: development
+version: 2.0.0
 description: "Creates a reusable UI component with props, events, slots, styling, and accessibility baked in"
-agents: ["component-developer", "ui-developer"]
-skills: ["component-creation", "reusable-ui"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["create-component"]
+output-formats: ["html", "md"]
 ---
 
-# Create Component
+# Createcomponent
 
-## Context
+> Creates a reusable UI component with props, events, slots, styling, and accessibility baked in
 
-You are the `component-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Create the **{{component_name}}** component for **{{project_name}}**:
+## Dynamic Parameters
 
-Component requirements:
-```
-{{component_requirements}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Component Interface** — Define:
-   ```
-   Props/Inputs:
-   - {{prop1}}: {{type}} (default: {{default}})
-   - {{prop2}}: {{type}} (required)
+## Execution Protocol
 
-   Events/Outputs:
-   - on{{Event1}}: emits {{payload_type}}
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/create-component/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-   Slots/Children:
-   - default: {{slot_description}}
-   ```
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-2. **Component Code** — Generate for {{framework}}:
-   - Template/JSX with semantic HTML
-   - Scoped styles using design tokens (CSS custom properties)
-   - Component logic (state, handlers, lifecycle)
-   - TypeScript interfaces (if applicable)
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-3. **Variants** — Generate variants:
-   - Size: small, medium, large
-   - Theme: primary, secondary, ghost, danger
-   - State: default, hover, active, disabled, loading
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-4. **Accessibility** — Implement:
-   - Correct ARIA role
-   - Keyboard interaction
-   - Focus styling
-   - Screen reader announcements
+## Output Contract
 
-5. **Responsive** — Adapt to container/viewport.
-
-6. **Usage Examples** — Show 3+ usage examples:
-   ```html
-   <!-- Basic usage -->
-   <!-- With all props -->
-   <!-- In a real-world context -->
-   ```
-
-7. **Testing** — Unit test outline with key assertions.
-
-## Expected Output
-
-- Complete component code
-- CSS styles with variants
-- Usage documentation with examples
-- Unit test outline
-- Storybook story (if applicable)
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "DesignSystem" |
-| `{{component_name}}` | Name of the component | "Button" |
-| `{{component_requirements}}` | What the component does | "A button with icon support…" |
-| `{{framework}}` | Framework | "react", "angular", or "vanilla" |
+**Delivers**: Creates a reusable UI component with props, events, slots, styling, and accessibility baked in
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

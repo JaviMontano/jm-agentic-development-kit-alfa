@@ -1,91 +1,68 @@
 ---
 name: generate-spec
 category: meta
+version: 2.0.0
 description: "Generates a comprehensive technical specification document from requirements, including architecture, data model, and API design"
-agents: ["spec-generator", "technical-writer"]
-skills: ["spec-generation", "technical-writing"]
+triad:
+  lead: "adk-orchestrator"
+  support: "integrity-validator"
+  guardian: "quality-guardian"
+skills: ["generate-spec"]
+output-formats: ["html", "md"]
 ---
 
-# Generate Technical Specification
+# Generatespec
 
-## Context
+> Generates a comprehensive technical specification document from requirements, including architecture, data model, and API design
 
-You are the `spec-generator` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `adk-orchestrator` | Produces the primary deliverable |
+| Support | `integrity-validator` | Reviews for consistency and constitutional compliance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Generate a technical specification for **{{feature_name}}** in **{{project_name}}**:
+## Dynamic Parameters
 
-Requirements:
-```
-{{requirements}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Overview**:
-   - Feature summary (2-3 sentences)
-   - Business justification
-   - Success metrics
-   - Out of scope
+## Execution Protocol
 
-2. **User Stories**:
-   - As a [role], I want [goal], so that [benefit]
-   - Acceptance criteria for each story (Given/When/Then)
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/generate-spec/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Technical Design**:
-   - Architecture approach
-   - Component diagram (Mermaid)
-   - Data flow (sequence diagram)
-   - Firebase services used
+### Phase 2: Execute
+- **Lead** (`adk-orchestrator`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Data Model**:
-   - Firestore collections and documents
-   - Document schemas (TypeScript interfaces)
-   - Security rules
-   - Indexes required
+### Phase 3: Review
+- **Support** (`integrity-validator`) reviews for:
+  - consistency and constitutional compliance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **API Design** (if Cloud Functions):
-   - Endpoint specifications
-   - Request/response schemas
-   - Error codes
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **UI/UX Specification**:
-   - Wireframe descriptions (text-based)
-   - Component list with props
-   - State management
-   - User flow
+## Output Contract
 
-7. **Testing Strategy**:
-   - Unit test scenarios
-   - Integration test scenarios
-   - E2E test scenarios
-   - Edge cases to cover
-
-8. **Implementation Plan**:
-   - Task breakdown with estimates
-   - Dependencies
-   - Risks and mitigations
-   - Definition of Done
-
-9. **Non-Functional Requirements**:
-   - Performance targets
-   - Accessibility requirements
-   - Security requirements
-   - Browser support
-
-## Expected Output
-
-- Complete technical specification document
-- Architecture diagrams (Mermaid)
-- Data model schemas
-- API contracts
-- Task breakdown with estimates
-- Testing strategy
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "PlatformApp" |
-| `{{feature_name}}` | Feature to specify | "User Permissions System" |
-| `{{requirements}}` | Business requirements | "Admin users should be able to…" |
+**Delivers**: Generates a comprehensive technical specification document from requirements, including architecture, data model, and API design
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

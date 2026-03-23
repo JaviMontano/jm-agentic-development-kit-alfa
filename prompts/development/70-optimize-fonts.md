@@ -1,92 +1,68 @@
 ---
 name: optimize-fonts
 category: development
+version: 2.0.0
 description: "Optimizes web font loading with subsetting, preloading, font-display strategies, and fallback font matching"
-agents: ["font-optimizer", "performance-developer"]
-skills: ["font-optimization", "web-fonts"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["optimize-fonts"]
+output-formats: ["html", "md"]
 ---
 
-# Optimize Fonts
+# Optimizefonts
 
-## Context
+> Optimizes web font loading with subsetting, preloading, font-display strategies, and fallback font matching
 
-You are the `font-optimizer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Optimize font loading for **{{project_name}}** using fonts: **{{font_families}}**:
+## Dynamic Parameters
 
-1. **Font Loading Strategy** — Choose and implement:
-   ```css
-   @font-face {
-     font-family: '{{primary_font}}';
-     src: url('/fonts/{{primary_font}}.woff2') format('woff2');
-     font-weight: 400;
-     font-style: normal;
-     font-display: swap; /* or optional, fallback */
-   }
-   ```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **Preloading** — Critical fonts:
-   ```html
-   <link rel="preload" href="/fonts/primary-400.woff2" as="font" type="font/woff2" crossorigin>
-   ```
-   - Only preload above-the-fold font weights
-   - Max 2-3 font files preloaded
+## Execution Protocol
 
-3. **Subsetting** — Reduce font file size:
-   - Subset to needed character ranges (Latin, Latin Extended)
-   - Remove unused glyphs
-   - Tool: `glyphhanger` or `pyftsubset`
-   - Before/after file size comparison
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/optimize-fonts/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **Fallback Font Matching** — Reduce layout shift (CLS):
-   ```css
-   @font-face {
-     font-family: 'Fallback';
-     src: local('Arial');
-     ascent-override: 90%;
-     descent-override: 20%;
-     line-gap-override: 0%;
-     size-adjust: 105%;
-   }
-   body { font-family: '{{primary_font}}', 'Fallback', sans-serif; }
-   ```
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-5. **Variable Fonts** — If applicable:
-   - Single file for all weights/styles
-   - `font-variation-settings` for fine-tuning
-   - Significant size savings over multiple static files
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-6. **Self-Hosting vs CDN** — Decision:
-   - Self-host: full control, no external requests, cache with immutable headers
-   - Google Fonts CDN: convenience, cache sharing (diminished with partitioned cache)
-   - Recommendation: self-host for performance
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-7. **Font File Formats** — Priority:
-   - WOFF2 (best compression, wide support)
-   - WOFF (fallback for older browsers)
-   - No TTF/OTF/EOT needed for modern browsers
+## Output Contract
 
-8. **Performance Budget** — Font-specific:
-   - Total font weight target: < 100KB
-   - Max font files: 4-6
-   - Max font families: 2
-
-## Expected Output
-
-- @font-face declarations
-- Preload link tags
-- Subsetting script/commands
-- Fallback font override CSS
-- Font loading strategy implementation
-- Performance measurement guide
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "CorporateSite" |
-| `{{font_families}}` | Fonts used in the project | "Inter, JetBrains Mono" |
-| `{{primary_font}}` | Primary body font | "Inter" |
+**Delivers**: Optimizes web font loading with subsetting, preloading, font-display strategies, and fallback font matching
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

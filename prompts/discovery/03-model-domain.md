@@ -1,60 +1,68 @@
 ---
 name: model-domain
 category: discovery
+version: 2.0.0
 description: "Creates a domain model with entities, relationships, aggregates, and bounded contexts using DDD principles"
-agents: ["domain-modeler", "architect"]
-skills: ["domain-driven-design", "entity-modeling"]
+triad:
+  lead: "requirements-analyst"
+  support: "domain-modeler"
+  guardian: "quality-guardian"
+skills: ["model-domain"]
+output-formats: ["html", "md"]
 ---
 
-# Model Domain
+# Modeldomain
 
-## Context
+> Creates a domain model with entities, relationships, aggregates, and bounded contexts using DDD principles
 
-You are the `domain-modeler` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `requirements-analyst` | Produces the primary deliverable |
+| Support | `domain-modeler` | Reviews for business viability and stakeholder alignment |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-For the project **{{project_name}}** in the **{{domain}}** domain, create a comprehensive domain model.
+## Dynamic Parameters
 
-Input context:
-```
-{{business_description}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Ubiquitous Language Glossary** — Define every domain term precisely. Include synonyms stakeholders might use and the canonical term you will adopt.
+## Execution Protocol
 
-2. **Entities & Value Objects** — List each entity (has identity) and value object (identity-less). For each:
-   - Name
-   - Key attributes with types
-   - Business rules / invariants
-   - Lifecycle states (if applicable)
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/model-domain/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Aggregates** — Group entities into aggregates. Identify the aggregate root. Explain consistency boundaries.
+### Phase 2: Execute
+- **Lead** (`requirements-analyst`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Bounded Contexts** — Identify each bounded context. Map how contexts relate (Shared Kernel, Customer/Supplier, Anti-Corruption Layer, etc.).
+### Phase 3: Review
+- **Support** (`domain-modeler`) reviews for:
+  - business viability and stakeholder alignment
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Firestore Collection Design** — Translate each aggregate into a proposed Firestore collection/subcollection structure. Include:
-   - Collection path
-   - Document schema (JSON example)
-   - Indexing needs
-   - Security rule considerations
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Domain Events** — List the key domain events (e.g., `OrderPlaced`, `PaymentReceived`). For each, state the trigger and the data payload.
+## Output Contract
 
-## Expected Output
-
-- Glossary table
-- Entity/Value Object catalog
-- Aggregate diagram (text-based)
-- Bounded context map (text-based)
-- Firestore collection schemas in JSON
-- Domain event catalog
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "InventorySystem" |
-| `{{domain}}` | Business domain | "Supply Chain" |
-| `{{business_description}}` | Narrative describing the business processes | "The company manages warehouses…" |
+**Delivers**: Creates a domain model with entities, relationships, aggregates, and bounded contexts using DDD principles
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

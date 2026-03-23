@@ -1,85 +1,68 @@
 ---
 name: create-auth-flow
 category: development
+version: 2.0.0
 description: "Creates a complete authentication flow with login, register, password reset, and profile management using Firebase Auth"
-agents: ["auth-developer", "frontend-developer"]
-skills: ["firebase-auth", "auth-ui"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["create-auth-flow"]
+output-formats: ["html", "md"]
 ---
 
-# Create Auth Flow
+# Createauth Flow
 
-## Context
+> Creates a complete authentication flow with login, register, password reset, and profile management using Firebase Auth
 
-You are the `auth-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Create the authentication flow for **{{project_name}}** using **{{framework}}**:
+## Dynamic Parameters
 
-Auth providers: {{auth_providers}}
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Auth Service** — `src/services/auth.js`:
-   - `signUp(email, password)` — Register with email verification
-   - `signIn(email, password)` — Email/password login
-   - `signInWithGoogle()` — Google OAuth
-   - `signOut()` — Logout and cleanup
-   - `resetPassword(email)` — Password reset email
-   - `updateProfile(data)` — Update display name and photo
-   - `deleteAccount()` — Account deletion with data cleanup
-   - `onAuthStateChanged(callback)` — Auth state listener
+## Execution Protocol
 
-2. **Login Page** — Complete UI:
-   - Email/password form with validation
-   - Social login buttons (Google, etc.)
-   - "Remember me" checkbox (persistence setting)
-   - "Forgot password" link
-   - "Create account" link
-   - Loading state during auth
-   - Error messages (wrong password, user not found, etc.)
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/create-auth-flow/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Register Page** — Complete UI:
-   - Registration form (name, email, password, confirm password)
-   - Password strength indicator
-   - Terms of service checkbox
-   - Email verification sent confirmation
-   - Auto-login after verification
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Password Reset Page** — Email input and success message.
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Profile Page** — Edit profile:
-   - Display name, photo URL
-   - Email change (requires re-authentication)
-   - Password change (requires re-authentication)
-   - Connected providers list
-   - Delete account (with confirmation)
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Auth Guards** — Route protection:
-   - Redirect unauthenticated users to login
-   - Redirect authenticated users away from login/register
-   - Role-based route access
+## Output Contract
 
-7. **Firestore User Profile** — Create user document on signup:
-   ```javascript
-   // Cloud Function: auth.user().onCreate()
-   // Create /users/{uid} document
-   ```
-
-## Expected Output
-
-- Auth service file with all functions
-- Login page component
-- Register page component
-- Password reset page component
-- Profile page component
-- Auth guard implementation
-- Cloud Function for user creation
-- CSS styles for all pages
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "MemberPortal" |
-| `{{framework}}` | Frontend framework | "vanilla" |
-| `{{auth_providers}}` | Auth providers to support | "email, google" |
+**Delivers**: Creates a complete authentication flow with login, register, password reset, and profile management using Firebase Auth
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

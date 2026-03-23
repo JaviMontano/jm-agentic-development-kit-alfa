@@ -1,87 +1,68 @@
 ---
 name: implement-lazy-load
 category: development
+version: 2.0.0
 description: "Implements lazy loading for images, components, routes, and data to improve initial page load performance"
-agents: ["performance-developer", "frontend-developer"]
-skills: ["lazy-loading", "code-splitting"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["implement-lazy-load"]
+output-formats: ["html", "md"]
 ---
 
-# Implement Lazy Loading
+# Implementlazy Load
 
-## Context
+> Implements lazy loading for images, components, routes, and data to improve initial page load performance
 
-You are the `performance-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Implement lazy loading for **{{project_name}}**:
+## Dynamic Parameters
 
-1. **Image Lazy Loading** — Defer off-screen images:
-   ```html
-   <img src="placeholder.svg" data-src="actual.webp" loading="lazy" alt="...">
-   ```
-   - Native `loading="lazy"` attribute
-   - Intersection Observer fallback for older browsers
-   - Blur-up placeholder technique
-   - Low-quality image placeholder (LQIP)
-   - Responsive images with srcset
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-2. **Route-Based Code Splitting** — Lazy load pages:
-   ```javascript
-   // React
-   const Dashboard = React.lazy(() => import('./pages/Dashboard'));
-   // Angular
-   { path: 'dashboard', loadComponent: () => import('./pages/dashboard.component') }
-   // Vanilla
-   async function loadPage(name) { return import(`./pages/${name}.js`); }
-   ```
+## Execution Protocol
 
-3. **Component Lazy Loading** — Heavy components:
-   - Chart libraries (Chart.js)
-   - Map libraries (Leaflet)
-   - Rich text editors
-   - PDF viewers
-   - Load on visibility or user interaction
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/implement-lazy-load/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-4. **Data Lazy Loading** — Firestore pagination:
-   - Initial page load: minimal data
-   - Scroll or click to load more
-   - Infinite scroll with Intersection Observer
-   - Skeleton placeholders during fetch
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-5. **Third-Party Script Loading** — Defer non-critical scripts:
-   ```html
-   <script defer src="analytics.js"></script>
-   ```
-   - Analytics: load after interactive
-   - Chat widgets: load on scroll or timer
-   - Social embeds: load on visibility
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-6. **Preloading** — Predictive loading:
-   - Preload likely next routes on hover
-   - Prefetch data for probable next actions
-   - `<link rel="prefetch">` for next-page resources
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-7. **Loading States** — During lazy load:
-   - Skeleton components
-   - Suspense boundaries (React)
-   - Loading spinners
-   - Error boundaries for failed loads
+## Output Contract
 
-## Expected Output
-
-- Image lazy loading utility
-- Route splitting configuration
-- Component lazy loading patterns
-- Data pagination with Intersection Observer
-- Third-party script loader
-- Preloading strategy
-- Loading/error state components
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "MediaPortal" |
-| `{{framework}}` | Frontend framework | "react" |
+**Delivers**: Implements lazy loading for images, components, routes, and data to improve initial page load performance
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

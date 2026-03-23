@@ -1,104 +1,68 @@
 ---
 name: run-full-pipeline
 category: meta
+version: 2.0.0
 description: "Orchestrates a full development pipeline from discovery through deployment, chaining all relevant prompts"
-agents: ["pipeline-orchestrator", "meta-orchestrator"]
-skills: ["pipeline-orchestration", "full-lifecycle"]
+triad:
+  lead: "adk-orchestrator"
+  support: "integrity-validator"
+  guardian: "quality-guardian"
+skills: ["run-full-pipeline"]
+output-formats: ["html", "md"]
 ---
 
-# Run Full Pipeline
+# Runfull Pipeline
 
-## Context
+> Orchestrates a full development pipeline from discovery through deployment, chaining all relevant prompts
 
-You are the `pipeline-orchestrator` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `adk-orchestrator` | Produces the primary deliverable |
+| Support | `integrity-validator` | Reviews for consistency and constitutional compliance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Orchestrate the full development pipeline for **{{project_name}}**:
+## Dynamic Parameters
 
-Project brief:
-```
-{{project_brief}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-Execute the following phases, using output from each phase as input to the next:
+## Execution Protocol
 
-### Phase 1: Discovery
-| Step | Prompt | Purpose | Est. Time |
-|------|--------|---------|-----------|
-| 1.1 | 15-amplify-input | Expand the project brief | 15 min |
-| 1.2 | 01-analyze-requirements | Extract requirements | 30 min |
-| 1.3 | 02-map-stakeholders | Identify stakeholders | 20 min |
-| 1.4 | 03-model-domain | Create domain model | 30 min |
-| 1.5 | 12-assess-risks | Identify project risks | 20 min |
-| 1.6 | 06-validate-feasibility | Validate feasibility | 20 min |
-| 1.7 | 10-prioritize-roadmap | Create roadmap | 20 min |
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/run-full-pipeline/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-### Phase 2: Architecture
-| Step | Prompt | Purpose | Est. Time |
-|------|--------|---------|-----------|
-| 2.1 | 21-design-system-arch | System architecture | 45 min |
-| 2.2 | 23-model-database | Firestore schema | 30 min |
-| 2.3 | 22-design-api-contract | API design | 30 min |
-| 2.4 | 35-design-auth | Auth architecture | 25 min |
-| 2.5 | 27-design-components | Component design | 25 min |
-| 2.6 | 30-design-tokens | Design system | 20 min |
+### Phase 2: Execute
+- **Lead** (`adk-orchestrator`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-### Phase 3: Development
-| Step | Prompt | Purpose | Est. Time |
-|------|--------|---------|-----------|
-| 3.1 | 41-scaffold-project | Project scaffolding | 30 min |
-| 3.2 | 47-create-auth-flow | Authentication | 45 min |
-| 3.3 | 51-create-nav | Navigation | 20 min |
-| 3.4 | 42-create-page (×N) | Page creation | 30 min each |
-| 3.5 | 46-create-firestore-crud | Data services | 25 min |
-| 3.6 | 61-implement-dark-mode | Theme support | 20 min |
+### Phase 3: Review
+- **Support** (`integrity-validator`) reviews for:
+  - consistency and constitutional compliance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-### Phase 4: Quality
-| Step | Prompt | Purpose | Est. Time |
-|------|--------|---------|-----------|
-| 4.1 | 71-write-unit-tests | Unit tests | 45 min |
-| 4.2 | 73-audit-performance | Performance check | 20 min |
-| 4.3 | 74-audit-accessibility | A11y check | 20 min |
-| 4.4 | 75-audit-security | Security check | 20 min |
-| 4.5 | 78-review-code | Code review | 30 min |
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-### Phase 5: Deployment
-| Step | Prompt | Purpose | Est. Time |
-|------|--------|---------|-----------|
-| 5.1 | 93-setup-environments | Environments | 20 min |
-| 5.2 | 88-setup-github-actions | CI/CD | 25 min |
-| 5.3 | 87-deploy-firebase (or 86) | Deploy | 15 min |
-| 5.4 | 89-configure-domain | Domain setup | 15 min |
-| 5.5 | 95-pre-deploy-checklist | Final check | 15 min |
+## Output Contract
 
-### Phase 6: Meta
-| Step | Prompt | Purpose | Est. Time |
-|------|--------|---------|-----------|
-| 6.1 | 85-generate-docs | Documentation | 30 min |
-| 6.2 | 84-generate-changelog | Changelog | 10 min |
-| 6.3 | 101-session-retrospective | Retrospective | 15 min |
-
-**Pipeline Controls**:
-- Skip phases: {{skip_phases}}
-- Focus phases: {{focus_phases}}
-- Quality gate: Require sign-off between phases
-
-## Expected Output
-
-- Phase-by-phase execution plan with dependencies
-- Estimated total timeline
-- Resource requirements per phase
-- Quality gates and sign-off points
-- Deliverable checklist per phase
-- Pipeline status dashboard
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "NewProduct" |
-| `{{project_brief}}` | Initial project description | "Build a customer portal with…" |
-| `{{skip_phases}}` | Phases to skip | "none" or "discovery" |
-| `{{focus_phases}}` | Phases to emphasize | "development, quality" |
+**Delivers**: Orchestrates a full development pipeline from discovery through deployment, chaining all relevant prompts
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

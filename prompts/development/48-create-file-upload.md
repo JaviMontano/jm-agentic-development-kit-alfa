@@ -1,100 +1,68 @@
 ---
 name: create-file-upload
 category: development
+version: 2.0.0
 description: "Creates a file upload component with drag-and-drop, preview, progress tracking, and Firebase Storage integration"
-agents: ["upload-developer", "frontend-developer"]
-skills: ["file-upload", "firebase-storage"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["create-file-upload"]
+output-formats: ["html", "md"]
 ---
 
-# Create File Upload
+# Createfile Upload
 
-## Context
+> Creates a file upload component with drag-and-drop, preview, progress tracking, and Firebase Storage integration
 
-You are the `upload-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Create a file upload component for **{{project_name}}**:
+## Dynamic Parameters
 
-Upload requirements:
-```
-{{upload_requirements}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Upload Component** — Full-featured upload UI:
-   - Drag and drop zone with visual feedback
-   - Click to browse fallback
-   - File type restriction ({{allowed_types}})
-   - Max file size enforcement ({{max_size}})
-   - Multiple file support (if needed)
-   - Image preview thumbnails
-   - Upload progress bar per file
-   - Cancel upload button
-   - Remove uploaded file button
+## Execution Protocol
 
-2. **Firebase Storage Service** — `src/services/storage.js`:
-   ```javascript
-   import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from 'firebase/storage';
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/create-file-upload/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-   export function uploadFile(file, path, onProgress) {
-     const storageRef = ref(storage, path);
-     const uploadTask = uploadBytesResumable(storageRef, file);
-     // Monitor progress, handle errors, get download URL
-   }
-   ```
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-3. **File Validation** — Before upload:
-   - File type (MIME type check)
-   - File size limit
-   - Image dimensions (if applicable)
-   - Virus scan disclaimer
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-4. **Storage Path Strategy** — Organize files:
-   ```
-   uploads/{userId}/{collection}/{timestamp}_{filename}
-   ```
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-5. **Firestore Integration** — Save file metadata:
-   ```javascript
-   {
-     name: 'document.pdf',
-     url: 'https://firebasestorage.googleapis.com/...',
-     type: 'application/pdf',
-     size: 1024000,
-     uploadedBy: 'userId',
-     uploadedAt: serverTimestamp()
-   }
-   ```
+## Output Contract
 
-6. **Storage Security Rules** — `storage.rules`:
-   ```
-   match /uploads/{userId}/{allPaths=**} {
-     allow read: if request.auth != null;
-     allow write: if request.auth.uid == userId
-                  && request.resource.size < {{max_size}}
-                  && request.resource.contentType.matches('image/.*|application/pdf');
-   }
-   ```
-
-7. **Image Processing** — If images:
-   - Client-side compression before upload
-   - Thumbnail generation (Cloud Function)
-
-## Expected Output
-
-- Upload component code (HTML + CSS + JS)
-- Storage service file
-- Storage security rules
-- Firestore metadata schema
-- Cloud Function for image processing (if applicable)
-- Usage examples
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "DocumentVault" |
-| `{{upload_requirements}}` | What can be uploaded | "Profile photos and PDF documents" |
-| `{{allowed_types}}` | Allowed MIME types | "image/jpeg, image/png, application/pdf" |
-| `{{max_size}}` | Maximum file size | "5MB" |
+**Delivers**: Creates a file upload component with drag-and-drop, preview, progress tracking, and Firebase Storage integration
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

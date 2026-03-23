@@ -1,86 +1,68 @@
 ---
 name: model-database
 category: architecture
+version: 2.0.0
 description: "Designs the complete Firestore database schema with collections, documents, indexes, and security rules"
-agents: ["data-architect", "firebase-specialist"]
-skills: ["firestore-modeling", "nosql-design"]
+triad:
+  lead: "architecture-designer"
+  support: "security-architect"
+  guardian: "quality-guardian"
+skills: ["model-database"]
+output-formats: ["html", "md"]
 ---
 
-# Model Database
+# Modeldatabase
 
-## Context
+> Designs the complete Firestore database schema with collections, documents, indexes, and security rules
 
-You are the `data-architect` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `architecture-designer` | Produces the primary deliverable |
+| Support | `security-architect` | Reviews for security and scalability |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Design the Firestore database schema for **{{project_name}}**:
+## Dynamic Parameters
 
-Entities:
-```
-{{entities}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-Relationships:
-```
-{{relationships}}
-```
+## Execution Protocol
 
-1. **Collection Design** — For each entity:
-   - Collection path (including subcollections)
-   - Document structure with field names, types, and constraints
-   - Example document (JSON)
-   - Document size estimate
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/model-database/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-2. **Denormalization Strategy** — Identify data that should be duplicated:
-   - What to denormalize and where
-   - Consistency update strategy (Cloud Functions triggers)
-   - Trade-offs documented
+### Phase 2: Execute
+- **Lead** (`architecture-designer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-3. **Query Patterns** — For each screen/feature:
-   - Firestore query needed
-   - Fields used in where/orderBy
-   - Pagination strategy (cursor-based with `startAfter`)
+### Phase 3: Review
+- **Support** (`security-architect`) reviews for:
+  - security and scalability
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-4. **Index Requirements** — List all composite indexes:
-   ```json
-   {
-     "collectionGroup": "orders",
-     "fields": [
-       { "fieldPath": "status", "order": "ASCENDING" },
-       { "fieldPath": "createdAt", "order": "DESCENDING" }
-     ]
-   }
-   ```
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-5. **Security Rules** — Complete `firestore.rules` file:
-   ```
-   rules_version = '2';
-   service cloud.firestore {
-     match /databases/{database}/documents {
-       // Rules here
-     }
-   }
-   ```
+## Output Contract
 
-6. **Data Migration** — If migrating from an existing database, outline the migration plan.
-
-7. **Backup Strategy** — Scheduled exports, retention period, restore procedure.
-
-## Expected Output
-
-- Collection/document schema catalog
-- Example documents (JSON)
-- Composite index definitions (firestore.indexes.json)
-- Complete firestore.rules file
-- Query pattern reference
-- Denormalization map
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "BookingSystem" |
-| `{{entities}}` | List of data entities | "Users, Bookings, Rooms, Payments" |
-| `{{relationships}}` | Entity relationships | "User has many Bookings, Booking belongs to Room" |
+**Delivers**: Designs the complete Firestore database schema with collections, documents, indexes, and security rules
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

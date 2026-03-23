@@ -1,95 +1,68 @@
 ---
 name: setup-ssl
 category: deployment
+version: 2.0.0
 description: "Sets up SSL/TLS certificates with HTTPS enforcement, HSTS, and security headers"
-agents: ["ssl-engineer", "security-engineer"]
-skills: ["ssl-setup", "https-configuration"]
+triad:
+  lead: "deployment-specialist"
+  support: "security-scanner"
+  guardian: "quality-guardian"
+skills: ["setup-ssl"]
+output-formats: ["html", "md"]
 ---
 
-# Setup SSL
+# Setupssl
 
-## Context
+> Sets up SSL/TLS certificates with HTTPS enforcement, HSTS, and security headers
 
-You are the `ssl-engineer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `deployment-specialist` | Produces the primary deliverable |
+| Support | `security-scanner` | Reviews for security and rollback |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Setup SSL for **{{project_name}}** on **{{hosting_provider}}**:
+## Dynamic Parameters
 
-Domain: {{domain}}
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **SSL Certificate Provisioning**:
+## Execution Protocol
 
-   **Firebase Hosting** — Automatic:
-   - SSL auto-provisioned when custom domain is added
-   - Managed by Google Trust Services
-   - Auto-renewal
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/setup-ssl/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-   **Hostinger** — Auto-SSL:
-   - Enable via hPanel → SSL
-   - Let's Encrypt certificate
-   - Auto-renewal every 90 days
+### Phase 2: Execute
+- **Lead** (`deployment-specialist`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-   **Manual (if needed)**:
-   - Certbot / Let's Encrypt CLI
-   ```bash
-   sudo certbot --apache -d {{domain}} -d www.{{domain}}
-   ```
+### Phase 3: Review
+- **Support** (`security-scanner`) reviews for:
+  - security and rollback
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-2. **HTTPS Enforcement** — Redirect HTTP to HTTPS:
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-   **Firebase** (firebase.json):
-   ```json
-   { "hosting": { "headers": [{ "source": "**", "headers": [{ "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains" }] }] } }
-   ```
+## Output Contract
 
-   **Hostinger** (.htaccess):
-   ```apache
-   RewriteEngine On
-   RewriteCond %{HTTPS} off
-   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-   ```
-
-3. **Security Headers** — Complete set:
-   ```
-   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-   X-Content-Type-Options: nosniff
-   X-Frame-Options: DENY
-   X-XSS-Protection: 1; mode=block
-   Referrer-Policy: strict-origin-when-cross-origin
-   Content-Security-Policy: default-src 'self'; ...
-   Permissions-Policy: camera=(), microphone=(), geolocation=()
-   ```
-
-4. **Mixed Content Prevention**:
-   - Audit for HTTP resources in HTTPS pages
-   - Update all asset URLs to HTTPS
-   - Add `<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">`
-
-5. **SSL Testing** — Verify configuration:
-   - SSL Labs test (aim for A+ grade)
-   - Check certificate chain
-   - Check TLS version (1.2+ only)
-   - Check cipher suites
-
-6. **HSTS Preload** — Submit to preload list:
-   - Requirements: valid certificate, HTTPS redirect, HSTS header with preload
-   - Submit at hstspreload.org
-
-## Expected Output
-
-- SSL provisioning steps
-- HTTPS redirect configuration
-- Security headers configuration
-- Mixed content audit checklist
-- SSL test verification guide
-- HSTS preload submission guide
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "SecureSite" |
-| `{{hosting_provider}}` | Hosting provider | "firebase" or "hostinger" |
-| `{{domain}}` | Domain name | "example.com" |
+**Delivers**: Sets up SSL/TLS certificates with HTTPS enforcement, HSTS, and security headers
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

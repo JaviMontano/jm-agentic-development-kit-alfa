@@ -1,80 +1,68 @@
 ---
 name: design-events
 category: architecture
+version: 2.0.0
 description: "Designs an event-driven architecture with Firestore triggers, Cloud Functions events, and pub/sub patterns"
-agents: ["event-architect", "backend-architect"]
-skills: ["event-driven-design", "cloud-functions"]
+triad:
+  lead: "architecture-designer"
+  support: "security-architect"
+  guardian: "quality-guardian"
+skills: ["design-events"]
+output-formats: ["html", "md"]
 ---
 
-# Design Events
+# Designevents
 
-## Context
+> Designs an event-driven architecture with Firestore triggers, Cloud Functions events, and pub/sub patterns
 
-You are the `event-architect` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `architecture-designer` | Produces the primary deliverable |
+| Support | `security-architect` | Reviews for security and scalability |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Design the event architecture for **{{project_name}}**:
+## Dynamic Parameters
 
-Business processes:
-```
-{{processes}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Event Catalog** — List all domain events:
-   | Event Name | Trigger | Source | Payload Schema | Consumers |
-   |------------|---------|--------|---------------|-----------|
-   | UserCreated | Auth signup | Firebase Auth | `{uid, email, displayName}` | Firestore, SendGrid |
+## Execution Protocol
 
-2. **Firestore Triggers** — For each trigger:
-   ```typescript
-   export const onOrderCreated = functions.firestore
-     .document('orders/{orderId}')
-     .onCreate(async (snap, context) => {
-       // Implementation outline
-     });
-   ```
-   - Trigger type: onCreate, onUpdate, onDelete, onWrite
-   - Document path pattern
-   - Data transformation logic
-   - Error handling strategy
-   - Idempotency considerations
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/design-events/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Auth Triggers** — User lifecycle events:
-   - beforeCreate (blocking)
-   - onCreate
-   - beforeSignIn (blocking)
-   - onDelete
+### Phase 2: Execute
+- **Lead** (`architecture-designer`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Scheduled Functions** — Cron-based events:
-   - Schedule expression
-   - Purpose
-   - Firestore queries involved
-   - Timeout and memory configuration
+### Phase 3: Review
+- **Support** (`security-architect`) reviews for:
+  - security and scalability
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Event Flow Diagrams** — Mermaid sequence diagrams showing event chains.
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Error Handling** — For each event handler:
-   - Retry policy
-   - Dead letter handling
-   - Alert on failure
-   - Manual retry procedure
+## Output Contract
 
-7. **Testing Strategy** — How to test each event handler locally using Firebase Emulators.
-
-## Expected Output
-
-- Event catalog table
-- Cloud Functions code stubs (TypeScript)
-- Firestore trigger specifications
-- Event flow diagrams (Mermaid)
-- Error handling policies
-- Testing procedures
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "NotificationSystem" |
-| `{{processes}}` | Business processes that generate events | "Order placement, payment, shipping…" |
+**Delivers**: Designs an event-driven architecture with Firestore triggers, Cloud Functions events, and pub/sub patterns
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

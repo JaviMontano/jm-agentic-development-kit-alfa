@@ -1,67 +1,68 @@
 ---
 name: assess-risks
 category: discovery
+version: 2.0.0
 description: "Identifies, categorizes, scores, and creates mitigation plans for project risks"
-agents: ["risk-analyst", "project-manager"]
-skills: ["risk-assessment", "mitigation-planning"]
+triad:
+  lead: "requirements-analyst"
+  support: "domain-modeler"
+  guardian: "quality-guardian"
+skills: ["assess-risks"]
+output-formats: ["html", "md"]
 ---
 
-# Assess Risks
+# Assessrisks
 
-## Context
+> Identifies, categorizes, scores, and creates mitigation plans for project risks
 
-You are the `risk-analyst` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `requirements-analyst` | Produces the primary deliverable |
+| Support | `domain-modeler` | Reviews for business viability and stakeholder alignment |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Perform a comprehensive risk assessment for **{{project_name}}**:
+## Dynamic Parameters
 
-```
-{{project_context}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Risk Identification** — Identify risks across categories:
-   - **Technical**: Firebase limits, browser compatibility, API dependencies, performance
-   - **Security**: Data breaches, XSS, CSRF, insecure Firestore rules, auth vulnerabilities
-   - **Schedule**: Scope creep, resource unavailability, dependency delays
-   - **Business**: Market changes, competitor moves, stakeholder changes
-   - **Operational**: Hosting downtime, Firebase outages, DNS issues
+## Execution Protocol
 
-2. **Risk Scoring** — For each risk:
-   - Probability: 1 (Rare) to 5 (Almost Certain)
-   - Impact: 1 (Negligible) to 5 (Catastrophic)
-   - Risk Score = Probability × Impact
-   - Priority: Critical (≥20), High (15-19), Medium (8-14), Low (≤7)
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/assess-risks/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Risk Matrix** — 5×5 heat map (text-based).
+### Phase 2: Execute
+- **Lead** (`requirements-analyst`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Mitigation Plans** — For each Critical and High risk:
-   - Prevention strategy
-   - Detection mechanism
-   - Response plan
-   - Owner
-   - Contingency
+### Phase 3: Review
+- **Support** (`domain-modeler`) reviews for:
+  - business viability and stakeholder alignment
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Firebase-Specific Risks** — Deep dive into:
-   - Firestore pricing spikes (runaway reads)
-   - Security rules misconfiguration
-   - Cloud Functions cold starts
-   - Vendor lock-in
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Risk Register** — Master table with ID, description, category, probability, impact, score, priority, mitigation, owner, status.
+## Output Contract
 
-## Expected Output
-
-- Risk register table (RISK-001, RISK-002, …)
-- 5×5 risk matrix
-- Mitigation plans for Critical/High risks
-- Firebase-specific risk analysis
-- Monitoring checklist
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "PatientPortal" |
-| `{{project_context}}` | Project description and constraints | "A healthcare portal handling PHI…" |
+**Delivers**: Identifies, categorizes, scores, and creates mitigation plans for project risks
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

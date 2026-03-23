@@ -1,100 +1,68 @@
 ---
 name: implement-animation
 category: development
+version: 2.0.0
 description: "Implements CSS and JavaScript animations including scroll reveals, page transitions, micro-interactions, and loading animations"
-agents: ["animation-developer", "frontend-developer"]
-skills: ["css-animation", "motion-design"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["implement-animation"]
+output-formats: ["html", "md"]
 ---
 
-# Implement Animations
+# Implementanimation
 
-## Context
+> Implements CSS and JavaScript animations including scroll reveals, page transitions, micro-interactions, and loading animations
 
-You are the `animation-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Implement animations for **{{project_name}}**:
+## Dynamic Parameters
 
-Animation needs:
-```
-{{animation_requirements}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Scroll Reveal Animations** — Elements animate as they enter viewport:
-   ```javascript
-   const observer = new IntersectionObserver((entries) => {
-     entries.forEach(entry => {
-       if (entry.isIntersecting) {
-         entry.target.classList.add('revealed');
-         observer.unobserve(entry.target);
-       }
-     });
-   }, { threshold: 0.1 });
-   ```
-   - Fade in, slide up, scale in variants
-   - Staggered timing for lists
-   - CSS: `@keyframes` + `animation` properties
+## Execution Protocol
 
-2. **Page Transitions** — Route change animations:
-   - Fade transition
-   - Slide transition
-   - Cross-fade
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/implement-animation/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Micro-interactions** — Subtle feedback:
-   - Button hover/press effects
-   - Toggle switches
-   - Checkbox/radio animations
-   - Form field focus animations
-   - Ripple effects
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Loading Animations** — Branded loaders:
-   - Spinner (CSS-only)
-   - Skeleton screens
-   - Progress bar
-   - Pulsing dots
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Motion Tokens** — Consistent timing:
-   ```css
-   :root {
-     --duration-fast: 150ms;
-     --duration-normal: 300ms;
-     --duration-slow: 500ms;
-     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-     --ease-out: cubic-bezier(0, 0, 0.2, 1);
-     --ease-in: cubic-bezier(0.4, 0, 1, 1);
-   }
-   ```
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Reduced Motion** — Respect user preferences:
-   ```css
-   @media (prefers-reduced-motion: reduce) {
-     *, *::before, *::after {
-       animation-duration: 0.01ms !important;
-       transition-duration: 0.01ms !important;
-     }
-   }
-   ```
+## Output Contract
 
-7. **Performance** — Animation best practices:
-   - Only animate `transform` and `opacity`
-   - Use `will-change` sparingly
-   - Avoid layout thrashing
-
-## Expected Output
-
-- Scroll reveal utility (JS + CSS)
-- Page transition CSS
-- Micro-interaction CSS library
-- Loading animation components
-- Motion tokens
-- Reduced motion overrides
-- Performance guidelines
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "CreativePortfolio" |
-| `{{animation_requirements}}` | What needs animation | "Scroll reveals, button interactions, page transitions" |
+**Delivers**: Implements CSS and JavaScript animations including scroll reveals, page transitions, micro-interactions, and loading animations
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

@@ -1,96 +1,68 @@
 ---
 name: create-api-endpoint
 category: development
+version: 2.0.0
 description: "Creates a Firebase Cloud Function HTTP endpoint with input validation, auth checking, and error handling"
-agents: ["api-developer", "backend-developer"]
-skills: ["cloud-functions", "api-development"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["create-api-endpoint"]
+output-formats: ["html", "md"]
 ---
 
-# Create API Endpoint
+# Createapi Endpoint
 
-## Context
+> Creates a Firebase Cloud Function HTTP endpoint with input validation, auth checking, and error handling
 
-You are the `api-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Create a Cloud Functions API endpoint for **{{project_name}}**:
+## Dynamic Parameters
 
-Endpoint specification:
-```
-{{endpoint_spec}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Function Code** — Complete Cloud Function:
-   ```typescript
-   import * as functions from 'firebase-functions';
-   import * as admin from 'firebase-admin';
+## Execution Protocol
 
-   export const {{functionName}} = functions
-     .region('{{region}}')
-     .https.onRequest(async (req, res) => {
-       // CORS handling
-       // Auth verification
-       // Input validation
-       // Business logic
-       // Response
-     });
-   ```
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/create-api-endpoint/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-2. **Input Validation** — Validate all inputs:
-   - Type checking
-   - Required fields
-   - Format validation
-   - Sanitization (prevent injection)
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-3. **Authentication** — Verify Firebase Auth token:
-   ```typescript
-   const idToken = req.headers.authorization?.split('Bearer ')[1];
-   const decodedToken = await admin.auth().verifyIdToken(idToken);
-   ```
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-4. **Authorization** — Check permissions:
-   - Custom claims check
-   - Resource ownership check
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-5. **Business Logic** — Core logic:
-   - Firestore operations
-   - Data transformation
-   - External API calls (if any)
-   - Transaction handling (if multi-document)
+## Output Contract
 
-6. **Error Handling** — Standardized errors:
-   ```typescript
-   res.status(400).json({ error: { code: 'VALIDATION_ERROR', message: '...' } });
-   ```
-
-7. **CORS Configuration** — For browser access:
-   ```typescript
-   import cors from 'cors';
-   const corsHandler = cors({ origin: ['https://{{domain}}'] });
-   ```
-
-8. **Rate Limiting** — Prevent abuse.
-
-9. **Logging** — Structured logging for debugging.
-
-10. **Testing** — Unit test with Firebase Test SDK.
-
-## Expected Output
-
-- Complete Cloud Function code (TypeScript)
-- Input validation schema
-- Error response catalog
-- CORS configuration
-- Unit test file
-- Deployment instructions
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "PaymentService" |
-| `{{endpoint_spec}}` | Endpoint requirements | "POST /api/orders — Create a new order" |
-| `{{functionName}}` | Function name | "createOrder" |
-| `{{region}}` | Cloud Function region | "us-central1" |
+**Delivers**: Creates a Firebase Cloud Function HTTP endpoint with input validation, auth checking, and error handling
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask

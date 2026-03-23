@@ -1,88 +1,68 @@
 ---
 name: create-form
 category: development
+version: 2.0.0
 description: "Creates a complete form with validation, error messages, Firestore submission, and accessibility"
-agents: ["form-developer", "frontend-developer"]
-skills: ["form-creation", "validation-logic"]
+triad:
+  lead: "frontend-craftsman"
+  support: "accessibility-designer"
+  guardian: "quality-guardian"
+skills: ["create-form"]
+output-formats: ["html", "md"]
 ---
 
-# Create Form
+# Createform
 
-## Context
+> Creates a complete form with validation, error messages, Firestore submission, and accessibility
 
-You are the `form-developer` agent in the JM Agentic Development Kit.
-Stack: Firebase + HTML/CSS/JS + Angular/React. Deployment: Hostinger or Firebase Hosting.
+## Orchestration
 
-## Prompt
+| Role | Agent | Responsibility |
+|------|-------|---------------|
+| Lead | `frontend-craftsman` | Produces the primary deliverable |
+| Support | `accessibility-designer` | Reviews for accessibility and performance |
+| Guardian | `quality-guardian` | Validates evidence, gates, Constitution |
 
-Create the **{{form_name}}** form for **{{project_name}}**:
+## Dynamic Parameters
 
-Fields:
-```
-{{form_fields}}
-```
+| Parameter | Description | Required | Default | Filled By |
+|-----------|-------------|----------|---------|-----------|
+| `{{objective}}` | What to achieve | Yes | — | User input |
+| `{{context}}` | Background and constraints | Yes | — | User or environment |
+| `{{audience}}` | Who consumes the output | No | "technical team" | User |
+| `{{depth}}` | Detail level: quick / standard / deep | No | "standard" | Auto |
+| `{{output_format}}` | Format: html / docx / xlsx / md | No | "html" | Auto |
 
-1. **Form HTML** — Semantic form markup:
-   - Labels associated with inputs (for/id)
-   - Input types matching data (email, tel, url, number, date, etc.)
-   - Required/optional indicators
-   - Placeholder text (as hints, not labels)
-   - Fieldsets and legends for grouping
+## Execution Protocol
 
-2. **Validation** — Client-side validation:
-   ```javascript
-   const validationRules = {
-     email: { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Valid email required' },
-     // ... for each field
-   };
-   ```
-   - Required fields
-   - Format validation (regex)
-   - Length constraints (min/max)
-   - Custom validation rules
-   - Cross-field validation
-   - Real-time validation (on blur) vs submit-time
+### Phase 1: Think First (Constitution XIII)
+- Read existing context: `{{context}}`
+- Load skill guidelines: `skills/create-form/knowledge/body-of-knowledge.md`
+- Check guardrails: `references/guardrails/*.json`
+- Identify applicable quality gate (G0-G3)
 
-3. **Error Display** — User-friendly errors:
-   - Inline errors below each field
-   - Error summary at form top
-   - aria-describedby linking errors to fields
-   - aria-invalid on errored fields
-   - Focus first errored field on submit
+### Phase 2: Execute
+- **Lead** (`frontend-craftsman`) produces deliverable for `{{objective}}`
+- Follows skill procedure: Discover → Analyze → Execute → Validate
+- Applies evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Uses brand template if `{{output_format}}` = html
 
-4. **Firestore Submission** — Save to Firestore:
-   ```javascript
-   import { addDoc, collection } from 'firebase/firestore';
-   const handleSubmit = async (formData) => {
-     // Sanitize, validate, save
-   };
-   ```
-   - Loading state during submission
-   - Success feedback (toast/redirect)
-   - Error handling (network, permission, validation)
-   - Duplicate prevention (disable button)
+### Phase 3: Review
+- **Support** (`accessibility-designer`) reviews for:
+  - accessibility and performance
+  - Edge cases and uncovered assumptions
+  - Evidence tag completeness
 
-5. **Accessibility** — Complete a11y:
-   - Screen reader experience walkthrough
-   - Keyboard-only submission flow
-   - Error announcement via aria-live
+### Phase 4: Validate
+- **Guardian** checks:
+  - [ ] All claims have evidence tags
+  - [ ] Quality gate criteria met
+  - [ ] Constitution XIII + XIV respected
+  - [ ] Output exceeds expectations (insight + next steps included)
 
-6. **Responsive Layout** — Single column on mobile, multi-column on desktop.
+## Output Contract
 
-## Expected Output
-
-- Complete form HTML/JSX
-- CSS styles
-- Validation logic
-- Firestore submission code
-- Error handling
-- Success/loading states
-
-## Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `{{project_name}}` | Name of the project | "ContactApp" |
-| `{{form_name}}` | Name of the form | "ContactForm" |
-| `{{form_fields}}` | Field definitions | "name (text, required), email (email, required), message (textarea, required, max 500)" |
-| `{{firestore_collection}}` | Target Firestore collection | "contacts" |
+**Delivers**: Creates a complete form with validation, error messages, Firestore submission, and accessibility
+**Format**: `{{output_format}}` with MetodologIA brand if HTML
+**Quality**: Evidence-tagged, gate-compliant, triada-validated
+**Surpasses by**: Includes actionable recommendations and next steps beyond the ask
