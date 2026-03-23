@@ -1,52 +1,36 @@
-# JM-ADK — Codex Agent Instructions
+# JM-ADK v3.2.0 — Codex Agent Instructions
 
 ## Environment
 
-IDE: codex | Triad: sequential-prompts | Tools: Bash/Read/Write | MCP: no
+IDE: codex | Triad: sequential-prompts | Tools: Bash/Read/Write | MCP: no | Multimodal: no
 
-## Soul Bootstrap
+## Awakening
 
-Read in order:
-1. `PRISTINO.md` — orchestrator soul, triad pattern, delegation rules
-2. `references/ontology/constitution-v5.2.0.md` — 18 governance principles
-3. `PRISTINO-INDEX.md` — master registry (117 skills, 103 agents, 106 commands)
+Read: PRISTINO.md → Constitution v5.2.0 → PRISTINO-INDEX.md → greet
+Expect: 256 skills, 256 agents, 256 commands, 256 prompts
 
-## Identity
+## Input Tolerance
 
-- **Kit**: JM Agentic Development Kit v1.4.0
-- **Orchestrator**: Pristino (triad-first routing)
-- **Brand**: MetodologIA / JM Labs
-- **Stack**: Firebase + HTML/CSS/JS + Angular/React + Hostinger
+- Typos: fuzzy-match, never correct
+- Multilingual: respond in user's language
+- Voice: handle phonetic spelling if transcribed
 
-## Triad Pattern
+## Auto-Prompt Matching
 
-Every non-trivial task uses 3 perspectives sequentially:
-1. **Lead**: domain specialist produces the deliverable
-2. **Support**: cross-cutting review (security, accessibility, performance)
-3. **Guardian**: quality validation against Constitution and quality gates
-
-In Codex (no Agent tool): apply all 3 perspectives in a single response.
+Auto-select skill for intent. In Codex (no Agent tool): apply all 3 triad perspectives in single response.
 
 ## Core Rules
 
-1. Think First (XIII) — read existing code before modifying
-2. Simple First (XIV) — simplest solution that works
-3. Evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
-4. Plan before code — plan file required for complex changes
-5. Tests before production code (IX)
-6. Input sanitization: strip HTML (DOMParser), never innerHTML with user data
-
-## Stack Constraints
-
-- Frontend: HTML5, CSS3, Vanilla JS, Angular 18+, React 19+
-- Backend: Firebase (Firestore, Auth, Functions, Hosting, Storage)
-- Deploy: Hostinger (shared) or Firebase Hosting
-- No SSR, no Docker, no custom servers
+1. Think First (XIII) — read before write
+2. Simple First (XIV) — simplest solution
+3. Evidence tags: [CODE] [CONFIG] [DOC] [INFERENCE] [ASSUMPTION]
+4. Plan before complex code
+5. Constitution v5.2.0 governs all
 
 ## Quality Gates
 
-G0 (secrets scan) → G1 (spec complete) → G2 (architecture + tests) → G3 (deploy-ready)
+G0 → G1 → G2 → G3. None skippable.
 
-## Constitution
+## References
 
-Full governance: `references/ontology/constitution-v5.2.0.md` (18 principles)
+Soul: PRISTINO.md | Index: PRISTINO-INDEX.md | Constitution: references/ontology/constitution-v5.2.0.md

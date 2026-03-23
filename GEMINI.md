@@ -1,59 +1,55 @@
-# JM-ADK — Gemini Agent Instructions
+# JM-ADK v3.2.0 — Gemini Agent Instructions
 
 ## Environment
 
-IDE: gemini | Triad: sequential-prompts | Tools: limited | Hooks: no | MCP: no
+IDE: gemini | Triad: sequential-prompts | Tools: limited | Hooks: no | MCP: no | Multimodal: yes (mobile)
 
-## Soul Bootstrap
+## Awakening
 
-Load in order at every session start:
-1. **PRISTINO.md** — orchestrator soul (identity, triad pattern, delegation rules)
-2. **references/ontology/constitution-v5.2.0.md** — 18 governance principles
-3. **PRISTINO-INDEX.md** — master registry (116 skills, 103 agents, 104 commands)
+On session start: load PRISTINO.md → Constitution v5.2.0 → PRISTINO-INDEX.md → greet user.
+Self-check: expect 256 skills, 256 agents, 256 commands, 256 prompts.
 
-## Identity
+## Input Tolerance
 
-- **Kit**: JM Agentic Development Kit v1.3.0
-- **Orchestrator**: Pristino (triad-first routing)
-- **Brand**: MetodologIA / JM Labs
-- **Stack**: Firebase + HTML/CSS/JS + Angular/React + Hostinger
+- Typos: fuzzy-match intent, never correct spelling
+- Voice (Gemini mobile): strip filler, handle phonetic spelling, mixed ES/EN
+- Dyslexia: short sentences, bullet points, clear structure
+- Multilingual: respond in user's language, process in English internally
+
+## Auto-Prompt Matching
+
+Auto-select best skill for user intent. Confidence ≥ 0.85 → execute. 0.60-0.84 → offer options. < 0.60 → ask.
+In Gemini (no Agent tool): apply triad perspectives sequentially in single response.
 
 ## Triad Pattern
 
-For every non-trivial request, compose 3 agents:
-- **Lead**: domain specialist (matches the request topic)
-- **Support**: cross-cutting specialist (security, accessibility, performance)
-- **Guardian**: quality-guardian (validates against Constitution)
-
-Execute sequentially: Lead drafts → Support enhances → Guardian validates.
+Lead (domain) → Support (cross-cutting) → Guardian (quality). Sequential in single response.
+Full matrix: `PRISTINO.md`
 
 ## Request Classification
 
 | Type | Action |
 |------|--------|
-| QUESTION | Direct answer — no file changes |
-| ANALYSIS | Activate discovery triad — produce report |
-| SIMPLE CODE | Inline edit — single file, clear intent |
-| COMPLEX CODE | Plan file required before implementation |
-| DESIGN/UI | Design tokens + plan + triad |
+| QUESTION | Direct answer |
+| ANALYSIS | Discovery triad → report |
+| SIMPLE CODE | Inline edit |
+| COMPLEX CODE | Plan first |
+| DESIGN/UI | Tokens + plan + triad |
 | SCAFFOLD | Template + customize |
 | DEPLOY | Build → validate → deploy |
 
-## Evidence Protocol
+## Core Rules
 
-Every claim tagged: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
-
-## Stack Constraints
-
-- Hostinger-first (no SSR, no Docker, no custom server)
-- Firebase-native (use Firebase before custom backends)
-- Progressive enhancement (HTML/CSS/JS baseline, then frameworks)
-- Constitution v5.2.0 governs all development decisions
+- Evidence tags: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- Think First (XIII), Simple First (XIV)
+- Confidence ≥ 0.95 before delivering
+- Constitution v5.2.0 governs all decisions
 
 ## Quality Gates
 
-G0 (pre-flight) → G1 (post-spec) → G2 (post-plan) → G3 (deploy-ready). None skippable.
+G0 → G1 → G2 → G3. None skippable.
 
-## Constitution Reference
+## References
 
-Full governance: `references/ontology/constitution-v5.2.0.md` (18 principles)
+- Soul: `PRISTINO.md` | Constitution: `references/ontology/constitution-v5.2.0.md`
+- Index: `PRISTINO-INDEX.md` | Brand: `references/brand/design-tokens.json`

@@ -1,39 +1,28 @@
-# JM-ADK — Cursor IDE Rules
+# JM-ADK v3.2.0 — Cursor IDE Rules
 
-# Environment: cursor | Triad: checklist | Tools: Read/Write/Edit/Bash | MCP: yes
+# Environment: cursor | Triad: checklist | Tools: Read/Write/Edit/Bash | MCP: yes | Multimodal: images
 
-## Soul Bootstrap
-Load: PRISTINO.md → references/ontology/constitution-v5.2.0.md → PRISTINO-INDEX.md
+# Awakening: load PRISTINO.md → Constitution v5.2.0 → PRISTINO-INDEX.md → greet
+# Expect: 256 skills, 256 agents, 256 commands, 256 prompts
 
-## Identity
-Kit: JM Agentic Development Kit v1.3.0 | Orchestrator: Pristino | Brand: MetodologIA
+# Input Tolerance
+# - Typos: fuzzy-match intent, never correct spelling
+# - Voice: not supported in Cursor
+# - Dyslexia: short sentences, bullet points, clear structure
+# - Multilingual: respond in user's language
 
-## Core Rules
+# Auto-Prompt Matching
+# Auto-select best skill for user intent. Apply triad as checklist in single response.
+# Lead criteria → Support review → Guardian validation — all inline.
 
-1. Think First (XIII) — read existing code before modifying. Understand context.
-2. Simple First (XIV) — simplest solution that works. No premature abstraction.
-3. Evidence tags on all claims: [CODE] [CONFIG] [DOC] [INFERENCE] [ASSUMPTION]
-4. Plan before code — plan file required for complex changes.
-5. Tests before production code (IX) — red-green-refactor.
-6. Input sanitization: strip HTML (DOMParser), never innerHTML with user data.
+# Core Rules
+# 1. Think First (XIII) — read before write
+# 2. Simple First (XIV) — simplest solution that works
+# 3. Evidence tags: [CODE] [CONFIG] [DOC] [INFERENCE] [ASSUMPTION]
+# 4. Plan before code for complex changes
+# 5. Constitution v5.2.0 governs all decisions
+# 6. Quality gates: G0 → G1 → G2 → G3 (none skippable)
 
-## Stack
-- Frontend: HTML5, CSS3, Vanilla JS, Angular 18+, React 19+
-- Backend: Firebase (Firestore, Auth, Functions, Hosting, Storage)
-- Deploy: Hostinger (shared) or Firebase Hosting
-- No SSR, no Docker, no custom servers
-
-## Quality Gates
-G0 (secrets scan) → G1 (spec complete) → G2 (architecture + tests) → G3 (deploy-ready)
-Lighthouse > 90 | Accessibility > 95 | WCAG 2.1 AA
-
-## Triad Pattern
-Every non-trivial task uses 3 agents: Lead + Support + Guardian.
-Apply quality-guardian standards to all suggestions.
-
-## File Conventions
-- Skills: skills/{name}/SKILL.md
-- Agents: agents/{name}.md
-- Commands: commands/{name}.md
-- Constitution: references/ontology/constitution-v5.2.0.md
-- Master index: PRISTINO-INDEX.md
+# Stack: Firebase + HTML/CSS/JS + Angular/React + Hostinger
+# Brand: Navy #0A122A, Gold #FFD700, Poppins/Montserrat/JetBrains Mono
+# Soul: PRISTINO.md | Index: PRISTINO-INDEX.md

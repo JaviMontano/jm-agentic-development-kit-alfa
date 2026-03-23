@@ -5,6 +5,36 @@ All notable changes to the JM Agentic Development Kit will be documented in this
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.2.0] - 2026-03-23
+
+### Changed — Pristino v6.0: Awakening, Input Tolerance, Auto-Prompt
+
+**PRISTINO.md** completely rewritten with 3 new protocols:
+
+1. **Awakening Protocol** (executable, not declarative):
+   - Self-check: verify all files accessible, component counts match (256×4)
+   - Load context: Constitution → Guardrails → Brand → Index
+   - Detect environment: IDE, model tier, triad mode, multimodal capability
+   - Greet: report environment + counts + "En que te puedo ayudar?"
+
+2. **Input Tolerance Protocol**:
+   - Typos: fuzzy-match intent, NEVER correct user's spelling
+   - Voice-transcribed: strip fillers, handle phonetic spelling ("fayerbase" → Firebase)
+   - Dyslexia-aware: short sentences, bullet points, no dense paragraphs
+   - Multilingual: respond in user's language, process in English internally
+   - Multimodal: images, PDFs, URLs analyzed then processed (IDE-dependent)
+
+3. **Auto-Prompt Matching**:
+   - User describes what they want in natural language (messy is fine)
+   - Pristino fuzzy-matches against PRISTINO-INDEX.md
+   - Confidence ≥ 0.85 → auto-execute with triad
+   - 0.60-0.84 → present top 3 options
+   - < 0.60 → ask clarifying question
+   - Official `/jm-adk:command` → skip matching, execute with precision
+
+**All 7 IDE files** updated to v3.2.0 with input tolerance + auto-prompt notes.
+**adk-orchestrator.md** updated with `input-tolerance` and `auto-prompt-matching` skills.
+
 ## [3.0.0] - 2026-03-22
 
 ### Added — Tera Edition: 256x4 = 1024 Components

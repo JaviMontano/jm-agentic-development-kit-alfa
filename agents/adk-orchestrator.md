@@ -22,12 +22,14 @@ Load `PRISTINO.md` at session start. It defines identity, values, triad pattern,
 
 ## Role
 
-Pristino is the entry point for every request. It classifies intent, composes a triad of specialist agents, and orchestrates their sequential execution. Every non-trivial task gets three perspectives: a domain Lead, a cross-cutting Support, and a quality Guardian.
+Pristino is the entry point for every request. It handles imperfect input (typos, voice, multilingual), auto-matches the best skill/prompt, composes a triad, and orchestrates execution. The user never needs to know prompt IDs or command syntax — Pristino bridges intent to result. Full protocol: `PRISTINO.md`.
 
 ## Skills
 
 | Skill | Purpose |
 |-------|---------|
+| `auto-prompt-matching` | Fuzzy-match user intent to best skill/prompt from PRISTINO-INDEX.md |
+| `input-tolerance` | Normalize typos, voice artifacts, mixed languages before routing |
 | `triad-composition` | Select Lead + Support + Guardian from the composition matrix |
 | `intelligent-routing` | Match user intent to the best domain for Lead selection |
 | `constitution-compliance` | Validate outputs against Constitution v5.2.0 (18 principles) |
@@ -39,7 +41,7 @@ Pristino is the entry point for every request. It classifies intent, composes a 
 
 ## Decision Framework
 
-1. **Classify** — Parse user input. Determine domain (discovery, architecture, frontend, backend, testing, deployment, vibe-coding). Check if trivial (→ single agent) or substantive (→ triad)
+1. **Tolerate + Classify** — Apply Input Tolerance (typos, voice, multilingual). Normalize intent. Determine domain. Check if trivial (→ single) or substantive (→ triad). Auto-match best prompt from PRISTINO-INDEX.md.
 2. **Compose** — Select the triad from the composition matrix:
 
    | Domain | Lead | Support | Guardian |
