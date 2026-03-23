@@ -3,441 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JM Agentic Development Kit — Convierte intención en resultados</title>
-    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <title>JM Agentic Development Kit — Convierte intencion en resultados</title>
+    <meta name="description" content="256 habilidades, 256 agentes, un orquestador. Describe lo que quieres. El kit analiza, diseña, construye, prueba y despliega. Sin ser experto. Con método.">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Montserrat:wght@300;400;600;800&family=Poppins:wght@400;600;700;800&display=swap');
-
         :root {
-            --bg: #003366;
-            --bg-deep: #001f3f;
-            --surface: rgba(0, 51, 102, 0.95);
-            --gold: #D4AF37;
-            --gold-light: rgba(212, 175, 55, 0.1);
-            --ink: #ffffff;
-            --muted: rgba(255,255,255,0.6);
-            --grid: rgba(255, 255, 255, 0.06);
-            --cyan: #137DC5;
+            --bg:#003366; --deep:#001f3f; --surface:rgba(0,51,102,0.95);
+            --gold:#D4AF37; --gold-bg:rgba(212,175,55,0.08); --gold-border:rgba(212,175,55,0.2);
+            --ink:#fff; --muted:rgba(255,255,255,0.6); --grid:rgba(255,255,255,0.05);
+            --cyan:#137DC5; --lavender:#BBA0CC;
         }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Montserrat',sans-serif;background:var(--deep);color:var(--ink);
+            background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+            background-size:32px 32px;line-height:1.7;scroll-behavior:smooth}
+        .w{max-width:860px;margin:0 auto;padding:0 2rem}
+        section{padding:5rem 0}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* HERO */
+        .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:4rem 2rem}
+        .badge{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--gold);border:1px solid var(--gold);padding:.25rem .8rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:2rem}
+        .hero h1{font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3.2rem);line-height:1.15;margin-bottom:1.5rem}
+        .hero h1 em{font-style:normal;color:var(--gold)}
+        .hero .sub{font-size:1.1rem;color:var(--muted);max-width:580px;margin-bottom:2.5rem;font-weight:300}
+        .cta{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.85rem;padding:.7rem 1.8rem;background:var(--gold);color:var(--deep);text-decoration:none;font-weight:700;letter-spacing:.04em;transition:all .3s}
+        .cta:hover{box-shadow:0 0 30px rgba(212,175,55,.4);transform:translateY(-2px)}
+        .cta-ghost{background:transparent;border:1px solid var(--gold);color:var(--gold);margin-left:1rem}
+        .cta-ghost:hover{background:var(--gold-bg)}
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: var(--bg-deep);
-            color: var(--ink);
-            background-image:
-                linear-gradient(var(--grid) 1px, transparent 1px),
-                linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-            background-size: 32px 32px;
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+        /* SECTION HEADERS */
+        h2{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.6rem;color:var(--gold);text-transform:uppercase;letter-spacing:.06em;border-bottom:2px solid var(--gold);padding-bottom:.4rem;margin-bottom:1.5rem}
+        .lead{font-size:1rem;color:var(--muted);margin-bottom:2rem;max-width:650px}
 
-        .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+        /* CARDS */
+        .cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin:1.5rem 0}
+        .c{background:var(--surface);border:1px solid var(--gold-border);border-left:3px solid var(--gold);padding:1.2rem;transition:all .3s}
+        .c:hover{border-color:var(--gold);box-shadow:0 8px 25px rgba(0,0,0,.4);transform:translateY(-2px)}
+        .c h3{font-family:'Poppins',sans-serif;font-size:.95rem;font-weight:600;margin-bottom:.4rem}
+        .c p{font-size:.85rem;color:var(--muted);line-height:1.5}
+        .c .n{font-family:'JetBrains Mono',monospace;font-size:1.8rem;font-weight:700;color:var(--gold);display:block;margin-bottom:.3rem}
 
-        /* ===== HERO ===== */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 4rem 2rem;
-        }
+        /* STEPS */
+        .steps{counter-reset:step}
+        .st{display:flex;gap:1.2rem;margin-bottom:2rem;align-items:flex-start}
+        .st::before{counter-increment:step;content:counter(step);font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--deep);background:var(--gold);min-width:42px;height:42px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+        .st h3{font-family:'Poppins',sans-serif;font-size:1rem;margin-bottom:.2rem}
+        .st p{color:var(--muted);font-size:.85rem}
+        code{font-family:'JetBrains Mono',monospace;background:var(--gold-bg);border:1px solid var(--gold-border);padding:.1rem .4rem;font-size:.8rem;color:var(--gold)}
 
-        .hero-badge {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--gold);
-            border: 1px solid var(--gold);
-            padding: 0.3rem 1rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-        }
+        /* QUOTE */
+        .q{background:var(--gold-bg);border:1px solid var(--gold);padding:1.2rem 1.5rem;margin:2.5rem 0;font-family:'JetBrains Mono',monospace;font-size:.9rem;color:var(--gold);line-height:1.8;text-align:center}
 
-        .hero h1 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 800;
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            line-height: 1.15;
-            margin-bottom: 1.5rem;
-        }
+        /* TABLE */
+        table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.85rem}
+        th{font-family:'Poppins',sans-serif;color:var(--gold);text-align:left;padding:.6rem .8rem;border-bottom:2px solid var(--gold);font-size:.8rem;text-transform:uppercase;letter-spacing:.04em}
+        td{padding:.6rem .8rem;border-bottom:1px solid rgba(255,255,255,.04);color:var(--muted)}
+        tr:hover td{background:rgba(212,175,55,.03)}
 
-        .hero h1 .accent { color: var(--gold); }
+        /* DARK SECTION */
+        .dark{background:rgba(0,0,0,.2)}
 
-        .hero .tagline {
-            font-size: 1.15rem;
-            color: var(--muted);
-            max-width: 600px;
-            margin-bottom: 3rem;
-            font-weight: 300;
-        }
+        /* FOOTER */
+        footer{border-top:2px solid var(--gold);padding:2rem 0;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--muted)}
+        footer .b{color:var(--gold);font-weight:700}
 
-        .hero .cta {
-            display: inline-block;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            padding: 0.8rem 2rem;
-            background: var(--gold);
-            color: var(--bg-deep);
-            text-decoration: none;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            transition: all 0.3s;
-        }
-
-        .hero .cta:hover {
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
-            transform: translateY(-2px);
-        }
-
-        /* ===== SECTIONS ===== */
-        section {
-            padding: 5rem 0;
-        }
-
-        section h2 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            font-size: 1.75rem;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            border-bottom: 2px solid var(--gold);
-            padding-bottom: 0.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .lead {
-            font-size: 1.05rem;
-            color: var(--muted);
-            margin-bottom: 2rem;
-            max-width: 700px;
-        }
-
-        /* ===== CARDS ===== */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .card {
-            background: var(--surface);
-            border: 1px solid rgba(212, 175, 55, 0.15);
-            padding: 1.5rem;
-            border-left: 3px solid var(--gold);
-            transition: all 0.3s;
-        }
-
-        .card:hover {
-            border-color: var(--gold);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-            transform: translateY(-3px);
-        }
-
-        .card h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .card p {
-            font-size: 0.9rem;
-            color: var(--muted);
-        }
-
-        .card .number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--gold);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        /* ===== STEPS ===== */
-        .steps {
-            counter-reset: step;
-        }
-
-        .step {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
-            align-items: flex-start;
-        }
-
-        .step::before {
-            counter-increment: step;
-            content: counter(step);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--bg-deep);
-            background: var(--gold);
-            min-width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .step-content h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .step-content p {
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
-        .step-content code {
-            font-family: 'JetBrains Mono', monospace;
-            background: rgba(212, 175, 55, 0.1);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 0.15rem 0.5rem;
-            font-size: 0.85rem;
-            color: var(--gold);
-        }
-
-        /* ===== QUOTE ===== */
-        .quote {
-            background: var(--gold-light);
-            border: 1px solid var(--gold);
-            padding: 1.5rem 2rem;
-            margin: 3rem 0;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.95rem;
-            color: var(--gold);
-            line-height: 1.8;
-            text-align: center;
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            border-top: 2px solid var(--gold);
-            padding: 2rem 0;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--muted);
-        }
-
-        footer .brand { color: var(--gold); font-weight: 700; }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 600px) {
-            .hero { padding: 3rem 1rem; }
-            .step { flex-direction: column; }
-            .card-grid { grid-template-columns: 1fr; }
-        }
-
-        /* ===== PRINT ===== */
-        @media print {
-            body { background: white; color: #1a1a1a; background-image: none; }
-            .hero .cta { background: #1a1a1a; color: white; }
-            section h2 { color: #003366; border-bottom-color: #003366; }
-            .card { border-color: #ddd; background: #f9f9f9; }
-            .step::before { background: #003366; color: white; }
-        }
+        /* RESPONSIVE */
+        @media(max-width:600px){.hero{padding:3rem 1rem}.st{flex-direction:column}.cg{grid-template-columns:1fr}.cta-ghost{margin-left:0;margin-top:.5rem}}
+        @media print{body{background:#fff;color:#1a1a1a;background-image:none}h2{color:#003366;border-bottom-color:#003366}.c{border-color:#ddd;background:#f9f9f9}}
     </style>
 </head>
 <body>
 
-<!-- HERO -->
 <section class="hero">
-    <div class="hero-badge">JM Agentic Development Kit v3.1.0</div>
-    <h1>Convierte <span class="accent">intención</span><br>en resultados</h1>
-    <p class="tagline">
-        Un entorno listo para trabajar. 256 habilidades, 256 agentes especializados,
-        y un orquestador que convierte lo que quieres lograr en software funcionando.
-        Sin necesidad de ser experto. Con método.
+    <div class="badge">JM-ADK v3.1.0 Tera · 1024 componentes · 7 IDEs</div>
+    <h1>Convierte <em>intencion</em><br>en resultados</h1>
+    <p class="sub">
+        Un entorno agentico listo para trabajar. Describe lo que necesitas.
+        256 agentes especializados analizan, disenan, construyen y despliegan.
+        Sin ser experto. Con metodo.
     </p>
-    <a href="#que-es" class="cta">Empezar ahora</a>
+    <div>
+        <a href="#empezar" class="cta">Empezar</a>
+        <a href="#que-es" class="cta cta-ghost">Como funciona</a>
+    </div>
 </section>
 
-<!-- QUE ES -->
 <section id="que-es">
-    <div class="container">
-        <h2>Qué es esto</h2>
-        <p class="lead">
-            JM-ADK es un kit que convierte tu asistente de IA en un equipo completo de desarrollo.
-            Tú describes lo que quieres. El kit analiza, diseña, construye, prueba y despliega.
-        </p>
+<div class="w">
+    <h2>Que es</h2>
+    <p class="lead">JM-ADK convierte tu asistente de IA en un equipo de desarrollo gobernado. Tu das la direccion. El kit ejecuta con metodo, calidad, y trazabilidad.</p>
 
-        <div class="card-grid">
-            <div class="card">
-                <span class="number">256</span>
-                <h3>Habilidades</h3>
-                <p>Desde crear un sitio web hasta prospectar clientes, diseñar APIs, o escribir propuestas comerciales.</p>
-            </div>
-            <div class="card">
-                <span class="number">256</span>
-                <h3>Agentes</h3>
-                <p>Cada uno es experto en algo: seguridad, diseño, Firebase, marketing, contenido, calidad.</p>
-            </div>
-            <div class="card">
-                <span class="number">1024</span>
-                <h3>Componentes</h3>
-                <p>Habilidades + agentes + comandos + prompts. Todos gobernados por una Constitución de 18 principios.</p>
-            </div>
-        </div>
+    <div class="cg">
+        <div class="c"><span class="n">256</span><h3>Habilidades</h3><p>Cada una es un paquete completo: 4 sub-agentes, grafo de conocimiento, prompts, y templates de output en HTML/DOCX.</p></div>
+        <div class="c"><span class="n">256</span><h3>Agentes</h3><p>Especialistas de dominio: seguridad, frontend, Firebase, marketing, contenido, AI/ML, DevOps, UX, gobernanza.</p></div>
+        <div class="c"><span class="n">18</span><h3>Principios</h3><p>Constitucion v5.2.0. Think First. Simple First. TDD. BDD. Sequential-first. Continuous Learning. Indexable Repo.</p></div>
+        <div class="c"><span class="n">5</span><h3>Hooks</h3><p>Automatizacion real: filtro de input, bloqueo pre-ejecucion, validacion post-tool, validacion final antes de entregar.</p></div>
     </div>
+</div>
 </section>
 
-<!-- COMO FUNCIONA -->
-<section id="como-funciona" style="background: rgba(0,0,0,0.15);">
-    <div class="container">
-        <h2>Cómo funciona</h2>
-        <p class="lead">Tres pasos. Tú describes. El kit construye.</p>
+<section class="dark" id="como-funciona">
+<div class="w">
+    <h2>Como funciona</h2>
 
-        <div class="steps">
-            <div class="step">
-                <div class="step-content">
-                    <h3>Describe lo que quieres</h3>
-                    <p>"Necesito una app de tareas para equipos pequeños con colaboración en tiempo real."</p>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-content">
-                    <h3>El kit arma un equipo</h3>
-                    <p>Pristino (el orquestador) selecciona 3 agentes: uno que lidera, uno que revisa, uno que valida calidad. Trabajan en secuencia, como una línea de ensamblaje.</p>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-content">
-                    <h3>Recibes un proyecto real</h3>
-                    <p>Código funcional, probado, accesible, seguro. Desplegado en una URL en vivo. Con documentación y decisiones trazables.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="quote">
-            "La brecha entre aspirar y lograr, se cierra con método."
-        </div>
+    <div class="steps">
+        <div class="st"><div><h3>Describes lo que necesitas</h3><p>"Necesito una app de tareas para equipos pequenos con colaboracion en tiempo real."</p></div></div>
+        <div class="st"><div><h3>Pristino compone una triada</h3><p>El orquestador selecciona 3 agentes: un Lead (especialista del dominio), un Support (seguridad, accesibilidad), y un Guardian (calidad). Trabajan en secuencia.</p></div></div>
+        <div class="st"><div><h3>Cada agente ejecuta su rol</h3><p>Lead produce el entregable. Support revisa edge cases y vulnerabilidades. Guardian valida contra la Constitucion y las 4 puertas de calidad.</p></div></div>
+        <div class="st"><div><h3>Recibes un proyecto real</h3><p>Codigo funcional, probado, accesible, seguro, desplegado en URL en vivo. Con decisiones documentadas y trazables.</p></div></div>
     </div>
+
+    <div class="q">"La brecha entre aspirar y lograr, se cierra con metodo."</div>
+</div>
 </section>
 
-<!-- PARA QUIEN -->
-<section id="para-quien">
-    <div class="container">
-        <h2>Para quién es</h2>
+<section id="que-puedes">
+<div class="w">
+    <h2>Que puedes hacer</h2>
 
-        <div class="card-grid">
-            <div class="card">
-                <h3>Emprendedores</h3>
-                <p>Tienes la idea pero no el equipo técnico. El kit la convierte en producto funcional.</p>
-            </div>
-            <div class="card">
-                <h3>Desarrolladores</h3>
-                <p>Ya sabes código. El kit te da gobernanza, calidad, y velocidad — sin sacrificar rigor.</p>
-            </div>
-            <div class="card">
-                <h3>Consultores</h3>
-                <p>Necesitas analizar, proponer, y entregar. El kit tiene el pipeline completo: discovery → desarrollo → deploy.</p>
-            </div>
-            <div class="card">
-                <h3>Equipos</h3>
-                <p>256 agentes especializados que trabajan con la misma Constitución. Consistencia sin fricción.</p>
-            </div>
-        </div>
-    </div>
+    <table>
+        <tr><th>Necesidad</th><th>Que obtienes</th><th>Formato</th></tr>
+        <tr><td>Sitio web personal</td><td>Portfolio accesible, Lighthouse 98+, SEO listo</td><td>HTML → Hostinger</td></tr>
+        <tr><td>App con login</td><td>Firebase Auth + Firestore + Hosting en vivo</td><td>Codigo → Firebase</td></tr>
+        <tr><td>Analizar idea de negocio</td><td>Requisitos, dominio, flujos, factibilidad, costos</td><td>HTML branded</td></tr>
+        <tr><td>Prospectar clientes</td><td>Dossier de mercado, empresas target, outreach B2B</td><td>HTML/DOCX branded</td></tr>
+        <tr><td>Mejorar CV</td><td>Perfil reescrito con lenguaje de impacto</td><td>HTML/DOCX branded</td></tr>
+        <tr><td>Propuesta de workshop</td><td>Agenda, recursos, presupuesto, propuesta visual</td><td>HTML branded</td></tr>
+        <tr><td>Landing page SaaS</td><td>HTML con CTA, responsive, SEO, print-ready</td><td>HTML → Hostinger</td></tr>
+        <tr><td>Dashboard admin</td><td>Tablas, graficos, filtros, CRUD</td><td>Codigo → Firebase</td></tr>
+        <tr><td>Prompt engineering</td><td>Biblioteca de prompts evaluados y documentados</td><td>HTML/XLSX branded</td></tr>
+        <tr><td>Prompt para IA</td><td>Prompt optimizado con few-shot, CoT, guardrails</td><td>Markdown/Obsidian</td></tr>
+    </table>
+</div>
 </section>
 
-<!-- QUE PUEDES HACER -->
-<section id="que-puedes" style="background: rgba(0,0,0,0.15);">
-    <div class="container">
-        <h2>Qué puedes hacer</h2>
+<section class="dark" id="para-quien">
+<div class="w">
+    <h2>Para quien es</h2>
 
-        <div class="card-grid">
-            <div class="card">
-                <h3>Crear sitios web</h3>
-                <p>Portafolios, landing pages, blogs. Lighthouse 98+, accesible, SEO-ready.</p>
-            </div>
-            <div class="card">
-                <h3>Construir apps</h3>
-                <p>Task managers, dashboards, e-commerce. Firebase + auth + real-time.</p>
-            </div>
-            <div class="card">
-                <h3>Prospectar clientes</h3>
-                <p>Investigación de mercado, dossiers de empresas, secuencias de outreach B2B.</p>
-            </div>
-            <div class="card">
-                <h3>Diseñar propuestas</h3>
-                <p>Workshops, presupuestos, roadmaps, business cases. Todo con tu marca.</p>
-            </div>
-            <div class="card">
-                <h3>Analizar proyectos</h3>
-                <p>AS-IS, flujos de negocio, stakeholders, factibilidad, estimación de costos.</p>
-            </div>
-            <div class="card">
-                <h3>Mejorar tu CV</h3>
-                <p>Análisis de perfil, reescritura con impacto, formato HTML de marca.</p>
-            </div>
-        </div>
+    <div class="cg">
+        <div class="c"><h3>Emprendedores</h3><p>Tienes la idea pero no el equipo tecnico. El kit convierte tu vision en producto funcional sin que toques codigo.</p></div>
+        <div class="c"><h3>Desarrolladores</h3><p>Ya sabes codigo. El kit te da gobernanza, calidad, y velocidad. 256 skills listas para usar, cada una con knowledge graph y templates.</p></div>
+        <div class="c"><h3>Consultores y presales</h3><p>Necesitas analizar, proponer, y entregar. Discovery → desarrollo → deploy. Prospecting, dossiers, propuestas — todo con tu marca.</p></div>
+        <div class="c"><h3>Equipos</h3><p>256 agentes que trabajan bajo la misma Constitucion. Consistencia sin friccion. Cada decision documentada y trazable.</p></div>
     </div>
+</div>
 </section>
 
-<!-- COMO EMPEZAR -->
-<section id="empezar">
-    <div class="container">
-        <h2>Cómo empezar</h2>
+<section id="gobernanza">
+<div class="w">
+    <h2>Gobernanza</h2>
+    <p class="lead">No es solo codigo. Es un sistema que se gobierna a si mismo.</p>
 
-        <div class="steps">
-            <div class="step">
-                <div class="step-content">
-                    <h3>Instala Claude Code</h3>
-                    <p>Descárgalo en <code>claude.ai/claude-code</code>. Es el entorno donde corre el kit.</p>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-content">
-                    <h3>Clona e instala el kit</h3>
-                    <p><code>git clone https://github.com/JaviMontano/jm-agentic-development-kit.git</code><br>
-                    <code>claude plugin add ./jm-agentic-development-kit</code></p>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-content">
-                    <h3>Inicia tu primer proyecto</h3>
-                    <p><code>/jm-adk:onboarding</code> — Te guía paso a paso. O ve directo: <code>/jm-adk:demo</code></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="quote">
-            Democratizar el acceso al trabajo agéntico.<br>
-            Un entorno listo para ayudar a convertir intención en resultados.
-        </div>
-    </div>
+    <table>
+        <tr><th>Mecanismo</th><th>Que hace</th><th>Cuando actua</th></tr>
+        <tr><td>Constitucion (18 principios)</td><td>Define como se piensa, construye, y evoluciona</td><td>Siempre — es la ley suprema</td></tr>
+        <tr><td>4 puertas de calidad</td><td>G0 (preflight) → G1 (post-spec) → G2 (post-plan) → G3 (pre-deploy)</td><td>Antes de cada transicion de fase</td></tr>
+        <tr><td>Triada obligatoria</td><td>Lead + Support + Guardian para cada tarea</td><td>Automatico — Pristino la compone</td></tr>
+        <tr><td>Debate socratico</td><td>Tesis → antitesis → evidencia → sintesis cuando confianza &lt; 0.95</td><td>Ante ambiguedad o decisiones dificiles</td></tr>
+        <tr><td>Cadena de integridad</td><td>Intencion → RQL → Plan → ADR → Spec → Tests → Codigo</td><td>Cada feature trazable de punta a punta</td></tr>
+        <tr><td>Guardrails del usuario</td><td>Reglas que tu declaras, Pristino enforza</td><td>Cada sesion — carga JSON como RAG</td></tr>
+        <tr><td>Learning loop</td><td>Debates → insights → enmiendas → menos debates futuros</td><td>Despues de cada decision importante</td></tr>
+        <tr><td>Deteccion de entorno</td><td>Adapta triada y carga de skills al IDE + modelo detectado</td><td>Al inicio de sesion</td></tr>
+    </table>
+</div>
 </section>
 
-<!-- FOOTER -->
+<section class="dark" id="empezar">
+<div class="w">
+    <h2>Como empezar</h2>
+
+    <div class="steps">
+        <div class="st"><div><h3>Instala Claude Code</h3><p>Descargalo en <code>claude.ai/claude-code</code>. Es el entorno recomendado. Tambien funciona en Cursor, VS Code, Gemini, Windsurf, Codex.</p></div></div>
+        <div class="st"><div><h3>Clona e instala</h3><p><code>git clone https://github.com/JaviMontano/jm-agentic-development-kit.git</code><br><code>claude plugin add ./jm-agentic-development-kit</code></p></div></div>
+        <div class="st"><div><h3>Arranca</h3><p><code>/jm-adk:onboarding</code> te guia paso a paso.<br><code>/jm-adk:demo</code> te muestra el kit en accion.<br><code>/jm-adk:init</code> configura tu proyecto con Constitucion y triada.</p></div></div>
+    </div>
+
+    <div class="q">
+        Democratizar el acceso al trabajo agentico.<br>
+        Un entorno listo para ayudar a convertir intencion en resultados.
+    </div>
+</div>
+</section>
+
+<section id="limites">
+<div class="w">
+    <h2>Limites y supuestos</h2>
+    <p class="lead">Transparencia sobre lo que el kit hace y no hace.</p>
+
+    <table>
+        <tr><th>Limite</th><th>Razon</th><th>Trade-off</th></tr>
+        <tr><td>Stack Firebase-first</td><td>No soporta AWS, Azure, ni servidores custom</td><td>Simplicidad &gt; flexibilidad. Firebase cubre 90% de casos web</td></tr>
+        <tr><td>Hostinger para sitios estaticos</td><td>No SSR, no Docker</td><td>$3/mes &gt; complejidad de infraestructura</td></tr>
+        <tr><td>WIP maximo 3</td><td>Nunca mas de 3 agentes simultaneos</td><td>Calidad predecible &gt; velocidad maxima</td></tr>
+        <tr><td>Confianza ≥ 0.95</td><td>No entrega si no esta seguro</td><td>Precision &gt; rapidez</td></tr>
+        <tr><td>Ingles interno</td><td>Skills en ingles, output bilingue ES/EN</td><td>Consistencia del ecosistema</td></tr>
+        <tr><td>Estetica fija</td><td>Navy + Gold + glassmorphism en todo HTML</td><td>Marca consistente &gt; personalizacion visual</td></tr>
+    </table>
+</div>
+</section>
+
 <footer>
-    <div class="container">
-        <p><span class="brand">JM Agentic Development Kit</span> — v3.1.0 Tera</p>
-        <p style="margin-top: 0.5rem;">
-            Created by <span class="brand">Javier Montaño</span> · MetodologIA · JM Labs
-        </p>
-        <p style="margin-top: 0.5rem;">
-            Made with Claude Code and Tons of Love with the Help of Pristino Agent
-        </p>
-        <p style="margin-top: 1rem;">
-            <a href="https://github.com/JaviMontano/jm-agentic-development-kit" style="color: var(--gold); text-decoration: none;">GitHub</a> ·
-            <a href="README.md" style="color: var(--gold); text-decoration: none;">README</a> ·
-            <a href="PRISTINO.md" style="color: var(--gold); text-decoration: none;">Pristino</a> ·
-            MIT License
-        </p>
-    </div>
+<div class="w">
+    <p><span class="b">JM Agentic Development Kit</span> — v3.1.0 Tera — 1024 componentes</p>
+    <p style="margin-top:.5rem">Creado por <span class="b">Javier Montano</span> · MetodologIA · JM Labs</p>
+    <p style="margin-top:.5rem">Made with Claude Code and Tons of Love with the Help of Pristino Agent</p>
+    <p style="margin-top:.8rem">
+        <a href="https://github.com/JaviMontano/jm-agentic-development-kit" style="color:var(--gold);text-decoration:none">GitHub</a> ·
+        <a href="README.md" style="color:var(--gold);text-decoration:none">README</a> ·
+        <a href="PRISTINO.md" style="color:var(--gold);text-decoration:none">Pristino</a> ·
+        <a href="references/ontology/constitution-v5.2.0.md" style="color:var(--gold);text-decoration:none">Constitucion</a> ·
+        MIT License
+    </p>
+</div>
 </footer>
 
 </body>

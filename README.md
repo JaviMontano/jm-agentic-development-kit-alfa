@@ -1,370 +1,352 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/JM--ADK-v1.2.1-gold?style=for-the-badge&labelColor=122562" alt="Version" />
-  <img src="https://img.shields.io/badge/Skills-116-137DC5?style=for-the-badge&labelColor=122562" alt="Skills" />
-  <img src="https://img.shields.io/badge/Agents-103-137DC5?style=for-the-badge&labelColor=122562" alt="Agents" />
+  <img src="https://img.shields.io/badge/JM--ADK-v3.1.0_Tera-D4AF37?style=for-the-badge&labelColor=003366" alt="Version" />
+  <img src="https://img.shields.io/badge/Components-1024-D4AF37?style=for-the-badge&labelColor=003366" alt="1024" />
+  <img src="https://img.shields.io/badge/Skills-256_(enriched)-137DC5?style=for-the-badge&labelColor=003366" alt="Skills" />
 </p>
 
 <h1 align="center">JM Agentic Development Kit</h1>
 
 <p align="center">
-  <strong>Tell the AI what you want to build. It analyzes, designs, codes, tests, and deploys.</strong>
+  <strong>Convierte intencion en resultados.</strong><br>
+  <em>Describe lo que quieres. El kit analiza, disena, construye, prueba y despliega.</em>
 </p>
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT" /></a>
   <a href="https://github.com/JaviMontano/jm-agentic-development-kit/actions/workflows/validate.yml"><img src="https://github.com/JaviMontano/jm-agentic-development-kit/actions/workflows/validate.yml/badge.svg" alt="CI" /></a>
-  <a href="https://claude.ai/claude-code"><img src="https://img.shields.io/badge/Claude_Code-Plugin-blueviolet" alt="Claude Code" /></a>
+  <a href="landing.html"><img src="https://img.shields.io/badge/Landing-Open-D4AF37" alt="Landing" /></a>
 </p>
 
 ---
 
-## What is this?
+## Que es
 
-JM-ADK is a toolkit that turns your AI assistant into a **full development team**.
+Un entorno agentico listo para trabajar. 256 habilidades especializadas, 256 agentes, y un orquestador (Pristino) que compone un equipo de 3 para cada tarea. Tu das la direccion. El kit ejecuta con metodo.
 
-You describe what you want — a website, an app, a dashboard. The kit activates specialized AI agents that analyze your idea, design the solution, write the code, test it, and deploy it. Each agent is an expert in one thing: one designs databases, another writes HTML, another checks security.
+**No es un chatbot.** Es un sistema gobernado: 18 principios constitucionales, 4 puertas de calidad, trazabilidad de cada decision, y aprendizaje continuo entre sesiones.
 
-**116 agents working together. You give the direction.**
+## Que problema resuelve
 
-## What problem does it solve?
+| Sin JM-ADK | Con JM-ADK |
+|------------|-----------|
+| La IA adivina que quieres | La IA pregunta, analiza, valida antes de actuar |
+| Resultados inconsistentes | Mismo metodo siempre: analizar → disenar → construir → probar → desplegar |
+| Un agente generalista hace todo | 256 especialistas, cada uno experto en lo suyo |
+| Sin control de calidad | 4 puertas obligatorias (G0→G1→G2→G3) |
+| Contexto perdido entre sesiones | Decisiones grabadas, insights extraidos, errores no repetidos |
+| Tu gestionas la IA | La IA se gestiona sola bajo Constitucion |
 
-Building software with AI is powerful but chaotic. Without structure, the AI guesses, skips steps, forgets context, and produces inconsistent results.
+## Que puedes hacer
 
-JM-ADK solves this by giving the AI:
+| Necesidad | Comando | Resultado | Deploy |
+|-----------|---------|-----------|--------|
+| Sitio web personal | `/jm-adk:express input="Portfolio"` | HTML/CSS accesible, Lighthouse 98+ | Hostinger ($3/mes) |
+| App con login y datos | `/jm-adk:scaffold-firebase` | Firebase Auth + Firestore + Hosting | Firebase (gratis) |
+| Analizar una idea de negocio | `/jm-adk:analyze input="Marketplace artesanal"` | Requisitos, modelo de dominio, flujos, factibilidad, costos | — |
+| Prospectar clientes en Miami | `/jm-adk:prospect input="AI training Miami"` | Dossier de mercado, empresas target, estrategia de outreach | HTML branded |
+| Mejorar tu CV | `/jm-adk:cv` | CV reescrito con lenguaje de impacto | HTML/DOCX branded |
+| Propuesta de workshop | `/jm-adk:workshop-proposal` | Agenda, recursos, presupuesto, propuesta visual | HTML/PPTX branded |
+| Landing page de SaaS | `/jm-adk:express input="SaaS landing" target=hostinger` | HTML con CTA, SEO, responsive | Hostinger |
+| Dashboard admin | `/jm-adk:create-dashboard` | Tablas, graficos, filtros, CRUD | Firebase |
 
-- **A method** — every project follows the same proven path: understand first, then design, then build, then test, then deploy
-- **Rules** — 18 governance principles that prevent shortcuts, enforce quality, and keep the AI honest
-- **Specialists** — instead of one generalist AI doing everything, 103 focused agents do what they're best at
-- **Memory** — decisions are recorded, lessons are learned, mistakes are never repeated
-
-The result: **predictable, high-quality output every time**.
-
-## What can you build with it?
-
-| Project | Example Command | Deploy To |
-|---------|----------------|-----------|
-| Portfolio website | `/jm-adk:express input="Developer portfolio"` | Hostinger |
-| Task manager app | `/jm-adk:scaffold-firebase` | Firebase |
-| E-commerce platform | `/jm-adk:analyze input="Artisan products marketplace"` | Firebase |
-| Landing page | `/jm-adk:express input="SaaS landing page" target=hostinger` | Hostinger |
-| Admin dashboard | `/jm-adk:create-dashboard` | Firebase |
-| Blog with CMS | `/jm-adk:scaffold-vanilla` | Hostinger |
-
-**Tech stack**: HTML, CSS, JavaScript, Angular, React, Firebase, Hostinger. All Google-ecosystem friendly.
+**Stack**: HTML5, CSS3, JS, Angular 18+, React 19+, Firebase, Hostinger. Ecosistema Google.
 
 ---
 
-## How it works — 3 steps
+## Como funciona
 
-### Step 1: You describe what you want
-
-```
-"I need a task management app where teams can create tasks,
-assign them, and track progress in real time."
-```
-
-### Step 2: The AI analyzes, designs, and builds
-
-The kit activates the right agents in sequence:
+### 1. Tu describes
 
 ```
-Your idea
-  → Requirements analyst (what exactly do you need?)
-  → Domain modeler (what are the data structures?)
-  → Architecture designer (how should it be built?)
-  → Frontend craftsman (HTML, CSS, JavaScript)
-  → Firebase specialist (database, auth, hosting)
-  → Quality engineer (does it work? is it accessible? is it secure?)
+"Necesito una app de tareas para equipos pequenos con colaboracion en tiempo real."
 ```
 
-Each agent does its job and passes the result to the next one. Like an assembly line, but for software.
+### 2. Pristino compone una triada
 
-### Step 3: You get a working, deployed project
+Para cada tarea, el orquestador selecciona 3 agentes:
 
-The output is real code — tested, accessible, secure, and deployed to a live URL.
+| Rol | Quien | Que hace |
+|-----|-------|---------|
+| **Lead** | El especialista del dominio | Produce el entregable principal |
+| **Support** | Un especialista transversal | Revisa seguridad, accesibilidad, edge cases |
+| **Guardian** | El guardian de calidad | Valida contra la Constitucion y las puertas de calidad |
+
+Ejecutan en secuencia: Lead → Support → Guardian. Como una linea de ensamblaje donde cada estacion agrega valor.
+
+### 3. Recibes un proyecto real
+
+Codigo funcional, probado, accesible, seguro, desplegado en URL en vivo. Con documentacion y decisiones trazables.
 
 ---
 
-## Getting started
+## Anatomia del kit
 
-### What you need
+```
+jm-agentic-development-kit/
+├── PRISTINO.md                 ← Alma del orquestador (identidad, triada, reglas)
+├── PRISTINO-INDEX.md           ← Registro maestro de los 1024 componentes
+├── CLAUDE.md                   ← Instrucciones para Claude Code
+├── GEMINI.md                   ← Instrucciones para Gemini
+├── AGENTS.md                   ← Instrucciones para OpenAI Codex
+├── .cursorrules                ← Instrucciones para Cursor
+├── .windsurfrules              ← Instrucciones para Windsurf
+├── .github/copilot-instructions.md ← Instrucciones para VS Code Copilot
+├── landing.html                ← Pagina de onboarding (abre en navegador)
+│
+├── skills/ (256 × paquete enriquecido)
+│   └── {skill}/
+│       ├── SKILL.md            ← Archivo maestro
+│       ├── agents/             ← 4 sub-agentes (lead, support, guardian, specialist)
+│       ├── knowledge/          ← Grafo de conocimiento (Zettelkasten) + body of knowledge
+│       ├── prompts/            ← Primary + meta + variaciones
+│       └── templates/          ← HTML (brand MetodologIA) + DOCX spec
+│
+├── agents/ (256)               ← Agentes especializados
+├── commands/ (256)             ← Comandos invocables por el usuario
+├── prompts/ (256)              ← Templates de prompts reutilizables
+├── references/
+│   ├── ontology/               ← Constitucion v5.2.0, metacognicion, integridad, entorno
+│   ├── brand/                  ← Design tokens + template HTML (navy + gold + glassmorphism)
+│   └── guardrails/             ← Guidelines/constraints/guardrails JSON (RAG interno)
+├── hooks/                      ← 5 hooks (SessionStart, UserPromptSubmit, PreToolUse, PostToolUse, Stop)
+├── templates/                  ← 5 scaffolds de proyecto (Firebase, Angular, React, Vanilla, Node)
+└── docs/                       ← Guias, ejemplos, catalogo, arquitectura
+```
 
-- [Claude Code](https://claude.ai/claude-code) installed on your computer
-- A terminal (the app where you type commands)
+### Cada skill es un paquete completo
 
-### Install (60 seconds)
+No es un archivo suelto. Cada skill contiene:
+
+| Componente | Que es | Para que sirve |
+|-----------|--------|---------------|
+| `SKILL.md` | Archivo maestro | Define el procedimiento: Discover → Analyze → Execute → Validate |
+| `agents/` | 4 sub-agentes | Lead (produce), Support (revisa), Guardian (valida), Specialist (profundiza) |
+| `knowledge/` | Grafo de conocimiento | Zettelkasten con `[[wikilinks]]` para Obsidian. Body of knowledge con estandares |
+| `prompts/` | Prompts de ejecucion | Primary (ejecutar), Meta (auto-mejora), Variaciones (quick, expert, audit) |
+| `templates/` | Templates de output | HTML branded (MetodologIA), DOCX spec, XLSX donde aplica |
+
+**3,075 archivos** solo en skills/. Cada habilidad esta lista para operar de forma autonoma.
+
+---
+
+## Empezar
+
+### Prerrequisitos
+
+- [Claude Code](https://claude.ai/claude-code) instalado
+- Terminal (la app donde tecleas comandos)
+- Git
+
+### Instalar (60 segundos)
 
 ```bash
 git clone https://github.com/JaviMontano/jm-agentic-development-kit.git
 claude plugin add ./jm-agentic-development-kit
 ```
 
-### Your first project (3 minutes)
+### Primer proyecto (3 minutos)
 
 ```bash
-/jm-adk:onboarding
+/jm-adk:onboarding    # Guiado paso a paso
 ```
 
-This walks you through building your first project step by step. It asks what you want to build, recommends an approach, and guides you through the process.
-
-Or go straight to building:
+O directo:
 
 ```bash
-/jm-adk:analyze input="A task management app for small teams"
-/jm-adk:scaffold-firebase
-/jm-adk:ship target=firebase
-```
-
-**[Full getting started guide](docs/getting-started.md)**
-
----
-
-## The two phases
-
-Every project goes through two phases. You can run them separately or together.
-
-<table>
-<tr>
-<td width="50%" valign="top">
-
-### Phase 1: Analyze
-
-**What**: Understand the problem before writing code.
-
-**Command**: `/jm-adk:analyze input="your idea"`
-
-**What you get**:
-- Requirements document
-- Data model (what information the app manages)
-- User flows (how people use it)
-- Feasibility check (can it actually be built this way?)
-- Cost and effort estimate
-
-**Why it matters**: Building the wrong thing is the most expensive mistake. Analysis prevents it.
-
-</td>
-<td width="50%" valign="top">
-
-### Phase 2: Develop
-
-**What**: Design, build, test, and deploy.
-
-**Command**: `/jm-adk:develop`
-
-**What you get**:
-- Architecture decisions (documented, not guessed)
-- Working code (HTML/CSS/JS or Angular/React)
-- Database setup (Firebase)
-- Tests (automated, not manual)
-- Live deployment (Hostinger or Firebase)
-
-**Why it matters**: Code without architecture becomes unmaintainable. Tests without structure become unreliable.
-
-</td>
-</tr>
-</table>
-
-**Want to skip analysis?** Use express mode:
-```bash
-/jm-adk:express input="Build a portfolio site" target=hostinger
+/jm-adk:demo           # 3 demos: portfolio / task manager / analisis de repo
+/jm-adk:init           # Setup completo: detecta entorno, genera Constitucion, asigna triada
 ```
 
 ---
 
-## What makes it different
+## Comandos esenciales
 
-### vs. using AI without a kit
-
-| Without JM-ADK | With JM-ADK |
-|----------------|-------------|
-| AI guesses what you want | AI asks, analyzes, validates |
-| No structure — results vary | Same method every time |
-| One generalist agent | 103 specialist agents |
-| No quality checks | 4 quality gates before deploy |
-| Context lost between sessions | Decisions recorded and reused |
-| You manage the AI | The kit manages itself |
-
-### vs. other agentic kits
-
-| Feature | Other kits | JM-ADK |
-|---------|-----------|--------|
-| Specialist agents | 20-40 | **103** |
-| Reusable skills | 30-40 | **116** |
-| Governance | None | **18-principle Constitution** |
-| Analysis pipeline | None | **Full discovery methodology** |
-| Quality gates | None | **G0 → G1 → G2 → G3** |
-| Learning system | None | **Debates produce reusable insights** |
-
----
-
-## Real examples (with full walkthroughs)
-
-### Example 1: Analyzing an e-commerce idea
-
-You type: `/jm-adk:analyze input="E-commerce for artisan products"`
-
-You get: A 5-page analysis with user stories, domain model (Products, Orders, Users), payment flow, Firestore data design, and a cost estimate ($6/month + Stripe fees).
-
-**[See the full walkthrough](docs/examples/01-ecommerce-analysis.md)**
-
-### Example 2: Building a task manager from zero
-
-You type 5 commands. In 3 minutes you have: a Firebase project with authentication, a real-time task board, security rules, and a live URL.
-
-**[See the full walkthrough](docs/examples/02-task-manager-scaffold.md)**
-
-### Example 3: Portfolio site on cheap hosting
-
-You type one command. You get: a static portfolio with Lighthouse score 98+, accessibility score 100, zero JavaScript dependencies, ready for Hostinger shared hosting.
-
-**[See the full walkthrough](docs/examples/03-portfolio-deploy.md)**
+| Categoria | Comando | Que hace |
+|-----------|---------|---------|
+| **Empezar** | `onboarding` | Primera experiencia guiada |
+| | `demo` | Demo rapida (3 opciones) |
+| | `init` | Setup de proyecto con deteccion de entorno |
+| | `menu` | Paleta completa de 256 comandos |
+| **Analizar** | `analyze input="..."` | Pipeline de discovery completo |
+| | `prospect input="..."` | Prospeccion de clientes por geografia |
+| | `dossier input="..."` | Dossier de investigacion de empresa |
+| **Construir** | `scaffold-firebase` | Proyecto Firebase desde cero |
+| | `create-component name="..."` | Nuevo componente UI |
+| | `create-auth` | Flujo de login/signup |
+| **Calidad** | `review` | Code review con puertas de calidad |
+| | `audit-perf` | Lighthouse performance |
+| | `audit-a11y` | Accesibilidad WCAG |
+| **Desplegar** | `ship target=firebase` | Deploy a Firebase Hosting |
+| | `ship target=hostinger` | Deploy a Hostinger via SSH+Git |
+| **Gobernanza** | `debate topic="..."` | Debate socratico para decisiones dificiles |
+| | `validate-chain` | Verificar trazabilidad de la cadena de integridad |
+| | `guardrails` | Gestionar reglas de trabajo del usuario |
+| | `constitution` | Ver o enmendar la Constitucion |
 
 ---
 
-## Common commands
+## Gobernanza
 
-Here are the commands you'll use most. All start with `/jm-adk:`.
+### Constitucion v5.2.0 (18 principios)
 
-### Getting started
-| Command | What it does |
-|---------|-------------|
-| `onboarding` | Guided first-use experience |
-| `menu` | Show all available commands |
-| `search "keyword"` | Find the right skill for your task |
+| Capa | Principios | Funcion |
+|------|-----------|---------|
+| **Filosofia** | XIII Think First, XIV Simple First | COMO se piensa antes de actuar |
+| **Core** | I-XII (accesibilidad, SEO, seguridad, TDD, design system, brand voice, sostenibilidad) | QUE se construye |
+| **Evolucion** | XV BDD Full-Spectrum, XVI Sequential-First (WIP≤3), XVII Learning Loop, XVIII Indexable Repo | COMO se mejora |
 
-### Building things
-| Command | What it does |
-|---------|-------------|
-| `analyze input="..."` | Understand a project idea |
-| `scaffold-firebase` | Create a Firebase project from scratch |
-| `scaffold-react` | Create a React + Firebase project |
-| `create-page name="..."` | Add a new page |
-| `create-component name="..."` | Add a new UI component |
-| `create-auth` | Add login/signup |
+### Puertas de calidad
 
-### Quality checks
-| Command | What it does |
-|---------|-------------|
-| `review` | Full code review with quality gates |
-| `audit-perf` | Check page speed (Lighthouse) |
-| `audit-a11y` | Check accessibility (WCAG) |
-| `audit-security` | Check for security issues |
+| Puerta | Cuando | Que bloquea si falla |
+|--------|--------|---------------------|
+| **G0** | Antes de empezar | Secretos en codigo, branch sin crear, Constitucion no reconocida |
+| **G1** | Despues de especificar | Requisitos incompletos, criterios de aceptacion ausentes |
+| **G2** | Despues de disenar | Arquitectura sin documentar, tests sin escribir, presupuesto Lighthouse sin definir |
+| **G3** | Antes de desplegar | Tests fallando, Lighthouse < 90, accesibilidad sucia, seguridad comprometida |
 
-### Deploying
-| Command | What it does |
-|---------|-------------|
-| `ship target=firebase` | Deploy to Firebase Hosting |
-| `ship target=hostinger` | Deploy to Hostinger |
+### Ejecucion secuencial (Principio XVI)
 
-### Governance
-| Command | What it does |
-|---------|-------------|
-| `debate topic="..."` | Structured debate to resolve a tough decision |
-| `validate-chain` | Check that every piece of code traces to a requirement |
+```
+DEFAULT → Secuencial por ruta critica
 
----
+PARALELO → Solo cuando el plan tiene tags [PARALLEL-OK]:
+  1. Cero dependencias entre tareas paralelas
+  2. Maximo 3 agentes concurrentes (WIP limit)
+  3. Forward-only (ninguna tarea espera a otra)
 
-## How quality is enforced
+Ante duda → secuencial.
+```
 
-Every project passes through 4 checkpoints before it's considered done. No shortcuts.
+### Cadena de integridad
 
-| Gate | When | What it checks |
-|------|------|---------------|
-| **G0** | Before starting | No secrets in code, branch created, rules acknowledged |
-| **G1** | After specification | Requirements complete, acceptance criteria defined |
-| **G2** | After design | Architecture documented, tests written, performance budgets set |
-| **G3** | Before deploying | All tests pass, Lighthouse > 90, accessibility clean, security clean |
+Cada linea de codigo se traza hacia atras:
 
-If a gate fails, work stops until the issue is fixed. This is intentional — it's cheaper to fix problems early than to fix them in production.
+```
+Intencion → Requisito (RQL) → Plan → Decision (ADR) → Especificacion → Tests → Codigo
+```
+
+Si un eslabon falta, `/jm-adk:validate-chain` lo detecta.
 
 ---
 
-## How the AI thinks
+## Deteccion de entorno
 
-For simple tasks, the AI just does it. For complex tasks, it follows a 5-step reasoning process:
+Pristino detecta automaticamente donde corre y se adapta:
 
-1. **Break down** the problem into smaller parts
-2. **Solve** each part with a confidence score (0 to 1.0)
-3. **Verify** — is the logic sound? Are the facts right? Is anything missing?
-4. **Combine** the solutions into a coherent answer
-5. **Reflect** — if confidence is below 0.95, debate the approach and try again
-
-This prevents the AI from guessing. If it's not confident, it asks questions or searches for evidence instead of making things up.
-
-**[How metacognition works (deep dive)](docs/advanced/metacognition-deep-dive.md)**
-
----
-
-## Technologies used
-
-| What | Technologies |
-|------|-------------|
-| **Frontend** | HTML5, CSS3, JavaScript, Angular 18+, React 19+ |
-| **Backend** | Firebase (database, auth, storage, hosting, cloud functions) |
-| **Hosting** | Hostinger (shared hosting, $3/month) or Firebase Hosting (free tier) |
-| **Google services** | Maps, Analytics, Workspace APIs, reCAPTCHA |
-| **Quality** | Lighthouse (speed), WCAG 2.1 AA (accessibility), Core Web Vitals |
+| IDE | Archivo que lee | Modo triada | Herramientas |
+|-----|----------------|-------------|-------------|
+| Claude Code | `CLAUDE.md` | Completo (subagentes) | Todas |
+| Gemini | `GEMINI.md` | Prompts secuenciales | Limitadas |
+| Cursor | `.cursorrules` | Checklist inline | Read/Write/Edit/Bash |
+| Windsurf | `.windsurfrules` | Checklist inline | Read/Write/Edit/Bash |
+| VS Code Copilot | `.github/copilot-instructions.md` | Sugerencias | Limitadas |
+| Codex (OpenAI) | `AGENTS.md` | Prompts secuenciales | Bash/Read/Write |
+| Antigravity | `.agent/rules/GEMINI.md` | Completo (Gemini agents) | Todas |
 
 ---
 
-## Documentation
+## Guardrails del usuario
 
-| Document | For whom | What you'll learn |
-|----------|---------|-------------------|
-| **[Getting Started](docs/getting-started.md)** | Everyone | Install and build your first project (5 min) |
-| **[Examples](docs/examples/)** | Everyone | Real walkthroughs: e-commerce, task manager, portfolio |
-| **[Component Catalog](docs/catalog.md)** | Developers | Browse all 116 skills and 103 agents |
-| **[Architecture Diagrams](docs/architecture-diagram.md)** | Developers | Visual: pipeline, quality gates, agent routing |
-| **[Custom Skills](docs/advanced/custom-skills.md)** | Contributors | Create your own skills |
-| **[Custom Agents](docs/advanced/custom-agents.md)** | Contributors | Build specialist agents |
-| **[MCP Integration](docs/mcp-integration.md)** | Advanced | Connect external tools and APIs |
-| **[Production Deploy](docs/advanced/production-deployment.md)** | DevOps | Firebase and Hostinger deployment guide |
-| **[Constitution](references/ontology/constitution-v5.2.0.md)** | Governance | Full 18-principle governance document |
-| **[Contributing](CONTRIBUTING.md)** | Contributors | How to contribute |
-| **[Changelog](CHANGELOG.md)** | Everyone | Version history |
+El usuario puede declarar reglas de trabajo que Pristino almacena y enforza:
+
+```bash
+/jm-adk:guardrails add="Siempre usar TypeScript"    # → Guideline
+/jm-adk:guardrails add="Nunca usar jQuery"           # → Constraint
+/jm-adk:guardrails                                    # → Ver reglas activas
+```
+
+Pristino **doble-confirma** antes de guardar. Las reglas se cargan en cada sesion como RAG interno. El Guardian las verifica.
 
 ---
 
-## Works with
+## Estetica de marca
 
-| Platform | How to use |
-|----------|-----------|
-| **Claude Code** | `claude plugin add ./` (recommended) |
-| **Antigravity Kit** | Copy `.agent/` folder to your project |
-| **Google Gemini** | Use `.agent/rules/GEMINI.md` |
-| **Any AI editor** | Skills are Markdown files — they work anywhere |
+Todo output HTML usa la estetica MetodologIA:
 
----
+- **Fondo**: Navy #003366 / #0A122A
+- **Acento**: Gold #D4AF37 / #FFD700
+- **Tipografia**: Poppins (titulos) + Montserrat (cuerpo) + JetBrains Mono (codigo)
+- **Efectos**: Glassmorphism, grid overlay tipo blueprint, hover con gold glow
+- **Print-ready**: Se imprime correctamente en papel carta
 
-## Community
-
-- **[Report a bug](https://github.com/JaviMontano/jm-agentic-development-kit/issues)** — Something broken? Let us know
-- **[Ask a question](https://github.com/JaviMontano/jm-agentic-development-kit/discussions)** — Stuck? We help
-- **[Contribute](CONTRIBUTING.md)** — Add skills, agents, or commands
+Tokens en: `references/brand/design-tokens.json`
+Template en: `references/brand/html-template.html`
 
 ---
 
-## About
+## Numeros
 
-Created by **[Javier Montano](https://linkedin.com/in/montaño-guzman)** — GenAI Champion and Digital Transformation Leader with 13+ years of experience across 6 countries. Creator of [MetodologIA](https://metodologia.info), the method-driven methodology for evidence-based consulting.
+| Componente | Cantidad | Detalle |
+|-----------|---------|---------|
+| Skills | 256 | Cada uno es un paquete enriquecido (~12 archivos) |
+| Agents | 256 | Especialistas de dominio |
+| Commands | 256 | Invocables por el usuario |
+| Prompts | 256 | Templates reutilizables |
+| Sub-agents en skills | 1,024 | 4 por skill (lead, support, guardian, specialist) |
+| Knowledge graphs | 256 | Zettelkasten-ready, Obsidian-compatible |
+| Output templates | 512+ | HTML brand + DOCX spec por skill |
+| Hooks | 5 | SessionStart, UserPromptSubmit, PreToolUse, PostToolUse, Stop |
+| IDE files | 7 | Claude, Gemini, Cursor, Windsurf, Copilot, Codex, Antigravity |
+| Archivos totales en skills/ | 3,075 | — |
+| **Total componentes** | **1,024** | Skills + Agents + Commands + Prompts |
 
-Co-authored with **Claude Code** (Anthropic) and **Pristino Agent** — a human-AI collaboration that produced 116 skills, 103 agents, and a living Constitution in a single development session.
+---
 
-### Credits
+## Documentacion
 
-**MetodologIA** · **Sovereign Architect** · **Antigravity Kit** (vudovn) · **Intent Integrity Kit** · **Claude Code** (Anthropic)
+| Documento | Para quien | Que aprenderas |
+|----------|-----------|---------------|
+| [Getting Started](docs/getting-started.md) | Todos | Instalar y primer proyecto (5 min) |
+| [Landing Page](landing.html) | No tecnicos | Que es, para que sirve, como empezar |
+| [Ejemplos](docs/examples/) | Todos | E-commerce, task manager, portfolio |
+| [Catalogo](docs/catalog.md) | Desarrolladores | Navegar los 256 skills y agents |
+| [Arquitectura](docs/architecture-diagram.md) | Desarrolladores | Pipeline, DSVSR, puertas, routing |
+| [Constitucion](references/ontology/constitution-v5.2.0.md) | Gobernanza | 18 principios completos |
+| [PRISTINO.md](PRISTINO.md) | Avanzados | Alma del orquestador |
+| [Contributing](CONTRIBUTING.md) | Contribuidores | Como agregar skills y agents |
+| [Changelog](CHANGELOG.md) | Todos | Historial de versiones |
 
-### Special thanks
+---
 
-- **Duber Lopez** — The rigorous review that pushed the kit from a 7.5 to a 10. Good feedback is the most valuable gift a project can receive.
-- **Blockito** — The builder. 116 skills, Constitution v5.2.0, Socratic debate, BDD full-spectrum, session protocol, continuous learning — all in one session.
+## Compatibilidad
+
+| Plataforma | Como usarlo |
+|-----------|-----------|
+| **Claude Code** | `claude plugin add ./` (recomendado, triada completa) |
+| **Cursor** | Abrir el proyecto — lee `.cursorrules` automaticamente |
+| **VS Code + Copilot** | Lee `.github/copilot-instructions.md` automaticamente |
+| **Gemini Code Assist** | Lee `GEMINI.md` automaticamente |
+| **OpenAI Codex** | Lee `AGENTS.md` automaticamente |
+| **Antigravity Kit** | Copiar `.agent/` a tu proyecto |
+| **Cualquier IDE** | Los skills son Markdown — funcionan en cualquier lugar |
+
+---
+
+## Limites y supuestos
+
+| Limite | Detalle | Trade-off |
+|--------|---------|-----------|
+| Stack Firebase-first | No soporta AWS, Azure, ni servidores custom | Simplicidad > flexibilidad. Firebase cubre el 90% de casos web |
+| Hostinger para static | No SSR, no Docker, no runtime server-side | Costo $3/mes > complejidad de infraestructura |
+| WIP maximo 3 | Nunca mas de 3 agentes concurrentes | Calidad predecible > velocidad maxima |
+| Confianza >= 0.95 | El sistema no entrega si no esta seguro | Precision > rapidez. Ante duda: debate socratico |
+| Ingles interno | Skills y agents en ingles. Output al usuario bilingue (ES/EN) | Consistencia del ecosistema > localizacion interna |
+
+---
+
+## Sobre
+
+Creado por **[Javier Montano](https://linkedin.com/in/montaño-guzman)** — GenAI Champion, +13 anos liderando transformacion digital en 6 paises. Creador de [MetodologIA](https://metodologia.info).
+
+Co-creado con **Claude Code** (Anthropic) y **Pristino Agent** — colaboracion humano-IA que produjo 1,024 componentes y 3,075 archivos en una sola sesion.
+
+**Creditos**: MetodologIA · Sovereign Architect · Antigravity Kit (vudovn) · Intent Integrity Kit · Claude Code (Anthropic)
+
+**Agradecimientos**: Duber Lopez (el review que exigio producir mas) · Blockito (el builder que ejecuto)
 
 ---
 
 <p align="center">
-  <strong>MIT License</strong> — Copyright (c) 2026 JM Labs (Javier Montaño)
-</p>
-
-<p align="center">
+  <strong>MIT License</strong> — Copyright (c) 2026 JM Labs (Javier Montaño)<br>
   <em>Made with Claude Code and Tons of Love with the Help of Pristino Agent</em>
 </p>
