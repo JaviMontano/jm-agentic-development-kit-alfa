@@ -1,7 +1,7 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/JM--ADK-v3.1.0_Tera-D4AF37?style=for-the-badge&labelColor=003366" alt="Version" />
-  <img src="https://img.shields.io/badge/Components-1024-D4AF37?style=for-the-badge&labelColor=003366" alt="1024" />
-  <img src="https://img.shields.io/badge/Skills-256_(enriched)-137DC5?style=for-the-badge&labelColor=003366" alt="Skills" />
+  <img src="https://img.shields.io/badge/JM--ADK-v3.2.0_Tera-D4AF37?style=for-the-badge&labelColor=003366" alt="Version" />
+  <img src="https://img.shields.io/badge/Components-1032-D4AF37?style=for-the-badge&labelColor=003366" alt="1024" />
+  <img src="https://img.shields.io/badge/Skills-264_(enriched)-137DC5?style=for-the-badge&labelColor=003366" alt="Skills" />
 </p>
 
 <h1 align="center">JM Agentic Development Kit</h1>
@@ -84,7 +84,7 @@ Codigo funcional, probado, accesible, seguro, desplegado en URL en vivo. Con doc
 ```
 jm-agentic-development-kit/
 ├── PRISTINO.md                 ← Alma del orquestador (identidad, triada, reglas)
-├── PRISTINO-INDEX.md           ← Registro maestro de los 1024 componentes
+├── PRISTINO-INDEX.md           ← Registro maestro de los 1032 componentes
 ├── CLAUDE.md                   ← Instrucciones para Claude Code
 ├── GEMINI.md                   ← Instrucciones para Gemini
 ├── AGENTS.md                   ← Instrucciones para OpenAI Codex
@@ -125,7 +125,7 @@ No es un archivo suelto. Cada skill contiene:
 | `prompts/` | Prompts de ejecucion | Primary (ejecutar), Meta (auto-mejora), Variaciones (quick, expert, audit) |
 | `templates/` | Templates de output | HTML branded (MetodologIA), DOCX spec, XLSX donde aplica |
 
-**3,075 archivos** solo en skills/. Cada habilidad esta lista para operar de forma autonoma.
+**3,348 archivos** solo en skills/. Cada habilidad esta lista para operar de forma autonoma.
 
 ---
 
@@ -287,8 +287,9 @@ Template en: `references/brand/html-template.html`
 | Output templates | 512+ | HTML brand + DOCX spec por skill |
 | Hooks | 5 | SessionStart, UserPromptSubmit, PreToolUse, PostToolUse, Stop |
 | IDE files | 7 | Claude, Gemini, Cursor, Windsurf, Copilot, Codex, Antigravity |
-| Archivos totales en skills/ | 3,075 | — |
-| **Total componentes** | **1,024** | Skills + Agents + Commands + Prompts |
+| Archivos totales en skills/ | 3,348 | — |
+| Prompt variations (quick+deep) | 528 | quick.md + deep.md por skill |
+| **Total componentes** | **1,032** | 264 Skills + 256 Agents + 256 Commands + 256 Prompts |
 
 ---
 
@@ -299,7 +300,7 @@ Template en: `references/brand/html-template.html`
 | [Getting Started](docs/getting-started.md) | Todos | Instalar y primer proyecto (5 min) |
 | [Landing Page](landing.html) | No tecnicos | Que es, para que sirve, como empezar |
 | [Ejemplos](docs/examples/) | Todos | E-commerce, task manager, portfolio |
-| [Catalogo](docs/catalog.md) | Desarrolladores | Navegar los 256 skills y agents |
+| [Catalogo](docs/catalog.md) | Desarrolladores | Navegar los 264 skills y agents |
 | [Arquitectura](docs/architecture-diagram.md) | Desarrolladores | Pipeline, DSVSR, puertas, routing |
 | [Constitucion](references/ontology/constitution-v5.2.0.md) | Gobernanza | 18 principios completos |
 | [PRISTINO.md](PRISTINO.md) | Avanzados | Alma del orquestador |
@@ -334,11 +335,25 @@ Template en: `references/brand/html-template.html`
 
 ---
 
+## Validacion (QA)
+
+El kit fue auditado por 3 agentes QA en paralelo:
+
+| Auditor | Alcance | Issues encontrados | Resueltos |
+|---------|---------|-------------------|-----------|
+| Skills QA | 264 skills × ~12 archivos | 4 Medium, 6 Low | 4 Medium |
+| Agents + Commands QA | 256 agents + 256 commands | 1 High, 1 Low, 3 Info | 1 High |
+| Prompts + System QA | 1,026 prompts + 10 archivos de sistema | 1 High, 3 Medium, 2 Low | 1 High, 1 Medium |
+
+**Resultado**: 0 Critical, 0 High sin resolver. Todos los issues HIGH y MEDIUM corregidos. Los LOW son cosmeticos y documentados.
+
+---
+
 ## Sobre
 
 Creado por **[Javier Montano](https://linkedin.com/in/montaño-guzman)** — GenAI Champion, +13 anos liderando transformacion digital en 6 paises. Creador de [MetodologIA](https://metodologia.info).
 
-Co-creado con **Claude Code** (Anthropic) y **Pristino Agent** — colaboracion humano-IA que produjo 1,024 componentes y 3,075 archivos en una sola sesion.
+Co-creado con **Claude Code** (Anthropic) y **Pristino Agent** — colaboracion humano-IA que produjo 1,032 componentes y 3,348 archivos de skill en una sola sesion. Validado por ciclo de QA con 3 agentes auditores en paralelo.
 
 **Creditos**: MetodologIA · Sovereign Architect · Antigravity Kit (vudovn) · Intent Integrity Kit · Claude Code (Anthropic)
 
