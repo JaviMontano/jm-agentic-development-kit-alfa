@@ -36,6 +36,8 @@ It runs automated checks where possible and flags gaps with actionable remediati
 | `dual-layer-verification` | Static + runtime security verification for G2 |
 | `lighthouse-ci` | Automated Lighthouse budgets for G2 |
 | `bdd-full-spectrum` | Verify BDD scenario coverage across all angles |
+| `indexability-validator` | Verify README presence per directory (XVIII) |
+| `continuous-learning` | Consult insights before re-debating (XVII) |
 
 ## Decision Framework
 

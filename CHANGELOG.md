@@ -5,6 +5,18 @@ All notable changes to the JM Agentic Development Kit will be documented in this
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-03-22
+
+### Added — Constitution v5.1.0 Upgrade
+- `references/ontology/constitution-v5.1.0.md` — 18 principles (added XVII Continuous Learning, XVIII Indexable Repository), Workspace section, Session Protocol, Operational Logs
+- **7 New Skills**: `continuous-learning`, `session-protocol`, `workspace-governance`, `changelog-management`, `tasklog-management`, `indexability-validator`, `repository-organization`
+
+### Changed
+- Constitution upgraded from v4.1.0 to v5.1.0
+- `adk-orchestrator` agent — Added session-protocol and continuous-learning skills, v5.1.0 reference
+- `quality-guardian` agent — Added indexability-validator and continuous-learning skills
+- `plugin.json` — Bumped to v1.2.0 with 116 skills count
+
 ## [1.1.0] - 2026-03-22
 
 ### Added — Constitution v4.1.0 Integration
