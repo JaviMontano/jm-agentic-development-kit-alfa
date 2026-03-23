@@ -5,6 +5,30 @@ All notable changes to the JM Agentic Development Kit will be documented in this
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2026-03-22
+
+### Added — Environment Detection Protocol + Init/Demo Commands
+- `references/ontology/environment-protocol.md` — IDE detection (7 IDEs), model tier detection (Heavy/Medium/Light), triad adaptation rules, capability matrix, auto-priming protocol
+- `skills/environment-detection/SKILL.md` — Detect IDE and model at session start, adapt triad mode
+- `commands/init.md` — `/jm-adk:init` guided project setup: detect env, analyze repo, generate Constitution + plan + triad
+- `commands/demo.md` — `/jm-adk:demo` quick showcase: portfolio / task manager / repo analysis
+- `AGENTS.md` — OpenAI Codex CLI agent instructions (7th IDE support)
+
+### Changed
+- `PRISTINO.md` — Added Environment Detection section (IDE adaptation + model tiers + auto-prime)
+- All 6 IDE files now include self-identification header (IDE, triad mode, tools, capabilities)
+- `CLAUDE.md` — Added `## Environment` header
+- `GEMINI.md` — Added `## Environment` header
+- `.cursorrules` — Added environment comment
+- `.windsurfrules` — Added environment comment
+- `.github/copilot-instructions.md` — Added `## Environment` header
+
+### Architecture
+- **Two-axis detection**: IDE (where) × Model (what) — independent concerns
+- **Triad adaptation**: full (Claude Code) / sequential (Gemini, Codex) / checklist (Cursor, Windsurf) / suggestion (Copilot)
+- **Model tiers**: Heavy >100K (full load) / Medium 32-100K (Constitution + skills) / Light <32K (active skill only)
+- **7 IDEs supported**: Claude Code, Gemini, Cursor, Windsurf, Copilot, Antigravity, Codex
+
 ## [1.3.0] - 2026-03-22
 
 ### Added — Pristino Robustness: Soul, Triad, IDE-Agnostic

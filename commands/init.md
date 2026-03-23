@@ -1,5 +1,5 @@
 ---
-description: "Initialize ADK environment for new project"
+description: "Initialize a new project — detect environment, analyze repo, generate Constitution and governance files"
 user-invocable: true
 ---
 
@@ -7,29 +7,48 @@ user-invocable: true
 
 ## Purpose
 
-Set up the ADK environment in a new or existing project directory, creating configuration files and directory structure. Use this as the first command when starting a new project.
+Guided project setup. Detects the environment (IDE + model), asks about your project, analyzes an existing repo if provided, and auto-generates governance files (Constitution, plan, triad recommendation).
 
 ## Workflow
 
-1. Detect existing project structure and technology stack if present.
-2. Create `.adk/` configuration directory with project manifest and settings.
-3. Initialize git repository if not present; set up `.gitignore` with ADK defaults.
-4. Run environment validation and report readiness status.
+### Step 1: Detect Environment
+
+Identify IDE, model tier, triad mode. Report to user.
+
+### Step 2: Ask About the Project
+
+1. **"Do you have an existing repo to analyze?"** — If yes, read structure, package.json, tech stack
+2. **"What are you building?"** — Extract domain, features, user types
+3. **"Deployment target?"** — Hostinger / Firebase / Both
+
+### Step 3: Auto-Generate
+
+1. `.specify/CONSTITUTION.md` — Project-level constitution
+2. `.specify/plans/plan-YYYY-MM-DD-init.md` — Initial plan with first 3 tasks
+3. Triad recommendation for the first task
+4. `workspace/` structure if applicable
+
+### Step 4: Next Steps
+
+Report what was generated and suggest next command.
 
 ## Arguments
 
-- `name` — Project name (optional, uses directory name)
-- `stack` — Technology stack: `firebase` | `angular` | `react` | `vanilla` (optional, prompted)
-- `target` — Deploy target: `hostinger` | `firebase` (optional, prompted)
+| Argument | Description | Required | Default |
+|----------|-------------|----------|---------|
+| `repo` | Path to existing repo | No | current directory |
+| `target` | Deployment target | No | ask user |
 
 ## Examples
 
 ```bash
 /jm-adk:init
-/jm-adk:init name="my-app" stack=react target=firebase
+/jm-adk:init repo=/path/to/project
+/jm-adk:init target=firebase
 ```
 
 ## Related Commands
 
-- `/jm-adk:scaffold` — Scaffold full project structure after init
-- `/jm-adk:status` — Check environment status
+- `/jm-adk:demo` — Quick showcase
+- `/jm-adk:onboarding` — Simpler first-use
+- `/jm-adk:analyze` — Full analysis (after init)

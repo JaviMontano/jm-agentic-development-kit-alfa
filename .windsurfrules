@@ -1,5 +1,7 @@
 # JM-ADK — Windsurf IDE Rules
 
+# Environment: windsurf | Triad: checklist | Tools: Read/Write/Edit/Bash | MCP: no
+
 ## Soul Bootstrap
 Load: PRISTINO.md → references/ontology/constitution-v5.2.0.md → PRISTINO-INDEX.md
 

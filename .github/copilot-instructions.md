@@ -1,5 +1,9 @@
 # JM-ADK — GitHub Copilot Instructions
 
+## Environment
+
+IDE: copilot | Triad: suggestion | Tools: limited | MCP: no
+
 ## Soul Bootstrap
 
 This project uses the **JM Agentic Development Kit** with Pristino as orchestrator.

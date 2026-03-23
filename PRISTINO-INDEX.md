@@ -1,7 +1,7 @@
 # Pristino Master Index
 
 <!-- Auto-generated. Run: bash scripts/generate-pristino-index.sh -->
-<!-- Counts: 116 Skills | 103 Agents | 104 Commands | 103 Prompts -->
+<!-- Counts: 117 Skills | 103 Agents | 105 Commands | 103 Prompts -->
 
 ## Agents (103)
 
@@ -10,7 +10,7 @@
 | 1 | `a11y-implementer` | WCAG implementation, screen reader testing, ARIA patterns |
 | 2 | `accessibility-auditor` | WCAG 2.1 auditing, axe-core, screen reader testing |
 | 3 | `accessibility-designer` | Designs WCAG 2.1 AA compliant patterns including ARIA roles, keyboard navigation |
-| 4 | `adk-orchestrator` | Master orchestrator that routes requests, manages the analysis-to-delivery pipel |
+| 4 | `adk-orchestrator` | Pristino — triad-first orchestrator. Composes Lead + Support + Guardian for ever |
 | 5 | `angular-specialist` | Develops Angular 18+ applications with Signals, standalone components, SSR, and  |
 | 6 | `animation-specialist` | CSS animations, GSAP, Framer Motion, View Transitions |
 | 7 | `api-designer` | Designs REST and GraphQL API contracts with versioning, rate limiting, and OpenA |
@@ -111,7 +111,7 @@
 | 102 | `webhook-specialist` | Incoming/outgoing webhooks, event processing, retries |
 | 103 | `workshop-facilitator` | Designs and facilitates event storming, impact mapping, and design sprint worksh |
 
-## Skills (116)
+## Skills (117)
 
 | # | ID | Description |
 |---|-----|-------------|
@@ -152,87 +152,88 @@
 | 35 | `ecommerce-frontend` | — |
 | 36 | `email-sending` | — |
 | 37 | `email-templates` | — |
-| 38 | `event-architecture` | — |
-| 39 | `executive-pitch` | — |
-| 40 | `feasibility-validation` | — |
-| 41 | `firebase-auth` | — |
-| 42 | `firebase-deployment` | — |
-| 43 | `firebase-extensions` | — |
-| 44 | `firebase-hosting` | — |
-| 45 | `firebase-setup` | — |
-| 46 | `firebase-storage` | — |
-| 47 | `firestore-modeling` | — |
-| 48 | `firestore-queries` | — |
-| 49 | `firestore-security-rules` | — |
-| 50 | `flow-mapping` | — |
-| 51 | `font-optimization` | — |
-| 52 | `form-engineering` | — |
-| 53 | `github-actions-ci` | — |
-| 54 | `google-analytics` | — |
-| 55 | `google-maps-integration` | — |
-| 56 | `google-workspace-apis` | — |
-| 57 | `hostinger-deployment` | — |
-| 58 | `html-semantic` | — |
-| 59 | `image-optimization` | — |
-| 60 | `indexability-validator` | — |
-| 61 | `infrastructure-design` | — |
-| 62 | `input-analysis` | — |
-| 63 | `input-sanitization` | — |
-| 64 | `integrity-chain-validation` | — |
-| 65 | `internationalization` | — |
-| 66 | `landing-pages` | — |
-| 67 | `lighthouse-ci` | — |
-| 68 | `linting-formatting` | — |
-| 69 | `mermaid-diagramming` | — |
-| 70 | `migration-planning` | — |
-| 71 | `modal-dialog-patterns` | — |
-| 72 | `navigation-patterns` | — |
-| 73 | `node-development` | — |
-| 74 | `parallel-workflow` | — |
-| 75 | `payment-integration` | — |
-| 76 | `performance-architecture` | — |
-| 77 | `performance-testing` | — |
-| 78 | `portfolio-sites` | — |
-| 79 | `print-stylesheet` | — |
-| 80 | `product-roadmapping` | — |
-| 81 | `push-notifications` | — |
-| 82 | `pwa-architecture` | — |
-| 83 | `react-development` | — |
-| 84 | `realtime-architecture` | — |
-| 85 | `recaptcha-integration` | — |
-| 86 | `repository-organization` | — |
-| 87 | `requirements-engineering` | — |
-| 88 | `responsive-design` | — |
-| 89 | `rest-api-development` | — |
-| 90 | `risk-assessment` | — |
-| 91 | `scenario-analysis` | — |
-| 92 | `scheduled-functions` | — |
-| 93 | `scroll-interaction` | — |
-| 94 | `sector-intelligence` | — |
-| 95 | `security-architecture` | — |
-| 96 | `security-testing` | — |
-| 97 | `seo-architecture` | — |
-| 98 | `serverless-patterns` | — |
-| 99 | `session-protocol` | — |
-| 100 | `socratic-debate` | — |
-| 101 | `ssh-deployment` | — |
-| 102 | `stakeholder-mapping` | — |
-| 103 | `state-management` | — |
-| 104 | `system-architecture` | — |
-| 105 | `tasklog-management` | — |
-| 106 | `test-strategy` | — |
-| 107 | `trade-off-analysis` | — |
-| 108 | `typescript-patterns` | — |
-| 109 | `unit-testing` | — |
-| 110 | `user-research` | — |
-| 111 | `vanilla-javascript` | — |
-| 112 | `visual-regression` | — |
-| 113 | `web-components` | — |
-| 114 | `webhook-handling` | — |
-| 115 | `workshop-design` | — |
-| 116 | `workspace-governance` | — |
+| 38 | `environment-detection` | — |
+| 39 | `event-architecture` | — |
+| 40 | `executive-pitch` | — |
+| 41 | `feasibility-validation` | — |
+| 42 | `firebase-auth` | — |
+| 43 | `firebase-deployment` | — |
+| 44 | `firebase-extensions` | — |
+| 45 | `firebase-hosting` | — |
+| 46 | `firebase-setup` | — |
+| 47 | `firebase-storage` | — |
+| 48 | `firestore-modeling` | — |
+| 49 | `firestore-queries` | — |
+| 50 | `firestore-security-rules` | — |
+| 51 | `flow-mapping` | — |
+| 52 | `font-optimization` | — |
+| 53 | `form-engineering` | — |
+| 54 | `github-actions-ci` | — |
+| 55 | `google-analytics` | — |
+| 56 | `google-maps-integration` | — |
+| 57 | `google-workspace-apis` | — |
+| 58 | `hostinger-deployment` | — |
+| 59 | `html-semantic` | — |
+| 60 | `image-optimization` | — |
+| 61 | `indexability-validator` | — |
+| 62 | `infrastructure-design` | — |
+| 63 | `input-analysis` | — |
+| 64 | `input-sanitization` | — |
+| 65 | `integrity-chain-validation` | — |
+| 66 | `internationalization` | — |
+| 67 | `landing-pages` | — |
+| 68 | `lighthouse-ci` | — |
+| 69 | `linting-formatting` | — |
+| 70 | `mermaid-diagramming` | — |
+| 71 | `migration-planning` | — |
+| 72 | `modal-dialog-patterns` | — |
+| 73 | `navigation-patterns` | — |
+| 74 | `node-development` | — |
+| 75 | `parallel-workflow` | — |
+| 76 | `payment-integration` | — |
+| 77 | `performance-architecture` | — |
+| 78 | `performance-testing` | — |
+| 79 | `portfolio-sites` | — |
+| 80 | `print-stylesheet` | — |
+| 81 | `product-roadmapping` | — |
+| 82 | `push-notifications` | — |
+| 83 | `pwa-architecture` | — |
+| 84 | `react-development` | — |
+| 85 | `realtime-architecture` | — |
+| 86 | `recaptcha-integration` | — |
+| 87 | `repository-organization` | — |
+| 88 | `requirements-engineering` | — |
+| 89 | `responsive-design` | — |
+| 90 | `rest-api-development` | — |
+| 91 | `risk-assessment` | — |
+| 92 | `scenario-analysis` | — |
+| 93 | `scheduled-functions` | — |
+| 94 | `scroll-interaction` | — |
+| 95 | `sector-intelligence` | — |
+| 96 | `security-architecture` | — |
+| 97 | `security-testing` | — |
+| 98 | `seo-architecture` | — |
+| 99 | `serverless-patterns` | — |
+| 100 | `session-protocol` | — |
+| 101 | `socratic-debate` | — |
+| 102 | `ssh-deployment` | — |
+| 103 | `stakeholder-mapping` | — |
+| 104 | `state-management` | — |
+| 105 | `system-architecture` | — |
+| 106 | `tasklog-management` | — |
+| 107 | `test-strategy` | — |
+| 108 | `trade-off-analysis` | — |
+| 109 | `typescript-patterns` | — |
+| 110 | `unit-testing` | — |
+| 111 | `user-research` | — |
+| 112 | `vanilla-javascript` | — |
+| 113 | `visual-regression` | — |
+| 114 | `web-components` | — |
+| 115 | `webhook-handling` | — |
+| 116 | `workshop-design` | — |
+| 117 | `workspace-governance` | — |
 
-## Commands (104)
+## Commands (105)
 
 | # | ID | Description |
 |---|-----|-------------|
@@ -277,69 +278,70 @@
 | 39 | `create-upload` | File upload to Firebase Storage |
 | 40 | `create` | Create new component/feature (meta-command) |
 | 41 | `debate` | Trigger a formal Socratic debate to resolve ambiguities, trade-offs, or low-conf |
-| 42 | `deploy-firebase` | Build and deploy to Firebase Hosting |
-| 43 | `deploy-hostinger` | Build and deploy to Hostinger via FTP |
-| 44 | `deploy-preview` | Deploy to preview/staging channel |
-| 45 | `deploy` | Deploy to configured target (meta-command) |
-| 46 | `design-api` | Create API contract (OpenAPI/GraphQL) |
-| 47 | `design-auth` | Design authentication architecture |
-| 48 | `design-components` | Design component hierarchy |
-| 49 | `design-db` | Design database schema (Firestore/SQL) |
-| 50 | `design-perf` | Design performance optimization plan |
-| 51 | `design-pwa` | Design PWA architecture |
-| 52 | `design-seo` | Design technical SEO strategy |
-| 53 | `design-state` | Design state management strategy |
-| 54 | `develop` | Full development pipeline (SA-style): design → scaffold → build → test → deploy |
-| 55 | `diagram` | Generate Mermaid diagram |
-| 56 | `discover` | Run full discovery pipeline |
-| 57 | `docs` | Generate project documentation |
-| 58 | `domain-map` | Create DDD bounded context map |
-| 59 | `estimate` | Estimate effort in FTE-months |
-| 60 | `evolve` | Improve existing code (meta-command) |
-| 61 | `express` | Quick mode: scaffold → develop → deploy (skip analysis) |
-| 62 | `feasibility` | Run 7-dimension feasibility assessment |
-| 63 | `fix` | Auto-fix common issues |
-| 64 | `flows` | Map business processes and data flows |
-| 65 | `guided` | Full pipeline with human checkpoints at every gate |
-| 66 | `help` | Show help and getting started guide |
-| 67 | `init` | Initialize ADK environment for new project |
-| 68 | `lint` | Run linting and formatting |
-| 69 | `menu` | Interactive command palette showing all available commands |
-| 70 | `onboarding` | Guided first-use experience — walks you through your first JM-ADK project |
-| 71 | `personas` | Generate user personas and journey maps |
-| 72 | `pitch` | Create executive pitch with ROI |
-| 73 | `readme` | Generate/update README.md |
-| 74 | `repair` | Debug and fix issues |
-| 75 | `requirements` | Extract requirements from conversation/documents |
-| 76 | `retro` | Session retrospective with lessons learned |
-| 77 | `review` | Code review with quality gates |
-| 78 | `risks` | Generate risk register |
-| 79 | `roadmap` | Generate prioritized product roadmap |
-| 80 | `rollback` | Rollback to previous deployment |
-| 81 | `scaffold-angular` | Angular 18+ with Firebase |
-| 82 | `scaffold-api` | Cloud Functions REST API |
-| 83 | `scaffold-dashboard` | Admin dashboard with Firebase backend |
-| 84 | `scaffold-firebase` | Firebase + vanilla JS project |
-| 85 | `scaffold-landing` | Landing page with analytics |
-| 86 | `scaffold-react` | React 19+ with Firebase |
-| 87 | `scaffold-vanilla` | Pure HTML/CSS/JS project |
-| 88 | `scaffold` | Meta-scaffold: choose template and generate project |
-| 89 | `scenarios` | Evaluate modernization/implementation scenarios |
-| 90 | `search` | Search skills by keyword using BM25 index |
-| 91 | `setup-ci` | Configure GitHub Actions CI/CD |
-| 92 | `setup-domain` | Configure custom domain + DNS |
-| 93 | `setup-ssl` | Configure SSL certificate |
-| 94 | `ship` | Build optimized bundle + deploy to Hostinger or Firebase |
-| 95 | `spec` | Generate functional specification |
-| 96 | `stakeholders` | Generate stakeholder map and RACI |
-| 97 | `status` | Show current pipeline status and progress |
-| 98 | `test-a11y` | Run accessibility tests |
-| 99 | `test-e2e` | Generate and run e2e tests |
-| 100 | `test-perf` | Run performance tests |
-| 101 | `test-unit` | Generate and run unit tests |
-| 102 | `test` | Run test suite |
-| 103 | `validate-chain` | Validate the Intent Integrity Chain end-to-end for a feature or the entire proje |
-| 104 | `workshop` | Design workshop session plan |
+| 42 | `demo` | Quick demo — pick a project type, watch the triad build it with quality gates an |
+| 43 | `deploy-firebase` | Build and deploy to Firebase Hosting |
+| 44 | `deploy-hostinger` | Build and deploy to Hostinger via FTP |
+| 45 | `deploy-preview` | Deploy to preview/staging channel |
+| 46 | `deploy` | Deploy to configured target (meta-command) |
+| 47 | `design-api` | Create API contract (OpenAPI/GraphQL) |
+| 48 | `design-auth` | Design authentication architecture |
+| 49 | `design-components` | Design component hierarchy |
+| 50 | `design-db` | Design database schema (Firestore/SQL) |
+| 51 | `design-perf` | Design performance optimization plan |
+| 52 | `design-pwa` | Design PWA architecture |
+| 53 | `design-seo` | Design technical SEO strategy |
+| 54 | `design-state` | Design state management strategy |
+| 55 | `develop` | Full development pipeline (SA-style): design → scaffold → build → test → deploy |
+| 56 | `diagram` | Generate Mermaid diagram |
+| 57 | `discover` | Run full discovery pipeline |
+| 58 | `docs` | Generate project documentation |
+| 59 | `domain-map` | Create DDD bounded context map |
+| 60 | `estimate` | Estimate effort in FTE-months |
+| 61 | `evolve` | Improve existing code (meta-command) |
+| 62 | `express` | Quick mode: scaffold → develop → deploy (skip analysis) |
+| 63 | `feasibility` | Run 7-dimension feasibility assessment |
+| 64 | `fix` | Auto-fix common issues |
+| 65 | `flows` | Map business processes and data flows |
+| 66 | `guided` | Full pipeline with human checkpoints at every gate |
+| 67 | `help` | Show help and getting started guide |
+| 68 | `init` | Initialize a new project — detect environment, analyze repo, generate Constituti |
+| 69 | `lint` | Run linting and formatting |
+| 70 | `menu` | Interactive command palette showing all available commands |
+| 71 | `onboarding` | Guided first-use experience — walks you through your first JM-ADK project |
+| 72 | `personas` | Generate user personas and journey maps |
+| 73 | `pitch` | Create executive pitch with ROI |
+| 74 | `readme` | Generate/update README.md |
+| 75 | `repair` | Debug and fix issues |
+| 76 | `requirements` | Extract requirements from conversation/documents |
+| 77 | `retro` | Session retrospective with lessons learned |
+| 78 | `review` | Code review with quality gates |
+| 79 | `risks` | Generate risk register |
+| 80 | `roadmap` | Generate prioritized product roadmap |
+| 81 | `rollback` | Rollback to previous deployment |
+| 82 | `scaffold-angular` | Angular 18+ with Firebase |
+| 83 | `scaffold-api` | Cloud Functions REST API |
+| 84 | `scaffold-dashboard` | Admin dashboard with Firebase backend |
+| 85 | `scaffold-firebase` | Firebase + vanilla JS project |
+| 86 | `scaffold-landing` | Landing page with analytics |
+| 87 | `scaffold-react` | React 19+ with Firebase |
+| 88 | `scaffold-vanilla` | Pure HTML/CSS/JS project |
+| 89 | `scaffold` | Meta-scaffold: choose template and generate project |
+| 90 | `scenarios` | Evaluate modernization/implementation scenarios |
+| 91 | `search` | Search skills by keyword using BM25 index |
+| 92 | `setup-ci` | Configure GitHub Actions CI/CD |
+| 93 | `setup-domain` | Configure custom domain + DNS |
+| 94 | `setup-ssl` | Configure SSL certificate |
+| 95 | `ship` | Build optimized bundle + deploy to Hostinger or Firebase |
+| 96 | `spec` | Generate functional specification |
+| 97 | `stakeholders` | Generate stakeholder map and RACI |
+| 98 | `status` | Show current pipeline status and progress |
+| 99 | `test-a11y` | Run accessibility tests |
+| 100 | `test-e2e` | Generate and run e2e tests |
+| 101 | `test-perf` | Run performance tests |
+| 102 | `test-unit` | Generate and run unit tests |
+| 103 | `test` | Run test suite |
+| 104 | `validate-chain` | Validate the Intent Integrity Chain end-to-end for a feature or the entire proje |
+| 105 | `workshop` | Design workshop session plan |
 
 ## Prompts (103)
 

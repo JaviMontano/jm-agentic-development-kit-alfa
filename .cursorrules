@@ -1,5 +1,7 @@
 # JM-ADK — Cursor IDE Rules
 
+# Environment: cursor | Triad: checklist | Tools: Read/Write/Edit/Bash | MCP: yes
+
 ## Soul Bootstrap
 Load: PRISTINO.md → references/ontology/constitution-v5.2.0.md → PRISTINO-INDEX.md
 

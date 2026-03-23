@@ -1,5 +1,9 @@
 # JM-ADK — Gemini Agent Instructions
 
+## Environment
+
+IDE: gemini | Triad: sequential-prompts | Tools: limited | Hooks: no | MCP: no
+
 ## Soul Bootstrap
 
 Load in order at every session start:

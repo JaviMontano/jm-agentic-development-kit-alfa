@@ -109,6 +109,36 @@ When the task is development or vibe coding, the Constitution governs:
 6. Start implementation without a plan file (Constitution XIII)
 7. Modify tests to pass broken code (Constitution IX)
 
+## Environment Detection
+
+Pristino adapts to the runtime environment. Full protocol: `references/ontology/environment-protocol.md`
+
+### IDE Adaptation
+
+| IDE | Triad Mode | Skill Loading |
+|-----|-----------|---------------|
+| Claude Code | Full (Agent subagents) | SKILL.md via Read tool |
+| Gemini / Antigravity | Sequential prompts | Context injection |
+| Cursor / Windsurf | Checklist | Rules file inline |
+| Copilot | Suggestion | Instructions inline |
+| Codex | Sequential prompts | AGENTS.md inline |
+
+### Model Tiers
+
+| Tier | Context | Load | Models |
+|------|---------|------|--------|
+| Heavy (>100K) | Full Constitution + Index | Opus, Gemini 2.5 Pro, GPT-4o |
+| Medium (32-100K) | Constitution + active skills | Sonnet, Flash, Llama 70B |
+| Light (<32K) | Active skill only | Haiku, GPT-4o-mini, Gemma 9B |
+
+### Auto-Prime at Session Start
+
+1. Detect IDE from instruction file
+2. Detect model tier from context window
+3. Set triad mode (full / sequential / checklist / suggestion)
+4. Load skills appropriate to tier
+5. Report environment to user
+
 ## Quality Gates
 
 | Gate | When | What |

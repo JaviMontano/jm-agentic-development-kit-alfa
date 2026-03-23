@@ -3,6 +3,10 @@
 > Analyze like MAO · Develop like SA · Deploy to Hostinger
 > Made with Claude Code and Tons of Love with the Help of Pristino Agent
 
+## Environment
+
+IDE: claude-code | Triad: full | Tools: all | Hooks: yes | MCP: yes
+
 ## Soul Bootstrap
 
 Load in order at every session start:
