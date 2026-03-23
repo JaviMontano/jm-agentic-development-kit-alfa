@@ -3,12 +3,27 @@
     {
       "type": "SessionStart",
       "command": "bash scripts/session-init.sh",
-      "description": "Initialize ADK session: load skill index, detect project type, set context"
+      "description": "Bootstrap: load PRISTINO.md, Constitution, guardrails, environment detection"
+    },
+    {
+      "type": "UserPromptSubmit",
+      "command": "bash scripts/user-prompt-filter.sh",
+      "description": "Input filtering: detect injection patterns, validate evidence tag intent"
+    },
+    {
+      "type": "PreToolUse",
+      "command": "bash scripts/pre-tool-guard.sh",
+      "description": "Block dangerous commands (rm -rf, git reset --hard, .env access) before execution"
     },
     {
       "type": "PostToolUse",
       "command": "bash scripts/post-tool-check.sh",
       "description": "Post-tool validation: lint check, evidence tags, quality gate enforcement"
+    },
+    {
+      "type": "Stop",
+      "command": "bash scripts/stop-validator.sh",
+      "description": "Final output validation: evidence tags complete, quality gates passed, no unresolved assumptions"
     }
   ]
 }

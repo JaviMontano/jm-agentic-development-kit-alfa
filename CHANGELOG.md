@@ -5,6 +5,37 @@ All notable changes to the JM Agentic Development Kit will be documented in this
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2026-03-22
+
+### Added — Tera Edition: 256x4 = 1024 Components
+
+**8 new domains** with 16 components each (skill + agent + command + prompt):
+
+| Domain | Skills | Key Additions |
+|--------|--------|--------------|
+| **Business/Marketing** | 16 | marketing-context, CRO, B2B outreach, sales collateral, copywriting, funnel, A/B testing, pricing |
+| **DevOps/Infrastructure** | 16 | Docker, monitoring, alerting, logging, incident response, rollback, CDN, SSL, DNS |
+| **Data/Analytics** | 16 | KPI framework, dashboard design, ETL, schema evolution, cohort analysis, data privacy |
+| **AI/ML Integration** | 16 | prompt engineering, RAG patterns, LLM eval, embeddings, AI safety, multi-model routing |
+| **Hooks/Automation** | 16 | PreToolUse guard, UserPromptSubmit filter, Stop validator, error recovery, workflow orchestration |
+| **Enterprise/Governance** | 16 | compliance, audit trails, RBAC, SLA, disaster recovery, OKRs, team topology |
+| **UX/Design** | 16 | user testing, prototyping, animation principles, color theory, micro-interactions, mobile patterns |
+| **Communication/Content** | 16 | technical writing, presentations, video scripts, case studies, whitepapers, microcopy |
+
+**Hooks expanded** from 2 to 5:
+- `UserPromptSubmit` — Input filtering and injection detection (from hooks-mastery)
+- `PreToolUse` — Block dangerous commands before execution (exit code 2 pattern)
+- `Stop` — Final output validation before delivery
+
+**Sources cherry-picked**:
+- claude-code-hooks-mastery (hook patterns, PreToolUse blocking)
+- marketingskills (marketing-context, CRO, B2B outreach, copywriting frameworks)
+- antigravity-kit (auto-agent detection, attribution patterns)
+- agent-toolkit (multi-model awareness)
+- gemini-3-pro prompt (validated sequential-first, bounded cognition alignment)
+
+**Total**: 256 Skills · 256 Agents · 256 Commands · 256 Prompts = **1024 components**
+
 ## [2.0.0] - 2026-03-22
 
 ### Added — 128x4 Complementarity (Socratic Debate)
