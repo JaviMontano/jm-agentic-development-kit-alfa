@@ -53,8 +53,10 @@ Intent → RQL-NNN → plan-DATE-TASK.md → ADR-NNN → Spec → Tests → Code
 | `DL-NNN.md` | `.specify/decisions/` | Before process/tooling decisions |
 | `RQL-NNN.md` | `.specify/requirements/` | For every requirement |
 | `CONSTITUTION.md` | `.specify/` | Project governance (validate against) |
+| `constitution-v4.1.0.md` | `references/ontology/` | Kit-level supreme governance (16 principles, 4 gates) |
 
 Full protocol: `references/ontology/intent-integrity-governance.md`
+Supreme governance: `references/ontology/constitution-v4.1.0.md`
 
 ## Two-Phase Workflow
 
@@ -97,8 +99,10 @@ The `adk-orchestrator` silently classifies every request:
 | Deployment, hosting, DNS, SSL | `deployment-specialist` |
 | SEO, performance, Core Web Vitals | `performance-optimizer` |
 | Documentation, ADRs, specs | `technical-writer` |
+| Debate, ambiguity, confidence < 0.95 | `socratic-debater` |
+| Validate chain, traceability, governance audit | `integrity-validator` |
 
-## Quality Gates
+## Quality Gates (Constitution v4.1.0)
 
 - **G0**: Security scan (no exposed secrets/keys)
 - **G1**: Evidence gate (all claims tagged) + Constitution compliance

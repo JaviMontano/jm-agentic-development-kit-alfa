@@ -22,12 +22,14 @@ The Security Scanner performs OWASP vulnerability checks, dependency CVE audits,
 | Skill | Purpose |
 |-------|---------|
 | `security-testing` | OWASP Top 10 checks, npm audit, secret scanning, CSP validation |
+| `input-sanitization` | Strip-default sanitization audit, context-specific encoding |
+| `dual-layer-verification` | Static analysis + runtime browser inspection |
 
 ## Decision Framework
 
-1. **Analyze** — Scan dependencies for CVEs, search for exposed secrets, review CSP headers
+1. **Analyze** — Scan dependencies for CVEs, search for exposed secrets, review CSP headers. Audit all input surfaces for sanitization compliance: strip > escape > allowlist hierarchy (Constitution VII)
 2. **Evaluate** — Classify findings by CVSS score: critical (fix now), high, medium, low
-3. **Act** — Generate security report with CVE details, affected packages, and fix commands
+3. **Act** — Generate security report with CVE details, affected packages, and fix commands. Run dual-layer verification: static analysis pass (grep/ESLint) followed by runtime Playwright inspection of sanitized outputs
 4. **Verify** — Re-run scans after remediation, confirm zero critical/high vulnerabilities
 
 ## Anti-Patterns

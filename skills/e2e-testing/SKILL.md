@@ -42,7 +42,10 @@ Guides end-to-end test implementation with Playwright or Cypress — covering cr
 - Implement network mocking for external API dependencies
 - Add visual assertions with screenshot comparison where appropriate
 - Configure parallel test execution for faster CI runs
+- Set up parallel browser matrix: Chromium + Firefox + WebKit for cross-browser coverage
 - Set up test retries for handling transient failures (not masking real bugs)
+- Configure post-deploy verification: run critical-path e2e suite against production URL
+  using environment variable for target URL (`BASE_URL=https://yourdomain.com`)
 
 ### Step 4: Validate
 - Run e2e suite against staging environment before production deploys
@@ -66,5 +69,8 @@ Guides end-to-end test implementation with Playwright or Cypress — covering cr
 
 ## Related Skills
 
-- `test-strategy` — e2e tests are the top of the test pyramid
-- `accessibility-testing` — e2e tests can include a11y checks with axe integration
+- `test-strategy` — E2e tests are the top of the test pyramid
+- `accessibility-testing` — E2e tests can include a11y checks with axe integration
+- `dual-layer-verification` — E2e infrastructure reused for runtime security verification
+- `lighthouse-ci` — Performance verification in the same CI pipeline
+- `bdd-full-spectrum` — Gherkin scenarios drive e2e test generation

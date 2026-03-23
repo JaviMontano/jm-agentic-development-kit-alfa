@@ -37,8 +37,15 @@ Manages the end-to-end discovery pipeline by sequencing skill execution, enforci
 - Estimate effort per skill and total discovery timeline
 
 ### Step 3: Execute
+- Generate `plan-YYYY-MM-DD-task-name.md` at pipeline start using the template
+  from `references/ontology/intent-integrity-governance.md`. Plan file is a
+  prerequisite for any downstream execution (Constitution XIII)
 - Execute skills in dependency order, passing outputs as inputs to downstream skills
-- Enforce quality gates: verify deliverable completeness before proceeding
+- Enforce Constitution phase gates: Think (G0 pre-flight) → Act (G1 post-spec) →
+  Verify (G2 post-plan) → Integration (G3 deploy-ready). Block phase transitions
+  when gate criteria are unmet
+- When ambiguity is detected during execution, trigger Socratic debate
+  (Constitution governance) before proceeding
 - Track deliverable status: not started, in progress, complete, validated
 - Produce a discovery dashboard showing progress, blockers, and next steps
 - Aggregate findings into a unified discovery report
@@ -65,6 +72,8 @@ Manages the end-to-end discovery pipeline by sequencing skill execution, enforci
 
 ## Related Skills
 
-- `input-analysis` — amplifies initial input before pipeline processing
-- `requirements-engineering` — key deliverable in the discovery pipeline
-- `system-architecture` — downstream consumer of discovery outputs
+- `input-analysis` — Amplifies initial input before pipeline processing
+- `requirements-engineering` — Key deliverable in the discovery pipeline
+- `system-architecture` — Downstream consumer of discovery outputs
+- `integrity-chain-validation` — Validates the governance chain end-to-end
+- `socratic-debate` — Resolves ambiguities during pipeline execution

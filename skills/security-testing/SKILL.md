@@ -39,8 +39,13 @@ Guides security testing practices — OWASP Top 10 checks, automated dependency 
 - Set up `npm audit` or Snyk in CI pipeline for dependency scanning
 - Install pre-commit hooks for secrets detection (gitleaks, detect-secrets)
 - Add security headers: CSP, HSTS, X-Content-Type-Options, X-Frame-Options
-- Implement input sanitization and output encoding for XSS prevention
+- Implement input sanitization using strip-first hierarchy (Constitution VII):
+  Strip (remove HTML tags, keep text) > Escape (encode entities) > Allowlist (permit known-safe)
+  Default to DOMParser-based stripping; use `textContent` over `innerHTML`
 - Configure CORS properly (not `Access-Control-Allow-Origin: *` in production)
+- Implement dual-layer security verification (Constitution VII):
+  Layer 1: Static analysis (grep for secrets, innerHTML, scattered queries)
+  Layer 2: Runtime inspection (Playwright checks DOM output, headers, network)
 - Review Firebase security rules with the rules simulator
 - Set up Dependabot or Renovate for automated dependency updates
 
@@ -55,8 +60,24 @@ Guides security testing practices — OWASP Top 10 checks, automated dependency 
 - [ ] Dependency vulnerability scanning runs on every CI build
 - [ ] No hardcoded secrets in codebase (pre-commit hooks enforce)
 - [ ] Security headers configured and validated
-- [ ] Input validation and output encoding prevent XSS
+- [ ] Input sanitization uses strip-first default (not escape, not allowlist)
+- [ ] Dual-layer verification performed (static + runtime)
 - [ ] Evidence tags applied to all claims
+
+## Anti-Patterns
+
+| Anti-Pattern | Why It's Bad | Do This Instead |
+|-------------|-------------|-----------------|
+| Escape instead of strip | Escaped HTML can still render in edge cases | Strip tags, keep text content only |
+| Client-only validation | Bypassable via DevTools | Mirror validation on server (Cloud Functions) |
+| Static-only security checks | Misses runtime-injected content | Add runtime Playwright checks |
+
+## Related Skills
+
+- `input-sanitization` — Detailed strip-default implementation with DOMParser
+- `dual-layer-verification` — Static + runtime verification methodology
+- `firestore-security-rules` — Server-side rule enforcement
+- `e2e-testing` — Playwright infrastructure for runtime verification
 
 ## Anti-Patterns
 

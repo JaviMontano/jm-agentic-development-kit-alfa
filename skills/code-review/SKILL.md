@@ -35,6 +35,10 @@ Guides effective code review practices — PR review checklists, common anti-pat
 - Evaluate error handling: are edge cases and failures handled?
 - Assess test coverage: are new behaviors tested, including error paths?
 - Verify security: input validation, auth checks, no exposed secrets
+- Evaluate code sustainability (Constitution XII): Is the code understandable
+  without the original author? Are variable/function names business-readable?
+  Is the abstraction level appropriate (not over-engineered per XIV)?
+  Are dependencies minimal and justified?
 
 ### Step 3: Execute
 - Use a structured review checklist (correctness, security, performance, maintainability)
@@ -66,5 +70,6 @@ Guides effective code review practices — PR review checklists, common anti-pat
 
 ## Related Skills
 
-- `linting-formatting` — automated enforcement of style reduces review burden
-- `test-strategy` — reviewing test quality alongside code quality
+- `linting-formatting` — Automated enforcement of style reduces review burden
+- `test-strategy` — Reviewing test quality alongside code quality
+- `integrity-chain-validation` — Verify code traces back to requirements

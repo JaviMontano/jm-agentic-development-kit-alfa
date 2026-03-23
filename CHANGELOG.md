@@ -5,6 +5,26 @@ All notable changes to the JM Agentic Development Kit will be documented in this
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-03-22
+
+### Added — Constitution v4.1.0 Integration
+- `references/ontology/constitution-v4.1.0.md` — Supreme governance document (16 principles, 4 quality gates, Socratic debate mechanism)
+- **8 New Skills**: `socratic-debate`, `bdd-full-spectrum`, `input-sanitization`, `parallel-workflow`, `ssh-deployment`, `integrity-chain-validation`, `dual-layer-verification`, `lighthouse-ci`
+- **2 New Agents**: `socratic-debater` (structured debate when confidence < 0.95), `integrity-validator` (governance chain validation)
+- **2 New Commands**: `/jm-adk:debate` (trigger Socratic debate), `/jm-adk:validate-chain` (validate integrity chain)
+- **2 New Prompts**: `86-bdd-full-spectrum.md` (multi-angle Gherkin generation), `102-socratic-debate.md` (debate protocol)
+
+### Changed — Harmonization
+- `security-testing` skill — Added sanitization hierarchy (strip > escape > allowlist), dual-layer verification
+- `test-strategy` skill — Added BDD full-spectrum angles, runner-agnostic Gherkin
+- `e2e-testing` skill — Added production URL verification, parallel browser matrix
+- `code-review` skill — Added sustainability assessment (Constitution XII)
+- `discovery-orchestration` skill — Added plan file generation, Constitution phase gates, Socratic trigger
+- `adk-orchestrator` agent — Added Constitution awareness, Socratic routing, Think-Act-Verify workflow
+- `quality-guardian` agent — Reconciled G0-G3 with Constitution definitions
+- `pipeline-conductor` agent — Added parallel workflow support (Constitution XVI)
+- `security-scanner` agent — Added input sanitization audit, dual-layer verification
+
 ## [Unreleased]
 
 ### Added

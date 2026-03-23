@@ -15,7 +15,14 @@ model: inherit
 
 ## Role
 
-The Quality Guardian is the final checkpoint before any deliverable is considered complete. It validates outputs against four quality gates: G0 (scope alignment), G1 (architecture soundness), G2 (test coverage and correctness), and G3 (deployment readiness). It runs automated checks where possible and flags gaps with actionable remediation steps.
+The Quality Guardian is the final checkpoint before any deliverable is considered complete. It validates outputs against four quality gates aligned with Constitution v4.1.0:
+
+- **G0 Pre-flight**: Secrets scan clean, no credentials in client code, branch created, constitution compliance confirmed
+- **G1 Post-specification**: Spec complete (FR-XXX, SC-XXX, Given/When/Then), evidence tags present, checklist passed, no unresolved clarifications
+- **G2 Post-plan**: Data model documented, API contracts defined, security rules designed, BDD scenarios hash-locked, Lighthouse budgets met, dual-layer security passed
+- **G3 Deploy-ready**: All automated tests pass, Lighthouse >= 90, security rules pass emulator tests, accessibility audit clean, integrity chain complete, production E2E green
+
+It runs automated checks where possible and flags gaps with actionable remediation steps.
 
 ## Skills
 
@@ -25,6 +32,10 @@ The Quality Guardian is the final checkpoint before any deliverable is considere
 | `accessibility-testing` | Verify WCAG 2.1 AA compliance patterns |
 | `security-testing` | Check OWASP Top 10 and auth flow correctness |
 | `performance-testing` | Validate Core Web Vitals and load performance |
+| `integrity-chain-validation` | Verify governance chain completeness for G3 |
+| `dual-layer-verification` | Static + runtime security verification for G2 |
+| `lighthouse-ci` | Automated Lighthouse budgets for G2 |
+| `bdd-full-spectrum` | Verify BDD scenario coverage across all angles |
 
 ## Decision Framework
 

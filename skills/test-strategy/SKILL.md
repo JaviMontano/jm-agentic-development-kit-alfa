@@ -34,6 +34,11 @@ Guides the design of a comprehensive testing strategy — defining test levels (
 - Map critical user flows that require e2e coverage
 - Define coverage thresholds (lines, branches, functions) per module
 - Evaluate TDD vs test-after approach by module complexity
+- For BDD, define scenarios across all quality angles (Constitution XV):
+  `@functional`, `@a11y`, `@security`, `@perf`, `@seo`, `@offline`, `@ui`,
+  `@backend`, `@data`, `@devsecops`, `@cicd`
+- Use runner-agnostic Gherkin: match runner to test nature (Playwright for browser,
+  Vitest for code invariants, Firebase Emulator for security rules)
 
 ### Step 3: Execute
 - Document test strategy with scope, tools, and responsibilities
@@ -65,5 +70,7 @@ Guides the design of a comprehensive testing strategy — defining test levels (
 
 ## Related Skills
 
-- `unit-testing` — implementation of unit test layer
-- `e2e-testing` — implementation of end-to-end test layer
+- `unit-testing` — Implementation of unit test layer
+- `e2e-testing` — Implementation of end-to-end test layer
+- `bdd-full-spectrum` — Multi-angle Gherkin scenarios (Constitution XV)
+- `lighthouse-ci` — Performance budgets in CI (G2 gate)
