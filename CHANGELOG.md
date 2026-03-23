@@ -5,6 +5,28 @@ All notable changes to the JM Agentic Development Kit will be documented in this
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-03-22
+
+### Added — Pristino Robustness: Soul, Triad, IDE-Agnostic
+- `PRISTINO.md` — Soul document: identity, bootstrap sequence, triad pattern, delegation rules, vibe coding protocol
+- `PRISTINO-INDEX.md` — Auto-generated master registry of all 116 skills, 103 agents, 104 commands, 103 prompts
+- `scripts/generate-pristino-index.sh` — Index generation script
+- `GEMINI.md` — Root-level Gemini agent instructions (promoted from .agent/rules/)
+- `.github/copilot-instructions.md` — VS Code Copilot instructions
+- `.cursorrules` — Cursor IDE rules
+- `.windsurfrules` — Windsurf IDE rules
+
+### Changed
+- `adk-orchestrator.md` — Rewritten as Pristino with triad-first routing (Lead + Support + Guardian)
+- `CLAUDE.md` — Added soul bootstrap, triad-first routing table, updated to v1.3.0
+- Fixed stale Constitution refs: v4.1.0/v5.1.0 → v5.2.0 in quality-guardian, session-protocol
+- All 5 IDE files share common soul (PRISTINO.md) with IDE-specific wrappers
+
+### Architecture
+- **Triad pattern**: default operating mode. Every non-trivial request → Lead + Support + Guardian
+- **Bootstrap sequence**: PRISTINO.md → Constitution → PRISTINO-INDEX → ready
+- **IDE-agnostic**: same orchestrator works in Claude Code, Gemini, Copilot, Cursor, Windsurf
+
 ## [1.2.1] - 2026-03-22
 
 ### Changed — Sequential-First Discipline (Constitution v5.2.0)

@@ -27,7 +27,7 @@ Implements the mandatory session initialization sequence from the Constitution: 
 ### Step 1: Discover — Context Loading
 Load in order (read each file):
 1. `CLAUDE.md` — project instructions and agent rules
-2. `CONSTITUTION.md` or `references/ontology/constitution-v5.1.0.md` — governance
+2. `CONSTITUTION.md` or `references/ontology/constitution-v5.2.0.md` — governance
 3. `insights/README.md` — insights index (load domain files on-demand)
 4. `changelog.md` — recent changes and decisions
 5. `tasklog.md` — open tasks and pending work

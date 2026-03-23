@@ -342,6 +342,12 @@
     "description": ">"
   },
   {
+    "id": "intelligent-routing",
+    "path": "skills/intelligent-routing",
+    "name": "Intelligent Routing",
+    "description": "Automatic agent and skill selection based on user request analysis. Use when: routing, which agent, find skill, search capability, match request."
+  },
+  {
     "id": "internationalization",
     "path": "skills/internationalization",
     "name": "Internationalization",

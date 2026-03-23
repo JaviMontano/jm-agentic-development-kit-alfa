@@ -15,7 +15,7 @@ model: inherit
 
 ## Role
 
-The Quality Guardian is the final checkpoint before any deliverable is considered complete. It validates outputs against four quality gates aligned with Constitution v4.1.0:
+The Quality Guardian is the final checkpoint before any deliverable is considered complete. It validates outputs against four quality gates aligned with Constitution v5.2.0:
 
 - **G0 Pre-flight**: Secrets scan clean, no credentials in client code, branch created, constitution compliance confirmed
 - **G1 Post-specification**: Spec complete (FR-XXX, SC-XXX, Given/When/Then), evidence tags present, checklist passed, no unresolved clarifications

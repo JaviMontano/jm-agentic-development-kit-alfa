@@ -1,12 +1,20 @@
-# JM Agentic Development Kit (JM-ADK) v1.0.0-alfa
+# JM Agentic Development Kit (JM-ADK) v1.3.0
 
 > Analyze like MAO · Develop like SA · Deploy to Hostinger
 > Made with Claude Code and Tons of Love with the Help of Pristino Agent
 
+## Soul Bootstrap
+
+Load in order at every session start:
+1. **PRISTINO.md** — orchestrator soul (identity, triad pattern, delegation rules)
+2. **references/ontology/constitution-v5.2.0.md** — 18 governance principles
+3. **PRISTINO-INDEX.md** — master registry (116 skills, 103 agents, 104 commands, 103 prompts)
+
 ## Identity
 
 **Plugin**: `jm-adk`
-**Default Agent**: `adk-orchestrator`
+**Orchestrator**: Pristino (see `PRISTINO.md`)
+**Default Agent**: `adk-orchestrator` (triad-first routing)
 **Brand**: MetodologIA · JM Labs
 **Philosophy**: From requirements to production — one plugin, one workflow, one deployment target.
 **Integrity**: Intent → RQL → Plan → ADR → Spec → Tests → Code (no link may be broken)
@@ -81,28 +89,26 @@ Design → Scaffold → Build → Test → Deploy
 9. **Skill search first** — Search for existing skills before building from scratch
 10. **Constitution compliance** — Validate all decisions against `.specify/CONSTITUTION.md`
 
-## Agent Routing
+## Agent Routing (Triad-First)
 
-The `adk-orchestrator` silently classifies every request:
+Pristino composes a **triad** (3 agents) for every non-trivial request. See `PRISTINO.md` for the full composition matrix and `PRISTINO-INDEX.md` for all available agents.
 
-| Signal | Route To |
-|--------|----------|
-| Requirements, user stories, analysis | `requirements-analyst` |
-| Architecture, system design, patterns | `architecture-designer` |
-| Firebase setup, auth, firestore | `firebase-specialist` |
-| HTML/CSS, layouts, responsive | `frontend-craftsman` |
-| Angular components, signals, routing | `angular-specialist` |
-| React components, hooks, state | `react-specialist` |
-| Vanilla JS, DOM, events, Web APIs | `vanilla-js-specialist` |
-| Node.js, Express, Cloud Functions | `node-specialist` |
-| Testing, quality, accessibility | `quality-engineer` |
-| Deployment, hosting, DNS, SSL | `deployment-specialist` |
-| SEO, performance, Core Web Vitals | `performance-optimizer` |
-| Documentation, ADRs, specs | `technical-writer` |
-| Debate, ambiguity, confidence < 0.95 | `socratic-debater` |
+**Default flow**: Lead (domain specialist) → Support (cross-cutting) → Guardian (quality validation)
+
+| Domain | Lead | Support | Guardian |
+|--------|------|---------|----------|
+| Requirements | `requirements-analyst` | `domain-modeler` | `quality-guardian` |
+| Architecture | `architecture-designer` | `security-architect` | `quality-guardian` |
+| Frontend | `frontend-craftsman` | `accessibility-designer` | `quality-engineer` |
+| Firebase/Backend | `firebase-specialist` | `security-architect` | `quality-engineer` |
+| Testing | `quality-engineer` | `e2e-test-writer` | `code-reviewer` |
+| Deployment | `deployment-specialist` | `security-scanner` | `quality-guardian` |
+| Vibe Coding | best-fit specialist | `architecture-designer` | `quality-guardian` |
+
+**Single-agent exception**: direct questions, clarifications, simple lookups.
 | Validate chain, traceability, governance audit | `integrity-validator` |
 
-## Quality Gates (Constitution v4.1.0)
+## Quality Gates (Constitution v5.2.0)
 
 - **G0**: Security scan (no exposed secrets/keys)
 - **G1**: Evidence gate (all claims tagged) + Constitution compliance

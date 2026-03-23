@@ -1,0 +1,37 @@
+# JM-ADK — Windsurf IDE Rules
+
+## Soul Bootstrap
+Load: PRISTINO.md → references/ontology/constitution-v5.2.0.md → PRISTINO-INDEX.md
+
+## Identity
+Kit: JM Agentic Development Kit v1.3.0 | Orchestrator: Pristino | Brand: MetodologIA
+
+## Core Rules
+
+1. Think First (XIII) — read existing code before modifying. Understand context.
+2. Simple First (XIV) — simplest solution that works. No premature abstraction.
+3. Evidence tags on all claims: [CODE] [CONFIG] [DOC] [INFERENCE] [ASSUMPTION]
+4. Plan before code — plan file required for complex changes.
+5. Tests before production code (IX) — red-green-refactor.
+6. Input sanitization: strip HTML (DOMParser), never innerHTML with user data.
+
+## Stack
+- Frontend: HTML5, CSS3, Vanilla JS, Angular 18+, React 19+
+- Backend: Firebase (Firestore, Auth, Functions, Hosting, Storage)
+- Deploy: Hostinger (shared) or Firebase Hosting
+- No SSR, no Docker, no custom servers
+
+## Quality Gates
+G0 (secrets scan) → G1 (spec complete) → G2 (architecture + tests) → G3 (deploy-ready)
+Lighthouse > 90 | Accessibility > 95 | WCAG 2.1 AA
+
+## Triad Pattern
+Every non-trivial task uses 3 agents: Lead + Support + Guardian.
+Apply quality-guardian standards to all suggestions.
+
+## File Conventions
+- Skills: skills/{name}/SKILL.md
+- Agents: agents/{name}.md
+- Commands: commands/{name}.md
+- Constitution: references/ontology/constitution-v5.2.0.md
+- Master index: PRISTINO-INDEX.md
