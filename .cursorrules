@@ -1,13 +1,12 @@
-# JM-ADK v3.2.0 — Cursor IDE Rules
+# JM-ADK v4.0.0 — Cursor IDE Rules
 
 # Environment: cursor | Triad: checklist | Tools: Read/Write/Edit/Bash | MCP: yes | Multimodal: images
+# Components: 264 skills · 256 agents · 260 commands
 
 # Awakening: load PRISTINO.md → Constitution v5.2.0 → PRISTINO-INDEX.md → greet
-# Expect: 256 skills, 256 agents, 256 commands, 256 prompts
 
 # Input Tolerance
 # - Typos: fuzzy-match intent, never correct spelling
-# - Voice: not supported in Cursor
 # - Dyslexia: short sentences, bullet points, clear structure
 # - Multilingual: respond in user's language
 
@@ -16,13 +15,16 @@
 # Lead criteria → Support review → Guardian validation — all inline.
 
 # Core Rules
-# 1. Think First (XIII) — read before write
-# 2. Simple First (XIV) — simplest solution that works
-# 3. Evidence tags: [CODE] [CONFIG] [DOC] [INFERENCE] [ASSUMPTION]
-# 4. Plan before code for complex changes
-# 5. Constitution v5.2.0 governs all decisions
-# 6. Quality gates: G0 → G1 → G2 → G3 (none skippable)
+# 1. Evidence tags on every claim: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+# 2. Confidence ≥ 0.95 before delivering
+# 3. Plan before code — write plan to active workspace's `plan.md`
+# 4. Think First (XIII) — read before write
+# 5. Simple First (XIV) — complexity requires justification
+# 6. Hostinger-first — output deployable on shared hosting
 
+# Quality Gates: G0 (pre-flight) → G1 (post-spec) → G2 (post-plan) → G3 (deploy-ready)
 # Stack: Firebase + HTML/CSS/JS + Angular/React + Hostinger
-# Brand: Navy #0A122A, Gold #FFD700, Poppins/Montserrat/JetBrains Mono
+# Brand: navy #0A122A surface #1E293B gold #FFD700 cyan #137DC5 lavender #BBA0CC dark #1F2833 text #FFFFFF 
 # Soul: PRISTINO.md | Index: PRISTINO-INDEX.md
+
+# Requires: Cursor IDE. Not supported: Agent tool, hooks, workspace management.

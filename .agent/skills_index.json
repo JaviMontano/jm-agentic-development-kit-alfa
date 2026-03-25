@@ -1,5 +1,11 @@
 [
   {
+    "id": "ab-testing",
+    "path": "skills/ab-testing",
+    "name": "Ab Testing",
+    "description": ">"
+  },
+  {
     "id": "accessibility-design",
     "path": "skills/accessibility-design",
     "name": "Accessibility Design",
@@ -12,9 +18,63 @@
     "description": ">"
   },
   {
+    "id": "accessibility-writing",
+    "path": "skills/accessibility-writing",
+    "name": "Accessibility Writing",
+    "description": ">"
+  },
+  {
     "id": "admin-dashboards",
     "path": "skills/admin-dashboards",
     "name": "Admin Dashboards",
+    "description": ">"
+  },
+  {
+    "id": "ai-assisted-testing",
+    "path": "skills/ai-assisted-testing",
+    "name": "Ai Assisted Testing",
+    "description": ">"
+  },
+  {
+    "id": "ai-code-review",
+    "path": "skills/ai-code-review",
+    "name": "Ai Code Review",
+    "description": ">"
+  },
+  {
+    "id": "ai-content-detection",
+    "path": "skills/ai-content-detection",
+    "name": "Ai Content Detection",
+    "description": ">"
+  },
+  {
+    "id": "ai-documentation",
+    "path": "skills/ai-documentation",
+    "name": "Ai Documentation",
+    "description": ">"
+  },
+  {
+    "id": "ai-safety",
+    "path": "skills/ai-safety",
+    "name": "Ai Safety",
+    "description": ">"
+  },
+  {
+    "id": "ai-workflow-automation",
+    "path": "skills/ai-workflow-automation",
+    "name": "Ai Workflow Automation",
+    "description": ">"
+  },
+  {
+    "id": "alerting-strategy",
+    "path": "skills/alerting-strategy",
+    "name": "Alerting Strategy",
+    "description": ">"
+  },
+  {
+    "id": "analytics-events",
+    "path": "skills/analytics-events",
+    "name": "Analytics Events",
     "description": ">"
   },
   {
@@ -24,9 +84,27 @@
     "description": ">"
   },
   {
+    "id": "animation-principles",
+    "path": "skills/animation-principles",
+    "name": "Animation Principles",
+    "description": ">"
+  },
+  {
     "id": "api-design",
     "path": "skills/api-design",
     "name": "Api Design",
+    "description": ">"
+  },
+  {
+    "id": "api-documentation",
+    "path": "skills/api-documentation",
+    "name": "Api Documentation",
+    "description": ">"
+  },
+  {
+    "id": "audit-trail-design",
+    "path": "skills/audit-trail-design",
+    "name": "Audit Trail Design",
     "description": ">"
   },
   {
@@ -36,9 +114,51 @@
     "description": ">"
   },
   {
+    "id": "auto-prompt-matching",
+    "path": "skills/auto-prompt-matching",
+    "name": "Auto Prompt Matching",
+    "description": ">"
+  },
+  {
+    "id": "b2b-outreach",
+    "path": "skills/b2b-outreach",
+    "name": "B2b Outreach",
+    "description": ">"
+  },
+  {
+    "id": "backup-strategy",
+    "path": "skills/backup-strategy",
+    "name": "Backup Strategy",
+    "description": ">"
+  },
+  {
+    "id": "bdd-full-spectrum",
+    "path": "skills/bdd-full-spectrum",
+    "name": "Bdd Full Spectrum",
+    "description": ">"
+  },
+  {
+    "id": "benchmarking-analysis",
+    "path": "skills/benchmarking-analysis",
+    "name": "Benchmarking Analysis",
+    "description": ">"
+  },
+  {
     "id": "blog-cms",
     "path": "skills/blog-cms",
     "name": "Blog Cms",
+    "description": ">"
+  },
+  {
+    "id": "branded-html-output",
+    "path": "skills/branded-html-output",
+    "name": "Branded Html Output",
+    "description": ">"
+  },
+  {
+    "id": "budget-management",
+    "path": "skills/budget-management",
+    "name": "Budget Management",
     "description": ">"
   },
   {
@@ -60,9 +180,69 @@
     "description": ">"
   },
   {
+    "id": "capacity-planning",
+    "path": "skills/capacity-planning",
+    "name": "Capacity Planning",
+    "description": ">"
+  },
+  {
+    "id": "case-study-writing",
+    "path": "skills/case-study-writing",
+    "name": "Case Study Writing",
+    "description": ">"
+  },
+  {
+    "id": "cdn-configuration",
+    "path": "skills/cdn-configuration",
+    "name": "Cdn Configuration",
+    "description": ">"
+  },
+  {
+    "id": "change-management-enterprise",
+    "path": "skills/change-management-enterprise",
+    "name": "Change Management Enterprise",
+    "description": ">"
+  },
+  {
     "id": "change-readiness",
     "path": "skills/change-readiness",
     "name": "Change Readiness",
+    "description": ">"
+  },
+  {
+    "id": "changelog-management",
+    "path": "skills/changelog-management",
+    "name": "Changelog Management",
+    "description": ">"
+  },
+  {
+    "id": "changelog-writing",
+    "path": "skills/changelog-writing",
+    "name": "Changelog Writing",
+    "description": ">"
+  },
+  {
+    "id": "chatbot-design",
+    "path": "skills/chatbot-design",
+    "name": "Chatbot Design",
+    "description": ">"
+  },
+  {
+    "id": "ci-pipeline-design",
+    "path": "skills/ci-pipeline-design",
+    "name": "Ci Pipeline Design",
+    "description": ">"
+  },
+  {
+    "id": "client-dossier",
+    "path": "skills/client-dossier",
+    "name": "Client Dossier",
+    "description": ">"
+  },
+  {
+    "id": "client-prospecting",
+    "path": "skills/client-prospecting",
+    "name": "Client Prospecting",
     "description": ">"
   },
   {
@@ -78,9 +258,27 @@
     "description": ">"
   },
   {
+    "id": "cohort-analysis",
+    "path": "skills/cohort-analysis",
+    "name": "Cohort Analysis",
+    "description": ">"
+  },
+  {
+    "id": "color-theory",
+    "path": "skills/color-theory",
+    "name": "Color Theory",
+    "description": ">"
+  },
+  {
     "id": "competitive-intelligence",
     "path": "skills/competitive-intelligence",
     "name": "Competitive Intelligence",
+    "description": ">"
+  },
+  {
+    "id": "competitive-positioning",
+    "path": "skills/competitive-positioning",
+    "name": "Competitive Positioning",
     "description": ">"
   },
   {
@@ -90,9 +288,69 @@
     "description": ">"
   },
   {
+    "id": "compliance-framework",
+    "path": "skills/compliance-framework",
+    "name": "Compliance Framework",
+    "description": ">"
+  },
+  {
     "id": "component-architecture",
     "path": "skills/component-architecture",
     "name": "Component Architecture",
+    "description": ">"
+  },
+  {
+    "id": "constitution-compliance",
+    "path": "skills/constitution-compliance",
+    "name": "Constitution Compliance",
+    "description": ">"
+  },
+  {
+    "id": "content-calendar",
+    "path": "skills/content-calendar",
+    "name": "Content Calendar",
+    "description": ">"
+  },
+  {
+    "id": "context-optimization",
+    "path": "skills/context-optimization",
+    "name": "Context Optimization",
+    "description": ">"
+  },
+  {
+    "id": "context-window-management",
+    "path": "skills/context-window-management",
+    "name": "Context Window Management",
+    "description": ">"
+  },
+  {
+    "id": "continuous-learning",
+    "path": "skills/continuous-learning",
+    "name": "Continuous Learning",
+    "description": ">"
+  },
+  {
+    "id": "contract-review",
+    "path": "skills/contract-review",
+    "name": "Contract Review",
+    "description": ">"
+  },
+  {
+    "id": "conversion-optimization",
+    "path": "skills/conversion-optimization",
+    "name": "Conversion Optimization",
+    "description": ">"
+  },
+  {
+    "id": "copywriting-frameworks",
+    "path": "skills/copywriting-frameworks",
+    "name": "Copywriting Frameworks",
+    "description": ">"
+  },
+  {
+    "id": "cors-configuration",
+    "path": "skills/cors-configuration",
+    "name": "Cors Configuration",
     "description": ">"
   },
   {
@@ -120,15 +378,51 @@
     "description": ">"
   },
   {
+    "id": "cv-enhancement",
+    "path": "skills/cv-enhancement",
+    "name": "Cv Enhancement",
+    "description": ">"
+  },
+  {
     "id": "dark-mode",
     "path": "skills/dark-mode",
     "name": "Dark Mode",
     "description": ">"
   },
   {
+    "id": "dashboard-design",
+    "path": "skills/dashboard-design",
+    "name": "Dashboard Design",
+    "description": ">"
+  },
+  {
+    "id": "data-documentation",
+    "path": "skills/data-documentation",
+    "name": "Data Documentation",
+    "description": ">"
+  },
+  {
+    "id": "data-export",
+    "path": "skills/data-export",
+    "name": "Data Export",
+    "description": ">"
+  },
+  {
+    "id": "data-privacy-patterns",
+    "path": "skills/data-privacy-patterns",
+    "name": "Data Privacy Patterns",
+    "description": ">"
+  },
+  {
     "id": "data-strategy",
     "path": "skills/data-strategy",
     "name": "Data Strategy",
+    "description": ">"
+  },
+  {
+    "id": "data-validation",
+    "path": "skills/data-validation",
+    "name": "Data Validation",
     "description": ">"
   },
   {
@@ -144,9 +438,21 @@
     "description": ">"
   },
   {
+    "id": "dependency-management",
+    "path": "skills/dependency-management",
+    "name": "Dependency Management",
+    "description": ">"
+  },
+  {
     "id": "deployment-checklist",
     "path": "skills/deployment-checklist",
     "name": "Deployment Checklist",
+    "description": ">"
+  },
+  {
+    "id": "design-critique",
+    "path": "skills/design-critique",
+    "name": "Design Critique",
     "description": ">"
   },
   {
@@ -156,9 +462,45 @@
     "description": ">"
   },
   {
+    "id": "developer-onboarding",
+    "path": "skills/developer-onboarding",
+    "name": "Developer Onboarding",
+    "description": ">"
+  },
+  {
+    "id": "disaster-recovery",
+    "path": "skills/disaster-recovery",
+    "name": "Disaster Recovery",
+    "description": ">"
+  },
+  {
     "id": "discovery-orchestration",
     "path": "skills/discovery-orchestration",
     "name": "Discovery Orchestration",
+    "description": ">"
+  },
+  {
+    "id": "dns-architecture",
+    "path": "skills/dns-architecture",
+    "name": "Dns Architecture",
+    "description": ">"
+  },
+  {
+    "id": "docker-awareness",
+    "path": "skills/docker-awareness",
+    "name": "Docker Awareness",
+    "description": ">"
+  },
+  {
+    "id": "documentation-standards",
+    "path": "skills/documentation-standards",
+    "name": "Documentation Standards",
+    "description": ">"
+  },
+  {
+    "id": "documentation-system",
+    "path": "skills/documentation-system",
+    "name": "Documentation System",
     "description": ">"
   },
   {
@@ -171,6 +513,12 @@
     "id": "domain-management",
     "path": "skills/domain-management",
     "name": "Domain Management",
+    "description": ">"
+  },
+  {
+    "id": "dual-layer-verification",
+    "path": "skills/dual-layer-verification",
+    "name": "Dual Layer Verification",
     "description": ">"
   },
   {
@@ -198,9 +546,63 @@
     "description": ">"
   },
   {
+    "id": "embedding-strategy",
+    "path": "skills/embedding-strategy",
+    "name": "Embedding Strategy",
+    "description": ">"
+  },
+  {
+    "id": "empty-states",
+    "path": "skills/empty-states",
+    "name": "Empty States",
+    "description": ">"
+  },
+  {
+    "id": "environment-detection",
+    "path": "skills/environment-detection",
+    "name": "Environment Detection",
+    "description": ">"
+  },
+  {
+    "id": "environment-management",
+    "path": "skills/environment-management",
+    "name": "Environment Management",
+    "description": ">"
+  },
+  {
+    "id": "error-handling",
+    "path": "skills/error-handling",
+    "name": "Error Handling",
+    "description": ">"
+  },
+  {
+    "id": "error-messaging",
+    "path": "skills/error-messaging",
+    "name": "Error Messaging",
+    "description": ">"
+  },
+  {
+    "id": "error-recovery-automation",
+    "path": "skills/error-recovery-automation",
+    "name": "Error Recovery Automation",
+    "description": ">"
+  },
+  {
+    "id": "etl-patterns",
+    "path": "skills/etl-patterns",
+    "name": "Etl Patterns",
+    "description": ">"
+  },
+  {
     "id": "event-architecture",
     "path": "skills/event-architecture",
     "name": "Event Architecture",
+    "description": ">"
+  },
+  {
+    "id": "event-marketing",
+    "path": "skills/event-marketing",
+    "name": "Event Marketing",
     "description": ">"
   },
   {
@@ -213,6 +615,18 @@
     "id": "feasibility-validation",
     "path": "skills/feasibility-validation",
     "name": "Feasibility Validation",
+    "description": ">"
+  },
+  {
+    "id": "file-watcher",
+    "path": "skills/file-watcher",
+    "name": "File Watcher",
+    "description": ">"
+  },
+  {
+    "id": "fine-tuning-prep",
+    "path": "skills/fine-tuning-prep",
+    "name": "Fine Tuning Prep",
     "description": ">"
   },
   {
@@ -288,6 +702,36 @@
     "description": ">"
   },
   {
+    "id": "form-ux-advanced",
+    "path": "skills/form-ux-advanced",
+    "name": "Form Ux Advanced",
+    "description": ">"
+  },
+  {
+    "id": "funnel-analytics",
+    "path": "skills/funnel-analytics",
+    "name": "Funnel Analytics",
+    "description": ">"
+  },
+  {
+    "id": "funnel-design",
+    "path": "skills/funnel-design",
+    "name": "Funnel Design",
+    "description": ">"
+  },
+  {
+    "id": "git-hook-integration",
+    "path": "skills/git-hook-integration",
+    "name": "Git Hook Integration",
+    "description": ">"
+  },
+  {
+    "id": "git-workflow",
+    "path": "skills/git-workflow",
+    "name": "Git Workflow",
+    "description": ">"
+  },
+  {
     "id": "github-actions-ci",
     "path": "skills/github-actions-ci",
     "name": "Github Actions Ci",
@@ -312,6 +756,24 @@
     "description": ">"
   },
   {
+    "id": "grid-systems",
+    "path": "skills/grid-systems",
+    "name": "Grid Systems",
+    "description": ">"
+  },
+  {
+    "id": "guardrails-management",
+    "path": "skills/guardrails-management",
+    "name": "Guardrails Management",
+    "description": ">"
+  },
+  {
+    "id": "health-check-automation",
+    "path": "skills/health-check-automation",
+    "name": "Health Check Automation",
+    "description": ">"
+  },
+  {
     "id": "hostinger-deployment",
     "path": "skills/hostinger-deployment",
     "name": "Hostinger Deployment",
@@ -324,9 +786,33 @@
     "description": ">"
   },
   {
+    "id": "http-headers",
+    "path": "skills/http-headers",
+    "name": "Http Headers",
+    "description": ">"
+  },
+  {
+    "id": "iconography",
+    "path": "skills/iconography",
+    "name": "Iconography",
+    "description": ">"
+  },
+  {
     "id": "image-optimization",
     "path": "skills/image-optimization",
     "name": "Image Optimization",
+    "description": ">"
+  },
+  {
+    "id": "incident-response",
+    "path": "skills/incident-response",
+    "name": "Incident Response",
+    "description": ">"
+  },
+  {
+    "id": "indexability-validator",
+    "path": "skills/indexability-validator",
+    "name": "Indexability Validator",
     "description": ">"
   },
   {
@@ -342,15 +828,51 @@
     "description": ">"
   },
   {
+    "id": "input-sanitization",
+    "path": "skills/input-sanitization",
+    "name": "Input Sanitization",
+    "description": ">"
+  },
+  {
+    "id": "input-tolerance",
+    "path": "skills/input-tolerance",
+    "name": "Input Tolerance",
+    "description": ">"
+  },
+  {
+    "id": "integrity-chain-validation",
+    "path": "skills/integrity-chain-validation",
+    "name": "Integrity Chain Validation",
+    "description": ">"
+  },
+  {
     "id": "intelligent-routing",
     "path": "skills/intelligent-routing",
     "name": "Intelligent Routing",
-    "description": "Automatic agent and skill selection based on user request analysis. Use when: routing, which agent, find skill, search capability, match request."
+    "description": ">"
+  },
+  {
+    "id": "internal-memo",
+    "path": "skills/internal-memo",
+    "name": "Internal Memo",
+    "description": ">"
   },
   {
     "id": "internationalization",
     "path": "skills/internationalization",
     "name": "Internationalization",
+    "description": ">"
+  },
+  {
+    "id": "knowledge-management",
+    "path": "skills/knowledge-management",
+    "name": "Knowledge Management",
+    "description": ">"
+  },
+  {
+    "id": "kpi-framework",
+    "path": "skills/kpi-framework",
+    "name": "Kpi Framework",
     "description": ">"
   },
   {
@@ -360,9 +882,51 @@
     "description": ">"
   },
   {
+    "id": "lead-generation",
+    "path": "skills/lead-generation",
+    "name": "Lead Generation",
+    "description": ">"
+  },
+  {
+    "id": "lighthouse-ci",
+    "path": "skills/lighthouse-ci",
+    "name": "Lighthouse Ci",
+    "description": ">"
+  },
+  {
     "id": "linting-formatting",
     "path": "skills/linting-formatting",
     "name": "Linting Formatting",
+    "description": ">"
+  },
+  {
+    "id": "llm-evaluation",
+    "path": "skills/llm-evaluation",
+    "name": "Llm Evaluation",
+    "description": ">"
+  },
+  {
+    "id": "localization-guide",
+    "path": "skills/localization-guide",
+    "name": "Localization Guide",
+    "description": ">"
+  },
+  {
+    "id": "log-management",
+    "path": "skills/log-management",
+    "name": "Log Management",
+    "description": ">"
+  },
+  {
+    "id": "market-intelligence",
+    "path": "skills/market-intelligence",
+    "name": "Market Intelligence",
+    "description": ">"
+  },
+  {
+    "id": "marketing-context",
+    "path": "skills/marketing-context",
+    "name": "Marketing Context",
     "description": ">"
   },
   {
@@ -372,9 +936,33 @@
     "description": ">"
   },
   {
+    "id": "metrics-instrumentation",
+    "path": "skills/metrics-instrumentation",
+    "name": "Metrics Instrumentation",
+    "description": ">"
+  },
+  {
+    "id": "micro-interactions",
+    "path": "skills/micro-interactions",
+    "name": "Micro Interactions",
+    "description": ">"
+  },
+  {
+    "id": "microcopy-writing",
+    "path": "skills/microcopy-writing",
+    "name": "Microcopy Writing",
+    "description": ">"
+  },
+  {
     "id": "migration-planning",
     "path": "skills/migration-planning",
     "name": "Migration Planning",
+    "description": ">"
+  },
+  {
+    "id": "mobile-patterns",
+    "path": "skills/mobile-patterns",
+    "name": "Mobile Patterns",
     "description": ">"
   },
   {
@@ -384,15 +972,75 @@
     "description": ">"
   },
   {
+    "id": "monitoring-setup",
+    "path": "skills/monitoring-setup",
+    "name": "Monitoring Setup",
+    "description": ">"
+  },
+  {
+    "id": "motion-design",
+    "path": "skills/motion-design",
+    "name": "Motion Design",
+    "description": ">"
+  },
+  {
+    "id": "multi-model-routing",
+    "path": "skills/multi-model-routing",
+    "name": "Multi Model Routing",
+    "description": ">"
+  },
+  {
     "id": "navigation-patterns",
     "path": "skills/navigation-patterns",
     "name": "Navigation Patterns",
     "description": ">"
   },
   {
+    "id": "newsletter-design",
+    "path": "skills/newsletter-design",
+    "name": "Newsletter Design",
+    "description": ">"
+  },
+  {
     "id": "node-development",
     "path": "skills/node-development",
     "name": "Node Development",
+    "description": ">"
+  },
+  {
+    "id": "notification-handler",
+    "path": "skills/notification-handler",
+    "name": "Notification Handler",
+    "description": ">"
+  },
+  {
+    "id": "notification-ux",
+    "path": "skills/notification-ux",
+    "name": "Notification Ux",
+    "description": ">"
+  },
+  {
+    "id": "okr-design",
+    "path": "skills/okr-design",
+    "name": "Okr Design",
+    "description": ">"
+  },
+  {
+    "id": "onboarding-ux",
+    "path": "skills/onboarding-ux",
+    "name": "Onboarding Ux",
+    "description": ">"
+  },
+  {
+    "id": "parallel-workflow",
+    "path": "skills/parallel-workflow",
+    "name": "Parallel Workflow",
+    "description": ">"
+  },
+  {
+    "id": "partnership-strategy",
+    "path": "skills/partnership-strategy",
+    "name": "Partnership Strategy",
     "description": ">"
   },
   {
@@ -414,9 +1062,63 @@
     "description": ">"
   },
   {
+    "id": "permission-fast-path",
+    "path": "skills/permission-fast-path",
+    "name": "Permission Fast Path",
+    "description": ">"
+  },
+  {
+    "id": "pipeline-governance",
+    "path": "skills/pipeline-governance",
+    "name": "Pipeline Governance",
+    "description": ">"
+  },
+  {
+    "id": "podcast-prep",
+    "path": "skills/podcast-prep",
+    "name": "Podcast Prep",
+    "description": ">"
+  },
+  {
     "id": "portfolio-sites",
     "path": "skills/portfolio-sites",
     "name": "Portfolio Sites",
+    "description": ">"
+  },
+  {
+    "id": "post-tool-use-validator",
+    "path": "skills/post-tool-use-validator",
+    "name": "Post Tool Use Validator",
+    "description": ">"
+  },
+  {
+    "id": "pre-compact-context",
+    "path": "skills/pre-compact-context",
+    "name": "Pre Compact Context",
+    "description": ">"
+  },
+  {
+    "id": "pre-tool-use-guard",
+    "path": "skills/pre-tool-use-guard",
+    "name": "Pre Tool Use Guard",
+    "description": ">"
+  },
+  {
+    "id": "presentation-design",
+    "path": "skills/presentation-design",
+    "name": "Presentation Design",
+    "description": ">"
+  },
+  {
+    "id": "press-release",
+    "path": "skills/press-release",
+    "name": "Press Release",
+    "description": ">"
+  },
+  {
+    "id": "pricing-strategy",
+    "path": "skills/pricing-strategy",
+    "name": "Pricing Strategy",
     "description": ">"
   },
   {
@@ -432,6 +1134,24 @@
     "description": ">"
   },
   {
+    "id": "prompt-engineering",
+    "path": "skills/prompt-engineering",
+    "name": "Prompt Engineering",
+    "description": ">"
+  },
+  {
+    "id": "proposal-writing",
+    "path": "skills/proposal-writing",
+    "name": "Proposal Writing",
+    "description": ">"
+  },
+  {
+    "id": "prototyping",
+    "path": "skills/prototyping",
+    "name": "Prototyping",
+    "description": ">"
+  },
+  {
     "id": "push-notifications",
     "path": "skills/push-notifications",
     "name": "Push Notifications",
@@ -444,9 +1164,33 @@
     "description": ">"
   },
   {
+    "id": "rag-patterns",
+    "path": "skills/rag-patterns",
+    "name": "Rag Patterns",
+    "description": ">"
+  },
+  {
+    "id": "rate-limiting",
+    "path": "skills/rate-limiting",
+    "name": "Rate Limiting",
+    "description": ">"
+  },
+  {
+    "id": "rbac-patterns",
+    "path": "skills/rbac-patterns",
+    "name": "Rbac Patterns",
+    "description": ">"
+  },
+  {
     "id": "react-development",
     "path": "skills/react-development",
     "name": "React Development",
+    "description": ">"
+  },
+  {
+    "id": "real-time-analytics",
+    "path": "skills/real-time-analytics",
+    "name": "Real Time Analytics",
     "description": ">"
   },
   {
@@ -459,6 +1203,18 @@
     "id": "recaptcha-integration",
     "path": "skills/recaptcha-integration",
     "name": "Recaptcha Integration",
+    "description": ">"
+  },
+  {
+    "id": "reporting-templates",
+    "path": "skills/reporting-templates",
+    "name": "Reporting Templates",
+    "description": ">"
+  },
+  {
+    "id": "repository-organization",
+    "path": "skills/repository-organization",
+    "name": "Repository Organization",
     "description": ">"
   },
   {
@@ -480,9 +1236,27 @@
     "description": ">"
   },
   {
+    "id": "retrospective-facilitation",
+    "path": "skills/retrospective-facilitation",
+    "name": "Retrospective Facilitation",
+    "description": ">"
+  },
+  {
     "id": "risk-assessment",
     "path": "skills/risk-assessment",
     "name": "Risk Assessment",
+    "description": ">"
+  },
+  {
+    "id": "rollback-strategy",
+    "path": "skills/rollback-strategy",
+    "name": "Rollback Strategy",
+    "description": ">"
+  },
+  {
+    "id": "sales-collateral",
+    "path": "skills/sales-collateral",
+    "name": "Sales Collateral",
     "description": ">"
   },
   {
@@ -498,9 +1272,21 @@
     "description": ">"
   },
   {
+    "id": "schema-evolution",
+    "path": "skills/schema-evolution",
+    "name": "Schema Evolution",
+    "description": ">"
+  },
+  {
     "id": "scroll-interaction",
     "path": "skills/scroll-interaction",
     "name": "Scroll Interaction",
+    "description": ">"
+  },
+  {
+    "id": "search-ux",
+    "path": "skills/search-ux",
+    "name": "Search Ux",
     "description": ">"
   },
   {
@@ -528,9 +1314,69 @@
     "description": ">"
   },
   {
+    "id": "seo-content",
+    "path": "skills/seo-content",
+    "name": "Seo Content",
+    "description": ">"
+  },
+  {
     "id": "serverless-patterns",
     "path": "skills/serverless-patterns",
     "name": "Serverless Patterns",
+    "description": ">"
+  },
+  {
+    "id": "session-end-cleanup",
+    "path": "skills/session-end-cleanup",
+    "name": "Session End Cleanup",
+    "description": ">"
+  },
+  {
+    "id": "session-protocol",
+    "path": "skills/session-protocol",
+    "name": "Session Protocol",
+    "description": ">"
+  },
+  {
+    "id": "session-start-bootstrap",
+    "path": "skills/session-start-bootstrap",
+    "name": "Session Start Bootstrap",
+    "description": ">"
+  },
+  {
+    "id": "skill-search",
+    "path": "skills/skill-search",
+    "name": "Skill Search",
+    "description": ">"
+  },
+  {
+    "id": "sla-definition",
+    "path": "skills/sla-definition",
+    "name": "Sla Definition",
+    "description": ">"
+  },
+  {
+    "id": "social-proof",
+    "path": "skills/social-proof",
+    "name": "Social Proof",
+    "description": ">"
+  },
+  {
+    "id": "socratic-debate",
+    "path": "skills/socratic-debate",
+    "name": "Socratic Debate",
+    "description": ">"
+  },
+  {
+    "id": "ssh-deployment",
+    "path": "skills/ssh-deployment",
+    "name": "Ssh Deployment",
+    "description": ">"
+  },
+  {
+    "id": "ssl-management",
+    "path": "skills/ssl-management",
+    "name": "Ssl Management",
     "description": ">"
   },
   {
@@ -546,9 +1392,63 @@
     "description": ">"
   },
   {
+    "id": "stop-validator",
+    "path": "skills/stop-validator",
+    "name": "Stop Validator",
+    "description": ">"
+  },
+  {
+    "id": "structured-output",
+    "path": "skills/structured-output",
+    "name": "Structured Output",
+    "description": ">"
+  },
+  {
+    "id": "subagent-monitor",
+    "path": "skills/subagent-monitor",
+    "name": "Subagent Monitor",
+    "description": ">"
+  },
+  {
+    "id": "survey-design",
+    "path": "skills/survey-design",
+    "name": "Survey Design",
+    "description": ">"
+  },
+  {
     "id": "system-architecture",
     "path": "skills/system-architecture",
     "name": "System Architecture",
+    "description": ">"
+  },
+  {
+    "id": "table-ux",
+    "path": "skills/table-ux",
+    "name": "Table Ux",
+    "description": ">"
+  },
+  {
+    "id": "task-automation",
+    "path": "skills/task-automation",
+    "name": "Task Automation",
+    "description": ">"
+  },
+  {
+    "id": "tasklog-management",
+    "path": "skills/tasklog-management",
+    "name": "Tasklog Management",
+    "description": ">"
+  },
+  {
+    "id": "team-topology",
+    "path": "skills/team-topology",
+    "name": "Team Topology",
+    "description": ">"
+  },
+  {
+    "id": "technical-writing-patterns",
+    "path": "skills/technical-writing-patterns",
+    "name": "Technical Writing Patterns",
     "description": ">"
   },
   {
@@ -564,9 +1464,27 @@
     "description": ">"
   },
   {
+    "id": "training-material",
+    "path": "skills/training-material",
+    "name": "Training Material",
+    "description": ">"
+  },
+  {
+    "id": "triad-composition",
+    "path": "skills/triad-composition",
+    "name": "Triad Composition",
+    "description": ">"
+  },
+  {
     "id": "typescript-patterns",
     "path": "skills/typescript-patterns",
     "name": "Typescript Patterns",
+    "description": ">"
+  },
+  {
+    "id": "typography-advanced",
+    "path": "skills/typography-advanced",
+    "name": "Typography Advanced",
     "description": ">"
   },
   {
@@ -576,9 +1494,21 @@
     "description": ">"
   },
   {
+    "id": "user-prompt-filter",
+    "path": "skills/user-prompt-filter",
+    "name": "User Prompt Filter",
+    "description": ">"
+  },
+  {
     "id": "user-research",
     "path": "skills/user-research",
     "name": "User Research",
+    "description": ">"
+  },
+  {
+    "id": "user-testing",
+    "path": "skills/user-testing",
+    "name": "User Testing",
     "description": ">"
   },
   {
@@ -588,9 +1518,27 @@
     "description": ">"
   },
   {
+    "id": "vendor-evaluation",
+    "path": "skills/vendor-evaluation",
+    "name": "Vendor Evaluation",
+    "description": ">"
+  },
+  {
+    "id": "video-script",
+    "path": "skills/video-script",
+    "name": "Video Script",
+    "description": ">"
+  },
+  {
     "id": "visual-regression",
     "path": "skills/visual-regression",
     "name": "Visual Regression",
+    "description": ">"
+  },
+  {
+    "id": "voice-interface",
+    "path": "skills/voice-interface",
+    "name": "Voice Interface",
     "description": ">"
   },
   {
@@ -606,9 +1554,33 @@
     "description": ">"
   },
   {
+    "id": "whitepaper-creation",
+    "path": "skills/whitepaper-creation",
+    "name": "Whitepaper Creation",
+    "description": ">"
+  },
+  {
+    "id": "workflow-orchestration",
+    "path": "skills/workflow-orchestration",
+    "name": "Workflow Orchestration",
+    "description": ">"
+  },
+  {
     "id": "workshop-design",
     "path": "skills/workshop-design",
     "name": "Workshop Design",
+    "description": ">"
+  },
+  {
+    "id": "workshop-proposal",
+    "path": "skills/workshop-proposal",
+    "name": "Workshop Proposal",
+    "description": ">"
+  },
+  {
+    "id": "workspace-governance",
+    "path": "skills/workspace-governance",
+    "name": "Workspace Governance",
     "description": ">"
   }
 ]

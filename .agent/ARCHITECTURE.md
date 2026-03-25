@@ -166,7 +166,7 @@ Run `python scripts/search_skills.py "query"` to search.
 | `/evolve` | Improve existing code |
 | `/repair` | Debug and fix issues |
 | `/scaffold` | Initialize new project from template |
-| `/search` | Search skills by keyword |
+| `/search` | Search264 skills by keyword |
 | `/status` | Pipeline progress report |
 | `/menu` | Interactive command palette |
 

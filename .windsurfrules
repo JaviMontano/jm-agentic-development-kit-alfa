@@ -1,9 +1,9 @@
-# JM-ADK v3.2.0 — Windsurf IDE Rules
+# JM-ADK v4.0.0 — Windsurf IDE Rules
 
 # Environment: windsurf | Triad: checklist | Tools: Read/Write/Edit/Bash | MCP: no | Multimodal: limited
+# Components: 264 skills · 256 agents · 260 commands
 
 # Awakening: load PRISTINO.md → Constitution v5.2.0 → PRISTINO-INDEX.md → greet
-# Expect: 256 skills, 256 agents, 256 commands, 256 prompts
 
 # Input Tolerance
 # - Typos: fuzzy-match intent, never correct spelling
@@ -14,8 +14,15 @@
 # Auto-select best skill. Apply triad as checklist inline.
 
 # Core Rules
-# 1. Think First (XIII) 2. Simple First (XIV) 3. Evidence tags always
-# 4. Plan before code 5. Constitution v5.2.0 6. Gates G0-G3
+# 1. Evidence tags on every claim: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+# 2. Confidence ≥ 0.95 before delivering
+# 3. Plan before code — write plan to active workspace's `plan.md`
+# 4. Think First (XIII) — read before write
+# 5. Simple First (XIV) — complexity requires justification
+# 6. Hostinger-first — output deployable on shared hosting
 
+# Quality Gates: G0 (pre-flight) → G1 (post-spec) → G2 (post-plan) → G3 (deploy-ready)
 # Stack: Firebase + HTML/CSS/JS + Angular/React + Hostinger
 # Soul: PRISTINO.md | Index: PRISTINO-INDEX.md
+
+# Requires: Windsurf IDE. Not supported: Agent tool, hooks, MCP, workspace management.

@@ -1,0 +1,73 @@
+#!/bin/bash
+# vscode.sh — Adapter: Core → VS Code Copilot (.github/copilot-instructions.md)
+#
+# Regenerates copilot-instructions.md from canonical core via ACL.
+# Copilot is suggestion-mode: no agent tool, no hooks, no MCP.
+# Triad flattened to inline quality checklist per suggestion.
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_ROOT="$(dirname "$(dirname "$SCRIPT_DIR")")"
+source "$SCRIPT_DIR/acl.sh"
+
+VERSION=$(acl_version)
+SKILLS_COUNT=$(acl_count_skills)
+AGENTS_COUNT=$(acl_count_agents)
+COMMANDS_COUNT=$(acl_count_commands)
+CONSTITUTION=$(acl_constitution_version)
+
+echo "Adapter: Core → VS Code Copilot"
+
+mkdir -p "$PROJECT_ROOT/.github"
+cat > "$PROJECT_ROOT/.github/copilot-instructions.md" << COPILOT
+# JM-ADK v$VERSION — GitHub Copilot Instructions
+
+## Environment
+
+IDE: copilot | Triad: suggestion | Tools: limited | MCP: no | Multimodal: no
+Components: $SKILLS_COUNT skills · $AGENTS_COUNT agents · $COMMANDS_COUNT commands
+
+## Awakening
+
+Load: PRISTINO.md → Constitution $CONSTITUTION → PRISTINO-INDEX.md
+
+## Input Tolerance
+
+- Typos: understand intent, never correct spelling
+- Dyslexia: clear, short suggestions
+- Multilingual: adapt to user's language
+
+## Triad as Quality Checklist
+
+Apply to every suggestion:
+- **Lead**: correct implementation (matches domain best practice)
+- **Support**: security + accessibility (no XSS, WCAG compliance)
+- **Guardian**: evidence + Constitution compliance (evidence tags in comments)
+
+## Core Rules
+
+$(acl_core_rules | head -6 | sed 's/^/- /')
+
+## Stack
+
+Firebase + HTML/CSS/JS + Angular/React + Hostinger
+No SSR, no Docker, no custom servers.
+
+## Quality Gates
+
+$(acl_quality_gates)
+
+## References
+
+Soul: \`PRISTINO.md\` | Index: \`PRISTINO-INDEX.md\` | Constitution: \`references/ontology/constitution-$CONSTITUTION.md\`
+
+## Requires
+
+- **IDE**: VS Code with GitHub Copilot extension
+- **Not supported**: Agent tool, hooks, MCP, workspace management, multimodal
+- **Triad mode**: Suggestion (quality standards embedded in completions)
+COPILOT
+
+echo "  Generated: .github/copilot-instructions.md"
+echo "ADAPTER-COMPLETE: vscode"

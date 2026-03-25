@@ -1,69 +1,77 @@
-# JM-ADK Global Rules
+# JM-ADK v4.0.0 — Antigravity Rules (Gemini Agents)
 
-## TIER 0: Universal Rules (Always Active)
+## Environment
 
-### Request Classification
-Every user request MUST be classified before action:
+IDE: antigravity | Triad: full (Gemini agents) | Tools: limited | Hooks: no | MCP: no | Multimodal: yes
 
-| Type | Action |
-|------|--------|
-| QUESTION | Text response only — no file changes |
-| ANALYSIS | Activate discovery agents — produce spec/report |
-| SIMPLE CODE | Inline edit — single file, clear intent |
-| COMPLEX CODE | Requires plan file before implementation |
-| DESIGN/UI | Requires design tokens + plan + commitment |
-| SCAFFOLD | Use project template + customize |
-| DEPLOY | Build → validate → deploy pipeline |
+## Awakening
 
-### Evidence Protocol
-Every claim in output MUST be tagged:
-- `[CODE]` — Verified from codebase
-- `[CONFIG]` — From configuration file
-- `[DOC]` — From documentation
-- `[INFERENCE]` — Logical deduction
-- `[ASSUMPTION]` — Unverified (flag for validation)
+Load: PRISTINO.md → Constitution v5.2.0 → skills_index.json → greet
+Components: 264 skills · 256 agents · 260 commands
 
-### Stack Constraints
-- **Hostinger-first**: All output must deploy on shared hosting (no SSR, no Docker, no custom server)
-- **Firebase-native**: Use Firebase services before rolling custom backends
-- **Progressive enhancement**: Start with HTML/CSS/JS, layer frameworks on top
-- **Zero-framework fallback**: Every feature must work without a framework
+## Input Tolerance
 
-## TIER 1: Code Rules
+- Typos: fuzzy-match intent, never correct spelling
+- Voice (Gemini mobile): strip filler, handle phonetic spelling, mixed ES/EN
+- Dyslexia: short sentences, bullet points, clear structure
+- Multilingual: respond in user's language, process in English internally
 
-### File Ownership Boundaries
-| Agent | Owns | Cannot Touch |
-|-------|------|-------------|
-| frontend-craftsman | *.html, *.css, *.js (vanilla) | *.test.*, firebase.json |
-| angular-specialist | src/app/**/*.ts, *.component.* | *.spec.ts |
-| react-specialist | src/**/*.tsx, *.jsx | *.test.* |
-| firebase-specialist | firebase.json, firestore.*, functions/ | src/app/ |
-| deployment-specialist | .github/workflows/, .htaccess | src/ |
-| quality-engineer | *.test.*, *.spec.* | Production code |
+## Auto-Prompt Matching
 
-### Mandatory Checks
-After every file edit:
-1. Validate HTML: No broken tags, semantic structure
-2. Validate CSS: No unused declarations, mobile-first
-3. Validate JS: No console.log in production, error handling
-4. Check accessibility: ARIA labels, keyboard navigation
-5. Check performance: No blocking resources, lazy loading
+Auto-select best skill via skills_index.json. Confidence ≥ 0.85 → execute. 0.60-0.84 → offer options. < 0.60 → ask.
 
-## TIER 2: Design Rules
+## Triad Pattern
 
-### Anti-Cliche Protocol
-- No generic hero + 3-column feature grid layouts
-- No glassmorphism without justification
-- No purple/gradient overuse
-- Every design must serve the content, not decorate it
+Antigravity supports full triad via Gemini agent framework:
+- Lead (domain specialist) → Support (cross-cutting) → Guardian (quality)
+- Sequential execution: Lead produces → Support reviews → Guardian validates
+- Full composition matrix: see PRISTINO.md
 
-### Mobile-First
-- Default breakpoints: 320px → 768px → 1024px → 1440px
-- Touch targets minimum 44x44px
-- No horizontal scroll on any viewport
+## Core Rules
 
-## Socratic Gate
-For complex requests (COMPLEX CODE, DESIGN/UI):
-1. Ask minimum 3 clarifying questions before implementing
-2. Propose a plan with file changes list
-3. Get user approval before proceeding
+- 1. Evidence tags on every claim: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- 2. Confidence ≥ 0.95 before delivering
+- 3. Plan before code — write plan to active workspace's `plan.md`
+- 4. Think First (XIII) — read before write
+- 5. Simple First (XIV) — complexity requires justification
+- 6. Hostinger-first — output deployable on shared hosting
+- 7. Firebase-native — managed services before custom
+- 8. Read before write — always read existing files first
+- 9. Skill search first — use existing skills before building from scratch
+- 10. Constitution compliance — validate against v5.2.0
+- 11. Workspace-first — every artifact-producing task gets a workspace
+
+## Quality Gates
+
+G0 (pre-flight) → G1 (post-spec) → G2 (post-plan) → G3 (deploy-ready)
+
+## Stack
+
+Firebase + HTML/CSS/JS + Angular/React + Hostinger
+No SSR, no Docker, no custom servers.
+
+## Brand
+
+- navy	#0A122A
+- surface	#1E293B
+- gold	#FFD700
+- cyan	#137DC5
+- lavender	#BBA0CC
+- dark	#1F2833
+- text	#FFFFFF
+
+## Skill Loading
+
+`skills_index.json` for fast lookup → load full SKILL.md on demand via `skills/{id}/SKILL.md`
+
+## References
+
+- Soul: `PRISTINO.md` | Constitution: `references/ontology/constitution-v5.2.0.md`
+- Index: `skills_index.json` | Brand: `references/brand/design-tokens.json`
+
+## Requires
+
+- **IDE**: Antigravity Kit (Gemini agent framework)
+- **Model**: Gemini 2.5 Pro (recommended) or Flash
+- **Capability**: Function calling required
+- **Not supported**: Hooks, MCP servers, workspace management (Claude Code only)

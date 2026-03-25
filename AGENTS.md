@@ -1,13 +1,13 @@
-# JM-ADK v3.2.0 — Codex Agent Instructions
+# JM-ADK v4.0.0 — Codex Agent Instructions
 
 ## Environment
 
 IDE: codex | Triad: sequential-prompts | Tools: Bash/Read/Write | MCP: no | Multimodal: no
+Components: 264 skills · 256 agents · 260 commands
 
 ## Awakening
 
 Read: PRISTINO.md → Constitution v5.2.0 → PRISTINO-INDEX.md → greet
-Expect: 256 skills, 256 agents, 256 commands, 256 prompts
 
 ## Input Tolerance
 
@@ -17,20 +17,26 @@ Expect: 256 skills, 256 agents, 256 commands, 256 prompts
 
 ## Auto-Prompt Matching
 
-Auto-select skill for intent. In Codex (no Agent tool): apply all 3 triad perspectives in single response.
+Auto-select skill for intent. No Agent tool: apply all 3 triad perspectives in single response.
 
 ## Core Rules
 
-1. Think First (XIII) — read before write
-2. Simple First (XIV) — simplest solution
-3. Evidence tags: [CODE] [CONFIG] [DOC] [INFERENCE] [ASSUMPTION]
-4. Plan before complex code
-5. Constitution v5.2.0 governs all
+- 1. Evidence tags on every claim: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
+- 2. Confidence ≥ 0.95 before delivering
+- 3. Plan before code — write plan to active workspace's `plan.md`
+- 4. Think First (XIII) — read before write
+- 5. Simple First (XIV) — complexity requires justification
+- 6. Hostinger-first — output deployable on shared hosting
 
 ## Quality Gates
 
-G0 → G1 → G2 → G3. None skippable.
+G0 (pre-flight) → G1 (post-spec) → G2 (post-plan) → G3 (deploy-ready)
 
 ## References
 
 Soul: PRISTINO.md | Index: PRISTINO-INDEX.md | Constitution: references/ontology/constitution-v5.2.0.md
+
+## Requires
+
+- **IDE**: OpenAI Codex CLI
+- **Not supported**: Agent tool, hooks, MCP, workspace management, multimodal
