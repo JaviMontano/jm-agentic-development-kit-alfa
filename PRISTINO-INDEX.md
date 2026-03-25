@@ -1,7 +1,7 @@
 # Pristino Master Index
 
 <!-- Auto-generated. Run: bash scripts/generate-pristino-index.sh -->
-<!-- Counts: 264 Skills | 256 Agents | 256 Commands | 256 Prompts -->
+<!-- Counts: 264 Skills | 256 Agents | 259 Commands | 256 Prompts -->
 
 ## Agents (256)
 
@@ -12,7 +12,7 @@
 | 3 | `accessibility-auditor` | WCAG 2.1 auditing, axe-core, screen reader testing |
 | 4 | `accessibility-designer` | Designs WCAG 2.1 AA compliant patterns including ARIA roles, keyboard navigation |
 | 5 | `accessibility-writing-specialist` | Alt text guidelines, plain language, reading level, inclusive language. |
-| 6 | `adk-orchestrator` | Pristino — triad-first orchestrator. Composes Lead + Support + Guardian for ever |
+| 6 | `adk-orchestrator` | Pristino — triad-first orchestrator. Composes Lead + Support + Guardian for ev |
 | 7 | `ai-assisted-testing-specialist` | AI-generated test cases, fuzzing, mutation testing, coverage optimization. |
 | 8 | `ai-code-review-specialist` | LLM-assisted code review patterns, automated suggestion generation. |
 | 9 | `ai-content-detection-specialist` | AI-generated content detection, watermarking, human-AI hybrid strategies. |
@@ -124,7 +124,7 @@
 | 115 | `flow-mapper` | Maps business process flows, data flows, and integration diagrams with Mermaid n |
 | 116 | `form-specialist` | Form validation, multi-step forms, file uploads, UX |
 | 117 | `form-ux-advanced-specialist` | Multi-step forms, inline validation, smart defaults, error recovery. |
-| 118 | `frontend-craftsman` | Builds semantic HTML5, modern CSS3, and vanilla JavaScript — the foundational we |
+| 118 | `frontend-craftsman` | Builds semantic HTML5, modern CSS3, and vanilla JavaScript — the foundational  |
 | 119 | `funnel-analytics-specialist` | Conversion funnel tracking, drop-off analysis, optimization strategy. |
 | 120 | `funnel-design-specialist` | TOFU/MOFU/BOFU content mapping, lead scoring, nurture flow design. |
 | 121 | `git-hook-integration-specialist` | Pre-commit and pre-push hooks, conventional commit enforcement. |
@@ -533,7 +533,7 @@
 | 263 | `workshop-proposal` | — |
 | 264 | `workspace-governance` | — |
 
-## Commands (256)
+## Commands (259)
 
 | # | ID | Description |
 |---|-----|-------------|
@@ -555,7 +555,7 @@
 | 16 | `ai-workflow-automation` | LLM-in-the-loop workflows, human-AI handoff, approval gates. |
 | 17 | `alerting-strategy` | Alert fatigue prevention, escalation rules, severity classification. |
 | 18 | `analytics-events` | Event taxonomy, naming conventions, tracking plan, implementation. |
-| 19 | `analyze` | Full analysis pipeline (MAO-style): requirements → flows → scenarios → feasibili |
+| 19 | `analyze` | Full analysis pipeline (MAO-style): requirements → flows → scenarios → fea |
 | 20 | `animation-principles` | 12 principles of animation applied to UI motion design. |
 | 21 | `api-docs` | Generate API documentation from code or OpenAPI spec |
 | 22 | `architect` | Design system architecture with C4 diagrams |
@@ -621,7 +621,7 @@
 | 82 | `data-privacy-patterns` | PII detection, anonymization, GDPR compliance, consent management. |
 | 83 | `data-validation` | Schema validation, type checking, constraint enforcement, error handling. |
 | 84 | `debate` | Trigger a formal Socratic debate to resolve ambiguities, trade-offs, or low-conf |
-| 85 | `demo` | Quick demo — pick a project type, watch the triad build it with quality gates an |
+| 85 | `demo` | Quick demo — pick a project type, watch the triad build it with quality gates  |
 | 86 | `dependency-management` | Lockfiles, update strategy, Renovate/Dependabot, vulnerability scanning. |
 | 87 | `deploy-firebase` | Build and deploy to Firebase Hosting |
 | 88 | `deploy-hostinger` | Build and deploy to Hostinger via FTP |
@@ -636,7 +636,7 @@
 | 97 | `design-pwa` | Design PWA architecture |
 | 98 | `design-seo` | Design technical SEO strategy |
 | 99 | `design-state` | Design state management strategy |
-| 100 | `develop` | Full development pipeline (SA-style): design → scaffold → build → test → deploy |
+| 100 | `develop` | Full development pipeline (SA-style): design → scaffold → build → test → |
 | 101 | `developer-onboarding` | Onboarding checklists, ramp-up metrics, mentoring programs, buddy system. |
 | 102 | `diagram` | Generate Mermaid diagram |
 | 103 | `disaster-recovery` | RTO/RPO targets, failover testing, business continuity planning. |
@@ -673,126 +673,129 @@
 | 134 | `guardrails` | List, add, or remove working guidelines, constraints, and guardrails |
 | 135 | `guided` | Full pipeline with human checkpoints at every gate |
 | 136 | `health-check-automation` | System health monitoring, dependency status, resource usage alerts. |
-| 137 | `help` | Show help and getting started guide |
-| 138 | `http-headers` | Security headers, caching headers, compression, content negotiation. |
-| 139 | `iconography` | Icon systems, SVG optimization, icon accessibility, consistency. |
-| 140 | `incident-response` | Incident playbooks, postmortem templates, severity classification, on-call. |
-| 141 | `index` | Regenerate PRISTINO-INDEX.md master registry |
-| 142 | `init` | Initialize a new project — detect environment, analyze repo, generate Constituti |
-| 143 | `insights` | View, search, or add insights from debates and discoveries |
-| 144 | `internal-memo` | Executive memo structure, decision briefs, status updates, action items. |
-| 145 | `knowledge-management` | Organizational knowledge capture, searchability, decay prevention. |
-| 146 | `kpi-framework` | KPI design, metric trees, leading/lagging indicators, OKR alignment. |
-| 147 | `lead-generation` | Lead magnets, gated content, signup optimization, qualification scoring. |
-| 148 | `lighthouse` | Run Lighthouse CI audit with performance budgets |
-| 149 | `lint` | Run linting and formatting |
-| 150 | `llm-evaluation` | Model output quality assessment, hallucination detection, benchmark suites. |
-| 151 | `localization-guide` | Translation workflows, context for translators, glossaries, RTL support. |
-| 152 | `log-management` | Structured logging, log levels, retention policies, search patterns. |
-| 153 | `market` | Run geographic market intelligence analysis |
-| 154 | `marketing-context` | Brand positioning, value propositions, and messaging framework for consistent ma |
-| 155 | `menu` | Interactive command palette showing all available commands |
-| 156 | `metrics-instrumentation` | Code-level metrics, custom dimensions, event parameter design. |
-| 157 | `micro-interactions` | Button states, loading indicators, success feedback, hover effects. |
-| 158 | `microcopy-writing` | Button labels, tooltips, empty states, confirmation dialogs, placeholders. |
-| 159 | `mobile-patterns` | Bottom sheets, pull-to-refresh, swipe actions, FAB, gesture navigation. |
-| 160 | `monitoring-setup` | Application monitoring, health checks, uptime tracking, alerting integration. |
-| 161 | `motion-design` | Page transitions, scroll-triggered animations, parallax, performance. |
-| 162 | `multi-model-routing` | Model selection by task complexity, cost optimization, fallback chains. |
-| 163 | `newsletter-design` | Newsletter strategy, content structure, engagement metrics, send optimization. |
-| 164 | `notification-handler` | System notification management, progress updates, alert routing. |
-| 165 | `notification-ux` | Toast patterns, badge counts, notification center, priority ranking. |
-| 166 | `okr-design` | OKR framework, alignment cascading, progress tracking, scoring. |
-| 167 | `onboarding-ux` | User onboarding flows, activation metrics, time-to-value optimization. |
-| 168 | `onboarding` | Guided first-use experience — walks you through your first JM-ADK project |
-| 169 | `optimize-fonts` | Optimize fonts: subsetting, preload, FOUT prevention |
-| 170 | `optimize-images` | Optimize images: WebP conversion, lazy loading, srcset |
-| 171 | `partnership-strategy` | Partner identification, co-marketing programs, referral system design. |
-| 172 | `permission-fast-path` | Auto-approve read-only operations to reduce LLM overhead. |
-| 173 | `personas` | Generate user personas and journey maps |
-| 174 | `pitch` | Create executive pitch with ROI |
-| 175 | `podcast-prep` | Episode planning, guest research, question frameworks, show notes. |
-| 176 | `post-tool-use-validator` | Validate tool outputs: lint check, evidence tags, quality gates. |
-| 177 | `pre-compact-context` | Context preservation before compression, priority-based retention. |
-| 178 | `pre-tool-use-guard` | Block dangerous commands before execution using exit code 2 pattern. |
-| 179 | `presentation-design` | Slide deck patterns, visual storytelling, Minto pyramid for slides. |
-| 180 | `press-release` | Inverted pyramid, quotes, boilerplate, distribution strategy. |
-| 181 | `pricing-strategy` | Pricing page design, anchoring, tier structure, value-based framing. |
-| 182 | `prompt-engineering` | Prompt design patterns: few-shot, chain-of-thought, system prompts, guardrails. |
-| 183 | `proposal-writing` | RFP response, scope definition, pricing tables, timeline, risk section. |
-| 184 | `prospect` | Prospect clients by geography and sector with AI-driven research |
-| 185 | `prototyping` | Low-fi to high-fi prototyping, clickable mockups, rapid iteration. |
-| 186 | `rag-patterns` | Retrieval-augmented generation: chunking, embedding, vector search, reranking. |
-| 187 | `rate-limiting` | API rate limits, throttling, quota management, abuse prevention. |
-| 188 | `rbac-patterns` | Role-based access control, permission matrices, Firebase custom claims. |
-| 189 | `readme` | Generate/update README.md |
-| 190 | `real-time-analytics` | Live dashboards, WebSocket streams, alert threshold configuration. |
-| 191 | `recaptcha` | Integrate reCAPTCHA v3 with Firebase App Check |
-| 192 | `repair` | Debug and fix issues |
-| 193 | `reporting-templates` | Executive reports, operational dashboards, compliance report design. |
-| 194 | `requirements` | Extract requirements from conversation/documents |
-| 195 | `retro` | Session retrospective with lessons learned |
-| 196 | `retrospective-facilitation` | Sprint retros, blameless postmortems, action item tracking. |
-| 197 | `review` | Code review with quality gates |
-| 198 | `risks` | Generate risk register |
-| 199 | `roadmap` | Generate prioritized product roadmap |
-| 200 | `rollback-strategy` | Blue-green, canary, feature flags, database rollback patterns. |
-| 201 | `rollback` | Rollback to previous deployment |
-| 202 | `sales-collateral` | One-pagers, battle cards, ROI calculators, competitive positioning documents. |
-| 203 | `scaffold-angular` | Angular 18+ with Firebase |
-| 204 | `scaffold-api` | Cloud Functions REST API |
-| 205 | `scaffold-dashboard` | Admin dashboard with Firebase backend |
-| 206 | `scaffold-firebase` | Firebase + vanilla JS project |
-| 207 | `scaffold-landing` | Landing page with analytics |
-| 208 | `scaffold-react` | React 19+ with Firebase |
-| 209 | `scaffold-vanilla` | Pure HTML/CSS/JS project |
-| 210 | `scaffold` | Meta-scaffold: choose template and generate project |
-| 211 | `scenarios` | Evaluate modernization/implementation scenarios |
-| 212 | `schema-evolution` | Migration patterns, backward compatibility, versioning, zero-downtime. |
-| 213 | `search-ux` | Search bar patterns, autocomplete, faceted search, filter design. |
-| 214 | `search` | Search skills by keyword using BM25 index |
-| 215 | `seo-content` | Generate SEO content: meta descriptions, JSON-LD, Open Graph |
-| 216 | `session-end-cleanup` | Session summary generation, insight extraction, tasklog update. |
-| 217 | `session-start-bootstrap` | Context loading, environment detection, guardrails initialization. |
-| 218 | `session` | Initialize or review session protocol |
-| 219 | `setup-ci` | Configure GitHub Actions CI/CD |
-| 220 | `setup-domain` | Configure custom domain + DNS |
-| 221 | `setup-ssl` | Configure SSL certificate |
-| 222 | `ship` | Build optimized bundle + deploy to Hostinger or Firebase |
-| 223 | `sla-definition` | Service level agreements, uptime targets, penalty structures, monitoring. |
-| 224 | `social-proof` | Testimonials, case studies, trust badges, social validation pattern design. |
-| 225 | `spec` | Generate functional specification |
-| 226 | `ssh-deploy` | Deploy to Hostinger via SSH+Git |
-| 227 | `ssl-management` | Certificate lifecycle, auto-renewal, HSTS, certificate pinning. |
-| 228 | `stakeholders` | Generate stakeholder map and RACI |
-| 229 | `status` | Show current pipeline status and progress |
-| 230 | `stop-validator` | Final output validation before delivery: evidence tags, quality, completeness. |
-| 231 | `structured-output` | JSON mode, schema-constrained generation, output validation, error recovery. |
-| 232 | `subagent-monitor` | Track subagent execution, timeout handling, result aggregation. |
-| 233 | `survey-design` | NPS/CSAT/CES surveys, question design, response analysis, benchmarks. |
-| 234 | `table-ux` | Data tables, sorting, pagination, responsive tables, bulk actions. |
-| 235 | `task-automation` | Recurring task scheduling, batch operations, periodic health checks. |
-| 236 | `team-topology` | Team structure design, communication paths, cognitive load management. |
-| 237 | `technical-writing-patterns` | API docs style, tutorial structure, reference format, how-to guides. |
-| 238 | `test-a11y` | Run accessibility tests |
-| 239 | `test-e2e` | Generate and run e2e tests |
-| 240 | `test-perf` | Run performance tests |
-| 241 | `test-unit` | Generate and run unit tests |
-| 242 | `test` | Run test suite |
-| 243 | `trade-off` | Run weighted trade-off analysis between options |
-| 244 | `training-material` | Course design, exercises, assessments, facilitator guide, handouts. |
-| 245 | `typography-advanced` | Variable fonts, optical sizing, responsive typography, vertical rhythm. |
-| 246 | `user-prompt-filter` | Input sanitization and injection detection at the prompt submission level. |
-| 247 | `user-testing` | Usability testing protocols, task scenarios, think-aloud, analysis. |
-| 248 | `validate-chain` | Validate the Intent Integrity Chain end-to-end for a feature or the entire proje |
-| 249 | `vendor-evaluation` | Vendor scoring, TCO analysis, lock-in assessment, exit strategy. |
-| 250 | `video-script` | Video structure, hook-body-CTA, timing, B-roll cues, accessibility. |
-| 251 | `visual-test` | Run visual regression tests with screenshot comparison |
-| 252 | `voice-interface` | Speech-to-text, text-to-speech, voice UI patterns, accessibility. |
-| 253 | `whitepaper-creation` | Long-form research, methodology, findings, recommendations, citations. |
-| 254 | `workflow-orchestration` | Multi-step workflow execution with checkpoint and resume capability. |
-| 255 | `workshop` | Design workshop session plan |
-| 256 | `workspace` | Initialize or manage workspace/ directory |
+| 137 | `health` | System health check — verify integrity, workspace state, hook status, componen |
+| 138 | `help` | Show help and getting started guide |
+| 139 | `http-headers` | Security headers, caching headers, compression, content negotiation. |
+| 140 | `iconography` | Icon systems, SVG optimization, icon accessibility, consistency. |
+| 141 | `incident-response` | Incident playbooks, postmortem templates, severity classification, on-call. |
+| 142 | `index` | Regenerate PRISTINO-INDEX.md master registry |
+| 143 | `init` | Initialize JM-ADK workspace management — system check, config, workspace/, hoo |
+| 144 | `insights` | View, search, or add insights from debates and discoveries |
+| 145 | `internal-memo` | Executive memo structure, decision briefs, status updates, action items. |
+| 146 | `knowledge-management` | Organizational knowledge capture, searchability, decay prevention. |
+| 147 | `kpi-framework` | KPI design, metric trees, leading/lagging indicators, OKR alignment. |
+| 148 | `lead-generation` | Lead magnets, gated content, signup optimization, qualification scoring. |
+| 149 | `lighthouse` | Run Lighthouse CI audit with performance budgets |
+| 150 | `lint` | Run linting and formatting |
+| 151 | `llm-evaluation` | Model output quality assessment, hallucination detection, benchmark suites. |
+| 152 | `localization-guide` | Translation workflows, context for translators, glossaries, RTL support. |
+| 153 | `log-management` | Structured logging, log levels, retention policies, search patterns. |
+| 154 | `market` | Run geographic market intelligence analysis |
+| 155 | `marketing-context` | Brand positioning, value propositions, and messaging framework for consistent ma |
+| 156 | `menu` | Interactive command palette showing all available commands |
+| 157 | `metrics-instrumentation` | Code-level metrics, custom dimensions, event parameter design. |
+| 158 | `micro-interactions` | Button states, loading indicators, success feedback, hover effects. |
+| 159 | `microcopy-writing` | Button labels, tooltips, empty states, confirmation dialogs, placeholders. |
+| 160 | `mobile-patterns` | Bottom sheets, pull-to-refresh, swipe actions, FAB, gesture navigation. |
+| 161 | `monitoring-setup` | Application monitoring, health checks, uptime tracking, alerting integration. |
+| 162 | `motion-design` | Page transitions, scroll-triggered animations, parallax, performance. |
+| 163 | `multi-model-routing` | Model selection by task complexity, cost optimization, fallback chains. |
+| 164 | `newsletter-design` | Newsletter strategy, content structure, engagement metrics, send optimization. |
+| 165 | `notification-handler` | System notification management, progress updates, alert routing. |
+| 166 | `notification-ux` | Toast patterns, badge counts, notification center, priority ranking. |
+| 167 | `okr-design` | OKR framework, alignment cascading, progress tracking, scoring. |
+| 168 | `onboarding-ux` | User onboarding flows, activation metrics, time-to-value optimization. |
+| 169 | `onboarding` | Guided first-use experience — walks you through your first JM-ADK project |
+| 170 | `optimize-fonts` | Optimize fonts: subsetting, preload, FOUT prevention |
+| 171 | `optimize-images` | Optimize images: WebP conversion, lazy loading, srcset |
+| 172 | `partnership-strategy` | Partner identification, co-marketing programs, referral system design. |
+| 173 | `permission-fast-path` | Auto-approve read-only operations to reduce LLM overhead. |
+| 174 | `personas` | Generate user personas and journey maps |
+| 175 | `pitch` | Create executive pitch with ROI |
+| 176 | `podcast-prep` | Episode planning, guest research, question frameworks, show notes. |
+| 177 | `post-tool-use-validator` | Validate tool outputs: lint check, evidence tags, quality gates. |
+| 178 | `pre-compact-context` | Context preservation before compression, priority-based retention. |
+| 179 | `pre-tool-use-guard` | Block dangerous commands before execution using exit code 2 pattern. |
+| 180 | `presentation-design` | Slide deck patterns, visual storytelling, Minto pyramid for slides. |
+| 181 | `press-release` | Inverted pyramid, quotes, boilerplate, distribution strategy. |
+| 182 | `pricing-strategy` | Pricing page design, anchoring, tier structure, value-based framing. |
+| 183 | `prompt-engineering` | Prompt design patterns: few-shot, chain-of-thought, system prompts, guardrails. |
+| 184 | `proposal-writing` | RFP response, scope definition, pricing tables, timeline, risk section. |
+| 185 | `prospect` | Prospect clients by geography and sector with AI-driven research |
+| 186 | `prototyping` | Low-fi to high-fi prototyping, clickable mockups, rapid iteration. |
+| 187 | `rag-patterns` | Retrieval-augmented generation: chunking, embedding, vector search, reranking. |
+| 188 | `rate-limiting` | API rate limits, throttling, quota management, abuse prevention. |
+| 189 | `rbac-patterns` | Role-based access control, permission matrices, Firebase custom claims. |
+| 190 | `readme` | Generate/update README.md |
+| 191 | `real-time-analytics` | Live dashboards, WebSocket streams, alert threshold configuration. |
+| 192 | `recaptcha` | Integrate reCAPTCHA v3 with Firebase App Check |
+| 193 | `repair` | Debug and fix issues |
+| 194 | `reporting-templates` | Executive reports, operational dashboards, compliance report design. |
+| 195 | `requirements` | Extract requirements from conversation/documents |
+| 196 | `retro` | Session retrospective with lessons learned |
+| 197 | `retrospective-facilitation` | Sprint retros, blameless postmortems, action item tracking. |
+| 198 | `review` | Code review with quality gates |
+| 199 | `risks` | Generate risk register |
+| 200 | `roadmap` | Generate prioritized product roadmap |
+| 201 | `rollback-strategy` | Blue-green, canary, feature flags, database rollback patterns. |
+| 202 | `rollback` | Rollback to previous deployment |
+| 203 | `sales-collateral` | One-pagers, battle cards, ROI calculators, competitive positioning documents. |
+| 204 | `scaffold-angular` | Angular 18+ with Firebase |
+| 205 | `scaffold-api` | Cloud Functions REST API |
+| 206 | `scaffold-dashboard` | Admin dashboard with Firebase backend |
+| 207 | `scaffold-firebase` | Firebase + vanilla JS project |
+| 208 | `scaffold-landing` | Landing page with analytics |
+| 209 | `scaffold-react` | React 19+ with Firebase |
+| 210 | `scaffold-vanilla` | Pure HTML/CSS/JS project |
+| 211 | `scaffold` | Meta-scaffold: choose template and generate project |
+| 212 | `scenarios` | Evaluate modernization/implementation scenarios |
+| 213 | `schema-evolution` | Migration patterns, backward compatibility, versioning, zero-downtime. |
+| 214 | `search-ux` | Search bar patterns, autocomplete, faceted search, filter design. |
+| 215 | `search` | Search skills by keyword using BM25 index |
+| 216 | `seo-content` | Generate SEO content: meta descriptions, JSON-LD, Open Graph |
+| 217 | `session-end-cleanup` | Session summary generation, insight extraction, tasklog update. |
+| 218 | `session-start-bootstrap` | Context loading, environment detection, guardrails initialization. |
+| 219 | `session` | Initialize or review session protocol |
+| 220 | `setup-ci` | Configure GitHub Actions CI/CD |
+| 221 | `setup-domain` | Configure custom domain + DNS |
+| 222 | `setup-ssl` | Configure SSL certificate |
+| 223 | `ship` | Build optimized bundle + deploy to Hostinger or Firebase |
+| 224 | `sla-definition` | Service level agreements, uptime targets, penalty structures, monitoring. |
+| 225 | `social-proof` | Testimonials, case studies, trust badges, social validation pattern design. |
+| 226 | `spec` | Generate functional specification |
+| 227 | `ssh-deploy` | Deploy to Hostinger via SSH+Git |
+| 228 | `ssl-management` | Certificate lifecycle, auto-renewal, HSTS, certificate pinning. |
+| 229 | `stakeholders` | Generate stakeholder map and RACI |
+| 230 | `status` | Show current pipeline status and progress |
+| 231 | `stop-validator` | Final output validation before delivery: evidence tags, quality, completeness. |
+| 232 | `structured-output` | JSON mode, schema-constrained generation, output validation, error recovery. |
+| 233 | `subagent-monitor` | Track subagent execution, timeout handling, result aggregation. |
+| 234 | `survey-design` | NPS/CSAT/CES surveys, question design, response analysis, benchmarks. |
+| 235 | `table-ux` | Data tables, sorting, pagination, responsive tables, bulk actions. |
+| 236 | `task-automation` | Recurring task scheduling, batch operations, periodic health checks. |
+| 237 | `team-topology` | Team structure design, communication paths, cognitive load management. |
+| 238 | `technical-writing-patterns` | API docs style, tutorial structure, reference format, how-to guides. |
+| 239 | `test-a11y` | Run accessibility tests |
+| 240 | `test-e2e` | Generate and run e2e tests |
+| 241 | `test-perf` | Run performance tests |
+| 242 | `test-unit` | Generate and run unit tests |
+| 243 | `test` | Run test suite |
+| 244 | `trade-off` | Run weighted trade-off analysis between options |
+| 245 | `training-material` | Course design, exercises, assessments, facilitator guide, handouts. |
+| 246 | `typography-advanced` | Variable fonts, optical sizing, responsive typography, vertical rhythm. |
+| 247 | `user-prompt-filter` | Input sanitization and injection detection at the prompt submission level. |
+| 248 | `user-testing` | Usability testing protocols, task scenarios, think-aloud, analysis. |
+| 249 | `validate-chain` | Validate the Intent Integrity Chain end-to-end for a feature or the entire proje |
+| 250 | `vendor-evaluation` | Vendor scoring, TCO analysis, lock-in assessment, exit strategy. |
+| 251 | `video-script` | Video structure, hook-body-CTA, timing, B-roll cues, accessibility. |
+| 252 | `visual-test` | Run visual regression tests with screenshot comparison |
+| 253 | `voice-interface` | Speech-to-text, text-to-speech, voice UI patterns, accessibility. |
+| 254 | `whitepaper-creation` | Long-form research, methodology, findings, recommendations, citations. |
+| 255 | `workflow-orchestration` | Multi-step workflow execution with checkpoint and resume capability. |
+| 256 | `workshop` | Design workshop session plan |
+| 257 | `workspace-cleanup` | Archive stale workspaces and clean up orphaned registry entries |
+| 258 | `workspace-report` | Generate a summary report for the active or specified workspace — metrics, tim |
+| 259 | `workspace` | Manage JM-ADK workspaces — create, status, list, complete, archive, switch, ga |
 
 ## Prompts (256)
 

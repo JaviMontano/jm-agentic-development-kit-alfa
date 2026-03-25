@@ -3,12 +3,12 @@
     {
       "type": "SessionStart",
       "command": "bash scripts/session-init.sh",
-      "description": "Bootstrap: load PRISTINO.md, Constitution, guardrails, environment detection"
+      "description": "System integrity check + workspace detection + structured output for model greeting"
     },
     {
       "type": "UserPromptSubmit",
       "command": "bash scripts/user-prompt-filter.sh",
-      "description": "Input filtering: detect injection patterns, validate evidence tag intent"
+      "description": "Injection pattern detection (stderr) + workspace signal emission (stdout)"
     },
     {
       "type": "PreToolUse",
@@ -18,12 +18,12 @@
     {
       "type": "PostToolUse",
       "command": "bash scripts/post-tool-check.sh",
-      "description": "Post-tool validation: lint check, evidence tags, quality gate enforcement"
+      "description": "Auto-log tool usage to active workspace tasklog via workspace-manager.sh"
     },
     {
       "type": "Stop",
       "command": "bash scripts/stop-validator.sh",
-      "description": "Final output validation: evidence tags complete, quality gates passed, no unresolved assumptions"
+      "description": "Mark session boundary in workspace tasklog + update timestamps"
     }
   ]
 }

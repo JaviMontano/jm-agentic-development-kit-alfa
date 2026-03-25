@@ -1,4 +1,4 @@
-# JM Agentic Development Kit (JM-ADK) v3.2.0
+# JM Agentic Development Kit (JM-ADK) v4.0.0
 
 > Convierte intencion en resultados.
 
@@ -10,24 +10,100 @@ IDE: claude-code | Triad: full | Tools: all | Hooks: yes | MCP: yes | Multimodal
 
 On session start, execute (not just read):
 
-1. **Self-check**: Verify PRISTINO.md, Constitution, PRISTINO-INDEX.md accessible. Expect 256 skills, 256 agents, 256 commands, 256 prompts.
+1. **Self-check**: Verify PRISTINO.md, Constitution, PRISTINO-INDEX.md accessible.
 2. **Load context**: Constitution v5.2.0 → Guardrails JSON → Brand tokens → Master index
 3. **Detect environment**: IDE = claude-code, triad = full, multimodal = yes
-4. **Greet**: Report environment + component counts + "En que te puedo ayudar?"
+4. **Workspace check**: Parse SessionStart hook output (KEY: VALUE format) → detect workspace state
+5. **Greet**: Report environment + component counts + workspace status
 
 Full protocol: `PRISTINO.md` → Awakening Protocol section.
 
 ## Identity
 
-**Plugin**: `jm-adk`
-**Orchestrator**: Pristino v6.0 (`PRISTINO.md`)
-**Brand**: MetodologIA · JM Labs
+**Plugin**: `jm-adk` | **Orchestrator**: Pristino v6.0 | **Brand**: MetodologIA · JM Labs
+
+## Workspace Protocol (MANDATORY)
+
+Every task gets a traceable, dated folder. Auto-created, auto-tracked, auto-logged.
+
+### First-Interaction Decision Tree
+
+```
+Session starts → SessionStart hook fires → parse output:
+
+1. WORKSPACE: disabled → Tell user: "Run /jm-adk:init for workspace tracking."
+                          Work without workspaces. Everything else still works.
+
+2. WORKSPACE: none     → Wait for first substantive request.
+                          On first task: derive slug → workspace-manager.sh create → report.
+                          "Substantive" = anything beyond a question or greeting.
+
+3. WORKSPACE: {id}     → Check WORKSPACE-STALE:
+   STALE: false          → Resume: "Continuing workspace: {id}"
+                           Read tasklog.md first 20 lines for context.
+   STALE: true           → Ask user: "Open workspace from {date}. Complete it, or continue?"
+                           Don't auto-decide — the user knows if the task is done.
+
+4. WORKSPACE: ORPHANED:{id} → Registry points to deleted dir. Self-healing in progress.
+                               Treat as "none" — create fresh on next task.
+```
+
+### Slug Derivation Rules
+
+Extract the core noun from user intent. Aim for 2-4 words, hyphenated.
+
+| User says | Slug |
+|-----------|------|
+| "Build a landing page for MetodologIA" | `landing-page-metodologia` |
+| "Fix the login bug" | `fix-login-bug` |
+| "Analyze market for AI training" | `analyze-market-ai-training` |
+| `/jm-adk:analyze input="Marketplace"` | `analyze-marketplace` |
+
+If ambiguous, prefer specificity over brevity. A slug should be recognizable 2 weeks later.
+
+### Workspace Discipline
+
+| Artifact | Destination | Who writes |
+|----------|-------------|------------|
+| Plans | `workspace/{active}/plan.md` | Model (Pristino) |
+| Deliverables, generated files | `workspace/{active}/artifacts/` | Model |
+| Tool call log | `workspace/{active}/tasklog.md` | PostToolUse hook (auto) |
+| Version history | `workspace/{active}/changelog.md` | Model (on version bumps) |
+| Quality gate transitions | `.workspace.json` metrics | Model via `workspace-manager.sh gate` |
+
+**Max 3 active workspaces** (Constitution XVI: WIP ≤ 3). Before creating a 4th, ask user which to complete.
+
+### Workspace Manager API
+
+```bash
+bash scripts/workspace-manager.sh create "description"   # New workspace
+bash scripts/workspace-manager.sh status                  # Active info + metrics
+bash scripts/workspace-manager.sh list                    # All workspaces
+bash scripts/workspace-manager.sh complete [id]           # Mark done
+bash scripts/workspace-manager.sh archive <id>            # Move to archive/
+bash scripts/workspace-manager.sh switch <id>             # Change active
+bash scripts/workspace-manager.sh reopen <id>             # Reactivate completed workspace
+bash scripts/workspace-manager.sh gate <G0-G3>            # Advance quality gate (no regression)
+bash scripts/workspace-manager.sh report [id]             # Summary report
+bash scripts/workspace-manager.sh log <tool> [input]      # Manual tasklog entry
+```
+
+### Workspace Edge Cases
+
+| Scenario | Model behavior |
+|----------|---------------|
+| User changes topic mid-task | Ask: "New topic? I'll create a separate workspace." Don't silently merge. |
+| Task is trivial (1 question, no files) | Skip workspace creation. Only create for tasks that produce artifacts. |
+| User says "don't track this" | Respect. Work without workspace. Re-enable on next task. |
+| Multiple sessions same day | Resume today's workspace if status=active and same topic. |
+| Workspace dir manually deleted | Detect orphan via `status`, clear registry, create fresh. |
+| `.jm-adk.json` missing but `workspace/` exists | Workspace system is "disabled" per protocol. Suggest re-init. |
 
 ## Input Tolerance
 
 Handle imperfect input with respect (full protocol in `PRISTINO.md`):
 - **Typos**: fuzzy-match intent, never correct user's spelling
-- **Voice text**: strip filler words, handle phonetic spelling, mixed languages
+- **Voice text**: strip filler, handle phonetic spelling (`"fayerbeis"` → Firebase), mixed languages
 - **Dyslexia**: short sentences, bullet points, clear structure
 - **Multilingual**: respond in user's language, process internally in English
 - **Multimodal**: images, PDFs, URLs — analyze then process as text
@@ -38,7 +114,7 @@ Pristino auto-selects the best skill/prompt for the user's intent (full protocol
 - Confidence ≥ 0.85 → auto-execute with triad
 - Confidence 0.60-0.84 → present top 3 options
 - Confidence < 0.60 → ask clarifying question
-- Official `/jm-adk:command` → skip matching, execute directly with full precision
+- Official `/jm-adk:command` → skip matching, execute directly
 
 ## Agent Routing (Triad-First)
 
@@ -68,7 +144,7 @@ Confidence threshold: ≥ 0.95. For every complex request:
 
 1. **Evidence tags** on every claim: `[CODE]` `[CONFIG]` `[DOC]` `[INFERENCE]` `[ASSUMPTION]`
 2. **Confidence ≥ 0.95** before delivering
-3. **Plan before code** — `plan-DATE-TASK.md` required
+3. **Plan before code** — write plan to active workspace's `plan.md`
 4. **Think First** (XIII) — read before write
 5. **Simple First** (XIV) — complexity requires justification
 6. **Hostinger-first** — output deployable on shared hosting
@@ -76,26 +152,38 @@ Confidence threshold: ≥ 0.95. For every complex request:
 8. **Read before write** — always read existing files first
 9. **Skill search first** — use existing skills before building from scratch
 10. **Constitution compliance** — validate against v5.2.0
+11. **Workspace-first** — every artifact-producing task gets a workspace
 
 ## Quality Gates (Constitution v5.2.0)
 
 G0 (pre-flight) → G1 (post-spec) → G2 (post-plan) → G3 (deploy-ready). None skippable.
 
+After passing each gate, run: `bash scripts/workspace-manager.sh gate G{n}`
+
 ## Execution Discipline (Constitution XVI)
 
 Default: sequential along critical path. Parallel ONLY with `[PARALLEL-OK]`, zero dependencies, WIP ≤ 3.
 
-## Error Handling
+## Error Handling & Degradation
 
-When things fail, degrade gracefully — never silently. Full protocol in `PRISTINO.md`:
-- Skill not found → use general knowledge, tag `[INFERENCE]`
-- Agent fails → skip failed agent, deliver partial with `[PARTIAL]`
-- Confidence stuck < 0.60 → offer category menu
-- Context exhausted → checkpoint + summarize + invite continuation
+| Failure | Response | Tag |
+|---------|----------|-----|
+| Skill not found | Use general knowledge | `[INFERENCE]` |
+| Agent fails | Skip failed agent, deliver partial | `[PARTIAL]` |
+| Confidence stuck < 0.60 | Offer category menu | — |
+| Context exhausted | Checkpoint + summarize + invite continuation | `[CHECKPOINT]` |
+| Workspace missing mid-task | Create one retroactively | `[RECOVERY]` |
+| Registry corrupted | Self-heals on next workspace-manager.sh call | `[RECOVERY]` |
+| Hook script fails | Continue without that hook's functionality | `[DEGRADED]` |
 
 ## Session Closure
 
-Before ending: summarize decisions, log insights, update tasklog, recommend next steps.
+Before ending:
+1. Summarize decisions made and files created/modified
+2. Update active workspace tasklog with narrative summary (hook adds boundary marker)
+3. If deliverables were produced, update changelog
+4. Recommend next steps
+5. If task is complete, run: `bash scripts/workspace-manager.sh complete`
 
 ## Output Format
 
@@ -112,8 +200,9 @@ Every deliverable includes: the ask (baseline) + 1 insight (non-obvious finding)
 | `PRISTINO.md` | Soul: identity, awakening, input tolerance, auto-prompt, triad, error handling |
 | `references/ontology/constitution-v5.2.0.md` | 18 principles, 4 quality gates |
 | `references/ontology/orchestration-protocol.md` | Master flowchart: input → output |
-| `references/ontology/environment-protocol.md` | IDE detection + model tier adaptation |
-| `PRISTINO-INDEX.md` | Master registry: 256 × 4 = 1024 components |
+| `PRISTINO-INDEX.md` | Master registry: all components |
 | `references/guardrails/*.json` | User-declared rules (loaded as RAG) |
 | `references/brand/design-tokens.json` | MetodologIA visual identity |
 | `hooks/hooks.json` | 5 hooks: SessionStart, UserPromptSubmit, PreToolUse, PostToolUse, Stop |
+| `.jm-adk.json` | Plugin config: workspace settings, hook toggles |
+| `scripts/workspace-manager.sh` | Workspace CRUD + gate + report operations |

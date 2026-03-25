@@ -1,5 +1,5 @@
 ---
-description: "Initialize a new project — detect environment, analyze repo, generate Constitution and governance files"
+description: "Initialize JM-ADK workspace management — system check, config, workspace/, hooks validation, first-task setup"
 user-invocable: true
 ---
 
@@ -7,48 +7,120 @@ user-invocable: true
 
 ## Purpose
 
-Guided project setup. Detects the environment (IDE + model), asks about your project, analyzes an existing repo if provided, and auto-generates governance files (Constitution, plan, triad recommendation).
+One-time project setup. Creates the workspace management layer, validates system integrity, and prepares automatic task tracking. Idempotent: running twice updates config without destroying existing workspaces.
+
+## Preconditions
+
+- Current directory is the JM-ADK plugin root (PRISTINO.md exists)
+- `scripts/workspace-manager.sh` is executable
 
 ## Workflow
 
-### Step 1: Detect Environment
+### Step 1: System Integrity Check
 
-Identify IDE, model tier, triad mode. Report to user.
+| Check | Pass | Fail (degraded) |
+|-------|------|-----------------|
+| `PRISTINO.md` exists + has Identity section | Continue | Warn: "Orchestrator identity missing" |
+| `references/ontology/constitution-v5.2.0.md` readable | Continue | Warn: "Constitution missing — quality gates disabled" |
+| `PRISTINO-INDEX.md` accessible | Continue | Run `bash scripts/generate-pristino-index.sh` to rebuild |
+| `hooks/hooks.json` has 5 entries | Continue | Warn: "Hooks incomplete — auto-tasklog may not work" |
+| All `scripts/*.sh` executable | Continue | Run `chmod +x scripts/*.sh` |
+| Component counts match expectations | Continue | Report actual counts vs expected |
 
-### Step 2: Ask About the Project
+Decision: Never block init on degraded checks. Report gaps and continue. User fixes later.
 
-1. **"Do you have an existing repo to analyze?"** — If yes, read structure, package.json, tech stack
-2. **"What are you building?"** — Extract domain, features, user types
-3. **"Deployment target?"** — Hostinger / Firebase / Both
+### Step 2: Detect Environment
 
-### Step 3: Auto-Generate
+Read IDE type, model tier, triad mode from environment signals. Report to user.
 
-1. `.specify/CONSTITUTION.md` — Project-level constitution
-2. `.specify/plans/plan-YYYY-MM-DD-init.md` — Initial plan with first 3 tasks
-3. Triad recommendation for the first task
-4. `workspace/` structure if applicable
+### Step 3: Create Configuration
 
-### Step 4: Next Steps
+Write `.jm-adk.json` at project root. If file already exists, **merge** (preserve user customizations, update version).
 
-Report what was generated and suggest next command.
+```json
+{
+  "version": "4.0.0",
+  "initialized": "{ISO_TIMESTAMP}",
+  "workspace": {
+    "enabled": true,
+    "root": "workspace",
+    "autoCreate": true,
+    "naming": "YYYY-MM-DD-{slug}",
+    "maxActive": 3
+  },
+  "hooks": {
+    "sessionStartCheck": true,
+    "autoWorkspace": true,
+    "autoTasklog": true,
+    "autoSummary": true
+  },
+  "lastSession": {
+    "date": null,
+    "activeWorkspace": null
+  }
+}
+```
+
+### Step 4: Create Workspace Infrastructure
+
+1. `mkdir -p workspace/archive/`
+2. Initialize `workspace/.workspace-registry.json` (empty registry) — only if not exists
+3. Add `workspace/` to `.gitignore` — only if not already present
+4. `.jm-adk.json` is NOT gitignored (it's project config, shared across team)
+
+### Step 5: Validate Hooks
+
+Run `chmod +x scripts/*.sh`. Verify hooks.json points to all 5 scripts.
+
+### Step 6: Create First Workspace (if task provided)
+
+If `task` argument given → `bash scripts/workspace-manager.sh create "{slug}"`.
+Otherwise → skip. Workspace auto-creates on first substantive request.
+
+### Step 7: Report
+
+```
+JM-ADK v4.0.0 initialized.
+System: PRISTINO=OK | Constitution=v5.2.0 | Index=OK
+Components: {n} skills · {n} agents · {n} commands
+Workspace: enabled | auto-create: on | max-active: 3
+Hooks: 5/5 active
+Config: .jm-adk.json {created|updated}
+{DEGRADED: list of issues, if any}
+
+Ready. Describe your first task — workspace auto-creates.
+```
 
 ## Arguments
 
-| Argument | Description | Required | Default |
-|----------|-------------|----------|---------|
-| `repo` | Path to existing repo | No | current directory |
-| `target` | Deployment target | No | ask user |
+| Argument | Type | Required | Default | Description |
+|----------|------|----------|---------|-------------|
+| `task` | string | No | — | Pre-create workspace for this task |
+| `repo` | path | No | cwd | Repo to analyze for tech stack |
+| `target` | enum | No | ask | Deployment target: `hostinger`, `firebase`, `both` |
 
-## Examples
+## Acceptance Criteria
 
-```bash
-/jm-adk:init
-/jm-adk:init repo=/path/to/project
-/jm-adk:init target=firebase
-```
+- [ ] `.jm-adk.json` exists at project root with version 4.0.0
+- [ ] `workspace/` directory exists with `.workspace-registry.json`
+- [ ] `workspace/` is in `.gitignore`
+- [ ] All scripts in `scripts/` are executable
+- [ ] If `task` provided: workspace exists with tasklog, changelog, plan, artifacts/
+- [ ] System integrity report shown to user
+- [ ] Idempotent: second run doesn't destroy existing workspaces or config customizations
+
+## Edge Cases
+
+| Scenario | Behavior |
+|----------|----------|
+| Already initialized | Update version in config, preserve customizations, report "updated" |
+| `.jm-adk.json` is corrupted JSON | Overwrite with fresh config, warn user |
+| `workspace/` exists but no registry | Create registry, preserve existing workspaces |
+| Permission denied on `workspace/` | Report error, suggest `chmod` fix |
+| Running from wrong directory (no PRISTINO.md) | Warn: "Not a JM-ADK project root" |
 
 ## Related Commands
 
-- `/jm-adk:demo` — Quick showcase
-- `/jm-adk:onboarding` — Simpler first-use
-- `/jm-adk:analyze` — Full analysis (after init)
+- `/jm-adk:workspace` — Manual workspace management
+- `/jm-adk:menu` — Browse all commands
+- `/jm-adk:health` — System health check (post-init)

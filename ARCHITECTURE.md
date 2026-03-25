@@ -1,24 +1,38 @@
-# JM-ADK Architecture
+# JM-ADK Architecture v4.0.0
 
-> 256 Skills · 256 Agents · 256 Prompts — From Analysis to Deployment
+> 264 Skills · 256 Agents · 256 Commands · Automatic Workspace Management
 
 ## Directory Structure
 
 ```
 jm-agentic-development-kit/
-├── .claude-plugin/plugin.json     # Plugin manifest
-├── agents/                        # 101 specialist agents
-├── commands/                      # 101 user-invocable commands
-├── skills/                        # 101 skill modules (MOAT structure)
+├── .claude-plugin/plugin.json     # Plugin manifest (v4.0.0)
+├── .jm-adk.json                   # Plugin config (created by /jm-adk:init)
+├── agents/                        # 256 specialist agents
+├── commands/                      # 256 user-invocable commands
+├── skills/                        # 264 skill modules (MOAT structure)
 │   └── {skill}/
 │       ├── SKILL.md               # Definition + procedure
-│       ├── prompts/               # Skill-specific prompts
-│       └── examples/              # Sample outputs
-├── prompts/                       # 101 reusable prompt templates
+│       ├── agents/                # lead, support, guardian, specialist
+│       ├── knowledge/             # body-of-knowledge, knowledge-graph
+│       ├── prompts/               # primary, meta, variations/
+│       └── templates/             # output templates
+├── prompts/                       # 256 top-level + 770 nested = 1,026 prompts
 │   └── .catalog/                  # Prompt index and search data
+├── workspace/                     # AUTO-MANAGED workspace directory (gitignored)
+│   ├── .workspace-registry.json   # Global index of all workspaces
+│   ├── YYYY-MM-DD-slug/           # Per-task workspace
+│   │   ├── .workspace.json        # Metadata (id, status, triad, metrics)
+│   │   ├── tasklog.md             # Auto-maintained audit trail
+│   │   ├── changelog.md           # Version history
+│   │   ├── plan.md                # Task plan
+│   │   └── artifacts/             # Generated deliverables
+│   └── archive/                   # Completed workspaces
 ├── references/
-│   ├── ontology/                  # Governance documents
-│   └── priming-rag/               # Knowledge files
+│   ├── ontology/                  # Constitution, governance docs
+│   ├── guardrails/                # User-declared rules (JSON)
+│   ├── brand/                     # Design tokens, HTML templates
+│   └── priming-rag/               # Knowledge files for RAG
 ├── templates/                     # Project scaffolding templates
 │   ├── firebase/                  # Firebase + vanilla JS
 │   ├── angular/                   # Angular 18+ + Firebase
@@ -27,15 +41,103 @@ jm-agentic-development-kit/
 │   └── node-api/                  # Cloud Functions API
 ├── .shared/
 │   └── skill-search/              # BM25 skill search engine
-│       ├── data/skills.csv        # Skills catalog (searchable)
-│       └── scripts/search.py      # Search CLI
-├── scripts/                       # Automation scripts
-├── hooks/hooks.json               # Session automation
-├── CLAUDE.md                      # AI instructions
+├── scripts/                       # Automation scripts (9 scripts)
+│   ├── workspace-manager.sh       # Workspace CRUD operations
+│   ├── session-init.sh            # System check + workspace detection
+│   ├── user-prompt-filter.sh      # Injection detection + workspace signals
+│   ├── pre-tool-guard.sh          # Dangerous command blocker
+│   ├── post-tool-check.sh         # Auto-tasklog updater
+│   ├── stop-validator.sh          # Session summary to workspace
+│   ├── generate-pristino-index.sh # Regenerate master index
+│   ├── enrich-skill.sh            # Add knowledge/agents/prompts to skills
+│   └── upgrade-prompts.sh         # Batch prompt format upgrades
+├── hooks/hooks.json               # 5 session hooks
+├── CLAUDE.md                      # AI instructions (workspace-aware)
+├── PRISTINO.md                    # Orchestrator soul (workspace-aware)
 ├── ARCHITECTURE.md                # This file
 ├── settings.json                  # Default agent config
 └── README.md                      # User documentation
 ```
+
+## Workspace Management System (v4.0.0)
+
+### Architecture: Hook-Signal / Model-Act
+
+```
+Hook (bash) ──emit signal──→ stdout ──parsed by──→ Model (CLAUDE.md) ──acts via──→ workspace-manager.sh
+```
+
+**Why this pattern?** Hooks are bash scripts running in a subprocess with no IDE context. They can detect filesystem state, but can't make decisions about user intent. The model has full context (conversation history, task understanding, Constitution rules) and delegates filesystem ops to workspace-manager.sh — the single write path for all workspace state.
+
+**Trade-off accepted**: 50ms overhead per tool call (PostToolUse). Acceptable because tool calls themselves take 100ms-10s.
+
+### Workspace Lifecycle
+
+```
+CREATE → ACTIVE → COMPLETED → ARCHIVED
+           ↑          │
+           └─ reopen ─┘
+```
+
+| State | Entry | Exit | Max concurrent |
+|-------|-------|------|----------------|
+| Active | Auto on first task, or `/jm-adk:workspace new` | `complete` or `switch` away | 3 (Constitution XVI) |
+| Completed | `workspace-manager.sh complete` | `archive` or manual reopen | Unlimited |
+| Archived | `workspace-manager.sh archive` | Manual unarchive only | Unlimited |
+
+### Hook Integration
+
+| Hook | Script | Signal/Action | Writes to disk? |
+|------|--------|---------------|-----------------|
+| SessionStart | `session-init.sh` | Emits `VERSION:`, `SYSTEM:`, `WORKSPACE:`, `DEGRADED:` | No |
+| UserPromptSubmit | `user-prompt-filter.sh` | Emits `INJECTION-WARNING:` (stderr), `WORKSPACE-SIGNAL:` (stdout) | No |
+| PreToolUse | `pre-tool-guard.sh` | Blocks `rm -rf`, `git reset --hard`, `.env` access | No |
+| PostToolUse | `post-tool-check.sh` | Delegates to `workspace-manager.sh log` | Yes: tasklog.md, .workspace.json |
+| Stop | `stop-validator.sh` | Appends session boundary to tasklog | Yes: tasklog.md, .workspace.json, .jm-adk.json |
+
+### Configuration: `.jm-adk.json`
+
+Created by `/jm-adk:init`. Committed to git (project config, shared across team).
+
+```json
+{
+  "version": "4.0.0",
+  "workspace": {
+    "enabled": true,
+    "root": "workspace",
+    "autoCreate": true,
+    "naming": "YYYY-MM-DD-{slug}",
+    "maxActive": 3
+  },
+  "hooks": {
+    "sessionStartCheck": true,
+    "autoWorkspace": true,
+    "autoTasklog": true,
+    "autoSummary": true
+  }
+}
+```
+
+### Self-Healing
+
+| Corruption | Detection | Recovery |
+|-----------|-----------|----------|
+| Registry missing | `ensure_registry()` on every command | Recreate empty registry |
+| Registry unreadable JSON | `grep` fails to parse `activeWorkspace` | Overwrite with empty registry |
+| Active pointer → deleted dir | `session-init.sh` checks dir exists | Emit `ORPHANED:`, model clears |
+| .workspace.json missing in dir | `cmd_list()` shows `status=unknown` | Skip gracefully |
+| toolCalls counter out of sync | Cosmetic only | No recovery needed |
+
+### Design Decisions
+
+| # | Decision | Alternatives considered | Rationale |
+|---|----------|------------------------|-----------|
+| D1 | No jq dependency | jq for JSON manipulation | Portability: runs on stock macOS/Linux without installs |
+| D2 | `workspace/` gitignored | Commit workspace history | Workspaces are session state, not source code. Tasklog has no review value in PR. |
+| D3 | Single workspace-manager.sh | Separate scripts per command | One file to test, one to debug. 400 lines is manageable. |
+| D4 | Hooks never create workspaces | Auto-create in UserPromptSubmit hook | Hook can't derive slug from intent. Model can. |
+| D5 | PostToolUse filters read-only tools | Log everything | Read/Glob/Grep produce 80%+ of tool calls. Logging them buries the signal. |
+| D6 | Schema version in .workspace.json | Implicit version from plugin version | Enables future migrations without reading plugin.json. |
 
 ---
 

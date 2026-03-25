@@ -31,5 +31,13 @@ build/
 .specify/score-history.json
 .specify/dashboard.pid.json
 
+# Workspace (ephemeral session state — contents not committed, dir structure preserved)
+workspace/*
+!workspace/.gitkeep
+
+# SDD sentinel state
+.specify/sentinel-state.json
+.specify/session-log.json
+
 # Logs
 *.log

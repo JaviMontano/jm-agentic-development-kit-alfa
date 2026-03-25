@@ -1,6 +1,6 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/JM--ADK-v3.2.0_Tera-D4AF37?style=for-the-badge&labelColor=003366" alt="Version" />
-  <img src="https://img.shields.io/badge/Components-1032-D4AF37?style=for-the-badge&labelColor=003366" alt="1024" />
+  <img src="https://img.shields.io/badge/JM--ADK-v4.0.0_Workspace-D4AF37?style=for-the-badge&labelColor=003366" alt="Version" />
+  <img src="https://img.shields.io/badge/Components-1035-D4AF37?style=for-the-badge&labelColor=003366" alt="1035" />
   <img src="https://img.shields.io/badge/Skills-264_(enriched)-137DC5?style=for-the-badge&labelColor=003366" alt="Skills" />
 </p>
 
@@ -34,6 +34,7 @@ Un entorno agentico listo para trabajar. 256 habilidades especializadas, 256 age
 | Un agente generalista hace todo | 256 especialistas, cada uno experto en lo suyo |
 | Sin control de calidad | 4 puertas obligatorias (G0→G1→G2→G3) |
 | Contexto perdido entre sesiones | Decisiones grabadas, insights extraidos, errores no repetidos |
+| Sin trazabilidad de tareas | Workspace automatico: cada tarea crea su carpeta con tasklog, changelog, plan |
 | Tu gestionas la IA | La IA se gestiona sola bajo Constitucion |
 
 ## Que puedes hacer
@@ -50,6 +51,39 @@ Un entorno agentico listo para trabajar. 256 habilidades especializadas, 256 age
 | Dashboard admin | `/jm-adk:create-dashboard` | Tablas, graficos, filtros, CRUD | Firebase |
 
 **Stack**: HTML5, CSS3, JS, Angular 18+, React 19+, Firebase, Hostinger. Ecosistema Google.
+
+---
+
+## Workspace Automatico (v4.0.0)
+
+Cada tarea crea automaticamente su carpeta con trazabilidad completa:
+
+```
+workspace/
+└── 2026-03-25-landing-page/
+    ├── tasklog.md         ← Registro automatico de cada accion
+    ├── changelog.md       ← Historial de versiones
+    ├── plan.md            ← Plan de la tarea
+    └── artifacts/         ← Entregables generados
+```
+
+### Activar
+
+```
+/jm-adk:init
+```
+
+Esto crea la configuracion (`.jm-adk.json`) y el directorio `workspace/`. Despues, cada tarea que describas genera automaticamente su workspace.
+
+### Comandos
+
+| Comando | Accion |
+|---------|--------|
+| `/jm-adk:workspace new "descripcion"` | Crear workspace manualmente |
+| `/jm-adk:workspace status` | Ver workspace activo |
+| `/jm-adk:workspace list` | Listar todos |
+| `/jm-adk:workspace complete` | Marcar como completado |
+| `/jm-adk:workspace archive <id>` | Archivar |
 
 ---
 

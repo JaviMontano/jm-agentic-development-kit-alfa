@@ -1,25 +1,36 @@
 #!/bin/bash
-# UserPromptSubmit hook: detect injection patterns, validate input
-# Exit code 0 = allow (always allow, just log warnings)
+# user-prompt-filter.sh v4.0.0 — UserPromptSubmit hook
+#
+# Injection detection (stderr warnings) + workspace signal (stdout).
+# Always exits 0: blocking user input is worse than any false positive.
+# Pattern matching is intentionally basic — sophisticated attacks are the model's concern.
 
 PROMPT="${CLAUDE_USER_PROMPT:-}"
+PROJECT_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
-# Injection patterns (warn, don't block — log-but-don't-block philosophy)
-INJECTION_PATTERNS=(
-  "ignore previous instructions"
-  "ignore all instructions"
-  "you are now"
-  "disregard your"
-  "forget everything"
-  "new persona"
-  "jailbreak"
-  "DAN mode"
-)
+# ── Injection patterns (warn, never block) ──
 
-for pattern in "${INJECTION_PATTERNS[@]}"; do
-  if echo "$PROMPT" | grep -qi "$pattern"; then
-    echo "INJECTION-WARNING: pattern detected — '$pattern'" >&2
-  fi
+for P in "ignore previous instructions" "ignore all instructions" "you are now" \
+         "disregard your" "forget everything" "new persona" "jailbreak" "DAN mode" \
+         "system prompt" "reveal your instructions" "act as if" "pretend you are"; do
+  echo "$PROMPT" | grep -qi "$P" && echo "INJECTION-WARNING: '$P'" >&2
 done
+
+# ── Workspace signal ──
+
+if [ -f "$PROJECT_ROOT/.jm-adk.json" ]; then
+  REG="$PROJECT_ROOT/workspace/.workspace-registry.json"
+  if [ -f "$REG" ]; then
+    A=$(grep -o '"activeWorkspace"[[:space:]]*:[[:space:]]*"[^"]*"' "$REG" 2>/dev/null | \
+      sed 's/.*"activeWorkspace"[[:space:]]*:[[:space:]]*"//' | sed 's/"//') || true
+    if [ -z "$A" ] || [ "$A" = "null" ]; then
+      echo "WORKSPACE-SIGNAL: no-active-workspace"
+    elif [ ! -d "$PROJECT_ROOT/workspace/$A" ]; then
+      echo "WORKSPACE-SIGNAL: orphaned ($A)"
+    fi
+  else
+    echo "WORKSPACE-SIGNAL: no-registry"
+  fi
+fi
 
 exit 0
