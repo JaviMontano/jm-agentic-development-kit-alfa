@@ -5,6 +5,56 @@ All notable changes to the JM Agentic Development Kit will be documented in this
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.1] - 2026-03-25
+
+### Changed — Ecosystem: SDD v3.4.0 Workspace Sessions Alignment
+
+- Updated `references/ontology/intent-integrity-governance.md` with ecosystem plugin registry
+- Added workspace architecture alignment table (JM-ADK ↔ SDD pattern comparison)
+- SDD plugin now at v3.4.0: per-task workspace sessions, workspace-aware RAG, dual-write logging, ALM session cards
+
+## [4.0.0] - 2026-03-25
+
+### Added — Automatic Workspace Management
+
+**Core feature**: Every task creates a dated, traceable workspace folder (`workspace/YYYY-MM-DD-slug/`) with tasklog, changelog, plan, and artifacts directory. Fully automatic — no user effort required.
+
+**New files**:
+- `scripts/workspace-manager.sh` — Central CRUD: create, status, list, complete, archive, switch, reopen, gate, report, log
+- `commands/health.md` — `/jm-adk:health` system diagnostics (read-only)
+- `commands/workspace-report.md` — `/jm-adk:workspace-report` narrative summary
+- `commands/workspace-cleanup.md` — `/jm-adk:workspace-cleanup` maintenance
+- `.jm-adk.json` — Plugin configuration (workspace settings, hook toggles, governance)
+- `workspace/.gitkeep` — Directory structure preserved in git, contents gitignored
+
+**Architecture: Hook-Signal / Model-Act**:
+- Hooks detect state and emit structured signals (stdout)
+- Model (CLAUDE.md) parses signals and acts via workspace-manager.sh
+- Single write path for all workspace state — no divergence possible
+
+**Enhanced hooks** (all 5 rewritten):
+- SessionStart: system integrity + workspace detection + degraded mode signaling
+- UserPromptSubmit: injection detection + orphaned workspace detection
+- PostToolUse: auto-logs tool calls to active workspace tasklog (filters read-only tools)
+- Stop: session boundary marker + timestamp updates
+
+**Workspace operations**: create, status, list, complete, archive, switch, reopen, gate (sequential only, regression blocked), report
+
+**Self-healing**: corrupted registry auto-recreates, orphaned pointers auto-clear, duplicate slugs auto-deduplicate
+
+### Changed
+
+- `CLAUDE.md` → v4.0.0 with Workspace Protocol (decision tree, slug derivation, discipline rules, edge cases)
+- `PRISTINO.md` → workspace-aware awakening, session closure writes to tasklog
+- `ARCHITECTURE.md` → workspace system documented with design decisions table (D1-D6)
+- `commands/init.md` → premium init with workspace setup, acceptance criteria, edge cases
+- `commands/workspace.md` → full CRUD with reopen, gate regression guard, lifecycle diagram
+- `.claude-plugin/plugin.json` → v4.0.0
+- `hooks/hooks.json` → descriptions updated to v4.0.0 behavior
+- `README.md` → workspace section, v4.0.0 badge, 1035 components
+- `landing.html` → v4.0.0 badge, workspace card, updated meta description
+- `.gitignore` → workspace/* excluded, .gitkeep preserved
+
 ## [3.2.0] - 2026-03-23
 
 ### Changed — Pristino v6.0: Awakening, Input Tolerance, Auto-Prompt

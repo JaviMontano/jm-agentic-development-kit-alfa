@@ -3,6 +3,29 @@
 > Forked from intent-integrity-chain/kit — Branded for MetodologIA
 > Made with Claude Code and Tons of Love with the Help of Pristino Agent
 
+## Ecosystem Plugins
+
+| Plugin | Repository | Version | License | Relationship |
+|--------|-----------|---------|---------|-------------|
+| **IIC/kit** | [intent-integrity-chain/kit](https://github.com/intent-integrity-chain/kit) | v2.7.16 | MIT | Upstream engine (12 skills) |
+| **SDD by MetodologIA** | [JaviMontano/sdd-metodologia](https://github.com/JaviMontano/sdd-metodologia) | v3.4.0 | GPL-3.0 | Enhanced fork: +ALM dashboard, heartbeat, workspace sessions, RAG memory |
+| **JM-ADK** | [JaviMontano/jm-agentic-development-kit-alfa](https://github.com/JaviMontano/jm-agentic-development-kit-alfa) | v4.0.0 | MIT | Full agentic platform (264 skills, Pristino orchestrator) |
+
+### Workspace Architecture Alignment
+
+Both JM-ADK and SDD use the same `workspace/YYYY-MM-DD-slug/` pattern for per-task isolation:
+
+| Aspect | JM-ADK | SDD |
+|--------|--------|-----|
+| **Folder** | `workspace/YYYY-MM-DD-slug/` | `workspace/yyyy-mm-dd-slug/` |
+| **Metadata** | `.workspace.json` | `session.json` (schema v1) |
+| **Task log** | `tasklog.md` | `tasklog.md` |
+| **RAG** | via `priming-rag/` | `rag/` (workspace-scoped) |
+| **Logs** | `changelog.md` | `logs/session-log.json` (dual-write) |
+| **Inputs** | `artifacts/` | `inputs/` (with `.gitkeep`) |
+| **Active tracking** | `.workspace-registry.json` | `.specify/active-workspace` |
+| **Dashboard** | N/A | ALM workspace.html (session cards) |
+
 ## Document Management System
 
 ### 1. Plan Files — `plan-YYYY-MM-DD-task-name.md`
