@@ -14,7 +14,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT" /></a>
-  <a href="https://github.com/JaviMontano/jm-agentic-development-kit/actions/workflows/validate.yml"><img src="https://github.com/JaviMontano/jm-agentic-development-kit/actions/workflows/validate.yml/badge.svg" alt="CI" /></a>
+  <a href="https://github.com/JaviMontano/jm-agentic-development-kit-alfa"><img src="https://img.shields.io/badge/Repo-GitHub-137DC5?style=flat&logo=github" alt="GitHub" /></a>
   <a href="landing.html"><img src="https://img.shields.io/badge/Landing-Abrir-FFD700" alt="Landing" /></a>
 </p>
 
@@ -507,7 +507,7 @@ Co-creado con **Claude Code** (Anthropic) y **Pristino Agent** — colaboración
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT" /></a>
-  <a href="https://github.com/JaviMontano/jm-agentic-development-kit/actions/workflows/validate.yml"><img src="https://github.com/JaviMontano/jm-agentic-development-kit/actions/workflows/validate.yml/badge.svg" alt="CI" /></a>
+  <a href="https://github.com/JaviMontano/jm-agentic-development-kit-alfa"><img src="https://img.shields.io/badge/Repo-GitHub-137DC5?style=flat&logo=github" alt="GitHub" /></a>
   <a href="landing.html"><img src="https://img.shields.io/badge/Landing-Open-FFD700" alt="Landing" /></a>
 </p>
 
