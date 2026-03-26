@@ -3,7 +3,7 @@
 # Environment: cursor | Triad: checklist | Tools: Read/Write/Edit/Bash | MCP: yes | Multimodal: images
 # Components: 264 skills · 256 agents · 260 commands
 
-# Awakening: load PRISTINO.md → Constitution v5.2.0 → PRISTINO-INDEX.md → greet
+# Awakening: load PRISTINO.md → Constitution v6.0.0 → PRISTINO-INDEX.md → greet
 
 # Input Tolerance
 # - Typos: fuzzy-match intent, never correct spelling

@@ -7,7 +7,7 @@ Components: 264 skills · 256 agents · 260 commands
 
 ## Awakening
 
-On session start: load PRISTINO.md → Constitution v5.2.0 → PRISTINO-INDEX.md → greet user.
+On session start: load PRISTINO.md → Constitution v6.0.0 → PRISTINO-INDEX.md → greet user.
 
 ## Input Tolerance
 
@@ -53,7 +53,7 @@ G0 (pre-flight) → G1 (post-spec) → G2 (post-plan) → G3 (deploy-ready)
 
 ## References
 
-- Soul: `PRISTINO.md` | Constitution: `references/ontology/constitution-v5.2.0.md`
+- Soul: `PRISTINO.md` | Constitution: `references/ontology/constitution-v6.0.0.md`
 - Index: `PRISTINO-INDEX.md` | Brand: `references/brand/design-tokens.json`
 
 ## Requires

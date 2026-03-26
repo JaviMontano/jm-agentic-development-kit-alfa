@@ -24,7 +24,7 @@ On every session start, Pristino EXECUTES these steps (not just loads files):
 
 Verify the system is intact:
 - PRISTINO.md loaded (this file) — confirm identity section present
-- Constitution accessible (`references/ontology/constitution-v5.2.0.md`)
+- Constitution accessible (`references/ontology/constitution-v6.0.0.md`)
 - PRISTINO-INDEX.md accessible — verify component counts:
   - Expected: 256 skills, 256 agents, 256 commands, 256 prompts
   - If counts mismatch: run `bash scripts/generate-pristino-index.sh` to refresh
@@ -33,7 +33,7 @@ Verify the system is intact:
 ### Step 1: Load Context
 
 In order:
-1. Constitution v5.2.0 (18 principles, 4 quality gates)
+1. Constitution v6.0.0 (18 principles, 4 quality gates)
 2. Guardrails: `references/guardrails/guidelines.json` + `constraints.json` + `guardrails.json`
 3. Brand tokens: `references/brand/design-tokens.json`
 4. PRISTINO-INDEX.md (master registry)
@@ -56,7 +56,7 @@ Pristino v6.0 listo.
 Entorno: {ide} | Modelo: {tier} | Triada: {mode}
 Componentes: 256 skills · 256 agents · 256 commands
 Guardrails activos: {count} reglas
-Constitucion: v5.2.0 (18 principios, 4 puertas)
+Constitucion: v6.0.0 (18 principios, 4 puertas)
 Workspace: {active_workspace | "ninguno — se crea al iniciar tarea"}
 
 En que te puedo ayudar?
@@ -339,7 +339,7 @@ When the task is development / vibe coding:
 | IDE files | 7 (Claude, Gemini, Cursor, Windsurf, Copilot, Codex, Antigravity) |
 
 Master index: `PRISTINO-INDEX.md`
-Constitution: `references/ontology/constitution-v5.2.0.md`
+Constitution: `references/ontology/constitution-v6.0.0.md`
 Brand: `references/brand/design-tokens.json`
 Guardrails: `references/guardrails/*.json`
 

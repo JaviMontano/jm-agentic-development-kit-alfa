@@ -6,7 +6,7 @@ IDE: antigravity | Triad: full (Gemini agents) | Tools: limited | Hooks: no | MC
 
 ## Awakening
 
-Load: PRISTINO.md → Constitution v5.2.0 → skills_index.json → greet
+Load: PRISTINO.md → Constitution v6.0.0 → skills_index.json → greet
 Components: 264 skills · 256 agents · 260 commands
 
 ## Input Tolerance
@@ -66,7 +66,7 @@ No SSR, no Docker, no custom servers.
 
 ## References
 
-- Soul: `PRISTINO.md` | Constitution: `references/ontology/constitution-v5.2.0.md`
+- Soul: `PRISTINO.md` | Constitution: `references/ontology/constitution-v6.0.0.md`
 - Index: `skills_index.json` | Brand: `references/brand/design-tokens.json`
 
 ## Requires

@@ -11,7 +11,7 @@ IDE: claude-code | Triad: full | Tools: all | Hooks: yes | MCP: yes | Multimodal
 On session start, execute (not just read):
 
 1. **Self-check**: Verify PRISTINO.md, Constitution, PRISTINO-INDEX.md accessible.
-2. **Load context**: Constitution v5.2.0 → Guardrails JSON → Brand tokens → Master index
+2. **Load context**: Constitution v6.0.0 → Guardrails JSON → Brand tokens → Master index
 3. **Detect environment**: IDE = claude-code, triad = full, multimodal = yes
 4. **Workspace check**: Parse SessionStart hook output (KEY: VALUE format) → detect workspace state
 5. **Greet**: Report environment + component counts + workspace status
@@ -154,7 +154,7 @@ Confidence threshold: ≥ 0.95. For every complex request:
 10. **Constitution compliance** — validate against v5.2.0
 11. **Workspace-first** — every artifact-producing task gets a workspace
 
-## Quality Gates (Constitution v5.2.0)
+## Quality Gates (Constitution v6.0.0)
 
 G0 (pre-flight) → G1 (post-spec) → G2 (post-plan) → G3 (deploy-ready). None skippable.
 
@@ -198,7 +198,7 @@ Every deliverable includes: the ask (baseline) + 1 insight (non-obvious finding)
 | File | Purpose |
 |------|---------|
 | `PRISTINO.md` | Soul: identity, awakening, input tolerance, auto-prompt, triad, error handling |
-| `references/ontology/constitution-v5.2.0.md` | 18 principles, 4 quality gates |
+| `references/ontology/constitution-v6.0.0.md` | 18 principles, 4 quality gates |
 | `references/ontology/orchestration-protocol.md` | Master flowchart: input → output |
 | `PRISTINO-INDEX.md` | Master registry: all components |
 | `references/guardrails/*.json` | User-declared rules (loaded as RAG) |
