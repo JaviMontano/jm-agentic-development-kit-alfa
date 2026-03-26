@@ -385,13 +385,15 @@ El kit fue auditado por 3 agentes QA en paralelo:
 
 ## Sobre
 
-Creado por **[Javier Montano](https://linkedin.com/in/montaño-guzman)** — GenAI Champion, +13 anos liderando transformacion digital en 6 paises. Creador de [MetodologIA](https://metodologia.info).
+Creado por **[Javier Montaño](https://linkedin.com/in/montaño-guzman)** — GenAI Champion, +13 años liderando transformación digital en 6 países. Creador de [MetodologIA](https://metodologia.info).
 
-Co-creado con **Claude Code** (Anthropic) y **Pristino Agent** — colaboracion humano-IA que produjo 1,032 componentes y 3,348 archivos de skill en una sola sesion. Validado por ciclo de QA con 3 agentes auditores en paralelo.
+Co-creado con **Claude Code** (Anthropic) y **Pristino Agent** — colaboración humano-IA que produjo 1,032 componentes y 3,348 archivos de skill en una sola sesión. Validado por ciclo de QA con 3 agentes auditores en paralelo.
 
-**Creditos**: MetodologIA · Sovereign Architect · Antigravity Kit (vudovn) · Intent Integrity Kit · Claude Code (Anthropic)
+**Créditos**: MetodologIA · Sovereign Architect · Antigravity Kit (vudovn) · Intent Integrity Kit · Claude Code (Anthropic)
 
-**Agradecimientos**: Duber Lopez (el review que exigio producir mas) · Blockito (el builder que ejecuto)
+**Agradecimiento especial**: [Katherin Oquendo](https://github.com/KatherinOquendo) — aliada fundamental en la reconstrucción de skills, QA incansable, y la persona que creyó en este proyecto cuando era solo una idea. Sin su apoyo, este kit no existiría.
+
+**Agradecimientos**: Duber López (el review que exigió producir más) · Blockito (el builder que ejecutó)
 
 ---
 
