@@ -159,22 +159,25 @@ How we look, speak, and manage the source of truth.
 
 ### 13. Design System Governance
 
-Documented design system with canonical tokens.
+Neo-Swiss Clean and Soft Explainer (Corporate Clean and Premium). Canonical spec in `references/brand/design-tokens.json`.
 
-- **Aesthetic**: Neo-Swiss Clean.
-- **Palette**: Navy #0A122A, Gold #FFD700, Cyan #137DC5, Lavender #BBA0CC.
-- **Typography**: Poppins (headings), Montserrat (body), JetBrains Mono (code).
-- Tokens in single source of truth (`references/brand/design-tokens.json`).
-- Dark/light variants comply with palette and contrast requirements.
+- **Aesthetic**: Ilustración vectorial flat y vibrante con grid suizo, mucho espacio en blanco, composición por columnas (texto + visual), figuras humanas sin rostro, formas geométricas suaves, elementos UI (chips, checklists, timers). Sombras suaves y micro-gradientes discretos.
+- **Palette** (exclusiva, 6 colores): Navy #122562, Gold #FFD700, Cyan #137DC5, Dark #1F2833, Lavender #BBA0CC, Gray #808080.
+- **Typography**: Poppins (titulares), Trebuchet (cuerpo), Futura (notas/footnotes/callouts), JetBrains Mono (código). Sin excepciones.
+- **Legibilidad**: texto grande, alto contraste. Nunca texto sobre fondos ruidosos.
+- Tokens en single source of truth: `references/brand/design-tokens.json` v2.0.0.
 
 ### 14. Brand Voice Integrity
 
-MetodologIA Brand Voice — method-driven, evidence-based.
+MetodologIA Brand Voice v3.0 (Premium/Deluxe). Spec completa en `references/brand/brand-voice-v3.0.md`.
 
-- **Structure**: Minto pyramid (conclusion first, MECE supports, evidence, CTA).
-- **Language**: Spanish (Latin American neutral, «tú» form).
-- **Prohibited**: "hack", "truco", "secreto", "resultados instantáneos", "arquitecto", "transformación".
-- **Preferred**: "método", "diseñar/diseño", "sistemas", "gobernanza", "(R)Evolución".
+- **Estructura**: Minto pyramid — conclusión primero, soportes MECE, evidencia verificable, CTA de un paso.
+- **Pilares**: P1 (R)Evolución · P2 Intención antes que intensidad · P3 Tecnología como aliada.
+- **Gates**: G1 Minto persistente · G2 Evidencia honesta · G3 Español latino neutro · G4 Lista roja · G5 Veracidad de fuentes · G6 Anclaje a pilares.
+- **Idioma**: español latinoamericano neutro, trato «tú».
+- **Prohibido**: hack, truco, secreto, resultados instantáneos, arquitecto, arquitectura, transformación.
+- **Preferir**: método, diseñar/diseño, sistemas, gobernanza, (R)Evolución, Success as a Service.
+- **Rúbrica**: 10 criterios × 0-2 = /20. Aprobación: 20/20 o corregir y revalidar.
 
 ### 15. Brand Separation
 

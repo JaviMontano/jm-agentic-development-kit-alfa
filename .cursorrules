@@ -24,7 +24,7 @@
 
 # Quality Gates: G0 (pre-flight) → G1 (post-spec) → G2 (post-plan) → G3 (deploy-ready)
 # Stack: Firebase + HTML/CSS/JS + Angular/React + Hostinger
-# Brand: navy #0A122A surface #1E293B gold #FFD700 cyan #137DC5 lavender #BBA0CC dark #1F2833 text #FFFFFF 
+# Brand: navy #122562 gold #FFD700 cyan #137DC5 dark #1F2833 lavender #BBA0CC gray #808080 text #FFFFFF 
 # Soul: PRISTINO.md | Index: PRISTINO-INDEX.md
 
 # Requires: Cursor IDE. Not supported: Agent tool, hooks, workspace management.

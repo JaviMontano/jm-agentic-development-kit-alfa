@@ -52,12 +52,12 @@ No SSR, no Docker, no custom servers.
 
 ## Brand
 
-- navy	#0A122A
-- surface	#1E293B
+- navy	#122562
 - gold	#FFD700
 - cyan	#137DC5
-- lavender	#BBA0CC
 - dark	#1F2833
+- lavender	#BBA0CC
+- gray	#808080
 - text	#FFFFFF
 
 ## Skill Loading
