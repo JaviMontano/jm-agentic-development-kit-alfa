@@ -1,75 +1,70 @@
 ---
 name: caching-strategy
-author: JM Labs (Javier Montaño)
+description: Firebase Hosting CDN cache headers. Firestore offline persistence. Client-side cache (localStorage/IndexedDB). [EXPLICIT]
 version: 1.0.0
-description: >
-  Designs multi-layer caching strategies spanning browser cache, CDN edge
-  cache, service worker cache, and Firestore offline persistence. Covers
-  cache invalidation, TTL policies, and stale-while-revalidate patterns.
-  Trigger: "caching", "CDN cache", "cache invalidation", "Firestore offline", "TTL"
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
-  - Bash
+status: production
+owner: Javier Montaño
+tags: [backend, caching, cdn, offline, performance]
 ---
+# caching-strategy {Backend} (v1.0)
+> **"Firebase Functions are your backend. Design them like microservices, deploy them like magic."**
+## Purpose
+Firebase Hosting CDN cache headers. Firestore offline persistence. Client-side cache (localStorage/IndexedDB). [EXPLICIT]
+**When to use:** Backend development within Firebase/Google ecosystem.
+## Core Principles
+1. **Law of Functions:** Each Cloud Function does ONE thing. Single responsibility. [EXPLICIT]
+2. **Law of Cold Start:** Minimize dependencies. Use lazy imports. Set min instances for critical functions. [EXPLICIT]
+3. **Law of Security:** Every HTTP function verifies Firebase ID tokens. No public endpoints without auth. [EXPLICIT]
+## Core Process
+### Phase 1: Design
+1. Map requirements to Cloud Functions triggers (HTTP, Firestore, Auth, Storage, scheduled). [EXPLICIT]
+2. Define input/output contracts for each function. [EXPLICIT]
+3. Design error handling and retry strategy. [EXPLICIT]
+### Phase 2: Implement
+1. Create function with proper trigger type. [EXPLICIT]
+2. Add auth middleware for HTTP functions. [EXPLICIT]
+3. Implement business logic with error handling. [EXPLICIT]
+4. Add Cloud Logging for observability. [EXPLICIT]
+### Phase 3: Test + Deploy
+1. Test with Firebase Emulator Suite. [EXPLICIT]
+2. Deploy with `firebase deploy --only functions`. [EXPLICIT]
+3. Verify in Firebase Console. [EXPLICIT]
+## 3. Inputs / Outputs
+| Input | Type | Required | Description |
+|-------|------|----------|-------------|
+| Requirements | Text/Spec | Yes | What the function does |
+| Output | Type | Description |
+|--------|------|-------------|
+| Cloud Function code | TypeScript | Deployable function |
+## Validation Gate
+- [ ] Single responsibility per function
+- [ ] Auth middleware on HTTP endpoints
+- [ ] Error handling with Cloud Logging
+- [ ] Emulator tests pass
+- [ ] No AWS/Azure services (R-002)
+## 5. Self-Correction Triggers
+> [!WARNING]
+> IF function has no auth middleware THEN add verifyIdToken check.
+> IF function imports 10+ dependencies THEN split or lazy-load to reduce cold start.
 
-# Caching Strategy
+## Usage
 
-> "There are only two hard things in Computer Science: cache invalidation and naming things." — Phil Karlton
+Example invocations:
 
-## TL;DR
+- "/caching-strategy" — Run the full caching strategy workflow
+- "caching strategy on this project" — Apply to current context
 
-Designs multi-layer caching strategies across browser, CDN, service worker, and database layers with cache invalidation policies and TTL management. Use this skill when optimizing load times, reducing server costs, enabling offline access, or when cache-related bugs are causing stale data issues.
 
-## Procedure
+## Assumptions & Limits
 
-### Step 1: Discover
-- Inventory cacheable resources: static assets, API responses, computed data
-- Analyze cache hit ratios and miss patterns in current infrastructure
-- Identify data freshness requirements per resource type
-- Review current cache headers and CDN configuration
+- Assumes access to project artifacts (code, docs, configs) [EXPLICIT]
+- Requires English-language output unless otherwise specified [EXPLICIT]
+- Does not replace domain expert judgment for final decisions [EXPLICIT]
 
-### Step 2: Analyze
-- Design cache layers and their responsibilities:
-  - **Browser Cache**: Cache-Control headers for static assets
-  - **CDN Edge**: Geographic distribution, cache keys, purge strategy
-  - **Service Worker**: Offline access, runtime caching strategies
-  - **Application Cache**: In-memory stores, Firestore offline persistence
-- Define TTL policies based on data freshness requirements
-- Plan cache invalidation triggers: time-based, event-based, version-based
+## Edge Cases
 
-### Step 3: Execute
-- Configure Cache-Control headers: immutable for hashed assets, short TTL for HTML
-- Set up CDN cache rules with proper Vary headers and cache keys
-- Implement service worker caching with Workbox strategies per resource type
-- Enable Firestore offline persistence for mobile/flaky connections
-- Design cache warming strategy for critical resources
-- Implement cache busting: content hashing for assets, query params for API
-
-### Step 4: Validate
-- Verify cache hit ratios are above 90% for static assets
-- Confirm cache invalidation works within acceptable staleness windows
-- Test that stale cache does not serve incorrect data to users
-- Check cache headers with curl or browser DevTools Network panel
-
-## Quality Criteria
-
-- [ ] Each resource type has a defined caching strategy and TTL
-- [ ] Cache invalidation strategy handles content updates promptly
-- [ ] Static assets use content hashing for cache busting
-- [ ] Firestore offline persistence is configured with appropriate cache size
-- [ ] Evidence tags applied to all claims
-
-## Anti-Patterns
-
-- Caching authenticated/personalized content on shared CDN
-- No cache busting: users stuck with stale JavaScript after deploys
-- Over-caching: serving stale API data when freshness is critical
-
-## Related Skills
-
-- `performance-architecture` — caching directly impacts Core Web Vitals
-- `pwa-architecture` — service worker caching for offline access
-- `infrastructure-design` — CDN and cache infrastructure topology
+| Scenario | Handling |
+|----------|----------|
+| Empty or minimal input | Request clarification before proceeding |
+| Conflicting requirements | Flag conflicts explicitly, propose resolution |
+| Out-of-scope request | Redirect to appropriate skill or escalate |

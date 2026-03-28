@@ -1,69 +1,216 @@
 ---
 name: scenario-analysis
-author: JM Labs (Javier Montaño)
-version: 1.0.0
-description: >
-  Evaluates multiple solution alternatives using Tree-of-Thought reasoning,
-  weighted scoring matrices, and structured comparison frameworks. Produces
-  defensible recommendations backed by evidence.
-  Trigger: "scenario analysis", "tree of thought", "weighted scoring", "compare options"
+argument-hint: "project-name [codebase-path]"
+description: 
+  This skill should be used when the user asks to "compare scenarios", "evaluate options",
+  "run scenario analysis", "Tree of Thought", "which approach should we take", "compare
+  architectures", or mentions Phase 3, strategic analysis, trade-off analysis, or SWOT
+  comparison. Evaluates 3+ modernization scenarios using Tree of Thought with 6-dimension
+  weighted scoring, SWOT analysis, and conditional switching logic. Use this skill whenever
+  a strategic decision requires structured comparison of alternatives, even if they don't
+  explicitly ask for "scenario-analysis". [EXPLICIT]
+argument-hint: "project-name [codebase-path]"
+model: opus
+context: fork
 allowed-tools:
   - Read
   - Write
+  - Edit
   - Glob
   - Grep
   - Bash
 ---
 
-# Scenario Analysis
+# Strategic Scenario Analysis — Tree of Thought
 
-> "It is not the strongest of the species that survives, but the most adaptable to change." — Charles Darwin
+Develops 3+ parallel technology/approach scenarios, scores each across 6 weighted dimensions, performs SWOT per scenario, builds cross-scenario comparative analysis, and recommends the strongest path with documented trade-offs and conditional switching logic. [EXPLICIT]
 
-## TL;DR
+## Inputs
 
-Systematically evaluates multiple solution alternatives using Tree-of-Thought reasoning and weighted scoring matrices to produce defensible, evidence-backed recommendations. Use this skill when facing architectural decisions, technology choices, or any situation with multiple viable paths forward.
+- `$1` — Number of scenarios to evaluate (default: 3, min: 3)
+- `$2` — Weight override file path (optional; overrides default dimension weights)
 
-## Procedure
+Parse from `$ARGUMENTS`. [EXPLICIT]
 
-### Step 1: Discover
-- Define the decision to be made and its constraints (budget, timeline, team skills)
-- Identify all viable alternatives (minimum 2, ideally 3-5)
-- Gather evaluation criteria from stakeholders and technical requirements
+**Parameters:**
+- `{MODO}`: `piloto-auto` (default) | `desatendido` | `supervisado` | `paso-a-paso`
+  - **piloto-auto**: Auto para generación de escenarios y scoring, HITL para validación de pesos dimensionales y decisión final. [EXPLICIT]
+  - **desatendido**: Cero interrupciones. Scoring y recomendación automáticos. Supuestos documentados. [EXPLICIT]
+  - **supervisado**: Autónomo con checkpoint en selección de escenarios y antes de recomendación final. [EXPLICIT]
+  - **paso-a-paso**: Confirma cada escenario, cada score dimensional, y la recomendación. [EXPLICIT]
+- `{FORMATO}`: `markdown` (default) | `html` | `dual`
+- `{VARIANTE}`: `ejecutiva` (~40% — scoring matrix + recommendation only) | `técnica` (full SWOT + risk register + implementation roadmap, default)
 
-### Step 2: Analyze
-- Apply Tree-of-Thought: explore each alternative through 3+ reasoning branches
-- Define weighted scoring criteria (weight must sum to 100%)
-- Score each alternative against criteria using evidence, not gut feeling
-- Identify risks, dependencies, and second-order effects for each option
+## Principio Rector
 
-### Step 3: Execute
-- Produce a weighted scoring matrix with normalized scores
-- Write a narrative analysis for each alternative: strengths, weaknesses, risks
-- Document the recommended option with clear justification
-- Include a sensitivity analysis: how would the recommendation change if weights shift?
+**Elegir sin comparar es apostar. Comparar sin estructura es sesgo.** El Tree of Thought impone divergencia antes de convergencia: primero se generan todos los escenarios viables, luego se evalúan con rigor cuantitativo, y solo entonces se recomienda. El objetivo no es encontrar la respuesta "correcta" — es eliminar las equivocadas con evidencia.
 
-### Step 4: Validate
-- Verify scoring is evidence-based, not biased toward a predetermined conclusion
-- Confirm all stakeholder criteria are represented in the matrix
-- Check that the recommendation addresses the highest-weighted concerns
-- Ensure the analysis is reproducible by another evaluator
+### Filosofía de Análisis Estratégico
 
-## Quality Criteria
+1. **Divergencia obligatoria.** Mínimo 3 escenarios. El sesgo de confirmación favorece el escenario "obvio" — los alternativos lo desafían y lo fortalecen (o lo descalifican). [EXPLICIT]
+2. **Scoring > opinión.** Cada dimensión se puntúa con rúbrica. Si no se puede puntuar, falta evidencia — no se infiere, se investiga. [EXPLICIT]
+3. **Cambios de contexto, cambios de recomendación.** La lógica condicional de switching documenta bajo qué circunstancias la recomendación cambiaría. Ninguna recomendación es absoluta. [EXPLICIT]
 
-- [ ] Minimum 3 alternatives evaluated with consistent criteria
-- [ ] Weights are justified and sum to 100%
-- [ ] Each score has supporting evidence or rationale
-- [ ] Sensitivity analysis tests robustness of recommendation
-- [ ] Evidence tags applied to all claims
+## 6-Dimension Weighted Scoring
 
-## Anti-Patterns
+| Dimension | Weight | Definition | Scoring (1-10) |
+|---|---|---|---|
+| **Cost** | 20% | CAPEX + OPEX + 3-year TCO | 10: <1M Yr1, 8: 1-2M, 6: 2-3M, 4: 3-5M, 2: >5M, 1: Prohibitive |
+| **Time-to-Value** | 20% | MVP deployment + stabilization | 10: <3mo, 8: 3-4mo, 6: 4-6mo, 4: 6-9mo, 2: 9-12mo, 1: >12mo |
+| **Operational Risk** | 15% | Downtime, data loss, disruption | 10: Zero downtime, 8: <2hr, 6: 2-4hr, 4: 4-8hr, 2: >8hr, 1: Unacceptable |
+| **Strategic Alignment** | 20% | Business goal + capability uplift | 10: New revenue, 8: 3+ objectives, 6: 1 key capability, 4: Marginal, 2: Weak |
+| **Regulatory Fit** | 15% | Compliance, audit trail, governance | 10: Fully compliant, 8: Minor gaps, 6: Core met + 2-3 gaps, 4: 3-5 gaps |
+| **PoC Speed** | 10% | Validate assumptions in 4-8 weeks | 10: <4 weeks 2-3 people, 8: 4-6 weeks, 6: 6-8 weeks, 4: >8 weeks |
 
-- Analysis paralysis: over-analyzing when the decision is clear
-- Anchoring bias: scoring to justify a predetermined choice
-- Ignoring non-functional criteria like team capability and maintenance burden
+**Calculation:** Final Score = Sum(Dimension Score x Weight) on 0-10 scale.
 
-## Related Skills
+**Weight override:** If client priorities differ (e.g., regulated industry: Regulatory 25%, PoC Speed 5%), pass adjusted weights via `$2`. Document weight rationale explicitly.
 
-- `trade-off-analysis` — complementary decision framework using ATAM
-- `feasibility-validation` — validates technical viability of chosen scenario
-- `competitive-intelligence` — provides market data for technology choices
+## Scenario Archetypes
+
+### A: Conservative (Low Risk, Incremental)
+- Wrap/bridge legacy rather than replace. Proven technologies. Longer timeline, lower uplift.
+- Best for: risk-averse orgs, constrained budgets, regulatory uncertainty.
+- Typical pattern: Strangler facade, API gateway, incremental refactoring.
+
+### B: Moderate (Balanced Path)
+- Selective modernization of critical capabilities. Hybrid with anti-corruption layer. Staged migration.
+- Best for: most organizations seeking balance between speed and safety.
+- Typical pattern: Domain-driven decomposition, selective rebuild, cloud migration.
+
+### C: Aggressive (High Reward, Higher Risk)
+- Full-stack modernization (strangler fig). Cloud-native microservices. Event-driven/CQRS.
+- Best for: digitally mature orgs, competitive urgency, ample resources.
+- Typical pattern: Greenfield rebuild, cloud-native, event sourcing.
+
+If `$1` > 3, generate additional scenarios as variations (e.g., "B with outsourced team", "C phased over 24 months", "A with selective cloud migration"). [EXPLICIT]
+
+## Per-Scenario Documentation
+
+For each scenario, deliver:
+
+1. **Vision & Strategic Rationale** — one-sentence direction, business benefits, technical benefits, org impact
+2. **Technology Stack Proposal** — ASCII architecture diagram (presentation to API to services to data to infrastructure)
+3. **Scope Intervention Matrix** — effort vs complexity grid (3x3)
+4. **SWOT Assessment** — Strengths (internal+), Weaknesses (internal-), Opportunities (external+), Threats (external-). Minimum 3 items per quadrant. [EXPLICIT]
+5. **Risk Register** — per-risk: ID, statement, impact (1-5), probability (1-5), score, mitigation, owner
+6. **Scoring Grid** — 6 dimensions with weighted scores + rationale per score. No empty cells. [EXPLICIT]
+7. **Verdict Callout** — Final score, recommendation tier (STRONG / VIABLE / CONDITIONAL / NOT RECOMMENDED), key drivers, primary concern, next steps
+
+## Cross-Scenario Comparative Analysis
+
+### Scoring Matrix
+All scenarios side-by-side with per-dimension winners and total weighted scores. [EXPLICIT]
+
+### Trade-off Decision Map
+```
+         High Strategic Value
+                  |
+         Scenario C (Value + Risk)
+                  |
+Low Risk ------------------------------ High Risk
+                  |
+         Scenario B (Balanced)
+                  |
+         Scenario A (Safe, proven)
+                  |
+         Low Strategic Value
+```
+
+### Decision Rules
+1. **Clear Winner** (score diff > 1.0): Recommend with confidence
+2. **Viable Alternatives** (diff 0.5-1.0): Recommend winner; flag alternatives with conditional triggers
+3. **Trade-off Zone** (diff < 0.5): All viable; decision depends on risk appetite
+4. **Dominated Scenario** (last by > 1.5): Discard unless exceptional circumstance
+
+### Conditional Switching Logic
+
+Document 5+ triggers that would change the recommendation:
+- IF timeline pressure increases: higher-scoring time-to-value scenarios gain advantage
+- IF budget expands by >30%: aggressive scenarios become viable
+- IF regulatory tightens: reconsider compliance-weak scenarios; may force conservative
+- IF team expertise hired (3+ senior engineers): moderate and aggressive improve 1-2 points
+- IF competitive threat detected: urgency favors faster scenarios
+- IF key technology matures (e.g., cloud service GA): reduces risk on dependent scenarios
+
+## Implementation Roadmap (Recommended Scenario)
+
+4 phases with go/no-go gates:
+1. **Foundation (Months 1-2):** Team, PoC, validate assumptions. Gate: PoC achieves target KPI. [EXPLICIT]
+2. **Pilot (Months 3-5):** Expand scope, test integration. Gate: load test passes, SLO targets met. [EXPLICIT]
+3. **Scale (Months 6-10):** Full migration, parallel run. Gate: zero incidents during parallel run. [EXPLICIT]
+4. **Optimize (Months 10-12):** Stabilize, cost-optimize. Gate: ops/finance/security sign-off. [EXPLICIT]
+
+## Edge Cases
+
+- **Only 2 viable scenarios:** Generate "Do Nothing" as third scenario to quantify cost of inaction.
+- **All scenarios score within 0.3 points:** Declare trade-off zone. Present to steering committee with recommendation based on org risk appetite.
+- **Regulatory requirements unknown:** Score conservatively (assume 3-5 gaps). Flag for compliance review before gate.
+- **No cost data available:** Use industry benchmarks. Flag all cost scores as "estimated" with confidence range.
+- **Stakeholders disagree on weights:** Run scoring with 2-3 weight sets. Show how recommendation changes. Document which weight set the committee adopts.
+- **One scenario dominates all dimensions:** Still document alternatives — the "obvious" choice may have hidden risks surfaced by comparison.
+
+## Assumptions & Limits
+
+- Phase 2 (Flow Mapping) completed with validated domain taxonomy
+- Scenario archetypes are starting points, not constraints — real scenarios may blend approaches
+- Scoring is relative within the engagement context, not absolute benchmarks
+- Cost estimates use magnitude ranges, not precise figures (see cost-estimation for detail)
+- Risk register is scenario-level; detailed risk analysis is in risk-controlling-dynamics
+- Cannot replace steering committee judgment — structures the decision, does not make it
+
+## Trade-off Matrix
+
+| Trade-off | Benefit | Cost | When to Choose |
+|---|---|---|---|
+| **3 scenarios vs 5+** | Decision clarity, focused comparison | May miss edge-case approaches | Default; use 5+ only when stakeholders demand broader options |
+| **Depth vs speed** | Full SWOT + risk register per scenario | 3-5 days vs 1-2 days (scoring only) | Full depth for strategic decisions; abbreviated for time-boxed sprints |
+| **Quantitative vs qualitative scoring** | Rubric-based (1-10) comparability | Forces precision, may oversimplify nuance | Always quantitative + qualitative narrative complement |
+| **Weight override** | Tailored to client priorities | Requires explicit justification | Regulated industries, specific risk profiles |
+
+## Output Artifact
+
+**Primary:** `05_Escenarios_ToT_{project}.md` (o `.html` si `{FORMATO}=html|dual`) — 3+ scenario evaluations with 6-dimension scoring, SWOT analysis, cross-scenario comparison, conditional switching logic, and implementation roadmap.
+
+**Diagramas incluidos:**
+- Flowchart: Tree-of-Thought decision tree with criteria at each node
+- Quadrant chart: scenario positioning (feasibility × strategic impact)
+
+## Validation Gate
+
+- [ ] 3+ distinct scenarios evaluated (different tech/approach, not minor variations)
+- [ ] All 6 dimensions scored with evidence-based rationale (no empty scores)
+- [ ] SWOT complete per scenario (min 3 items per quadrant)
+- [ ] Cross-scenario matrix with per-dimension winners
+- [ ] Decision rules applied; recommendation explicit with rationale
+- [ ] Conditional switching logic documented (5+ trigger conditions)
+- [ ] Implementation roadmap for recommended scenario with 4 phased gates
+- [ ] Trade-off decision map visual included
+- [ ] All assumptions documented (min 3 per scenario)
+- [ ] Risk register per scenario with scored risks and mitigations
+- [ ] Mermaid diagrams: flowchart (decision tree) + quadrant (scenario positioning)
+
+## Output Format Protocol
+
+| Format | Default | Description |
+|--------|---------|-------------|
+| `markdown` | ✅ | Rich Markdown + Mermaid diagrams. Token-efficient. |
+| `html` | On demand | Branded HTML (Design System). Visual impact. |
+| `dual` | On demand | Both formats. |
+
+Default output is Markdown with embedded Mermaid diagrams. HTML generation requires explicit `{FORMATO}=html` parameter. [EXPLICIT]
+
+### Diagrams (Mermaid)
+- Flowchart: decision tree (Tree-of-Thought) with criteria at each node
+- Quadrant chart: scenario positioning (feasibility × impact)
+
+---
+**Author:** Javier Montano | **Last updated:** March 18, 2026
+
+## Usage
+
+Example invocations:
+
+- "/scenario-analysis" — Run the full scenario analysis workflow
+- "scenario analysis on this project" — Apply to current context
+

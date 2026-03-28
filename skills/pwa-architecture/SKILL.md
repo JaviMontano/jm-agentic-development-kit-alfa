@@ -1,76 +1,49 @@
 ---
 name: pwa-architecture
-author: JM Labs (Javier Montaño)
+description: Progressive Web App design. Service workers, Web App Manifest, offline-first, push notifications via FCM. [EXPLICIT]
 version: 1.0.0
-description: >
-  Designs Progressive Web App architectures with service workers, web app
-  manifests, offline-first strategies, and Web Push notifications. Covers
-  caching strategies, background sync, and installability.
-  Trigger: "PWA", "service worker", "offline-first", "web manifest", "Web Push"
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
-  - Bash
+status: production
+owner: Javier Montaño
+tags: [architecture, pwa, offline, service-worker]
 ---
+# pwa-architecture {Architecture} (v1.0)
+> **"Architecture is decisions. Document every one."**
+## Purpose
+Progressive Web App design. Service workers, Web App Manifest, offline-first, push notifications via FCM. [EXPLICIT]
+**When to use:** When designing or reviewing architecture for Firebase/Google stack projects.
+## Core Principles
+1. **Law of Firebase-First:** All architecture decisions constrained to Firebase/Google ecosystem (R-002). [EXPLICIT]
+2. **Law of Evidence:** Every architectural claim tagged [CODE], [CONFIG], [DOC], [INFERENCE], or [ASSUMPTION]. [EXPLICIT]
+3. **Law of Diagrams:** Architecture without diagrams is incomplete. Use Mermaid for C4, sequence, flow. [EXPLICIT]
+## Core Process
+### Phase 1: Analyze requirements and constraints.
+### Phase 2: Design architecture with Firebase/Google services.
+### Phase 3: Document with C4 diagrams, decision records, and evidence tags.
+## Validation Gate
+- [ ] Architecture designed within Firebase/Google/Hostinger constraints
+- [ ] C4 or sequence diagrams produced (Mermaid)
+- [ ] Evidence tags on all claims
+- [ ] ADR created for significant decisions
+- [ ] No AWS/Azure/Docker references
 
-# PWA Architecture
+## Usage
 
-> "The best app is the one you already have installed — the browser." — Alex Russell
+Example invocations:
 
-## TL;DR
+- "/pwa-architecture" — Run the full pwa architecture workflow
+- "pwa architecture on this project" — Apply to current context
 
-Designs Progressive Web App architectures with service workers, web app manifests, offline-first caching, and push notifications to deliver app-like experiences on the web. Use this skill when building installable web apps, enabling offline functionality, or implementing push notifications.
 
-## Procedure
+## Assumptions & Limits
 
-### Step 1: Discover
-- Assess current web app's PWA readiness (Lighthouse PWA audit)
-- Identify offline-critical features and data
-- Review network conditions of target users (spotty connectivity, offline scenarios)
-- Inventory assets and API calls that need caching strategies
+- Assumes access to project artifacts (code, docs, configs) [EXPLICIT]
+- Requires English-language output unless otherwise specified [EXPLICIT]
+- Does not replace domain expert judgment for final decisions [EXPLICIT]
 
-### Step 2: Analyze
-- Choose caching strategy per resource type:
-  - **Cache First**: static assets, fonts, images
-  - **Network First**: API data that must be fresh
-  - **Stale While Revalidate**: content that can be slightly stale
-  - **Network Only**: authentication, payment processing
-- Plan offline UX: what works offline, what shows graceful degradation
-- Design background sync for queued operations during offline periods
-- Evaluate Web Push requirements: permission flow, payload design, re-engagement
+## Edge Cases
 
-### Step 3: Execute
-- Create web app manifest with icons, theme color, display mode, shortcuts
-- Implement service worker with Workbox for caching strategies
-- Design offline fallback pages for uncached routes
-- Implement background sync for form submissions and data mutations
-- Set up Web Push with Firebase Cloud Messaging (FCM)
-- Configure app shell architecture for instant loading
-
-### Step 4: Validate
-- Run Lighthouse PWA audit — target 100% score
-- Test offline mode: airplane mode, slow 3G, lie-fi scenarios
-- Verify service worker updates correctly (skipWaiting, clients.claim)
-- Confirm install prompt appears on supported browsers
-
-## Quality Criteria
-
-- [ ] Lighthouse PWA score is 100%
-- [ ] Web manifest includes all required fields and icon sizes
-- [ ] Service worker handles updates without breaking cached content
-- [ ] Offline experience is graceful with clear user feedback
-- [ ] Evidence tags applied to all claims
-
-## Anti-Patterns
-
-- Cache everything forever without versioning or expiration
-- Service worker that blocks updates and traps users on old versions
-- Push notifications without clear user value (spam-like re-engagement)
-
-## Related Skills
-
-- `caching-strategy` — detailed caching patterns used by service workers
-- `performance-architecture` — PWA contributes to Core Web Vitals
-- `responsive-design` — PWAs must work across all device sizes
+| Scenario | Handling |
+|----------|----------|
+| Empty or minimal input | Request clarification before proceeding |
+| Conflicting requirements | Flag conflicts explicitly, propose resolution |
+| Out-of-scope request | Redirect to appropriate skill or escalate |
