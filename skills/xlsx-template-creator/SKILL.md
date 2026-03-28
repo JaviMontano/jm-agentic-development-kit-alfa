@@ -1,5 +1,5 @@
 --- [EXPLICIT]
-name: xlsx-template-creator [EXPLICIT]
+name: xlsx-template-creator
 description:  [EXPLICIT]
   Generates XLSX template specifications with columns, formulas, conditional formatting, and dashboard layouts for tracking and metrics. [EXPLICIT]
   Use when the user asks to "create a spreadsheet template", "build a tracking matrix", "design a metrics dashboard", [EXPLICIT]

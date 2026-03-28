@@ -9,7 +9,6 @@ description:
   solutions, AI/ML components, and technology choices are viable substance or speculative
   smoke. Use this skill whenever technology choices need validation or vendor claims need
   scrutiny, even if they don't explicitly ask for "software-viability". [EXPLICIT]
-argument-hint: "project-name [codebase-path]"
 model: opus
 context: fork
 allowed-tools:

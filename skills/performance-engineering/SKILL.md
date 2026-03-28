@@ -1,12 +1,11 @@
 ---
-name: sofka-performance-engineering
+name: performance-engineering
 argument-hint: "project-or-system-name"
 description: 
   Produces performance assessments covering load testing, capacity planning, bottleneck analysis, caching, CDN, and SLAs. [EXPLICIT]
   Activates when the user says "analyze performance", "design load tests", "plan capacity", "optimize caching",
   or "define SLAs". Also triggers on mentions of latency, throughput, p95, saturation, cache hit ratio, or edge compute. [EXPLICIT]
   Use this skill even if the user only mentions a vague slowness concern — it diagnoses and structures the full assessment. [EXPLICIT]
-argument-hint: "project-or-system-name"
 model: opus
 context: fork
 allowed-tools:

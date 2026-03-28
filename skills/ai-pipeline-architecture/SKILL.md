@@ -1,5 +1,5 @@
 ---
-name: metodologia-ai-pipeline-architecture
+name: ai-pipeline-architecture
 description: >
   AI pipeline architecture design — development pipelines, production pipelines, data stores, model registry, CI/CD for AI,
   and non-functional requirements. This skill should be used when the user asks to "design AI pipelines", "architect ML pipelines",

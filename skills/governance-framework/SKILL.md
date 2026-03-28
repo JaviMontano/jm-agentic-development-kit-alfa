@@ -1,5 +1,5 @@
 ---
-name: apex-governance-framework
+name: governance-framework
 description: >
   Use when the user asks to "define governance", "create governance model",
   "set up escalation paths", "design authority matrix", "establish decision framework",

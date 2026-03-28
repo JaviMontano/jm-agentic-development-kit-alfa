@@ -8,7 +8,6 @@ description:
   "run governance check", or "coordinate resources". Also triggers on mentions of PMO, program management,
   phase gates, proposal readiness, or cross-phase dependency management. Use this skill even if the user
   only asks about project status — it activates the full governance layer. [EXPLICIT]
-argument-hint: "project-or-engagement-name"
 model: opus
 context: fork
 allowed-tools:

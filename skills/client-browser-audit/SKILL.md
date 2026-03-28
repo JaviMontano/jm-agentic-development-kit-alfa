@@ -1,5 +1,5 @@
 ---
-name: apex-client-browser-audit
+name: client-browser-audit
 description: >
   Use when the user asks to "audit PM tools visually", "inspect Jira configuration",
   "review Azure DevOps setup", "check Monday.com boards", or "evaluate tool configuration". [EXPLICIT]

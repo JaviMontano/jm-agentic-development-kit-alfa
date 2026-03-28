@@ -1,5 +1,5 @@
 --- [EXPLICIT]
-name: agent-creator [EXPLICIT]
+name: agent-creator
 description:  [EXPLICIT]
   This skill should be used when the user asks to "create an agent", [EXPLICIT]
   "add a subagent", "make a custom agent", "define agent definition", [EXPLICIT]
@@ -58,7 +58,7 @@ File: `.claude/agents/{name}.md` (project) or `~/.claude/agents/{name}.md` (glob
 
 ```markdown
 ---
-name: "{Display Name}"
+name: agent-creator
 description: "{When Claude should spawn this agent — be specific about trigger conditions}"
 model: "{haiku|sonnet|opus}"
 color: "{hex, e.g. #4CAF50}"
@@ -143,7 +143,7 @@ Apply structured thinking to every analysis and recommendation. [EXPLICIT]
 
 ```markdown
 ---
-name: Dependency Auditor
+name: agent-creator
 description: Audit package dependencies for security vulnerabilities, license compliance, and update availability. Spawn when user asks about dependencies, security, or runs npm audit. [EXPLICIT]
 model: sonnet
 color: "#FF6B35"

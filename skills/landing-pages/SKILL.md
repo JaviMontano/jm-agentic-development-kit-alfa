@@ -6,7 +6,7 @@ description: >
   brand landing pages and professional web presence pages — dark-first, bilingual ES/EN,
   JM Labs brand system. Output: full self-contained HTML file.
   Argument: person name + page type + optional brief/context.
-argument-hint: "<person name> [portfolio|consultant|speaker|executive|product] [brief or context]"
+argument-hint: "person-name [portfolio|consultant|speaker|executive|product] [context]"
 model: opus
 context: fork
 allowed-tools: Read, Write, Edit, Glob, Grep, WebSearch

@@ -1,5 +1,5 @@
 ---
-name: metodologia-team-topology
+name: team-topology
 description: 
   Conway's Law analysis, team interaction modes, cognitive load assessment, organizational design. [EXPLICIT]
   Use when the user asks to "design team structure", "assess cognitive load", "map team interactions",

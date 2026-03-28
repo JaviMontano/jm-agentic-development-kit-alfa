@@ -1,5 +1,5 @@
 ---
-name: apex-capacity-planning
+name: capacity-planning
 description: >
   Use when the user asks to "plan capacity", "forecast resource demand",
   "analyze resource availability", "match supply to demand", or "model resource scenarios". [EXPLICIT]

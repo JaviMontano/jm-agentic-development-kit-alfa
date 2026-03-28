@@ -1,6 +1,6 @@
-# JM Agentic Development Kit (JM-ADK) v4.0.0
+# JM Agentic Development Kit (JM-ADK) v5.0.0
 
-> Convierte intencion en resultados.
+> Convierte intención en resultados. 512 skills · market research · CV · brand HTML · discovery · architecture · security.
 
 ## Environment
 

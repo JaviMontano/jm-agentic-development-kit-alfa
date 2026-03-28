@@ -1,1060 +1,520 @@
 # Pristino Master Index
 
-<!-- Auto-generated. Run: bash scripts/generate-pristino-index.sh -->
-<!-- Counts: 264 Skills | 256 Agents | 260 Commands | 256 Prompts -->
+<!-- Auto-generated. 512 Skills | Updated: 2026-03-27 -->
 
-## Agents (256)
+## Skills (512)
 
-| # | ID | Description |
-|---|-----|-------------|
-| 1 | `a11y-implementer` | WCAG implementation, screen reader testing, ARIA patterns |
-| 2 | `ab-testing-specialist` | Hypothesis formulation, statistical significance, sample size calculation, test  |
-| 3 | `accessibility-auditor` | WCAG 2.1 auditing, axe-core, screen reader testing |
-| 4 | `accessibility-designer` | Designs WCAG 2.1 AA compliant patterns including ARIA roles, keyboard navigation |
-| 5 | `accessibility-writing-specialist` | Alt text guidelines, plain language, reading level, inclusive language. |
-| 6 | `adk-orchestrator` | Pristino — triad-first orchestrator. Composes Lead + Support + Guardian for ev |
-| 7 | `ai-assisted-testing-specialist` | AI-generated test cases, fuzzing, mutation testing, coverage optimization. |
-| 8 | `ai-code-review-specialist` | LLM-assisted code review patterns, automated suggestion generation. |
-| 9 | `ai-content-detection-specialist` | AI-generated content detection, watermarking, human-AI hybrid strategies. |
-| 10 | `ai-documentation-specialist` | Auto-generated docs from code, README generation, API doc automation. |
-| 11 | `ai-safety-specialist` | Content filters, output guardrails, jailbreak prevention, safety evaluation. |
-| 12 | `ai-workflow-automation-specialist` | LLM-in-the-loop workflows, human-AI handoff, approval gates. |
-| 13 | `alerting-strategy-specialist` | Alert fatigue prevention, escalation rules, severity classification. |
-| 14 | `analytics-events-specialist` | Event taxonomy, naming conventions, tracking plan, implementation. |
-| 15 | `angular-specialist` | Develops Angular 18+ applications with Signals, standalone components, SSR, and  |
-| 16 | `animation-principles-specialist` | 12 principles of animation applied to UI motion design. |
-| 17 | `animation-specialist` | CSS animations, GSAP, Framer Motion, View Transitions |
-| 18 | `api-designer` | Designs REST and GraphQL API contracts with versioning, rate limiting, and OpenA |
-| 19 | `api-documenter` | Generates API documentation: OpenAPI specs, Swagger UI, endpoint references, aut |
-| 20 | `architecture-designer` | Designs system architecture with C4 diagrams, ADRs, and quality attribute trade- |
-| 21 | `audit-trail-design-specialist` | Immutable audit logs, qualified paths, retention policies, forensics. |
-| 22 | `auth-architect` | Designs Firebase Auth, OAuth2, OIDC, RBAC, and custom claims-based authorization |
-| 23 | `b2b-outreach-specialist` | Cold email sequences, follow-up cadence, objection handling, persona-based templ |
-| 24 | `backup-strategy-specialist` | Firestore exports, scheduled backups, recovery testing, retention. |
-| 25 | `bdd-strategist` | Generates BDD full-spectrum Gherkin scenarios across all quality angles. Runner- |
-| 26 | `benchmarking-analysis-specialist` | Industry benchmarks, internal baselines, trend analysis, gap identification. |
-| 27 | `blog-builder` | CMS-like features, markdown rendering, SEO-optimized |
-| 28 | `brand-html-crafter` | Generates MetodologIA-branded HTML outputs: navy background, gold accents, glass |
-| 29 | `budget-management-specialist` | Project budgets, burn rate tracking, forecast modeling, variance analysis. |
-| 30 | `bundle-analyzer` | Webpack/Vite bundle analysis, tree-shaking, code splitting |
-| 31 | `business-analyst` | Models business processes, maps organizational capabilities, and performs gap an |
-| 32 | `caching-strategist` | Designs cache hierarchies, CDN configuration, and service worker caching strateg |
-| 33 | `capacity-planning-specialist` | Load projections, scaling triggers, resource budgeting, growth modeling. |
-| 34 | `case-study-writing-specialist` | Problem-solution-result format, metrics, quotes, visual layout. |
-| 35 | `cdn-configuration-specialist` | CDN setup, cache headers, edge functions, purge strategies. |
-| 36 | `change-catalyst` | Designs adoption strategies, training roadmaps, and resistance management plans  |
-| 37 | `change-management-enterprise-specialist` | Communication plans, stakeholder alignment, rollout strategy. |
-| 38 | `changelog-tracker` | Maintains changelog.md and tasklog.md for cross-session continuity and operation |
-| 39 | `changelog-writing-specialist` | User-facing changelogs, semantic grouping, tone, migration guides. |
-| 40 | `chart-specialist` | Chart.js, D3.js, data visualization, dashboard components |
-| 41 | `chatbot-design-specialist` | Conversational UI patterns, intent routing, fallback handling, persona design. |
-| 42 | `ci-cd-configurator` | GitHub Actions for build + deploy to Hostinger/Firebase |
-| 43 | `ci-pipeline-design-specialist` | Pipeline stages, parallelization, caching, artifact management. |
-| 44 | `client-prospector` | AI-driven client prospecting by geography and sector. Researches targets, scores |
-| 45 | `cloud-functions-dev` | Cloud Functions v2, triggers, scheduling, pub/sub |
-| 46 | `code-reviewer` | PR review, anti-patterns, best practices enforcement |
-| 47 | `cohort-analysis-specialist` | User segmentation, retention curves, lifecycle stage analysis. |
-| 48 | `color-theory-specialist` | Color psychology, palette generation, harmony rules, contrast. |
-| 49 | `competitive-analyst` | Analyzes market landscape, technology differentiation, and build-vs-buy decision |
-| 50 | `competitive-positioning-specialist` | Competitor analysis frameworks, differentiation strategy, feature comparison. |
-| 51 | `compliance-checker` | Assesses GDPR, accessibility, data protection, and regulatory compliance for tec |
-| 52 | `compliance-framework-specialist` | SOC2, ISO 27001, GDPR compliance checklist patterns and evidence. |
-| 53 | `component-designer` | Defines module boundaries, interface contracts, and component APIs for modular a |
-| 54 | `content-calendar-specialist` | Editorial calendar, topic clustering, content pillar planning, cadence. |
-| 55 | `context-manager` | Optimizes token budget through progressive disclosure, context pruning, and RAG  |
-| 56 | `context-window-management-specialist` | Token budgeting, context compression, priority-based summarization. |
-| 57 | `contract-review-specialist` | Terms analysis, risk clauses, negotiation points, renewal strategy. |
-| 58 | `conversion-optimization-specialist` | CRO: friction point analysis, trust signals, funnel optimization, A/B test desig |
-| 59 | `copywriter` | Value propositions, landing copy, microcopy, CTAs |
-| 60 | `copywriting-frameworks-specialist` | AIDA, PAS, FAB frameworks applied to marketing copy and landing pages. |
-| 61 | `cors-configuration-specialist` | CORS policies, preflight handling, credentials, origin whitelisting. |
-| 62 | `cost-estimator` | Estimates effort using inductors, scope drivers, and order-of-magnitude techniqu |
-| 63 | `cron-job-specialist` | Cloud Scheduler, scheduled functions, batch processing |
-| 64 | `cross-browser-tester` | Browser compatibility, polyfills, progressive enhancement |
-| 65 | `css-architect` | Architects CSS systems with Tailwind v4, CSS Layers, @scope, container queries,  |
-| 66 | `cv-specialist` | CV and resume enhancement. Analyzes structure, identifies gaps, rewrites with im |
-| 67 | `dashboard-builder` | Admin dashboards, data tables, filters, real-time updates |
-| 68 | `dashboard-design-specialist` | Dashboard layout patterns, data hierarchy, drill-down, real-time. |
-| 69 | `data-documentation-specialist` | Data dictionaries, schema documentation, lineage tracking. |
-| 70 | `data-export-specialist` | CSV/JSON/PDF export, batch processing, scheduled report generation. |
-| 71 | `data-modeler` | Designs entity relationships, normalization levels, and Firestore collection hie |
-| 72 | `data-privacy-patterns-specialist` | PII detection, anonymization, GDPR compliance, consent management. |
-| 73 | `data-strategist` | Designs data architecture, governance frameworks, quality standards, and pipelin |
-| 74 | `data-validation-specialist` | Schema validation, type checking, constraint enforcement, error handling. |
-| 75 | `database-architect` | Designs database schemas, indexing strategies, and Firestore data models for opt |
-| 76 | `dependency-management-specialist` | Lockfiles, update strategy, Renovate/Dependabot, vulnerability scanning. |
-| 77 | `deployment-specialist` | Build → deploy pipeline for Hostinger + Firebase |
-| 78 | `design-critique-specialist` | Structured design review, heuristic evaluation, feedback frameworks. |
-| 79 | `design-system-architect` | Architects design token systems, component libraries, and CSS architecture for s |
-| 80 | `developer-onboarding-specialist` | Onboarding checklists, ramp-up metrics, mentoring programs, buddy system. |
-| 81 | `diagram-specialist` | Mermaid diagrams — C4, sequence, flow, ER, state |
-| 82 | `disaster-recovery-specialist` | RTO/RPO targets, failover testing, business continuity planning. |
-| 83 | `discovery-reporter` | Produces executive findings, technical reports, and business reviews from discov |
-| 84 | `dns-architecture-specialist` | DNS design, failover, geo-routing, TTL strategy. |
-| 85 | `docker-awareness-specialist` | Dockerfile patterns, compose, multi-stage builds for development awareness. |
-| 86 | `documentation-standards-specialist` | Documentation templates, review cycles, versioning, archival policy. |
-| 87 | `documentation-system-specialist` | Doc-as-code workflows, versioning, review cycles, CI publishing. |
-| 88 | `domain-dns-specialist` | Domain registration, DNS records, SSL certificates |
-| 89 | `domain-modeler` | Models bounded contexts, aggregates, domain events, and ubiquitous language usin |
-| 90 | `dossier-builder` | Creates deep research dossiers for target companies. Profile, leadership, tech s |
-| 91 | `e2e-test-writer` | Playwright, Cypress, Puppeteer — end-to-end testing |
-| 92 | `ecommerce-builder` | Product catalogs, carts, checkout, Stripe/PayPal |
-| 93 | `email-service-specialist` | SendGrid, Mailgun, Nodemailer via Cloud Functions |
-| 94 | `email-template-builder` | HTML email templates, responsive email, email services |
-| 95 | `embedding-strategy-specialist` | Text embedding selection, similarity search, clustering, dimensionality reductio |
-| 96 | `empty-states-specialist` | Zero-data UI, first-use experience, placeholder content, call-to-action. |
-| 97 | `environment-management-specialist` | Dev/staging/prod configs, env variables, secrets rotation. |
-| 98 | `error-handler` | Implements error handling patterns: try/catch, error boundaries, fallback UI, of |
-| 99 | `error-messaging-specialist` | Error message taxonomy, tone, actionability, recovery guidance. |
-| 100 | `error-recovery-automation-specialist` | Automatic retry with exponential backoff, error classification. |
-| 101 | `etl-patterns-specialist` | Extract-transform-load pipelines, batch vs stream, error recovery. |
-| 102 | `event-designer` | Designs event-driven patterns including pub/sub, Cloud Functions triggers, and e |
-| 103 | `event-marketing-specialist` | Webinar design, conference strategy, speaking proposals, event follow-up. |
-| 104 | `evidence-auditor` | Classifies claims, flags assumptions, prevents hallucination |
-| 105 | `feasibility-validator` | Assesses technical feasibility across seven dimensions: tech, team, time, cost,  |
-| 106 | `file-watcher-specialist` | Detect file changes, trigger validation, auto-lint on save. |
-| 107 | `fine-tuning-prep-specialist` | Training data curation, labeling guidelines, validation splits, quality checks. |
-| 108 | `firebase-auth-expert` | Auth providers, custom claims, session management |
-| 109 | `firebase-deployer` | firebase deploy, preview channels, rollback |
-| 110 | `firebase-emulator-expert` | Local development with emulator suite, testing |
-| 111 | `firebase-hosting-expert` | Hosting config, rewrites, headers, preview channels |
-| 112 | `firebase-specialist` | Firestore, Auth, Functions, Hosting, Storage, Extensions |
-| 113 | `firebase-storage-expert` | File uploads, image processing, CDN, security rules |
-| 114 | `firestore-expert` | Data modeling, queries, indexes, security rules, offline |
-| 115 | `flow-mapper` | Maps business process flows, data flows, and integration diagrams with Mermaid n |
-| 116 | `form-specialist` | Form validation, multi-step forms, file uploads, UX |
-| 117 | `form-ux-advanced-specialist` | Multi-step forms, inline validation, smart defaults, error recovery. |
-| 118 | `frontend-craftsman` | Builds semantic HTML5, modern CSS3, and vanilla JavaScript — the foundational  |
-| 119 | `funnel-analytics-specialist` | Conversion funnel tracking, drop-off analysis, optimization strategy. |
-| 120 | `funnel-design-specialist` | TOFU/MOFU/BOFU content mapping, lead scoring, nurture flow design. |
-| 121 | `git-hook-integration-specialist` | Pre-commit and pre-push hooks, conventional commit enforcement. |
-| 122 | `git-strategist` | Git workflow design: branching strategy, commit conventions, PR process, conflic |
-| 123 | `google-apis-specialist` | Workspace APIs, Maps, Analytics, reCAPTCHA, Translate |
-| 124 | `grid-systems-specialist` | CSS Grid patterns, magazine layouts, asymmetric grids, breakpoint design. |
-| 125 | `guardrails-enforcer` | Manages user-declared guidelines, constraints, and guardrails as JSON. Double-co |
-| 126 | `health-check-automation-specialist` | System health monitoring, dependency status, resource usage alerts. |
-| 127 | `hostinger-expert` | cPanel, FTP/SFTP, .htaccess, PHP config, DNS, SSL |
-| 128 | `html-specialist` | Semantic HTML5, forms, tables, multimedia, SEO markup |
-| 129 | `http-headers-specialist` | Security headers, caching headers, compression, content negotiation. |
-| 130 | `i18n-specialist` | Internationalization, l10n, RTL, Angular i18n, react-intl |
-| 131 | `iconography-specialist` | Icon systems, SVG optimization, icon accessibility, consistency. |
-| 132 | `image-optimizer` | Image and font optimization: WebP conversion, lazy loading, srcset, font subsett |
-| 133 | `incident-response-specialist` | Incident playbooks, postmortem templates, severity classification, on-call. |
-| 134 | `indexability-auditor` | Validates README presence per directory, index-driven navigation, orphan detecti |
-| 135 | `industry-expert` | Provides context-adaptive subject matter expertise based on the client's industr |
-| 136 | `infrastructure-planner` | Plans hosting topology, CDN configuration, DNS, SSL certificates, and load balan |
-| 137 | `input-amplifier` | Interprets vague or ambiguous input, clarifies intent, and amplifies requests fo |
-| 138 | `integrity-validator` | Validates the Intent Integrity Chain end-to-end, producing traceability matrices |
-| 139 | `internal-memo-specialist` | Executive memo structure, decision briefs, status updates, action items. |
-| 140 | `knowledge-management-specialist` | Organizational knowledge capture, searchability, decay prevention. |
-| 141 | `kpi-framework-specialist` | KPI design, metric trees, leading/lagging indicators, OKR alignment. |
-| 142 | `landing-page-builder` | Conversion-optimized landing pages, A/B testing |
-| 143 | `lead-generation-specialist` | Lead magnets, gated content, signup optimization, qualification scoring. |
-| 144 | `learning-engine` | Extracts insights from debates and discoveries. Captures patterns in insights/ f |
-| 145 | `lighthouse-auditor` | Runs Lighthouse CI audits with performance budgets, accessibility thresholds, an |
-| 146 | `linter-configurator` | ESLint, Prettier, Stylelint, Angular lint, config |
-| 147 | `llm-evaluation-specialist` | Model output quality assessment, hallucination detection, benchmark suites. |
-| 148 | `localization-guide-specialist` | Translation workflows, context for translators, glossaries, RTL support. |
-| 149 | `log-management-specialist` | Structured logging, log levels, retention policies, search patterns. |
-| 150 | `map-specialist` | Google Maps API, Leaflet, geolocation, location services |
-| 151 | `market-researcher` | Geographic market analysis: demographics, tech ecosystem, sector mapping, entry  |
-| 152 | `marketing-context-specialist` | Brand positioning, value propositions, and messaging framework for consistent ma |
-| 153 | `mermaid-diagrammer` | Creates Mermaid diagrams: C4, sequence, flowcharts, entity relationships, archit |
-| 154 | `metrics-instrumentation-specialist` | Code-level metrics, custom dimensions, event parameter design. |
-| 155 | `micro-interactions-specialist` | Button states, loading indicators, success feedback, hover effects. |
-| 156 | `microcopy-writing-specialist` | Button labels, tooltips, empty states, confirmation dialogs, placeholders. |
-| 157 | `migration-planner` | Plans strangler fig migrations, data migration strategies, and re-platforming ro |
-| 158 | `mobile-patterns-specialist` | Bottom sheets, pull-to-refresh, swipe actions, FAB, gesture navigation. |
-| 159 | `mobile-responsiveness-tester` | Device testing, viewport, touch, PWA validation |
-| 160 | `modal-dialog-builder` | Builds accessible modal dialogs, navigation patterns, and interactive UI compone |
-| 161 | `monitoring-setup-specialist` | Application monitoring, health checks, uptime tracking, alerting integration. |
-| 162 | `motion-design-specialist` | Page transitions, scroll-triggered animations, parallax, performance. |
-| 163 | `multi-model-routing-specialist` | Model selection by task complexity, cost optimization, fallback chains. |
-| 164 | `newsletter-design-specialist` | Newsletter strategy, content structure, engagement metrics, send optimization. |
-| 165 | `node-specialist` | Node.js runtime, streams, workers, ESM, performance |
-| 166 | `notification-handler-specialist` | System notification management, progress updates, alert routing. |
-| 167 | `notification-ux-specialist` | Toast patterns, badge counts, notification center, priority ranking. |
-| 168 | `okr-design-specialist` | OKR framework, alignment cascading, progress tracking, scoring. |
-| 169 | `onboarding-ux-specialist` | User onboarding flows, activation metrics, time-to-value optimization. |
-| 170 | `partnership-strategy-specialist` | Partner identification, co-marketing programs, referral system design. |
-| 171 | `payment-specialist` | Stripe, PayPal, MercadoPago integration on Firebase |
-| 172 | `performance-architect` | Optimizes Core Web Vitals, bundle size, lazy loading, and rendering performance  |
-| 173 | `performance-tester` | Lighthouse CI, Web Vitals, load testing, profiling |
-| 174 | `permission-fast-path-specialist` | Auto-approve read-only operations to reduce LLM overhead. |
-| 175 | `pipeline-conductor` | Sequences analysis-to-development phases and enforces quality gates between stag |
-| 176 | `pitch-crafter` | Crafts C-level executive pitches with financial modeling, value propositions, an |
-| 177 | `podcast-prep-specialist` | Episode planning, guest research, question frameworks, show notes. |
-| 178 | `portfolio-builder` | Personal/agency portfolios, case studies, galleries |
-| 179 | `post-tool-use-validator-specialist` | Validate tool outputs: lint check, evidence tags, quality gates. |
-| 180 | `pre-compact-context-specialist` | Context preservation before compression, priority-based retention. |
-| 181 | `pre-tool-use-guard-specialist` | Block dangerous commands before execution using exit code 2 pattern. |
-| 182 | `presentation-design-specialist` | Slide deck patterns, visual storytelling, Minto pyramid for slides. |
-| 183 | `press-release-specialist` | Inverted pyramid, quotes, boilerplate, distribution strategy. |
-| 184 | `pricing-strategy-specialist` | Pricing page design, anchoring, tier structure, value-based framing. |
-| 185 | `product-strategist` | Drives roadmap prioritization, value stream mapping, and product-market fit anal |
-| 186 | `prompt-engineering-specialist` | Prompt design patterns: few-shot, chain-of-thought, system prompts, guardrails. |
-| 187 | `proposal-writing-specialist` | RFP response, scope definition, pricing tables, timeline, risk section. |
-| 188 | `prototyping-specialist` | Low-fi to high-fi prototyping, clickable mockups, rapid iteration. |
-| 189 | `push-notification-specialist` | FCM, Web Push, notification strategies |
-| 190 | `pwa-architect` | Architects Progressive Web Apps with service workers, manifests, offline-first s |
-| 191 | `quality-engineer` | Test strategy, pyramid, automation architecture |
-| 192 | `quality-guardian` | Validates deliverables against quality gates G0-G3 across functional, security,  |
-| 193 | `rag-patterns-specialist` | Retrieval-augmented generation: chunking, embedding, vector search, reranking. |
-| 194 | `rate-limiting-specialist` | API rate limits, throttling, quota management, abuse prevention. |
-| 195 | `rbac-patterns-specialist` | Role-based access control, permission matrices, Firebase custom claims. |
-| 196 | `react-specialist` | Develops React 19+ applications with Server Components, Suspense, hooks, and RSC |
-| 197 | `real-time-analytics-specialist` | Live dashboards, WebSocket streams, alert threshold configuration. |
-| 198 | `realtime-designer` | Designs real-time data synchronization using Firestore listeners, RTDB, WebSocke |
-| 199 | `recaptcha-integrator` | Integrates reCAPTCHA v3 with scoring, Firebase App Check, and bot protection for |
-| 200 | `reporting-templates-specialist` | Executive reports, operational dashboards, compliance report design. |
-| 201 | `requirements-analyst` | Extracts user stories, acceptance criteria, and business rules from raw input an |
-| 202 | `responsive-designer` | Designs responsive layouts with breakpoints, container queries, and fluid typogr |
-| 203 | `rest-api-builder` | Express/Fastify APIs on Cloud Functions |
-| 204 | `retrospective-facilitation-specialist` | Sprint retros, blameless postmortems, action item tracking. |
-| 205 | `risk-analyst` | Builds risk registers, mitigation plans, and contingency protocols for project a |
-| 206 | `rollback-strategy-specialist` | Blue-green, canary, feature flags, database rollback patterns. |
-| 207 | `sales-collateral-specialist` | One-pagers, battle cards, ROI calculators, competitive positioning documents. |
-| 208 | `scenario-evaluator` | Performs Tree-of-Thought scenario analysis with weighted multi-criteria scoring. |
-| 209 | `scheduled-task-builder` | Creates scheduled functions, cron jobs, and serverless patterns for Firebase Clo |
-| 210 | `schema-evolution-specialist` | Migration patterns, backward compatibility, versioning, zero-downtime. |
-| 211 | `search-ux-specialist` | Search bar patterns, autocomplete, faceted search, filter design. |
-| 212 | `security-architect` | Designs threat models, auth flows, OWASP mitigations, and zero-trust security ar |
-| 213 | `security-scanner` | OWASP checks, dependency CVEs, secrets detection |
-| 214 | `seo-architect` | Designs technical SEO architecture including structured data, Open Graph, sitema |
-| 215 | `seo-auditor` | Technical SEO audit, structured data validation |
-| 216 | `seo-content-writer` | Creates SEO content: meta descriptions, JSON-LD structured data, Open Graph tags |
-| 217 | `session-end-cleanup-specialist` | Session summary generation, insight extraction, tasklog update. |
-| 218 | `session-manager` | Session protocol enforcement: context loading, state recovery, pending closure,  |
-| 219 | `session-start-bootstrap-specialist` | Context loading, environment detection, guardrails initialization. |
-| 220 | `skill-router` | Intelligent skill matching via keyword matrix and BM25-style search across the s |
-| 221 | `sla-definition-specialist` | Service level agreements, uptime targets, penalty structures, monitoring. |
-| 222 | `social-proof-specialist` | Testimonials, case studies, trust badges, social validation pattern design. |
-| 223 | `socratic-debater` | Conducts structured Socratic debates to resolve ambiguities, trade-offs, and low |
-| 224 | `solutions-architect` | Designs end-to-end integration architecture and manages cross-cutting concerns a |
-| 225 | `ssh-deployer` | Deploys to Hostinger via SSH+Git with key management, post-receive hooks, and ro |
-| 226 | `ssl-management-specialist` | Certificate lifecycle, auto-renewal, HSTS, certificate pinning. |
-| 227 | `stakeholder-mapper` | Builds influence/interest matrices, RACI charts, and communication plans for pro |
-| 228 | `state-designer` | Designs frontend and backend state management patterns, reactivity models, and s |
-| 229 | `stop-validator-specialist` | Final output validation before delivery: evidence tags, quality, completeness. |
-| 230 | `structured-output-specialist` | JSON mode, schema-constrained generation, output validation, error recovery. |
-| 231 | `subagent-monitor-specialist` | Track subagent execution, timeout handling, result aggregation. |
-| 232 | `survey-design-specialist` | NPS/CSAT/CES surveys, question design, response analysis, benchmarks. |
-| 233 | `table-ux-specialist` | Data tables, sorting, pagination, responsive tables, bulk actions. |
-| 234 | `task-automation-specialist` | Recurring task scheduling, batch operations, periodic health checks. |
-| 235 | `team-topology-specialist` | Team structure design, communication paths, cognitive load management. |
-| 236 | `technical-writer` | READMEs, API docs, ADRs, runbooks, changelogs |
-| 237 | `technical-writing-patterns-specialist` | API docs style, tutorial structure, reference format, how-to guides. |
-| 238 | `trade-off-analyst` | Conducts weighted trade-off analysis with decision matrices. Scores options acro |
-| 239 | `training-material-specialist` | Course design, exercises, assessments, facilitator guide, handouts. |
-| 240 | `typescript-specialist` | TypeScript 5+, branded types, conditional types, DX |
-| 241 | `typography-advanced-specialist` | Variable fonts, optical sizing, responsive typography, vertical rhythm. |
-| 242 | `unit-test-writer` | Jest, Vitest, Jasmine, Karma — unit test generation |
-| 243 | `user-prompt-filter-specialist` | Input sanitization and injection detection at the prompt submission level. |
-| 244 | `user-researcher` | Develops personas, user journey maps, and empathy maps from research data and st |
-| 245 | `user-testing-specialist` | Usability testing protocols, task scenarios, think-aloud, analysis. |
-| 246 | `vanilla-js-specialist` | Builds pure DOM manipulation solutions using Web APIs, ES modules, and zero-fram |
-| 247 | `vendor-evaluation-specialist` | Vendor scoring, TCO analysis, lock-in assessment, exit strategy. |
-| 248 | `video-script-specialist` | Video structure, hook-body-CTA, timing, B-roll cues, accessibility. |
-| 249 | `visual-qa-tester` | Visual regression testing with screenshot comparison. Cross-browser visual consi |
-| 250 | `voice-interface-specialist` | Speech-to-text, text-to-speech, voice UI patterns, accessibility. |
-| 251 | `web-component-builder` | Custom elements, Shadow DOM, slots, cross-framework |
-| 252 | `webhook-specialist` | Incoming/outgoing webhooks, event processing, retries |
-| 253 | `whitepaper-creation-specialist` | Long-form research, methodology, findings, recommendations, citations. |
-| 254 | `workflow-orchestration-specialist` | Multi-step workflow execution with checkpoint and resume capability. |
-| 255 | `workshop-facilitator` | Designs and facilitates event storming, impact mapping, and design sprint worksh |
-| 256 | `workspace-manager` | Scaffolds and governs workspace/ directory: dated sessions, task bridges, estand |
-
-## Skills (264)
-
-| # | ID | Description |
-|---|-----|-------------|
-| 1 | `ab-testing` | — |
-| 2 | `accessibility-design` | — |
-| 3 | `accessibility-testing` | — |
-| 4 | `accessibility-writing` | — |
-| 5 | `admin-dashboards` | — |
-| 6 | `ai-assisted-testing` | — |
-| 7 | `ai-code-review` | — |
-| 8 | `ai-content-detection` | — |
-| 9 | `ai-documentation` | — |
-| 10 | `ai-safety` | — |
-| 11 | `ai-workflow-automation` | — |
-| 12 | `alerting-strategy` | — |
-| 13 | `analytics-events` | — |
-| 14 | `angular-development` | — |
-| 15 | `animation-principles` | — |
-| 16 | `api-design` | — |
-| 17 | `api-documentation` | — |
-| 18 | `audit-trail-design` | — |
-| 19 | `auth-architecture` | — |
-| 20 | `auto-prompt-matching` | — |
-| 21 | `b2b-outreach` | — |
-| 22 | `backup-strategy` | — |
-| 23 | `bdd-full-spectrum` | — |
-| 24 | `benchmarking-analysis` | — |
-| 25 | `blog-cms` | — |
-| 26 | `branded-html-output` | — |
-| 27 | `budget-management` | — |
-| 28 | `build-optimization` | — |
-| 29 | `business-process-modeling` | — |
-| 30 | `caching-strategy` | — |
-| 31 | `capacity-planning` | — |
-| 32 | `case-study-writing` | — |
-| 33 | `cdn-configuration` | — |
-| 34 | `change-management-enterprise` | — |
-| 35 | `change-readiness` | — |
-| 36 | `changelog-management` | — |
-| 37 | `changelog-writing` | — |
-| 38 | `chatbot-design` | — |
-| 39 | `ci-pipeline-design` | — |
-| 40 | `client-dossier` | — |
-| 41 | `client-prospecting` | — |
-| 42 | `cloud-functions` | — |
-| 43 | `code-review` | — |
-| 44 | `cohort-analysis` | — |
-| 45 | `color-theory` | — |
-| 46 | `competitive-intelligence` | — |
-| 47 | `competitive-positioning` | — |
-| 48 | `compliance-assessment` | — |
-| 49 | `compliance-framework` | — |
-| 50 | `component-architecture` | — |
-| 51 | `constitution-compliance` | — |
-| 52 | `content-calendar` | — |
-| 53 | `context-optimization` | — |
-| 54 | `context-window-management` | — |
-| 55 | `continuous-learning` | — |
-| 56 | `contract-review` | — |
-| 57 | `conversion-optimization` | — |
-| 58 | `copywriting-frameworks` | — |
-| 59 | `cors-configuration` | — |
-| 60 | `cost-estimation` | — |
-| 61 | `cross-browser-testing` | — |
-| 62 | `css-animation` | — |
-| 63 | `css-architecture` | — |
-| 64 | `cv-enhancement` | — |
-| 65 | `dark-mode` | — |
-| 66 | `dashboard-design` | — |
-| 67 | `data-documentation` | — |
-| 68 | `data-export` | — |
-| 69 | `data-privacy-patterns` | — |
-| 70 | `data-strategy` | — |
-| 71 | `data-validation` | — |
-| 72 | `data-visualization` | — |
-| 73 | `database-design` | — |
-| 74 | `dependency-management` | — |
-| 75 | `deployment-checklist` | — |
-| 76 | `design-critique` | — |
-| 77 | `design-system` | — |
-| 78 | `developer-onboarding` | — |
-| 79 | `disaster-recovery` | — |
-| 80 | `discovery-orchestration` | — |
-| 81 | `dns-architecture` | — |
-| 82 | `docker-awareness` | — |
-| 83 | `documentation-standards` | — |
-| 84 | `documentation-system` | — |
-| 85 | `domain-driven-design` | — |
-| 86 | `domain-management` | — |
-| 87 | `dual-layer-verification` | — |
-| 88 | `e2e-testing` | — |
-| 89 | `ecommerce-frontend` | — |
-| 90 | `email-sending` | — |
-| 91 | `email-templates` | — |
-| 92 | `embedding-strategy` | — |
-| 93 | `empty-states` | — |
-| 94 | `environment-detection` | — |
-| 95 | `environment-management` | — |
-| 96 | `error-handling` | — |
-| 97 | `error-messaging` | — |
-| 98 | `error-recovery-automation` | — |
-| 99 | `etl-patterns` | — |
-| 100 | `event-architecture` | — |
-| 101 | `event-marketing` | — |
-| 102 | `executive-pitch` | — |
-| 103 | `feasibility-validation` | — |
-| 104 | `file-watcher` | — |
-| 105 | `fine-tuning-prep` | — |
-| 106 | `firebase-auth` | — |
-| 107 | `firebase-deployment` | — |
-| 108 | `firebase-extensions` | — |
-| 109 | `firebase-hosting` | — |
-| 110 | `firebase-setup` | — |
-| 111 | `firebase-storage` | — |
-| 112 | `firestore-modeling` | — |
-| 113 | `firestore-queries` | — |
-| 114 | `firestore-security-rules` | — |
-| 115 | `flow-mapping` | — |
-| 116 | `font-optimization` | — |
-| 117 | `form-engineering` | — |
-| 118 | `form-ux-advanced` | — |
-| 119 | `funnel-analytics` | — |
-| 120 | `funnel-design` | — |
-| 121 | `git-hook-integration` | — |
-| 122 | `git-workflow` | — |
-| 123 | `github-actions-ci` | — |
-| 124 | `google-analytics` | — |
-| 125 | `google-maps-integration` | — |
-| 126 | `google-workspace-apis` | — |
-| 127 | `grid-systems` | — |
-| 128 | `guardrails-management` | — |
-| 129 | `health-check-automation` | — |
-| 130 | `hostinger-deployment` | — |
-| 131 | `html-semantic` | — |
-| 132 | `http-headers` | — |
-| 133 | `iconography` | — |
-| 134 | `image-optimization` | — |
-| 135 | `incident-response` | — |
-| 136 | `indexability-validator` | — |
-| 137 | `infrastructure-design` | — |
-| 138 | `input-analysis` | — |
-| 139 | `input-sanitization` | — |
-| 140 | `input-tolerance` | — |
-| 141 | `integrity-chain-validation` | — |
-| 142 | `intelligent-routing` | — |
-| 143 | `internal-memo` | — |
-| 144 | `internationalization` | — |
-| 145 | `knowledge-management` | — |
-| 146 | `kpi-framework` | — |
-| 147 | `landing-pages` | — |
-| 148 | `lead-generation` | — |
-| 149 | `lighthouse-ci` | — |
-| 150 | `linting-formatting` | — |
-| 151 | `llm-evaluation` | — |
-| 152 | `localization-guide` | — |
-| 153 | `log-management` | — |
-| 154 | `market-intelligence` | — |
-| 155 | `marketing-context` | — |
-| 156 | `mermaid-diagramming` | — |
-| 157 | `metrics-instrumentation` | — |
-| 158 | `micro-interactions` | — |
-| 159 | `microcopy-writing` | — |
-| 160 | `migration-planning` | — |
-| 161 | `mobile-patterns` | — |
-| 162 | `modal-dialog-patterns` | — |
-| 163 | `monitoring-setup` | — |
-| 164 | `motion-design` | — |
-| 165 | `multi-model-routing` | — |
-| 166 | `navigation-patterns` | — |
-| 167 | `newsletter-design` | — |
-| 168 | `node-development` | — |
-| 169 | `notification-handler` | — |
-| 170 | `notification-ux` | — |
-| 171 | `okr-design` | — |
-| 172 | `onboarding-ux` | — |
-| 173 | `parallel-workflow` | — |
-| 174 | `partnership-strategy` | — |
-| 175 | `payment-integration` | — |
-| 176 | `performance-architecture` | — |
-| 177 | `performance-testing` | — |
-| 178 | `permission-fast-path` | — |
-| 179 | `pipeline-governance` | — |
-| 180 | `podcast-prep` | — |
-| 181 | `portfolio-sites` | — |
-| 182 | `post-tool-use-validator` | — |
-| 183 | `pre-compact-context` | — |
-| 184 | `pre-tool-use-guard` | — |
-| 185 | `presentation-design` | — |
-| 186 | `press-release` | — |
-| 187 | `pricing-strategy` | — |
-| 188 | `print-stylesheet` | — |
-| 189 | `product-roadmapping` | — |
-| 190 | `prompt-engineering` | — |
-| 191 | `proposal-writing` | — |
-| 192 | `prototyping` | — |
-| 193 | `push-notifications` | — |
-| 194 | `pwa-architecture` | — |
-| 195 | `rag-patterns` | — |
-| 196 | `rate-limiting` | — |
-| 197 | `rbac-patterns` | — |
-| 198 | `react-development` | — |
-| 199 | `real-time-analytics` | — |
-| 200 | `realtime-architecture` | — |
-| 201 | `recaptcha-integration` | — |
-| 202 | `reporting-templates` | — |
-| 203 | `repository-organization` | — |
-| 204 | `requirements-engineering` | — |
-| 205 | `responsive-design` | — |
-| 206 | `rest-api-development` | — |
-| 207 | `retrospective-facilitation` | — |
-| 208 | `risk-assessment` | — |
-| 209 | `rollback-strategy` | — |
-| 210 | `sales-collateral` | — |
-| 211 | `scenario-analysis` | — |
-| 212 | `scheduled-functions` | — |
-| 213 | `schema-evolution` | — |
-| 214 | `scroll-interaction` | — |
-| 215 | `search-ux` | — |
-| 216 | `sector-intelligence` | — |
-| 217 | `security-architecture` | — |
-| 218 | `security-testing` | — |
-| 219 | `seo-architecture` | — |
-| 220 | `seo-content` | — |
-| 221 | `serverless-patterns` | — |
-| 222 | `session-end-cleanup` | — |
-| 223 | `session-protocol` | — |
-| 224 | `session-start-bootstrap` | — |
-| 225 | `skill-search` | — |
-| 226 | `sla-definition` | — |
-| 227 | `social-proof` | — |
-| 228 | `socratic-debate` | — |
-| 229 | `ssh-deployment` | — |
-| 230 | `ssl-management` | — |
-| 231 | `stakeholder-mapping` | — |
-| 232 | `state-management` | — |
-| 233 | `stop-validator` | — |
-| 234 | `structured-output` | — |
-| 235 | `subagent-monitor` | — |
-| 236 | `survey-design` | — |
-| 237 | `system-architecture` | — |
-| 238 | `table-ux` | — |
-| 239 | `task-automation` | — |
-| 240 | `tasklog-management` | — |
-| 241 | `team-topology` | — |
-| 242 | `technical-writing-patterns` | — |
-| 243 | `test-strategy` | — |
-| 244 | `trade-off-analysis` | — |
-| 245 | `training-material` | — |
-| 246 | `triad-composition` | — |
-| 247 | `typescript-patterns` | — |
-| 248 | `typography-advanced` | — |
-| 249 | `unit-testing` | — |
-| 250 | `user-prompt-filter` | — |
-| 251 | `user-research` | — |
-| 252 | `user-testing` | — |
-| 253 | `vanilla-javascript` | — |
-| 254 | `vendor-evaluation` | — |
-| 255 | `video-script` | — |
-| 256 | `visual-regression` | — |
-| 257 | `voice-interface` | — |
-| 258 | `web-components` | — |
-| 259 | `webhook-handling` | — |
-| 260 | `whitepaper-creation` | — |
-| 261 | `workflow-orchestration` | — |
-| 262 | `workshop-design` | — |
-| 263 | `workshop-proposal` | — |
-| 264 | `workspace-governance` | — |
-
-## Commands (260)
-
-| # | ID | Description |
-|---|-----|-------------|
-| 1 | `ab-testing` | Hypothesis formulation, statistical significance, sample size calculation, test  |
-| 2 | `accessibility-writing` | Alt text guidelines, plain language, reading level, inclusive language. |
-| 3 | `adapt` | Sync IDE instruction files from canonical core — Antigravity, VS Code Copilot, |
-| 4 | `add-a11y` | Improve accessibility compliance |
-| 5 | `add-analytics` | Add Google Analytics tracking |
-| 6 | `add-animation` | Add page transitions and micro-interactions |
-| 7 | `add-dark-mode` | Add dark mode to existing project |
-| 8 | `add-i18n` | Add internationalization |
-| 9 | `add-offline` | Add offline-first capability |
-| 10 | `add-pwa` | Convert to Progressive Web App |
-| 11 | `adr` | Generate Architecture Decision Record |
-| 12 | `ai-assisted-testing` | AI-generated test cases, fuzzing, mutation testing, coverage optimization. |
-| 13 | `ai-code-review` | LLM-assisted code review patterns, automated suggestion generation. |
-| 14 | `ai-content-detection` | AI-generated content detection, watermarking, human-AI hybrid strategies. |
-| 15 | `ai-documentation` | Auto-generated docs from code, README generation, API doc automation. |
-| 16 | `ai-safety` | Content filters, output guardrails, jailbreak prevention, safety evaluation. |
-| 17 | `ai-workflow-automation` | LLM-in-the-loop workflows, human-AI handoff, approval gates. |
-| 18 | `alerting-strategy` | Alert fatigue prevention, escalation rules, severity classification. |
-| 19 | `analytics-events` | Event taxonomy, naming conventions, tracking plan, implementation. |
-| 20 | `analyze` | Full analysis pipeline (MAO-style): requirements → flows → scenarios → fea |
-| 21 | `animation-principles` | 12 principles of animation applied to UI motion design. |
-| 22 | `api-docs` | Generate API documentation from code or OpenAPI spec |
-| 23 | `architect` | Design system architecture with C4 diagrams |
-| 24 | `audit-a11y` | WCAG accessibility audit |
-| 25 | `audit-bundle` | Bundle size analysis |
-| 26 | `audit-deps` | Dependency vulnerability scan |
-| 27 | `audit-perf` | Lighthouse performance audit |
-| 28 | `audit-security` | Security audit (OWASP) |
-| 29 | `audit-seo` | Technical SEO audit |
-| 30 | `audit-trail-design` | Immutable audit logs, qualified paths, retention policies, forensics. |
-| 31 | `auto` | Autonomous pipeline from requirements to deployment |
-| 32 | `b2b-outreach` | Cold email sequences, follow-up cadence, objection handling, persona-based templ |
-| 33 | `backup-strategy` | Firestore exports, scheduled backups, recovery testing, retention. |
-| 34 | `bdd` | Generate BDD full-spectrum Gherkin scenarios for a feature |
-| 35 | `benchmarking-analysis` | Industry benchmarks, internal baselines, trend analysis, gap identification. |
-| 36 | `brand-html` | Generate a MetodologIA-branded HTML document |
-| 37 | `brief` | Generate technical brief (max 3 pages) |
-| 38 | `budget-management` | Project budgets, burn rate tracking, forecast modeling, variance analysis. |
-| 39 | `capacity-planning` | Load projections, scaling triggers, resource budgeting, growth modeling. |
-| 40 | `case-study-writing` | Problem-solution-result format, metrics, quotes, visual layout. |
-| 41 | `cdn-configuration` | CDN setup, cache headers, edge functions, purge strategies. |
-| 42 | `change-management-enterprise` | Communication plans, stakeholder alignment, rollout strategy. |
-| 43 | `changelog-writing` | User-facing changelogs, semantic grouping, tone, migration guides. |
-| 44 | `changelog` | Generate changelog from git history |
-| 45 | `chatbot-design` | Conversational UI patterns, intent routing, fallback handling, persona design. |
-| 46 | `ci-pipeline-design` | Pipeline stages, parallelization, caching, artifact management. |
-| 47 | `cohort-analysis` | User segmentation, retention curves, lifecycle stage analysis. |
-| 48 | `color-theory` | Color psychology, palette generation, harmony rules, contrast. |
-| 49 | `competition` | Competitive landscape analysis |
-| 50 | `competitive-positioning` | Competitor analysis frameworks, differentiation strategy, feature comparison. |
-| 51 | `compliance-framework` | SOC2, ISO 27001, GDPR compliance checklist patterns and evidence. |
-| 52 | `constitution` | View or amend the project Constitution |
-| 53 | `content-calendar` | Editorial calendar, topic clustering, content pillar planning, cadence. |
-| 54 | `context-window-management` | Token budgeting, context compression, priority-based summarization. |
-| 55 | `contract-review` | Terms analysis, risk clauses, negotiation points, renewal strategy. |
-| 56 | `conversion-optimization` | CRO: friction point analysis, trust signals, funnel optimization, A/B test desig |
-| 57 | `copywriting-frameworks` | AIDA, PAS, FAB frameworks applied to marketing copy and landing pages. |
-| 58 | `cors-configuration` | CORS policies, preflight handling, credentials, origin whitelisting. |
-| 59 | `create-api` | Cloud Function HTTP endpoint |
-| 60 | `create-auth` | Login/register/reset password flow |
-| 61 | `create-blog` | Blog with markdown and categories |
-| 62 | `create-chart` | Data visualization component |
-| 63 | `create-component` | Framework component with props/inputs |
-| 64 | `create-crud` | Firestore CRUD operations |
-| 65 | `create-dashboard` | Dashboard with charts and tables |
-| 66 | `create-email` | Email template |
-| 67 | `create-form` | Form with validation and submission |
-| 68 | `create-landing` | Conversion-optimized landing page |
-| 69 | `create-map` | Google Maps integration |
-| 70 | `create-modal` | Accessible modal/dialog |
-| 71 | `create-nav` | Responsive navigation component |
-| 72 | `create-notification` | Push notification system |
-| 73 | `create-page` | Generate HTML page with semantic markup |
-| 74 | `create-payment` | Payment integration |
-| 75 | `create-search` | Search functionality |
-| 76 | `create-table` | Sortable filterable data table |
-| 77 | `create-upload` | File upload to Firebase Storage |
-| 78 | `create` | Create new component/feature (meta-command) |
-| 79 | `cv` | Enhance a CV or professional profile |
-| 80 | `dashboard-design` | Dashboard layout patterns, data hierarchy, drill-down, real-time. |
-| 81 | `data-documentation` | Data dictionaries, schema documentation, lineage tracking. |
-| 82 | `data-export` | CSV/JSON/PDF export, batch processing, scheduled report generation. |
-| 83 | `data-privacy-patterns` | PII detection, anonymization, GDPR compliance, consent management. |
-| 84 | `data-validation` | Schema validation, type checking, constraint enforcement, error handling. |
-| 85 | `debate` | Trigger a formal Socratic debate to resolve ambiguities, trade-offs, or low-conf |
-| 86 | `demo` | Quick demo — pick a project type, watch the triad build it with quality gates  |
-| 87 | `dependency-management` | Lockfiles, update strategy, Renovate/Dependabot, vulnerability scanning. |
-| 88 | `deploy-firebase` | Build and deploy to Firebase Hosting |
-| 89 | `deploy-hostinger` | Build and deploy to Hostinger via FTP |
-| 90 | `deploy-preview` | Deploy to preview/staging channel |
-| 91 | `deploy` | Deploy to configured target (meta-command) |
-| 92 | `design-api` | Create API contract (OpenAPI/GraphQL) |
-| 93 | `design-auth` | Design authentication architecture |
-| 94 | `design-components` | Design component hierarchy |
-| 95 | `design-critique` | Structured design review, heuristic evaluation, feedback frameworks. |
-| 96 | `design-db` | Design database schema (Firestore/SQL) |
-| 97 | `design-perf` | Design performance optimization plan |
-| 98 | `design-pwa` | Design PWA architecture |
-| 99 | `design-seo` | Design technical SEO strategy |
-| 100 | `design-state` | Design state management strategy |
-| 101 | `develop` | Full development pipeline (SA-style): design → scaffold → build → test → |
-| 102 | `developer-onboarding` | Onboarding checklists, ramp-up metrics, mentoring programs, buddy system. |
-| 103 | `diagram` | Generate Mermaid diagram |
-| 104 | `disaster-recovery` | RTO/RPO targets, failover testing, business continuity planning. |
-| 105 | `discover` | Run full discovery pipeline |
-| 106 | `dns-architecture` | DNS design, failover, geo-routing, TTL strategy. |
-| 107 | `docker-awareness` | Dockerfile patterns, compose, multi-stage builds for development awareness. |
-| 108 | `docs` | Generate project documentation |
-| 109 | `documentation-standards` | Documentation templates, review cycles, versioning, archival policy. |
-| 110 | `documentation-system` | Doc-as-code workflows, versioning, review cycles, CI publishing. |
-| 111 | `domain-map` | Create DDD bounded context map |
-| 112 | `dossier` | Generate a deep research dossier for a target company |
-| 113 | `embedding-strategy` | Text embedding selection, similarity search, clustering, dimensionality reductio |
-| 114 | `empty-states` | Zero-data UI, first-use experience, placeholder content, call-to-action. |
-| 115 | `environment-management` | Dev/staging/prod configs, env variables, secrets rotation. |
-| 116 | `error-messaging` | Error message taxonomy, tone, actionability, recovery guidance. |
-| 117 | `error-patterns` | Implement error handling patterns for the project |
-| 118 | `error-recovery-automation` | Automatic retry with exponential backoff, error classification. |
-| 119 | `estimate` | Estimate effort in FTE-months |
-| 120 | `etl-patterns` | Extract-transform-load pipelines, batch vs stream, error recovery. |
-| 121 | `event-marketing` | Webinar design, conference strategy, speaking proposals, event follow-up. |
-| 122 | `evolve` | Improve existing code (meta-command) |
-| 123 | `express` | Quick mode: scaffold → develop → deploy (skip analysis) |
-| 124 | `feasibility` | Run 7-dimension feasibility assessment |
-| 125 | `file-watcher` | Detect file changes, trigger validation, auto-lint on save. |
-| 126 | `fine-tuning-prep` | Training data curation, labeling guidelines, validation splits, quality checks. |
-| 127 | `fix` | Auto-fix common issues |
-| 128 | `flows` | Map business processes and data flows |
-| 129 | `form-ux-advanced` | Multi-step forms, inline validation, smart defaults, error recovery. |
-| 130 | `funnel-analytics` | Conversion funnel tracking, drop-off analysis, optimization strategy. |
-| 131 | `funnel-design` | TOFU/MOFU/BOFU content mapping, lead scoring, nurture flow design. |
-| 132 | `git-hook-integration` | Pre-commit and pre-push hooks, conventional commit enforcement. |
-| 133 | `git-init` | Set up Git workflow: branching strategy, commit conventions, PR template |
-| 134 | `grid-systems` | CSS Grid patterns, magazine layouts, asymmetric grids, breakpoint design. |
-| 135 | `guardrails` | List, add, or remove working guidelines, constraints, and guardrails |
-| 136 | `guided` | Full pipeline with human checkpoints at every gate |
-| 137 | `health-check-automation` | System health monitoring, dependency status, resource usage alerts. |
-| 138 | `health` | System health check — verify integrity, workspace state, hook status, componen |
-| 139 | `help` | Show help and getting started guide |
-| 140 | `http-headers` | Security headers, caching headers, compression, content negotiation. |
-| 141 | `iconography` | Icon systems, SVG optimization, icon accessibility, consistency. |
-| 142 | `incident-response` | Incident playbooks, postmortem templates, severity classification, on-call. |
-| 143 | `index` | Regenerate PRISTINO-INDEX.md master registry |
-| 144 | `init` | Initialize JM-ADK workspace management — system check, config, workspace/, hoo |
-| 145 | `insights` | View, search, or add insights from debates and discoveries |
-| 146 | `internal-memo` | Executive memo structure, decision briefs, status updates, action items. |
-| 147 | `knowledge-management` | Organizational knowledge capture, searchability, decay prevention. |
-| 148 | `kpi-framework` | KPI design, metric trees, leading/lagging indicators, OKR alignment. |
-| 149 | `lead-generation` | Lead magnets, gated content, signup optimization, qualification scoring. |
-| 150 | `lighthouse` | Run Lighthouse CI audit with performance budgets |
-| 151 | `lint` | Run linting and formatting |
-| 152 | `llm-evaluation` | Model output quality assessment, hallucination detection, benchmark suites. |
-| 153 | `localization-guide` | Translation workflows, context for translators, glossaries, RTL support. |
-| 154 | `log-management` | Structured logging, log levels, retention policies, search patterns. |
-| 155 | `market` | Run geographic market intelligence analysis |
-| 156 | `marketing-context` | Brand positioning, value propositions, and messaging framework for consistent ma |
-| 157 | `menu` | Interactive command palette showing all available commands |
-| 158 | `metrics-instrumentation` | Code-level metrics, custom dimensions, event parameter design. |
-| 159 | `micro-interactions` | Button states, loading indicators, success feedback, hover effects. |
-| 160 | `microcopy-writing` | Button labels, tooltips, empty states, confirmation dialogs, placeholders. |
-| 161 | `mobile-patterns` | Bottom sheets, pull-to-refresh, swipe actions, FAB, gesture navigation. |
-| 162 | `monitoring-setup` | Application monitoring, health checks, uptime tracking, alerting integration. |
-| 163 | `motion-design` | Page transitions, scroll-triggered animations, parallax, performance. |
-| 164 | `multi-model-routing` | Model selection by task complexity, cost optimization, fallback chains. |
-| 165 | `newsletter-design` | Newsletter strategy, content structure, engagement metrics, send optimization. |
-| 166 | `notification-handler` | System notification management, progress updates, alert routing. |
-| 167 | `notification-ux` | Toast patterns, badge counts, notification center, priority ranking. |
-| 168 | `okr-design` | OKR framework, alignment cascading, progress tracking, scoring. |
-| 169 | `onboarding-ux` | User onboarding flows, activation metrics, time-to-value optimization. |
-| 170 | `onboarding` | Guided first-use experience — walks you through your first JM-ADK project |
-| 171 | `optimize-fonts` | Optimize fonts: subsetting, preload, FOUT prevention |
-| 172 | `optimize-images` | Optimize images: WebP conversion, lazy loading, srcset |
-| 173 | `partnership-strategy` | Partner identification, co-marketing programs, referral system design. |
-| 174 | `permission-fast-path` | Auto-approve read-only operations to reduce LLM overhead. |
-| 175 | `personas` | Generate user personas and journey maps |
-| 176 | `pitch` | Create executive pitch with ROI |
-| 177 | `podcast-prep` | Episode planning, guest research, question frameworks, show notes. |
-| 178 | `post-tool-use-validator` | Validate tool outputs: lint check, evidence tags, quality gates. |
-| 179 | `pre-compact-context` | Context preservation before compression, priority-based retention. |
-| 180 | `pre-tool-use-guard` | Block dangerous commands before execution using exit code 2 pattern. |
-| 181 | `presentation-design` | Slide deck patterns, visual storytelling, Minto pyramid for slides. |
-| 182 | `press-release` | Inverted pyramid, quotes, boilerplate, distribution strategy. |
-| 183 | `pricing-strategy` | Pricing page design, anchoring, tier structure, value-based framing. |
-| 184 | `prompt-engineering` | Prompt design patterns: few-shot, chain-of-thought, system prompts, guardrails. |
-| 185 | `proposal-writing` | RFP response, scope definition, pricing tables, timeline, risk section. |
-| 186 | `prospect` | Prospect clients by geography and sector with AI-driven research |
-| 187 | `prototyping` | Low-fi to high-fi prototyping, clickable mockups, rapid iteration. |
-| 188 | `rag-patterns` | Retrieval-augmented generation: chunking, embedding, vector search, reranking. |
-| 189 | `rate-limiting` | API rate limits, throttling, quota management, abuse prevention. |
-| 190 | `rbac-patterns` | Role-based access control, permission matrices, Firebase custom claims. |
-| 191 | `readme` | Generate/update README.md |
-| 192 | `real-time-analytics` | Live dashboards, WebSocket streams, alert threshold configuration. |
-| 193 | `recaptcha` | Integrate reCAPTCHA v3 with Firebase App Check |
-| 194 | `repair` | Debug and fix issues |
-| 195 | `reporting-templates` | Executive reports, operational dashboards, compliance report design. |
-| 196 | `requirements` | Extract requirements from conversation/documents |
-| 197 | `retro` | Session retrospective with lessons learned |
-| 198 | `retrospective-facilitation` | Sprint retros, blameless postmortems, action item tracking. |
-| 199 | `review` | Code review with quality gates |
-| 200 | `risks` | Generate risk register |
-| 201 | `roadmap` | Generate prioritized product roadmap |
-| 202 | `rollback-strategy` | Blue-green, canary, feature flags, database rollback patterns. |
-| 203 | `rollback` | Rollback to previous deployment |
-| 204 | `sales-collateral` | One-pagers, battle cards, ROI calculators, competitive positioning documents. |
-| 205 | `scaffold-angular` | Angular 18+ with Firebase |
-| 206 | `scaffold-api` | Cloud Functions REST API |
-| 207 | `scaffold-dashboard` | Admin dashboard with Firebase backend |
-| 208 | `scaffold-firebase` | Firebase + vanilla JS project |
-| 209 | `scaffold-landing` | Landing page with analytics |
-| 210 | `scaffold-react` | React 19+ with Firebase |
-| 211 | `scaffold-vanilla` | Pure HTML/CSS/JS project |
-| 212 | `scaffold` | Meta-scaffold: choose template and generate project |
-| 213 | `scenarios` | Evaluate modernization/implementation scenarios |
-| 214 | `schema-evolution` | Migration patterns, backward compatibility, versioning, zero-downtime. |
-| 215 | `search-ux` | Search bar patterns, autocomplete, faceted search, filter design. |
-| 216 | `search` | Search skills by keyword using BM25 index |
-| 217 | `seo-content` | Generate SEO content: meta descriptions, JSON-LD, Open Graph |
-| 218 | `session-end-cleanup` | Session summary generation, insight extraction, tasklog update. |
-| 219 | `session-start-bootstrap` | Context loading, environment detection, guardrails initialization. |
-| 220 | `session` | Initialize or review session protocol |
-| 221 | `setup-ci` | Configure GitHub Actions CI/CD |
-| 222 | `setup-domain` | Configure custom domain + DNS |
-| 223 | `setup-ssl` | Configure SSL certificate |
-| 224 | `ship` | Build optimized bundle + deploy to Hostinger or Firebase |
-| 225 | `sla-definition` | Service level agreements, uptime targets, penalty structures, monitoring. |
-| 226 | `social-proof` | Testimonials, case studies, trust badges, social validation pattern design. |
-| 227 | `spec` | Generate functional specification |
-| 228 | `ssh-deploy` | Deploy to Hostinger via SSH+Git |
-| 229 | `ssl-management` | Certificate lifecycle, auto-renewal, HSTS, certificate pinning. |
-| 230 | `stakeholders` | Generate stakeholder map and RACI |
-| 231 | `status` | Show current pipeline status and progress |
-| 232 | `stop-validator` | Final output validation before delivery: evidence tags, quality, completeness. |
-| 233 | `structured-output` | JSON mode, schema-constrained generation, output validation, error recovery. |
-| 234 | `subagent-monitor` | Track subagent execution, timeout handling, result aggregation. |
-| 235 | `survey-design` | NPS/CSAT/CES surveys, question design, response analysis, benchmarks. |
-| 236 | `table-ux` | Data tables, sorting, pagination, responsive tables, bulk actions. |
-| 237 | `task-automation` | Recurring task scheduling, batch operations, periodic health checks. |
-| 238 | `team-topology` | Team structure design, communication paths, cognitive load management. |
-| 239 | `technical-writing-patterns` | API docs style, tutorial structure, reference format, how-to guides. |
-| 240 | `test-a11y` | Run accessibility tests |
-| 241 | `test-e2e` | Generate and run e2e tests |
-| 242 | `test-perf` | Run performance tests |
-| 243 | `test-unit` | Generate and run unit tests |
-| 244 | `test` | Run test suite |
-| 245 | `trade-off` | Run weighted trade-off analysis between options |
-| 246 | `training-material` | Course design, exercises, assessments, facilitator guide, handouts. |
-| 247 | `typography-advanced` | Variable fonts, optical sizing, responsive typography, vertical rhythm. |
-| 248 | `user-prompt-filter` | Input sanitization and injection detection at the prompt submission level. |
-| 249 | `user-testing` | Usability testing protocols, task scenarios, think-aloud, analysis. |
-| 250 | `validate-chain` | Validate the Intent Integrity Chain end-to-end for a feature or the entire proje |
-| 251 | `vendor-evaluation` | Vendor scoring, TCO analysis, lock-in assessment, exit strategy. |
-| 252 | `video-script` | Video structure, hook-body-CTA, timing, B-roll cues, accessibility. |
-| 253 | `visual-test` | Run visual regression tests with screenshot comparison |
-| 254 | `voice-interface` | Speech-to-text, text-to-speech, voice UI patterns, accessibility. |
-| 255 | `whitepaper-creation` | Long-form research, methodology, findings, recommendations, citations. |
-| 256 | `workflow-orchestration` | Multi-step workflow execution with checkpoint and resume capability. |
-| 257 | `workshop` | Design workshop session plan |
-| 258 | `workspace-cleanup` | Archive stale workspaces and clean up orphaned registry entries |
-| 259 | `workspace-report` | Generate a summary report for the active or specified workspace — metrics, tim |
-| 260 | `workspace` | Manage JM-ADK workspaces — create, status, list, complete, archive, switch, ga |
-
-## Prompts (256)
-
-| # | ID | Category |
-|---|-----|----------|
-| 1 | `1-prompt-engineering` | ai |
-| 2 | `10-chatbot-design` | ai |
-| 3 | `11-ai-safety` | ai |
-| 4 | `12-multi-model-routing` | ai |
-| 5 | `13-context-window-management` | ai |
-| 6 | `14-structured-output` | ai |
-| 7 | `15-ai-workflow-automation` | ai |
-| 8 | `16-voice-interface` | ai |
-| 9 | `2-rag-patterns` | ai |
-| 10 | `3-llm-evaluation` | ai |
-| 11 | `4-ai-content-detection` | ai |
-| 12 | `5-embedding-strategy` | ai |
-| 13 | `6-fine-tuning-prep` | ai |
-| 14 | `7-ai-assisted-testing` | ai |
-| 15 | `8-ai-code-review` | ai |
-| 16 | `9-ai-documentation` | ai |
-| 17 | `1-kpi-framework` | analytics |
-| 18 | `10-data-privacy-patterns` | analytics |
-| 19 | `11-data-export` | analytics |
-| 20 | `12-real-time-analytics` | analytics |
-| 21 | `13-survey-design` | analytics |
-| 22 | `14-benchmarking-analysis` | analytics |
-| 23 | `15-data-documentation` | analytics |
-| 24 | `16-metrics-instrumentation` | analytics |
-| 25 | `2-dashboard-design` | analytics |
-| 26 | `3-data-validation` | analytics |
-| 27 | `4-schema-evolution` | analytics |
-| 28 | `5-etl-patterns` | analytics |
-| 29 | `6-reporting-templates` | analytics |
-| 30 | `7-analytics-events` | analytics |
-| 31 | `8-cohort-analysis` | analytics |
-| 32 | `9-funnel-analytics` | analytics |
-| 33 | `21-design-system-arch` | architecture |
-| 34 | `22-design-api-contract` | architecture |
-| 35 | `23-model-database` | architecture |
-| 36 | `24-threat-model` | architecture |
-| 37 | `25-design-events` | architecture |
-| 38 | `26-design-state` | architecture |
-| 39 | `27-design-components` | architecture |
-| 40 | `28-design-responsive` | architecture |
-| 41 | `29-design-a11y` | architecture |
-| 42 | `30-design-tokens` | architecture |
-| 43 | `31-design-pwa` | architecture |
-| 44 | `32-design-performance` | architecture |
-| 45 | `33-design-seo` | architecture |
-| 46 | `34-design-caching` | architecture |
-| 47 | `35-design-auth` | architecture |
-| 48 | `36-design-realtime` | architecture |
-| 49 | `37-plan-migration` | architecture |
-| 50 | `38-plan-infrastructure` | architecture |
-| 51 | `39-generate-diagram` | architecture |
-| 52 | `40-analyze-tradeoffs` | architecture |
-| 53 | `1-pre-tool-use-guard` | automation |
-| 54 | `10-permission-fast-path` | automation |
-| 55 | `11-file-watcher` | automation |
-| 56 | `12-git-hook-integration` | automation |
-| 57 | `13-error-recovery-automation` | automation |
-| 58 | `14-task-automation` | automation |
-| 59 | `15-workflow-orchestration` | automation |
-| 60 | `16-health-check-automation` | automation |
-| 61 | `2-post-tool-use-validator` | automation |
-| 62 | `3-user-prompt-filter` | automation |
-| 63 | `4-session-start-bootstrap` | automation |
-| 64 | `5-session-end-cleanup` | automation |
-| 65 | `6-pre-compact-context` | automation |
-| 66 | `7-stop-validator` | automation |
-| 67 | `8-notification-handler` | automation |
-| 68 | `9-subagent-monitor` | automation |
-| 69 | `1-marketing-context` | business |
-| 70 | `10-onboarding-ux` | business |
-| 71 | `11-newsletter-design` | business |
-| 72 | `12-content-calendar` | business |
-| 73 | `13-lead-generation` | business |
-| 74 | `14-competitive-positioning` | business |
-| 75 | `15-partnership-strategy` | business |
-| 76 | `16-event-marketing` | business |
-| 77 | `2-conversion-optimization` | business |
-| 78 | `3-b2b-outreach` | business |
-| 79 | `4-sales-collateral` | business |
-| 80 | `5-copywriting-frameworks` | business |
-| 81 | `6-funnel-design` | business |
-| 82 | `7-ab-testing` | business |
-| 83 | `8-social-proof` | business |
-| 84 | `9-pricing-strategy` | business |
-| 85 | `1-technical-writing-patterns` | content |
-| 86 | `10-training-material` | content |
-| 87 | `11-documentation-system` | content |
-| 88 | `12-changelog-writing` | content |
-| 89 | `13-error-messaging` | content |
-| 90 | `14-microcopy-writing` | content |
-| 91 | `15-localization-guide` | content |
-| 92 | `16-accessibility-writing` | content |
-| 93 | `2-presentation-design` | content |
-| 94 | `3-video-script` | content |
-| 95 | `4-podcast-prep` | content |
-| 96 | `5-case-study-writing` | content |
-| 97 | `6-whitepaper-creation` | content |
-| 98 | `7-press-release` | content |
-| 99 | `8-internal-memo` | content |
-| 100 | `9-proposal-writing` | content |
-| 101 | `86-deploy-hostinger` | deployment |
-| 102 | `87-deploy-firebase` | deployment |
-| 103 | `88-setup-github-actions` | deployment |
-| 104 | `89-configure-domain` | deployment |
-| 105 | `90-setup-ssl` | deployment |
-| 106 | `91-create-htaccess` | deployment |
-| 107 | `92-configure-headers` | deployment |
-| 108 | `93-setup-environments` | deployment |
-| 109 | `94-rollback-deployment` | deployment |
-| 110 | `95-pre-deploy-checklist` | deployment |
-| 111 | `41-scaffold-project` | development |
-| 112 | `42-create-page` | development |
-| 113 | `43-create-component` | development |
-| 114 | `44-create-form` | development |
-| 115 | `45-create-api-endpoint` | development |
-| 116 | `46-create-firestore-crud` | development |
-| 117 | `47-create-auth-flow` | development |
-| 118 | `48-create-file-upload` | development |
-| 119 | `49-create-dashboard` | development |
-| 120 | `50-create-landing` | development |
-| 121 | `51-create-nav` | development |
-| 122 | `52-create-modal` | development |
-| 123 | `53-create-table` | development |
-| 124 | `54-create-chart` | development |
-| 125 | `55-create-map` | development |
-| 126 | `56-create-notification` | development |
-| 127 | `57-create-search` | development |
-| 128 | `58-create-email-template` | development |
-| 129 | `59-create-payment` | development |
-| 130 | `60-create-blog` | development |
-| 131 | `61-create-error-boundary` | development |
-| 132 | `61-implement-dark-mode` | development |
-| 133 | `62-create-recaptcha` | development |
-| 134 | `62-implement-i18n` | development |
-| 135 | `63-create-scheduled-function` | development |
-| 136 | `63-implement-animation` | development |
-| 137 | `64-create-webhook-handler` | development |
-| 138 | `64-implement-offline` | development |
-| 139 | `65-implement-lazy-load` | development |
-| 140 | `65-optimize-bundle` | development |
-| 141 | `66-create-service-worker` | development |
-| 142 | `66-implement-infinite-scroll` | development |
-| 143 | `67-create-schema-markup` | development |
-| 144 | `67-implement-web-component` | development |
-| 145 | `68-implement-print` | development |
-| 146 | `69-optimize-images` | development |
-| 147 | `70-optimize-fonts` | development |
-| 148 | `1-docker-awareness` | devops |
-| 149 | `10-ssl-management` | devops |
-| 150 | `11-dns-architecture` | devops |
-| 151 | `12-backup-strategy` | devops |
-| 152 | `13-rate-limiting` | devops |
-| 153 | `14-cors-configuration` | devops |
-| 154 | `15-http-headers` | devops |
-| 155 | `16-ci-pipeline-design` | devops |
-| 156 | `2-monitoring-setup` | devops |
-| 157 | `3-alerting-strategy` | devops |
-| 158 | `4-log-management` | devops |
-| 159 | `5-incident-response` | devops |
-| 160 | `6-rollback-strategy` | devops |
-| 161 | `7-environment-management` | devops |
-| 162 | `8-dependency-management` | devops |
-| 163 | `9-cdn-configuration` | devops |
-| 164 | `01-analyze-requirements` | discovery |
-| 165 | `02-map-stakeholders` | discovery |
-| 166 | `03-model-domain` | discovery |
-| 167 | `04-map-flows` | discovery |
-| 168 | `05-evaluate-scenarios` | discovery |
-| 169 | `06-validate-feasibility` | discovery |
-| 170 | `07-analyze-competition` | discovery |
-| 171 | `08-research-users` | discovery |
-| 172 | `09-model-processes` | discovery |
-| 173 | `10-prioritize-roadmap` | discovery |
-| 174 | `11-estimate-costs` | discovery |
-| 175 | `12-assess-risks` | discovery |
-| 176 | `13-plan-adoption` | discovery |
-| 177 | `14-check-compliance` | discovery |
-| 178 | `15-amplify-input` | discovery |
-| 179 | `16-design-workshop` | discovery |
-| 180 | `17-craft-pitch` | discovery |
-| 181 | `18-strategize-data` | discovery |
-| 182 | `19-orchestrate-discovery` | discovery |
-| 183 | `20-sector-brief` | discovery |
-| 184 | `1-compliance-framework` | enterprise |
-| 185 | `10-vendor-evaluation` | enterprise |
-| 186 | `11-contract-review` | enterprise |
-| 187 | `12-team-topology` | enterprise |
-| 188 | `13-developer-onboarding` | enterprise |
-| 189 | `14-retrospective-facilitation` | enterprise |
-| 190 | `15-okr-design` | enterprise |
-| 191 | `16-budget-management` | enterprise |
-| 192 | `2-audit-trail-design` | enterprise |
-| 193 | `3-rbac-patterns` | enterprise |
-| 194 | `4-documentation-standards` | enterprise |
-| 195 | `5-knowledge-management` | enterprise |
-| 196 | `6-change-management-enterprise` | enterprise |
-| 197 | `7-sla-definition` | enterprise |
-| 198 | `8-disaster-recovery` | enterprise |
-| 199 | `9-capacity-planning` | enterprise |
-| 200 | `100-run-full-pipeline` | meta |
-| 201 | `101-session-retrospective` | meta |
-| 202 | `102-socratic-debate` | meta |
-| 203 | `103-session-init` | meta |
-| 204 | `104-environment-detect` | meta |
-| 205 | `105-triad-compose` | meta |
-| 206 | `106-guardrail-set` | meta |
-| 207 | `107-insight-extract` | meta |
-| 208 | `108-constitution-amend` | meta |
-| 209 | `109-workspace-scaffold` | meta |
-| 210 | `110-index-regenerate` | meta |
-| 211 | `111-brand-html-generate` | meta |
-| 212 | `96-search-skills` | meta |
-| 213 | `97-find-agent` | meta |
-| 214 | `98-generate-spec` | meta |
-| 215 | `99-generate-adr` | meta |
-| 216 | `71-write-unit-tests` | quality |
-| 217 | `72-write-e2e-tests` | quality |
-| 218 | `73-audit-performance` | quality |
-| 219 | `74-audit-accessibility` | quality |
-| 220 | `75-audit-security` | quality |
-| 221 | `76-audit-seo` | quality |
-| 222 | `77-audit-bundle` | quality |
-| 223 | `78-review-code` | quality |
-| 224 | `79-fix-lint-errors` | quality |
-| 225 | `80-check-browser-compat` | quality |
-| 226 | `81-validate-html` | quality |
-| 227 | `82-validate-css` | quality |
-| 228 | `83-validate-a11y` | quality |
-| 229 | `84-generate-changelog` | quality |
-| 230 | `85-generate-docs` | quality |
-| 231 | `86-bdd-full-spectrum` | quality |
-| 232 | `87-error-handling-patterns` | quality |
-| 233 | `88-visual-regression-setup` | quality |
-| 234 | `89-lighthouse-budget` | quality |
-| 235 | `90-bdd-scenarios` | quality |
-| 236 | `91-guardrails-audit` | quality |
-| 237 | `92-indexability-scan` | quality |
-| 238 | `93-dual-layer-security` | quality |
-| 239 | `94-git-workflow-setup` | quality |
-| 240 | `95-api-documentation` | quality |
-| 241 | `1-user-testing` | ux |
-| 242 | `10-motion-design` | ux |
-| 243 | `11-form-ux-advanced` | ux |
-| 244 | `12-empty-states` | ux |
-| 245 | `13-notification-ux` | ux |
-| 246 | `14-search-ux` | ux |
-| 247 | `15-table-ux` | ux |
-| 248 | `16-mobile-patterns` | ux |
-| 249 | `2-prototyping` | ux |
-| 250 | `3-design-critique` | ux |
-| 251 | `4-animation-principles` | ux |
-| 252 | `5-micro-interactions` | ux |
-| 253 | `6-color-theory` | ux |
-| 254 | `7-iconography` | ux |
-| 255 | `8-typography-advanced` | ux |
-| 256 | `9-grid-systems` | ux |
+| # | Skill | Description |
+|---|-------|-------------|
+| 1 | `ab-testing` | Hypothesis formulation, statistical significance, sample size calculation, test duration. [EXPLICIT] |
+| 2 | `accessibility-audit` | version: 1.0.0 |
+| 3 | `accessibility-design` | Implements WCAG 2.1 AA accessibility patterns including ARIA roles, keyboard |
+| 4 | `accessibility-testing` | Test web accessibility with axe-core, screen reader testing, keyboard |
+| 5 | `accessibility-writing` | Alt text guidelines, plain language, reading level, inclusive language. [EXPLICIT] |
+| 6 | `admin-dashboards` | Build admin dashboard interfaces with data tables, filters, charts, CRUD |
+| 7 | `agent-constitution-creator` | This skill should be used when the user asks to "create an agent constitution", [EXPLICIT] |
+| 8 | `agent-creator` | This skill should be used when the user asks to "create an agent", [EXPLICIT] |
+| 9 | `ai-architecture-audit` | Audits existing AI system architectures against best practices — structural integrity, AI quality attributes, |
+| 10 | `ai-architecture-implementation` | Guides implementation of AI system architectures — technology selection, pipeline implementation, model serving setup, |
+| 11 | `ai-assisted-testing` | AI-generated test cases, fuzzing, mutation testing, coverage optimization. [EXPLICIT] |
+| 12 | `ai-code-review` | LLM-assisted code review patterns, automated suggestion generation. [EXPLICIT] |
+| 13 | `ai-conops` | Concept of Operations (CONOPS) for AI systems — system vision, stakeholder mapping, AI-human interaction spectrum, |
+| 14 | `ai-content-detection` | AI-generated content detection, watermarking, human-AI hybrid strategies. [EXPLICIT] |
+| 15 | `ai-design-patterns` | AI-specific design patterns and system tactics — Feature Store, Champion-Challenger, Shadow Deployment, Drift Detectio |
+| 16 | `ai-documentation` | Auto-generated docs from code, README generation, API doc automation. [EXPLICIT] |
+| 17 | `ai-pipeline-architecture` | AI pipeline architecture design — development pipelines, production pipelines, data stores, model registry, CI/CD for  |
+| 18 | `ai-safety` | Content filters, output guardrails, jailbreak prevention, safety evaluation. [EXPLICIT] |
+| 19 | `ai-software-architecture` | AI software architecture design — modules, layers, boundaries, design patterns, ADRs, quality attributes, and technica |
+| 20 | `ai-testing-strategy` | Comprehensive testing strategy for AI systems — testing scope matrix (6 types x 6 layers), model prediction testing, |
+| 21 | `ai-workflow-automation` | LLM-in-the-loop workflows, human-AI handoff, approval gates. [EXPLICIT] |
+| 22 | `alerting-strategy` | Alert fatigue prevention, escalation rules, severity classification. [EXPLICIT] |
+| 23 | `analytics-engineering` | This skill should be used when the user asks to "design analytics models", |
+| 24 | `analytics-events` | Event taxonomy, naming conventions, tracking plan, implementation. [EXPLICIT] |
+| 25 | `analytics-implementation` | version: 1.0.0 |
+| 26 | `angular-development` | Develops Angular applications using modern patterns: Signals, standalone |
+| 27 | `angular-module-builder` | version: 1.0.0 |
+| 28 | `animation-motion` | version: 1.0.0 |
+| 29 | `animation-principles` | 12 principles of animation applied to UI motion design. [EXPLICIT] |
+| 30 | `api-architecture` | This skill should be used when the user asks to "design an API", |
+| 31 | `api-design` | Designs REST and GraphQL API contracts with OpenAPI/Swagger specifications, |
+| 32 | `api-designer` | version: 1.0.0 |
+| 33 | `api-documentation` | API documentation: OpenAPI/Swagger spec generation, endpoint docs, request/response examples, authentication docs. Compl |
+| 34 | `api-security` | version: 1.0.0 |
+| 35 | `architecture-tobe` | version: 1.0.0 |
+| 36 | `asis-analysis` | version: 1.0.0 |
+| 37 | `assembly-skill` | This skill should be used when the user asks to "run the full skill |
+| 38 | `assumption-log` | version: 1.0.0 |
+| 39 | `audit-content-quality` | Audits all SKILL.md files in a plugin against a 6-criteria excellence rubric, producing |
+| 40 | `audit-security` | Performs a comprehensive security audit on a Claude Code plugin, detecting leaked secrets, |
+| 41 | `audit-trail-design` | Immutable audit logs, qualified paths, retention policies, forensics. [EXPLICIT] |
+| 42 | `auth-architecture` | version: 1.0.0 |
+| 43 | `auto-prompt-matching` | Fuzzy-match user intent to best skill/prompt from PRISTINO-INDEX.md. Confidence scoring and routing. [EXPLICIT] |
+| 44 | `aws-architecture-audit` | Audits AWS AI/GenAI architectures against the Well-Architected GenAI Lens — operational excellence, security, |
+| 45 | `aws-architecture-design` | Designs AWS cloud architectures for AI and GenAI workloads applying the Well-Architected Framework |
+| 46 | `aws-architecture-implementation` | Guides implementation of AI/GenAI architectures on AWS — Bedrock setup, SageMaker pipelines, OpenSearch vector stores, |
+| 47 | `b2b-outreach` | Triggers on "outreach sequence", "cold email", "B2B outreach", "prospecting messages", |
+| 48 | `background-jobs` | version: 1.0.0 |
+| 49 | `backup-recovery` | version: 1.0.0 |
+| 50 | `backup-strategy` | Firestore exports, scheduled backups, recovery testing, retention. [EXPLICIT] |
+| 51 | `bdd-full-spectrum` | Generate Gherkin BDD scenarios across all quality angles — functional, accessibility, |
+| 52 | `benchmark-skill` | This skill should be used when the user asks to "compare skill versions", |
+| 53 | `benchmarking-analysis` | Industry benchmarks, internal baselines, trend analysis, gap identification. [EXPLICIT] |
+| 54 | `bi-architecture` | This skill should be used when the user asks to "design BI architecture", |
+| 55 | `bilingual-doc` | Triggers on "bilingual", "ES/EN toggle", "bilingual document", "dual language", |
+| 56 | `blog-cms` | Build blog and CMS features including Markdown rendering, categories and tags, |
+| 57 | `bmad-method` | Teach and apply the BMAD (Breakthrough Method for Agile AI-Driven Development) |
+| 58 | `brand-docx` | This skill should be used when the user asks to "generate a Word document", [EXPLICIT] |
+| 59 | `brand-html` | This skill should be used when the user asks to "generate branded HTML", |
+| 60 | `brand-voice` | This skill should be used when the user asks to "apply brand voice", |
+| 61 | `brand-xlsx` | This skill should be used when the user asks to "generate a branded spreadsheet", |
+| 62 | `branded-html-output` | Generate HTML outputs using MetodologIA brand design system. Navy background, gold accents, Poppins/Montserrat, glassmor |
+| 63 | `budget-management` | Project budgets, burn rate tracking, forecast modeling, variance analysis. [EXPLICIT] |
+| 64 | `build-moat-assets` | Create MOAT directory structures and populate asset files (references/, examples/, prompts/, scripts/, assets/) for plug |
+| 65 | `build-optimization` | version: 1.0.0 |
+| 66 | `build-plugin-scaffold` | Scaffold a complete plugin directory from architecture plans and specs. Creates all files, then validates structure. [EX |
+| 67 | `bundle-analysis` | version: 1.0.0 |
+| 68 | `business-process-modeling` | Models business processes using BPMN 2.0, value stream mapping, and capability |
+| 69 | `caching-strategy` | version: 1.0.0 |
+| 70 | `capacity-planning` | Use when the user asks to "plan capacity", "forecast resource demand", |
+| 71 | `case-study-writing` | Problem-solution-result format, metrics, quotes, visual layout. [EXPLICIT] |
+| 72 | `cdn-configuration` | CDN setup, cache headers, edge functions, purge strategies. [EXPLICIT] |
+| 73 | `certify-skill` | This skill should be used when the user asks to "certify a skill", |
+| 74 | `change-management-enterprise` | Communication plans, stakeholder alignment, rollout strategy. [EXPLICIT] |
+| 75 | `change-readiness` | Assesses organizational readiness for change using the ADKAR adoption model, |
+| 76 | `changelog-management` | Maintain changelog.md with semantic entries for decisions, completions, amendments, |
+| 77 | `changelog-writing` | User-facing changelogs, semantic grouping, tone, migration guides. [EXPLICIT] |
+| 78 | `chatbot-design` | Conversational UI patterns, intent routing, fallback handling, persona design. [EXPLICIT] |
+| 79 | `ci-cd-pipeline` | version: 1.0.0 |
+| 80 | `ci-pipeline-design` | Pipeline stages, parallelization, caching, artifact management. [EXPLICIT] |
+| 81 | `client-browser-audit` | Use when the user asks to "audit PM tools visually", "inspect Jira configuration", |
+| 82 | `client-dossier` | Triggers on "build dossier on", "client profile", "prospect research", "research company X", |
+| 83 | `client-prospecting` | Triggers on "find prospects", "prospecting", "lead list", "ICP definition", |
+| 84 | `cloud-functions` | Build Cloud Functions for Firebase with HTTP, Firestore, Auth, Storage, |
+| 85 | `cloud-migration` | This skill should be used when the user asks to "plan a cloud migration", |
+| 86 | `cloud-native-architecture` | This skill should be used when the user asks to "design cloud-native architecture", |
+| 87 | `code-review` | Conduct effective code reviews with PR checklists, anti-pattern detection, |
+| 88 | `code-review-checklist` | version: 1.0.0 |
+| 89 | `cohort-analysis` | User segmentation, retention curves, lifecycle stage analysis. [EXPLICIT] |
+| 90 | `color-theory` | Color psychology, palette generation, harmony rules, contrast. [EXPLICIT] |
+| 91 | `commercial-model` | This skill should be used when the user asks to "define a business model", |
+| 92 | `competitive-intelligence` | version: 1.0.0 |
+| 93 | `competitive-positioning` | Competitor analysis frameworks, differentiation strategy, feature comparison. [EXPLICIT] |
+| 94 | `competitor-teardown` | Triggers on "competitor teardown", "competitive analysis", "analizar competencia", |
+| 95 | `compliance-assessment` | Regulatory and standards compliance assessment — GDPR, SOX, PCI-DSS, HIPAA, ISO 27001, NIST CSF. [EXPLICIT] |
+| 96 | `compliance-framework` | SOC2, ISO 27001, GDPR compliance checklist patterns and evidence. [EXPLICIT] |
+| 97 | `component-architecture` | Designs frontend module boundaries, interface contracts, and composition |
+| 98 | `component-designer` | version: 1.0.0 |
+| 99 | `constitution-compliance` | Validate outputs against Constitution v5.2.0 (18 principles). Flag violations before delivery. [EXPLICIT] |
+| 100 | `contact-database` | Triggers on "contact database", "contact list", "CRM list", "base de contactos", |
+| 101 | `content-calendar` | Editorial calendar, topic clustering, content pillar planning, cadence. [EXPLICIT] |
+| 102 | `context-optimization` | Use when the user asks to "optimize context", "reduce token usage", |
+| 103 | `context-optimizer` | version: 1.0.0 |
+| 104 | `context-window-management` | Token budgeting, context compression, priority-based summarization. [EXPLICIT] |
+| 105 | `continuous-learning` | Extract reusable insights from Socratic debates and discoveries. Capture patterns |
+| 106 | `contract-review` | Terms analysis, risk clauses, negotiation points, renewal strategy. [EXPLICIT] |
+| 107 | `conversion-optimization` | CRO: friction point analysis, trust signals, funnel optimization, A/B test design. [EXPLICIT] |
+| 108 | `copywriting` | Persuasive writing for executive audiences — value propositions, calls to action, |
+| 109 | `copywriting-frameworks` | AIDA, PAS, FAB frameworks applied to marketing copy and landing pages. [EXPLICIT] |
+| 110 | `cors-configuration` | CORS policies, preflight handling, credentials, origin whitelisting. [EXPLICIT] |
+| 111 | `cost-estimation` | version: 1.0.0 |
+| 112 | `create-antigravity-skill` | Constructor de skills de produccion. Genera skills estructuradas con SKILL.md + references/, |
+| 113 | `creator-moat-skill` | This skill should be used when the user asks to "create a production skill", |
+| 114 | `cross-browser-testing` | Test and ensure cross-browser compatibility with progressive enhancement, |
+| 115 | `cross-platform-convert` | Use when the user asks to "convert skills to Cursor", "export to Codex", |
+| 116 | `css-animation` | Implements web animations using CSS keyframes, transitions, GSAP library, |
+| 117 | `css-architecture` | version: 1.0.0 |
+| 118 | `cv-enhancement` | Triggers on "improve my CV", "rewrite resume", "enhance CV", "make my CV better", |
+| 119 | `cv-transformer` | --- |
+| 120 | `dark-mode` | Implement dark mode with prefers-color-scheme media query, CSS custom properties, |
+| 121 | `dashboard-design` | Dashboard layout patterns, data hierarchy, drill-down, real-time. [EXPLICIT] |
+| 122 | `data-documentation` | Data dictionaries, schema documentation, lineage tracking. [EXPLICIT] |
+| 123 | `data-engineering` | This skill should be used when the user asks to "design data pipelines", |
+| 124 | `data-export` | CSV/JSON/PDF export, batch processing, scheduled report generation. [EXPLICIT] |
+| 125 | `data-flow-architecture` | version: 1.0.0 |
+| 126 | `data-governance` | This skill should be used when the user asks to "build a data catalog", |
+| 127 | `data-migration` | version: 1.0.0 |
+| 128 | `data-privacy-patterns` | PII detection, anonymization, GDPR compliance, consent management. [EXPLICIT] |
+| 129 | `data-quality` | This skill should be used when the user asks to "design a data quality framework", |
+| 130 | `data-science-architecture` | This skill should be used when the user asks to "design an ML system", |
+| 131 | `data-storytelling` | Transforms metrics and findings into meaningful narratives — insight extraction, |
+| 132 | `data-strategy` | Designs data architecture, governance frameworks, quality standards, and |
+| 133 | `data-validation` | version: 1.0.0 |
+| 134 | `data-visualization` | Implements data visualizations using Chart.js, D3.js, SVG, and Canvas |
+| 135 | `database-architecture` | version: 1.0.0 |
+| 136 | `database-design` | Designs database schemas, indexing strategies, and data models for relational |
+| 137 | `dependency-analysis` | version: 1.0.0 |
+| 138 | `dependency-management` | Lockfiles, update strategy, Renovate/Dependabot, vulnerability scanning. [EXPLICIT] |
+| 139 | `deployment-checklist` | Execute pre-deployment validation with environment variable checks, build |
+| 140 | `design-agent` | Design a plugin agent: role, tool allowlist, skill assignments, execution flows, operating principles. [EXPLICIT] |
+| 141 | `design-critique` | Structured design review, heuristic evaluation, feedback frameworks. [EXPLICIT] |
+| 142 | `design-skill` | Design a plugin skill in detail: frontmatter, procedure outline, quality criteria, anti-patterns, edge cases, tool selec |
+| 143 | `design-system` | This skill should be used when the user asks to "apply design system", |
+| 144 | `developer-onboarding` | Onboarding checklists, ramp-up metrics, mentoring programs, buddy system. [EXPLICIT] |
+| 145 | `devsecops-architecture` | This skill should be used when the user asks to "design the CI/CD pipeline", |
+| 146 | `digital-presence` | Triggers on "digital presence audit", "online presence", "presencia digital", "audit my online footprint". |
+| 147 | `disaster-recovery` | RTO/RPO targets, failover testing, business continuity planning. |
+| 148 | `discovery-handover` | This skill should be used when the user asks to "create handover", |
+| 149 | `discovery-orchestration` | Orchestrates the discovery pipeline by sequencing skills, enforcing quality |
+| 150 | `discovery-orchestrator` | version: 1.0.0 |
+| 151 | `discovery-retrospective` | Use when the user asks to "run a project discovery retrospective", "review discovery outcomes", |
+| 152 | `dns-architecture` | DNS design, failover, geo-routing, TTL strategy. [EXPLICIT] |
+| 153 | `docker-awareness` | Dockerfile patterns, compose, multi-stage builds for development awareness. [EXPLICIT] |
+| 154 | `documentation-standards` | Documentation templates, review cycles, versioning, archival policy. [EXPLICIT] |
+| 155 | `documentation-system` | Doc-as-code workflows, versioning, review cycles, CI publishing. [EXPLICIT] |
+| 156 | `domain-dns-setup` | version: 1.0.0 |
+| 157 | `domain-driven-design` | Applies Domain-Driven Design tactical and strategic patterns to model complex |
+| 158 | `domain-management` | Manage DNS records, nameservers, SSL certificates, email routing, and |
+| 159 | `dual-layer-verification` | Two-layer security verification: static source analysis (grep/ESLint) + runtime |
+| 160 | `dynamic-sme` | This skill should be used when the user asks to "add industry context", |
+| 161 | `e2e-testing` | version: 1.0.0 |
+| 162 | `ecommerce-frontend` | Build e-commerce frontend interfaces including product listings, shopping cart, |
+| 163 | `ecosystem-forge` | This skill should be used when the user asks to "bootstrap an ecosystem", |
+| 164 | `email-sending` | Send transactional and marketing emails via SendGrid, Mailgun, or SES with |
+| 165 | `email-template-builder` | version: 1.0.0 |
+| 166 | `email-templates` | Design and build HTML email templates that render correctly across all major |
+| 167 | `embedding-strategy` | Text embedding selection, similarity search, clustering, dimensionality reduction. [EXPLICIT] |
+| 168 | `empty-states` | Zero-data UI, first-use experience, placeholder content, call-to-action. [EXPLICIT] |
+| 169 | `enterprise-architecture` | This skill should be used when the user asks to "map business capabilities", |
+| 170 | `environment-detection` | Detect IDE and model at session start. Adapt triad mode, skill loading, |
+| 171 | `environment-management` | version: 1.0.0 |
+| 172 | `error-handling` | Error handling patterns: try/catch, error boundaries, fallback UI, user-friendly error messages, offline error states. E |
+| 173 | `error-handling-patterns` | version: 1.0.0 |
+| 174 | `error-messaging` | Error message taxonomy, tone, actionability, recovery guidance. [EXPLICIT] |
+| 175 | `error-recovery-automation` | Automatic retry with exponential backoff, error classification. [EXPLICIT] |
+| 176 | `etl-patterns` | Extract-transform-load pipelines, batch vs stream, error recovery. [EXPLICIT] |
+| 177 | `event-architecture` | This skill should be used when the user asks to "design an event-driven system", |
+| 178 | `event-marketing` | Webinar design, conference strategy, speaking proposals, event follow-up. [EXPLICIT] |
+| 179 | `excellence-loop` | Applies a 10-point quality rubric to every artifact with iterative refinement until excellence criteria are met. [EXPLIC |
+| 180 | `executive-pitch` | This skill should be used when the user asks to "create a pitch", |
+| 181 | `executive-summary` | Triggers on "executive summary", "resumen ejecutivo", "write executive brief", "summarize for C-level". |
+| 182 | `feasibility-validation` | Performs 7-dimension technical feasibility assessment covering architecture, |
+| 183 | `file-storage` | version: 1.0.0 |
+| 184 | `file-watcher` | Detect file changes, trigger validation, auto-lint on save. [EXPLICIT] |
+| 185 | `find-skills` | Discover, evaluate, and install agent skills from the open ecosystem (skills.sh, GitHub, local plugins). |
+| 186 | `fine-tuning-prep` | Training data curation, labeling guidelines, validation splits, quality checks. [EXPLICIT] |
+| 187 | `finops` | Financial Operations para cloud — visibilidad de costos, optimización, gobernanza, y cultura |
+| 188 | `firebase-architecture` | version: 1.0.0 |
+| 189 | `firebase-auth` | Implement Firebase Authentication with email/password, Google, GitHub, phone, |
+| 190 | `firebase-auth-setup` | version: 1.0.0 |
+| 191 | `firebase-cost-optimization` | version: 1.0.0 |
+| 192 | `firebase-deployment` | Deploy Firebase projects with firebase deploy, preview channels, rollback |
+| 193 | `firebase-emulator-setup` | version: 1.0.0 |
+| 194 | `firebase-extensions` | version: 1.0.0 |
+| 195 | `firebase-functions` | version: 1.0.0 |
+| 196 | `firebase-hosting` | Deploy web apps with Firebase Hosting — configure rewrites, headers, preview |
+| 197 | `firebase-hosting-setup` | version: 1.0.0 |
+| 198 | `firebase-setup` | Initialize and configure Firebase projects with emulators, environment-specific |
+| 199 | `firebase-storage` | Manage file uploads and downloads with Firebase Storage, including image |
+| 200 | `firestore-modeling` | Design Firestore data models with collections, subcollections, denormalization |
+| 201 | `firestore-queries` | Write efficient Firestore queries with compound filters, composite indexes, |
+| 202 | `firestore-schema-design` | version: 1.0.0 |
+| 203 | `firestore-security-rules` | version: 1.0.0 |
+| 204 | `fix-common-issues` | Automatically fixes mechanical issues found during plugin validation, including JSON |
+| 205 | `flow-mapping` | version: 1.0.0 |
+| 206 | `font-optimization` | Optimize web font loading with subsetting, preloading, font-display strategies, |
+| 207 | `form-builder` | version: 1.0.0 |
+| 208 | `form-engineering` | Implements robust web forms with client and server validation, multi-step |
+| 209 | `form-ux-advanced` | Multi-step forms, inline validation, smart defaults, error recovery. [EXPLICIT] |
+| 210 | `functional-spec` | version: 1.0.0 |
+| 211 | `functional-toolbelt` | This skill should be used when the user asks to "run event storming", |
+| 212 | `funnel-analytics` | Conversion funnel tracking, drop-off analysis, optimization strategy. [EXPLICIT] |
+| 213 | `funnel-design` | TOFU/MOFU/BOFU content mapping, lead scoring, nurture flow design. [EXPLICIT] |
+| 214 | `genai-architecture` | Generative AI architecture — RAG patterns, LLM orchestration, multi-model tiering, agent workflow design, vector datab |
+| 215 | `generate-qa-report` | Generates a comprehensive QA report in Markdown combining findings from all validation |
+| 216 | `generate-qa-scorecard` | Produces a compact executive scorecard grading a plugin across 7 quality dimensions |
+| 217 | `git-hook-integration` | Pre-commit and pre-push hooks, conventional commit enforcement. [EXPLICIT] |
+| 218 | `git-workflow` | Git workflow fundamentals: branching strategy, commit conventions, PR workflow, conflict resolution, release tagging. Fo |
+| 219 | `github-actions-ci` | Build CI/CD pipelines with GitHub Actions — test, lint, build, deploy |
+| 220 | `google-analytics` | Implement Google Analytics 4 with custom events, conversion tracking, GTM |
+| 221 | `google-apis-integration` | version: 1.0.0 |
+| 222 | `google-maps-integration` | Integrates Google Maps Platform APIs: Maps JavaScript API, markers and |
+| 223 | `google-workspace-apis` | Integrate Google Workspace APIs — Sheets, Docs, Drive, Calendar, and Gmail |
+| 224 | `governance-framework` | Use when the user asks to "define governance", "create governance model", |
+| 225 | `grid-systems` | CSS Grid patterns, magazine layouts, asymmetric grids, breakpoint design. [EXPLICIT] |
+| 226 | `guardrails-management` | Detect, confirm, store, and enforce user-declared guidelines, constraints, and |
+| 227 | `health-check-automation` | System health monitoring, dependency status, resource usage alerts. [EXPLICIT] |
+| 228 | `hook-creator` | This skill should be used when the user asks to "create a hook", |
+| 229 | `hostinger-deployment` | version: 1.0.0 |
+| 230 | `html-brand` | This skill should be used when the user asks to "create a Sofka HTML document", |
+| 231 | `html-semantic` | Implements semantic HTML5 with proper document structure, landmark elements, |
+| 232 | `html-semantic-builder` | version: 1.0.0 |
+| 233 | `http-headers` | Security headers, caching headers, compression, content negotiation. [EXPLICIT] |
+| 234 | `iconography` | Icon systems, SVG optimization, icon accessibility, consistency. [EXPLICIT] |
+| 235 | `ideate-component` | Brainstorm individual plugin components (skill, agent, command, hook) for existing or planned plugins. [EXPLICIT] |
+| 236 | `ideate-plugin` | Generate a structured plugin concept brief from a user idea. Trigger: ideate plugin, brainstorm plugin, plugin concept,  |
+| 237 | `iic-artifact-analyzer` | version: 1.0.0 |
+| 238 | `iic-bugfix` | version: 1.0.0 |
+| 239 | `iic-checklist-generator` | version: 1.0.0 |
+| 240 | `iic-clarify` | version: 1.0.0 |
+| 241 | `iic-constitution` | version: 1.0.0 |
+| 242 | `iic-core-engine` | version: 1.0.0 |
+| 243 | `iic-implement` | version: 1.0.0 |
+| 244 | `iic-plan-generator` | version: 1.0.0 |
+| 245 | `iic-specify` | version: 1.0.0 |
+| 246 | `iic-task-decomposer` | version: 1.0.0 |
+| 247 | `iic-tasks-to-issues` | version: 1.0.0 |
+| 248 | `iic-testify` | version: 1.0.0 |
+| 249 | `iikit-00-constitution` | Create or update a CONSTITUTION.md that defines project governance — establishes coding standards, quality gates, TDD  |
+| 250 | `iikit-01-specify` | Create a feature specification from a natural language description — generates user stories with Given/When/Then scena |
+| 251 | `iikit-02-plan` | Generate a technical design document from a feature spec — selects frameworks, defines data models, produces API contr |
+| 252 | `iikit-03-checklist` | Generate quality checklists that validate requirements completeness, clarity, and consistency — produces scored checkl |
+| 253 | `iikit-04-testify` | Generate Gherkin .feature files from requirements before implementation — produces executable BDD scenarios with trace |
+| 254 | `iikit-05-tasks` | Generate dependency-ordered task breakdown from plan and specification. |
+| 255 | `iikit-06-analyze` | Validate cross-artifact consistency — checks that every spec requirement traces to tasks, plan tech stack matches task |
+| 256 | `iikit-07-implement` | Execute the implementation plan by coding each task from tasks.md — writes source files, runs tests, verifies assertio |
+| 257 | `iikit-08-taskstoissues` | Convert tasks from tasks.md into GitHub Issues with labels and dependencies. |
+| 258 | `iikit-bugfix` | Report a bug against an existing feature — creates a structured bugs.md record, generates fix tasks in tasks.md, and o |
+| 259 | `iikit-clarify` | Resolve ambiguities in any project artifact — auto-detects the most recent artifact (spec, plan, checklist, testify, t |
+| 260 | `iikit-core` | Initialize an IIKit project, check feature progress, select the active feature, and display the workflow command referen |
+| 261 | `image-optimization` | version: 1.0.0 |
+| 262 | `incident-response` | Incident playbooks, postmortem templates, severity classification, on-call. [EXPLICIT] |
+| 263 | `indexability-validator` | Scan repository directories for README presence, validate index-driven navigation, |
+| 264 | `infrastructure-architecture` | This skill should be used when the user asks to "design cloud infrastructure", "plan network |
+| 265 | `infrastructure-design` | Designs hosting topology, CDN configuration, DNS setup, SSL/TLS management, |
+| 266 | `input-analysis` | version: 1.0.0 |
+| 267 | `input-analyst` | argument-hint: "raw user input [--passes 1,2,3,4,5] [--json]" |
+| 268 | `input-sanitization` | Input sanitization with strip-first default using native browser APIs (DOMParser). [EXPLICIT] |
+| 269 | `input-tolerance` | Normalize imperfect input: typos, voice, dyslexia, multilingual, multimodal. Extract intent from noise. [EXPLICIT] |
+| 270 | `integration-architecture` | version: 1.0.0 |
+| 271 | `integration-testing` | version: 1.0.0 |
+| 272 | `integrity-chain-validation` | Validate the Intent Integrity Chain end-to-end: Intent → RQL → Plan → ADR → Spec → |
+| 273 | `intelligent-routing` | Match user intent to the best domain for Lead agent selection using BM25 + semantic similarity. [EXPLICIT] |
+| 274 | `internal-memo` | Executive memo structure, decision briefs, status updates, action items. [EXPLICIT] |
+| 275 | `internationalization` | Implement internationalization (i18n) and localization (l10n) for web applications. [EXPLICIT] |
+| 276 | `interview-prep` | Triggers on "prepare for interview", "interview prep", "preparar entrevista", "mock interview". |
+| 277 | `invoice-generator` | Triggers on "create invoice", "invoice template", "factura", "generar factura". |
+| 278 | `javascript-patterns` | version: 1.0.0 |
+| 279 | `jmlabs-corporate-doc` | Triggers on "create corporate document", "make investor deck", "build partnership prospectus", |
+| 280 | `kit-orchestrator` | version: 1.0.0 |
+| 281 | `knowledge-management` | Organizational knowledge capture, searchability, decay prevention. [EXPLICIT] |
+| 282 | `kpi-framework` | KPI design, metric trees, leading/lagging indicators, OKR alignment. [EXPLICIT] |
+| 283 | `landing-page-builder` | version: 1.0.0 |
+| 284 | `landing-pages` | Triggers on "landing page", "personal brand page", "portfolio site", "create my web page", |
+| 285 | `lead-generation` | Lead magnets, gated content, signup optimization, qualification scoring. [EXPLICIT] |
+| 286 | `lighthouse-ci` | Automated Lighthouse audits in CI with performance budgets, accessibility thresholds, |
+| 287 | `linkedin-optimization` | Triggers on "optimize my LinkedIn", "LinkedIn profile", "improve my LinkedIn", "mejorar LinkedIn". |
+| 288 | `linting-formatting` | Configure ESLint, Prettier, and Stylelint for automated code quality |
+| 289 | `llm-evaluation` | Model output quality assessment, hallucination detection, benchmark suites. [EXPLICIT] |
+| 290 | `localization-guide` | Translation workflows, context for translators, glossaries, RTL support. [EXPLICIT] |
+| 291 | `log-management` | Structured logging, log levels, retention policies, search patterns. [EXPLICIT] |
+| 292 | `market-intelligence` | Triggers on "market intelligence", "market research", "geographic analysis", "sector analysis", |
+| 293 | `marketing-context` | Brand positioning, value propositions, and messaging framework for consistent marketing. [EXPLICIT] |
+| 294 | `maturity-assessment` | Capability maturity evaluation using CMMI and custom models, current vs target state scoring, [EXPLICIT] |
+| 295 | `mcp-creator` | This skill should be used when the user asks to "configure an MCP server", "connect Claude to [EXPLICIT] |
+| 296 | `meeting-notes` | Triggers on "meeting notes", "meeting minutes", "acta de reunion", "notas de la reunion". |
+| 297 | `mermaid-diagramming` | This skill should be used when the user asks to "create diagrams", "generate Mermaid", |
+| 298 | `meta-orchestration-updater` | version: 1.0.0 |
+| 299 | `meta-skill-creator` | version: 1.0.0 |
+| 300 | `meta-skill-deployer` | version: 1.0.0 |
+| 301 | `meta-skill-indexer` | version: 1.0.0 |
+| 302 | `meta-skill-reviewer` | version: 1.0.0 |
+| 303 | `meta-skill-searcher` | version: 1.0.0 |
+| 304 | `metrics-instrumentation` | Code-level metrics, custom dimensions, event parameter design. [EXPLICIT] |
+| 305 | `micro-interactions` | Button states, loading indicators, success feedback, hover effects. [EXPLICIT] |
+| 306 | `microcopy-writing` | Button labels, tooltips, empty states, confirmation dialogs, placeholders. [EXPLICIT] |
+| 307 | `migration-planning` | Plans technology and data migrations using strangler fig pattern, parallel |
+| 308 | `mobile-architecture` | This skill should be used when the user asks to "design mobile architecture", "choose between |
+| 309 | `mobile-assessment` | This skill should be used when the user asks to "assess the mobile app", "audit app health", |
+| 310 | `mobile-patterns` | Bottom sheets, pull-to-refresh, swipe actions, FAB, gesture navigation. [EXPLICIT] |
+| 311 | `modal-dialog-patterns` | Implement accessible modal and dialog patterns using the HTML dialog element, |
+| 312 | `monitoring-alerting` | version: 1.0.0 |
+| 313 | `monitoring-setup` | Application monitoring, health checks, uptime tracking, alerting integration. |
+| 314 | `motion-design` | Page transitions, scroll-triggered animations, parallax, performance. [EXPLICIT] |
+| 315 | `multi-model-routing` | Model selection by task complexity, cost optimization, fallback chains. [EXPLICIT] |
+| 316 | `naming-and-slugging` | This skill should be used when the user asks to "generate a slug", "rename files to kebab-case", |
+| 317 | `navigation-patterns` | Implement responsive navigation patterns including mobile hamburger menus, |
+| 318 | `newsletter-design` | Newsletter strategy, content structure, engagement metrics, send optimization. [EXPLICIT] |
+| 319 | `node-api-builder` | version: 1.0.0 |
+| 320 | `node-development` | Node.js development patterns including streams, ESM modules, error handling, |
+| 321 | `notification-handler` | System notification management, progress updates, alert routing. [EXPLICIT] |
+| 322 | `notification-service` | version: 1.0.0 |
+| 323 | `notification-ux` | Toast patterns, badge counts, notification center, priority ranking. [EXPLICIT] |
+| 324 | `oauth-social-login` | version: 1.0.0 |
+| 325 | `observability` | This skill should be used when the user asks to "design observability", "set up monitoring", |
+| 326 | `okr-design` | OKR framework, alignment cascading, progress tracking, scoring. [EXPLICIT] |
+| 327 | `onboarding-playbook` | Developer and team onboarding program design, knowledge transfer framework, and ramp-up metrics [EXPLICIT] |
+| 328 | `onboarding-ux` | User onboarding flows, activation metrics, time-to-value optimization. [EXPLICIT] |
+| 329 | `open-claude-security` | This skill should be used when the user asks to "design secure Claude Code environment", |
+| 330 | `open-claw-builder` | Builds production-grade tool-calling AI agents with TypeScript on open LLM stacks (Groq, OpenRouter, Ollama). [EXPLICIT] |
+| 331 | `openclaw-isolation` | This skill should be used when the user asks to "isolate OpenClaw in Docker", |
+| 332 | `openclaw-personal-deploy` | This skill should be used when the user asks to "deploy OpenClaw for personal use", |
+| 333 | `openclaw-tool-auth` | This skill should be used when the user asks to "control agent tool access", |
+| 334 | `output-contract-enforcer` | version: 1.0.0 |
+| 335 | `output-engineering` | Ghost menu system and multi-format production pipeline — converts markdown source |
+| 336 | `parallel-workflow` | Sequential-first execution with controlled parallelism. WIP limit: 3 agents max. [EXPLICIT] |
+| 337 | `partnership-strategy` | Partner identification, co-marketing programs, referral system design. [EXPLICIT] |
+| 338 | `payment-integration` | Integrate payment processing with Stripe Checkout, PayPal, subscription billing, |
+| 339 | `penetration-testing-guide` | version: 1.0.0 |
+| 340 | `performance-architecture` | Designs performance optimization strategies targeting Core Web Vitals (LCP, |
+| 341 | `performance-engineering` | Produces performance assessments covering load testing, capacity planning, bottleneck analysis, caching, CDN, and SLAs.  |
+| 342 | `performance-testing` | Measure and optimize web performance with Lighthouse CI, WebPageTest, |
+| 343 | `permission-fast-path` | Auto-approve read-only operations to reduce LLM overhead. [EXPLICIT] |
+| 344 | `personal-branding` | Triggers on "personal brand", "brand strategy for me", "how to position myself", "marca personal". |
+| 345 | `pipeline-governance` | Enforce phase gates (G0-G3) and quality checkpoints between pipeline stages. |
+| 346 | `pitch-deck` | Triggers on "pitch deck", "investor deck", "presentation slides", "crear presentacion". |
+| 347 | `plan-architecture` | Generate plugin architecture plan with agent roles, skill-movement mapping, hook strategy, and command routing. [EXPLICI |
+| 348 | `plan-moat-strategy` | Design MOAT asset strategy per skill: which subdirectories needed, what content they contain, naming conventions. [EXPLI |
+| 349 | `plugin-builder` | Builds complete Claude Code plugins from scratch — scaffolds plugin.json, CLAUDE.md, commands/, agents/, |
+| 350 | `plugin-reload` | Deploys, validates, and reloads Claude Code plugins from local development. |
+| 351 | `poc-lab` | Proof of concept design and execution framework, success criteria definition, and evaluation [EXPLICIT] |
+| 352 | `podcast-prep` | Episode planning, guest research, question frameworks, show notes. [EXPLICIT] |
+| 353 | `portfolio-sites` | Build portfolio and showcase websites with image galleries, case studies, |
+| 354 | `post-tool-use-validator` | Validate tool outputs: lint check, evidence tags, quality gates. [EXPLICIT] |
+| 355 | `pre-compact-context` | Context preservation before compression, priority-based retention. [EXPLICIT] |
+| 356 | `pre-tool-use-guard` | Block dangerous commands before execution using exit code 2 pattern. [EXPLICIT] |
+| 357 | `presentation-design` | Slide deck patterns, visual storytelling, Minto pyramid for slides. [EXPLICIT] |
+| 358 | `press-release` | Inverted pyramid, quotes, boilerplate, distribution strategy. [EXPLICIT] |
+| 359 | `pricing-strategy` | Pricing page design, anchoring, tier structure, value-based framing. [EXPLICIT] |
+| 360 | `print-stylesheet` | Create print-optimized stylesheets with @media print, PDF-friendly layouts, |
+| 361 | `privacy-compliance` | version: 1.0.0 |
+| 362 | `product-roadmapping` | Creates strategic product roadmaps with prioritized backlogs, value stream |
+| 363 | `product-strategy` | version: 1.0.0 |
+| 364 | `progress-tracker` | Triggers on "seguimiento de avance", "progress report", "status update", "informe de progreso", |
+| 365 | `project-charter` | Triggers on "project charter", "project initiation", "acta de constitucion", "kickoff document". |
+| 366 | `project-program-management` | Provides PMO governance backbone — portfolio tracking, phase gate management, resource orchestration, |
+| 367 | `prompt-creator` | Generates structured prompts for 9 prompt types in agentic ecosystems — meta, handoff, deliberation, [EXPLICIT] |
+| 368 | `prompt-engineering` | Design, evaluate, and optimize prompts for LLMs. Covers system prompts, |
+| 369 | `prompt-forge` | Creates, reviews, evolves, repairs, and ports system prompts across LLM platforms using the Playbook format, |
+| 370 | `proposal-writing` | RFP response, scope definition, pricing tables, timeline, risk section. [EXPLICIT] |
+| 371 | `prototyping` | Low-fi to high-fi prototyping, clickable mockups, rapid iteration. [EXPLICIT] |
+| 372 | `push-notifications` | Implement push notifications with Firebase Cloud Messaging, Web Push API, |
+| 373 | `pwa-architecture` | version: 1.0.0 |
+| 374 | `quality-engineering` | Designs strategic quality engineering frameworks covering test strategy, automation architecture, quality gates, |
+| 375 | `quality-gatekeeper` | version: 1.0.0 |
+| 376 | `quality-metrics` | version: 1.0.0 |
+| 377 | `rag-patterns` | Retrieval-augmented generation: chunking, embedding, vector search, reranking. [EXPLICIT] |
+| 378 | `rate-limiting` | API rate limits, throttling, quota management, abuse prevention. [EXPLICIT] |
+| 379 | `rbac-patterns` | Role-based access control, permission matrices, Firebase custom claims. [EXPLICIT] |
+| 380 | `react-component-library` | version: 1.0.0 |
+| 381 | `react-development` | Develops React applications using modern patterns: Hooks, Server Components |
+| 382 | `real-time-analytics` | Live dashboards, WebSocket streams, alert threshold configuration. [EXPLICIT] |
+| 383 | `realtime-architecture` | Designs real-time data architectures using Firestore snapshot listeners, |
+| 384 | `realtime-database` | version: 1.0.0 |
+| 385 | `recaptcha-integration` | Integrate reCAPTCHA v3 and Firebase App Check for bot protection on forms, |
+| 386 | `release-strategy` | version: 1.0.0 |
+| 387 | `rendering-engine` | Use when the user asks to "render to PNG", "convert to PDF", |
+| 388 | `reporting-templates` | Executive reports, operational dashboards, compliance report design. [EXPLICIT] |
+| 389 | `repository-organization` | Audit and improve repository structure: naming consistency, directory patterns, |
+| 390 | `requirements-engineering` | Elicits, structures, and validates software requirements using user stories, |
+| 391 | `responsive-design` | Implements responsive web design with mobile-first breakpoints, fluid |
+| 392 | `responsive-design-system` | version: 1.0.0 |
+| 393 | `rest-api-development` | Build RESTful APIs on Cloud Functions with Express, including middleware, |
+| 394 | `retrospective-facilitation` | Sprint retros, blameless postmortems, action item tracking. [EXPLICIT] |
+| 395 | `risk-assessment` | version: 1.0.0 |
+| 396 | `risk-controlling-dynamics` | This skill should be used when the user asks to "assess risks", "stress-test the plan", |
+| 397 | `roadmap-poc` | This skill should be used when the user asks to "create a roadmap", "plan a PoC", |
+| 398 | `role-based-access` | version: 1.0.0 |
+| 399 | `rollback-strategy` | Blue-green, canary, feature flags, database rollback patterns. |
+| 400 | `rule-forge` | This skill should be used when the user asks to "create a rule", "define a constraint", |
+| 401 | `sales-collateral` | One-pagers, battle cards, ROI calculators, competitive positioning documents. [EXPLICIT] |
+| 402 | `scaffold-angular-app` | version: 1.0.0 |
+| 403 | `scaffold-html-css` | version: 1.0.0 |
+| 404 | `scaffold-react-app` | version: 1.0.0 |
+| 405 | `scenario-analysis` | version: 1.0.0 |
+| 406 | `scheduled-functions` | Build scheduled Cloud Functions with Cloud Scheduler, cron patterns, |
+| 407 | `schema-evolution` | Migration patterns, backward compatibility, versioning, zero-downtime. [EXPLICIT] |
+| 408 | `scope-guard` | version: 1.0.0 |
+| 409 | `scroll-interaction` | Implement scroll-driven interactions using Intersection Observer, CSS |
+| 410 | `search-implementation` | version: 1.0.0 |
+| 411 | `search-ux` | Search bar patterns, autocomplete, faceted search, filter design. [EXPLICIT] |
+| 412 | `secrets-management` | version: 1.0.0 |
+| 413 | `secrets-sanitization` | Use when the user asks to "scan for secrets", "detect credentials", "sanitize sensitive data", |
+| 414 | `sector-intelligence` | Provides industry-specific context including regulatory landscapes, sector |
+| 415 | `security-architecture` | This skill should be used when the user asks to "design security architecture", "model |
+| 416 | `security-testing` | Perform security testing with OWASP checks, dependency vulnerability scanning, |
+| 417 | `seo-architecture` | Implements technical SEO with structured data (JSON-LD), sitemaps, robots.txt, |
+| 418 | `seo-content` | SEO content strategy: meta descriptions, Open Graph tags, schema markup (JSON-LD), keyword strategy, sitemap generation. |
+| 419 | `seo-technical` | version: 1.0.0 |
+| 420 | `server-middleware` | version: 1.0.0 |
+| 421 | `serverless-patterns` | version: 1.0.0 |
+| 422 | `session-end-cleanup` | Session summary generation, insight extraction, tasklog update. [EXPLICIT] |
+| 423 | `session-manager` | version: 1.0.0 |
+| 424 | `session-protocol` | Mandatory session initialization: context loading, state recovery, pending closure, |
+| 425 | `session-start-bootstrap` | Context loading, environment detection, guardrails initialization. [EXPLICIT] |
+| 426 | `skill-forge` | version: 1.0.0 |
+| 427 | `skill-search` | BM25 full-text search over PRISTINO-INDEX.md skill names and descriptions. Ranked results. [EXPLICIT] |
+| 428 | `skill-spec-creator` | This skill should be used when the user asks to "create a skill spec", "generate a [EXPLICIT] |
+| 429 | `sla-definition` | Service level agreements, uptime targets, penalty structures, monitoring. [EXPLICIT] |
+| 430 | `social-media-strategy` | Triggers on "social media strategy", "content calendar", "social media plan", "estrategia redes sociales". |
+| 431 | `social-proof` | Testimonials, case studies, trust badges, social validation pattern design. [EXPLICIT] |
+| 432 | `socratic-debate` | Structured Socratic debate for resolving ambiguities, trade-offs, and low-confidence |
+| 433 | `sofka-bpmn-process-analysis` | BPMN 2.0 process modeling and analysis skill for AS-IS/TO-BE business process |
+| 434 | `sofka-regional-finance` | Regional finance and accounting standards skill covering Colombia (NIIF/DIAN/CTC), |
+| 435 | `sofka-sap-implementation` | SAP S/4HANA implementation skill covering module selection (CO, SD, PS, FI, HCM), |
+| 436 | `software-architecture` | This skill should be used when the user asks to "design the internal structure", "define |
+| 437 | `software-viability` | This skill should be used when the user asks to "validate technology viability", "detect |
+| 438 | `solution-roadmap` | Complete transformation roadmap with phased execution, investment horizon, team ramp-up, |
+| 439 | `solutions-architecture` | End-to-end solution design — system integration, channel orchestration, identity management, observability, and cross- |
+| 440 | `spa-routing` | version: 1.0.0 |
+| 441 | `spec-agent-command` | Generate production-ready agent .md and command .md files from designs. Enforces plugin subagent constraints and alias l |
+| 442 | `spec-skill-moat` | Generate production-ready SKILL.md and MOAT asset files from a skill design. Enforces MOAT quality dimensions (=7 on all |
+| 443 | `sprint-report` | Triggers on "sprint report", "sprint summary", "reporte de sprint", "sprint review document". |
+| 444 | `ssh-deployment` | Deploy to Hostinger via SSH+Git with key management, post-receive hooks, and |
+| 445 | `ssl-management` | Certificate lifecycle, auto-renewal, HSTS, certificate pinning. [EXPLICIT] |
+| 446 | `stakeholder-mapping` | version: 1.0.0 |
+| 447 | `state-management` | Designs client-side state management strategies using Redux, NgRx, Zustand, |
+| 448 | `state-management-design` | version: 1.0.0 |
+| 449 | `step-creator` | Generates individual workflow steps with all 12 mandatory fields as an internal helper. |
+| 450 | `stop-validator` | Final output validation before delivery: evidence tags, quality, completeness. [EXPLICIT] |
+| 451 | `storytelling` | Narrative arc design and transformation metodologia-storytelling for discovery deliverables. [EXPLICIT] |
+| 452 | `structured-output` | JSON mode, schema-constrained generation, output validation, error recovery. [EXPLICIT] |
+| 453 | `subagent-monitor` | Track subagent execution, timeout handling, result aggregation. [EXPLICIT] |
+| 454 | `surgeon-skill` | This skill should be used when the user asks to "improve a skill", |
+| 455 | `survey-design` | NPS/CSAT/CES surveys, question design, response analysis, benchmarks. [EXPLICIT] |
+| 456 | `swot-analysis` | Triggers on "SWOT analysis", "SWOT for", "analisis FODA", "DAFO". |
+| 457 | `system-architecture` | Designs software architectures using C4 diagrams, Architecture Decision Records |
+| 458 | `system-design` | version: 1.0.0 |
+| 459 | `table-ux` | Data tables, sorting, pagination, responsive tables, bulk actions. [EXPLICIT] |
+| 460 | `task-automation` | Recurring task scheduling, batch operations, periodic health checks. [EXPLICIT] |
+| 461 | `task-engine` | Meta-cognitive reasoning engine that decomposes complex problems using the DSVSR protocol |
+| 462 | `tasklog-management` | Maintain tasklog.md for cross-session task tracking. Track status, owner, age, |
+| 463 | `team-topology` | Conway's Law analysis, team interaction modes, cognitive load assessment, organizational design. [EXPLICIT] |
+| 464 | `technical-documentation` | version: 1.0.0 |
+| 465 | `technical-feasibility` | version: 1.0.0 |
+| 466 | `technical-writing` | Technical documentation precision — progressive disclosure, terminology consistency, |
+| 467 | `technical-writing-patterns` | API docs style, tutorial structure, reference format, how-to guides. [EXPLICIT] |
+| 468 | `test-data-factory` | version: 1.0.0 |
+| 469 | `test-strategy` | Design comprehensive test strategies with the test pyramid, TDD, BDD, |
+| 470 | `testimonial-collector` | Triggers on "collect testimonials", "client testimonials", "social proof", |
+| 471 | `testing-strategy` | Test strategy design — pyramid, automation, E2E, contract testing, shift-left, test data management. [EXPLICIT] |
+| 472 | `trade-off-analysis` | Performs structured trade-off analysis using weighted scoring matrices, |
+| 473 | `training-material` | Course design, exercises, assessments, facilitator guide, handouts. [EXPLICIT] |
+| 474 | `triad-composition` | Select Lead + Support + Guardian from composition matrix based on domain classification. [EXPLICIT] |
+| 475 | `trigger-skill` | This skill should be used when the user asks to "optimize skill triggers", |
+| 476 | `typescript-patterns` | Implements advanced TypeScript patterns: branded types, generics, utility |
+| 477 | `typography-advanced` | Variable fonts, optical sizing, responsive typography, vertical rhythm. [EXPLICIT] |
+| 478 | `ui-kit-builder` | version: 1.0.0 |
+| 479 | `unit-testing` | version: 1.0.0 |
+| 480 | `user-prompt-filter` | Input sanitization and injection detection at the prompt submission level. [EXPLICIT] |
+| 481 | `user-representative` | End-user advocate that evaluates deliverable clarity, cognitive load, accessibility, adoption risks, and biases. [EXPLIC |
+| 482 | `user-research` | Designs and executes user research activities including persona creation, |
+| 483 | `user-story-writer` | version: 1.0.0 |
+| 484 | `user-testing` | Usability testing protocols, task scenarios, think-aloud, analysis. [EXPLICIT] |
+| 485 | `ux-writing` | UX writing and document accessibility standards for technical deliverables. [EXPLICIT] |
+| 486 | `validate-components` | author: JM Labs (Javier Montaño) |
+| 487 | `validate-cross-refs` | author: JM Labs (Javier Montaño) |
+| 488 | `validate-hooks` | author: JM Labs (Javier Montaño) |
+| 489 | `validate-manifest` | author: JM Labs (Javier Montaño) |
+| 490 | `validate-structure` | author: JM Labs (Javier Montaño) |
+| 491 | `value-proposition` | Triggers on "value proposition", "propuesta de valor", "value prop canvas", "messaging framework". |
+| 492 | `vanilla-javascript` | Implements solutions using vanilla JavaScript: DOM manipulation, event |
+| 493 | `vendor-evaluation` | Vendor scoring, TCO analysis, lock-in assessment, exit strategy. [EXPLICIT] |
+| 494 | `video-script` | Video structure, hook-body-CTA, timing, B-roll cues, accessibility. [EXPLICIT] |
+| 495 | `visual-regression` | Detect visual changes with screenshot comparison testing using Chromatic, |
+| 496 | `visual-regression-testing` | version: 1.0.0 |
+| 497 | `voice-interface` | Speech-to-text, text-to-speech, voice UI patterns, accessibility. [EXPLICIT] |
+| 498 | `web-components` | Build reusable UI components using Web Components standards — Custom Elements, |
+| 499 | `web-performance` | version: 1.0.0 |
+| 500 | `web-security-implementation` | version: 1.0.0 |
+| 501 | `webhook-handler` | version: 1.0.0 |
+| 502 | `webhook-handling` | Handle incoming webhooks from Stripe, GitHub, and other services with |
+| 503 | `whitepaper-creation` | Long-form research, methodology, findings, recommendations, citations. [EXPLICIT] |
+| 504 | `workflow-creator` | Generates complete workflow definitions with steps, DoD, RACI, KPIs, and failure handling for agentic ecosystems. [EXPLI |
+| 505 | `workflow-forge` | version: 1.0.0 |
+| 506 | `workflow-orchestration` | Multi-step workflow execution with checkpoint and resume capability. [EXPLICIT] |
+| 507 | `workshop-design` | Designs and facilitates collaborative workshops including event storming, |
+| 508 | `workshop-facilitator` | Workshop design — event storming, impact mapping, user story mapping, design sprints. [EXPLICIT] |
+| 509 | `workshop-proposal` | Workshop design and proposal. Objectives, audience, agenda, activities, resources, logistics. Output: branded HTML propo |
+| 510 | `workspace-governance` | Scaffold and govern the workspace/ directory — gitignored user interaction layer |
+| 511 | `x-ray-skill` | This skill should be used when the user asks to "audit a skill", |
+| 512 | `xlsx-template-creator` | Generates XLSX template specifications with columns, formulas, conditional formatting, and dashboard layouts for trackin |

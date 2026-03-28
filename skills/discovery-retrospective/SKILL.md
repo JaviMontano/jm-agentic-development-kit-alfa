@@ -1,5 +1,5 @@
 ---
-name: apex-discovery-retrospective
+name: discovery-retrospective
 description: >
   Use when the user asks to "run a project discovery retrospective", "review discovery outcomes",
   "assess discovery effectiveness", "calibrate pipeline parameters", or "measure discovery quality". [EXPLICIT]

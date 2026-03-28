@@ -1,5 +1,5 @@
 ---
-name: sofka-bi-architecture
+name: bi-architecture
 argument-hint: "project-or-system-name"
 description: 
   This skill should be used when the user asks to "design BI architecture",
@@ -11,7 +11,6 @@ description:
   Use this skill whenever the user needs analytics consumption architecture
   or visualization standards, even if they don't explicitly ask for
   "BI architecture".
-argument-hint: "project-or-system-name"
 model: opus
 context: fork
 allowed-tools:

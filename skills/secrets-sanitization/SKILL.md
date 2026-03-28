@@ -1,5 +1,5 @@
 ---
-name: apex-secrets-sanitization
+name: secrets-sanitization
 description: >
   Use when the user asks to "scan for secrets", "detect credentials", "sanitize sensitive data",
   "check for exposed passwords", "run security gate G0", or mentions secret detection,

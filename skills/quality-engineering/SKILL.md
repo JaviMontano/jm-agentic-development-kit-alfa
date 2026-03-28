@@ -1,5 +1,5 @@
 ---
-name: sofka-quality-engineering
+name: quality-engineering
 argument-hint: "project-or-system-name"
 description: 
   Designs strategic quality engineering frameworks covering test strategy, automation architecture, quality gates,
@@ -7,7 +7,6 @@ description:
   "set up test automation", "assess quality maturity", or "define quality metrics". Also triggers on mentions of
   test pyramid, shift-left, CI/CD quality, automation architecture, or quality engineering. Use this skill even if
   the user only asks about test coverage — it assesses the full quality posture. [EXPLICIT]
-argument-hint: "project-or-system-name"
 model: opus
 context: fork
 allowed-tools:

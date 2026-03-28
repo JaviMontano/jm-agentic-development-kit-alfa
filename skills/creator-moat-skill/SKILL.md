@@ -126,7 +126,6 @@ description: >
   "{phrase 3}", or mentions {keyword}. {One sentence: WHAT it does.}
   Make sure to use this skill whenever the user {broader trigger context},
   even if they don't explicitly ask for "{skill name}". [EXPLICIT]
-argument-hint: "<required-arg> [optional-arg]"
 allowed-tools: "{minimum set — principle of least privilege}"
 # Include ONLY when justified:
 model: "{opus for complex reasoning, sonnet for balanced, haiku for fast}"

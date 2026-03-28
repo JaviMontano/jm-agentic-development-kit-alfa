@@ -1,5 +1,5 @@
 --- [EXPLICIT]
-name: skill-spec-creator [EXPLICIT]
+name: skill-spec-creator
 description:  [EXPLICIT]
   This skill should be used when the user asks to "create a skill spec", "generate a [EXPLICIT]
   skill.yaml", "define skill workflows", "design an agentic capability", or mentions [EXPLICIT]
@@ -52,7 +52,7 @@ Write to `agents/{agentId}/skills/{skillId}/skill.yaml`: [EXPLICIT]
  [EXPLICIT]
 ```yaml [EXPLICIT]
 id: "{id}" [EXPLICIT]
-name: "{Human-readable name}" [EXPLICIT]
+name: skill-spec-creator
 purpose: "{1-2 sentences — the WHY}" [EXPLICIT]
 businessValue: "{User-facing value, not implementation detail}" [EXPLICIT]
 triggerTypes: ["command", "event", "schedule", "delegation"]

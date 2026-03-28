@@ -1,5 +1,5 @@
 --- [EXPLICIT]
-name: mcp-creator [EXPLICIT]
+name: mcp-creator
 description:  [EXPLICIT]
   This skill should be used when the user asks to "configure an MCP server", "connect Claude to [EXPLICIT]
   an external tool", "set up a database MCP", "add an API integration via MCP", or "list MCP [EXPLICIT]

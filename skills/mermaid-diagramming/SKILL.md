@@ -7,7 +7,6 @@ description:
   "add visual diagrams", or mentions diagramming, visualization, flowcharts, sequence diagrams,
   Mermaid syntax, architecture diagrams, or visual documentation. Use this skill to embed
   precise, syntactically valid Mermaid diagrams in any discovery deliverable. [EXPLICIT]
-argument-hint: "diagram-type [source-file]"
 model: opus
 context: fork
 allowed-tools:

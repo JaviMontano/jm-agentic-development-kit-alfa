@@ -1,5 +1,5 @@
 --- [EXPLICIT]
-name: metodologia-maturity-assessment [EXPLICIT]
+name: maturity-assessment
 description:  [EXPLICIT]
   Capability maturity evaluation using CMMI and custom models, current vs target state scoring, [EXPLICIT]
   and improvement roadmap generation. Use when the user asks to "assess maturity", "evaluate capability", [EXPLICIT]

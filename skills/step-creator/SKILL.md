@@ -6,7 +6,6 @@ description:
   Invoked by workflow-creator and skill-spec-creator when they need to "create a step",
   "generate workflow steps", "build step definitions", "produce step specs",
   or "expand a workflow into detailed steps".
-argument-hint: "step-name [workflow-name]"
 user-invocable: false
 model: opus
 context: fork

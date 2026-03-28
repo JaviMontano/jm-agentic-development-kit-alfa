@@ -1,5 +1,5 @@
 ---
-name: apex-rendering-engine
+name: rendering-engine
 description: >
   Use when the user asks to "render to PNG", "convert to PDF",
   "export Mermaid diagrams", "generate printable deliverables", "create branded exports",

@@ -7,7 +7,6 @@ description:
   "update local plugins", or "verify plugin structure". Also triggers on mentions of
   plugin validation, plugin deployment, or post-change verification. Use this skill even if
   the user just says something broke after editing a plugin — it diagnoses structure issues.
-argument-hint: "plugin-name"
 model: opus
 context: fork
 allowed-tools:

@@ -1,5 +1,5 @@
 --- [EXPLICIT]
-name: sofka-functional-toolbelt [EXPLICIT]
+name: functional-toolbelt
 argument-hint: "module-or-system-name"
 description: 
   This skill should be used when the user asks to "run event storming",
@@ -7,7 +7,6 @@ description:
   or mentions traceability matrix, Given/When/Then, anti-pattern detection, or requirements quality. [EXPLICIT]
   It provides a 6-tool functional analysis toolkit covering event storming, story mapping, business rule extraction, acceptance criteria writing, traceability matrices, and anti-pattern detection. [EXPLICIT]
   Use this skill whenever the user needs structured requirements engineering techniques, even if they don't explicitly ask for "functional toolbelt". [EXPLICIT]
-argument-hint: "module-or-system-name"
 model: opus
 context: fork
 allowed-tools:

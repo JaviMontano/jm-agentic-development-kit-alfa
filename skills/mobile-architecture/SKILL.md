@@ -1,5 +1,5 @@
 ---
-name: sofka-mobile-architecture
+name: mobile-architecture
 argument-hint: "project-or-system-name"
 description: 
   This skill should be used when the user asks to "design mobile architecture", "choose between
@@ -7,7 +7,6 @@ description:
   performance". Also triggers on mentions of Flutter, React Native, KMP, MVVM, SwiftUI, Jetpack
   Compose, or app store deployment. Use this skill even if the user only asks about one mobile
   concern like state management — the full platform strategy context is always relevant. [EXPLICIT]
-argument-hint: "project-or-system-name"
 model: opus
 context: fork
 allowed-tools:

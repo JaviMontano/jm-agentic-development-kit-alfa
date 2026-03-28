@@ -1,5 +1,5 @@
 --- [EXPLICIT]
-name: metodologia-poc-lab [EXPLICIT]
+name: poc-lab
 description:  [EXPLICIT]
   Proof of concept design and execution framework, success criteria definition, and evaluation [EXPLICIT]
   methodology. Use when the user asks to "design a PoC", "plan a proof of concept", "define PoC [EXPLICIT]

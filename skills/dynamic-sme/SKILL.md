@@ -11,7 +11,6 @@ description:
   benchmarks, and regulatory flags. Use this skill whenever domain-specific
   industry knowledge is needed for any deliverable, even if they don't
   explicitly ask for "dynamic SME". [EXPLICIT]
-argument-hint: "project-name [codebase-path]"
 model: opus
 context: fork
 allowed-tools:

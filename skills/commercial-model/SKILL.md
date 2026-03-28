@@ -9,7 +9,6 @@ description:
   producing model recommendations with trade-offs — not pricing. [EXPLICIT]
   Use this skill whenever the user discusses deal structure or commercial strategy,
   even if they don't explicitly ask for "commercial-model". [EXPLICIT]
-argument-hint: "project-or-engagement-name"
 model: opus
 context: fork
 allowed-tools:

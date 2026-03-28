@@ -7,7 +7,6 @@ description:
   "plan the transformation", "build an investment case", "team sizing",
   "risk-adjusted timeline", or mentions "Phase 4", "solution roadmap", "transformation plan",
   "phased execution", "PoC validation criteria", "kill criteria", "go/no-go gates". [EXPLICIT]
-argument-hint: "project-or-engagement-name"
 model: opus
 context: fork
 allowed-tools:

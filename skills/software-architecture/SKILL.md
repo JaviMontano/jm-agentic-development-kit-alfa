@@ -1,5 +1,5 @@
 ---
-name: sofka-software-architecture
+name: software-architecture
 argument-hint: "project-or-system-name"
 description: 
   This skill should be used when the user asks to "design the internal structure", "define
@@ -10,7 +10,6 @@ description:
   attribute scenarios, ADRs, and debt evolution plans. Use this skill whenever internal
   system structure needs to be designed, documented, or evaluated, even if they don't
   explicitly ask for "software-architecture". [EXPLICIT]
-argument-hint: "project-or-system-name"
 model: opus
 context: fork
 allowed-tools:

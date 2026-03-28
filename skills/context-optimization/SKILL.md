@@ -1,5 +1,5 @@
 ---
-name: apex-context-optimization
+name: context-optimization
 description: >
   Use when the user asks to "optimize context", "reduce token usage",
   "prune context window", "configure progressive loading", or "manage session state". [EXPLICIT]

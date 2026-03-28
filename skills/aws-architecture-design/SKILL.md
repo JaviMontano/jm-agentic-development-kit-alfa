@@ -1,5 +1,5 @@
 ---
-name: metodologia-aws-architecture-design
+name: aws-architecture-design
 description: >
   Designs AWS cloud architectures for AI and GenAI workloads applying the Well-Architected Framework
   GenAI Lens (6 pillars: GENOPS, GENSEC, GENREL, GENPERF, GENCOST, GENSUS), AWS service selection

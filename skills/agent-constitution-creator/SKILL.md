@@ -1,5 +1,5 @@
 --- [EXPLICIT]
-name: agent-constitution-creator [EXPLICIT]
+name: agent-constitution-creator
 description:  [EXPLICIT]
   This skill should be used when the user asks to "create an agent constitution", [EXPLICIT]
   "define agent identity", "write agent.md", "generate agent spec", or "design [EXPLICIT]
@@ -95,7 +95,7 @@ Write to `agents/{id}/agent.md`: [EXPLICIT]
 ```markdown [EXPLICIT]
 --- [EXPLICIT]
 id: "{id}" [EXPLICIT]
-name: "{name}" [EXPLICIT]
+name: agent-constitution-creator
 role: "{role}" [EXPLICIT]
 version: "1.0.0" [EXPLICIT]
 --- [EXPLICIT]

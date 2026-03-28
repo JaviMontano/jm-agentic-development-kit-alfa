@@ -6,7 +6,7 @@ description: >
   Designs B2B outreach sequences — personalized messages, follow-up cadences,
   multi-channel strategy. Output: ready-to-send scripts + CSV tracker template.
   Argument: target company/persona + product/service being sold + deal context.
-argument-hint: "<target persona or company> [product/service] [sequence length: 3|5|7 touches]"
+argument-hint: "target-persona-or-company [product/service] [sequence-length: 3|5|7]"
 model: opus
 context: fork
 allowed-tools: Read, Write, Edit, Glob, Grep, WebSearch

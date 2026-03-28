@@ -6,7 +6,6 @@ description:
   Use when the user asks to "plan a workshop", "run event storming", "facilitate impact mapping",
   "design a sprint", "create user story map", "facilitate discovery session",
   or mentions workshop facilitation, design sprint, event storming, story mapping, or collaborative design. [EXPLICIT]
-argument-hint: "workshop-topic [duration]"
 model: opus
 context: fork
 allowed-tools:

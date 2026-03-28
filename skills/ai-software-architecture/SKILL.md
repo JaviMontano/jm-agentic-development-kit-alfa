@@ -1,5 +1,5 @@
 ---
-name: metodologia-ai-software-architecture
+name: ai-software-architecture
 description: >
   AI software architecture design — modules, layers, boundaries, design patterns, ADRs, quality attributes, and technical debt strategy
   for AI-enabled systems. This skill should be used when the user asks to "design AI system structure", "define AI module boundaries",

@@ -1,5 +1,5 @@
 ---
-name: sofka-roadmap-poc
+name: roadmap-poc
 argument-hint: "project-or-engagement-name"
 description: 
   This skill should be used when the user asks to "create a roadmap", "plan a PoC",
@@ -9,7 +9,6 @@ description:
   prerequisite validation, measurable gate criteria, team composition, budget ranges,
   and risk registers. Use this skill whenever delivery planning or execution sequencing
   is needed, even if they don't explicitly ask for "roadmap-poc". [EXPLICIT]
-argument-hint: "project-or-engagement-name"
 model: opus
 context: fork
 allowed-tools:

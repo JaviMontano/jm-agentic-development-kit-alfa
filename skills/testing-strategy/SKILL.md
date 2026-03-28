@@ -1,11 +1,10 @@
 ---
-name: sofka-testing-strategy
+name: testing-strategy
 argument-hint: "project-or-system-name"
 description: 
   Test strategy design — pyramid, automation, E2E, contract testing, shift-left, test data management. [EXPLICIT]
   Use when the user asks to "design test strategy", "build test automation", "implement contract testing",
   "manage test data", "define quality gates", or mentions test pyramid, Pact, Playwright, Cypress, coverage targets, flaky tests, chaos engineering. [EXPLICIT]
-argument-hint: "project-or-system-name"
 model: opus
 context: fork
 allowed-tools:

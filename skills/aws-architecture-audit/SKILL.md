@@ -1,5 +1,5 @@
 ---
-name: metodologia-aws-architecture-audit
+name: aws-architecture-audit
 description: >
   Audits AWS AI/GenAI architectures against the Well-Architected GenAI Lens — operational excellence, security,
   reliability, performance, cost optimization, and sustainability. This skill should be used when the user asks to

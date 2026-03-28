@@ -5,7 +5,7 @@ description: >
   "competitive landscape", "research X company", "profile on X person", "contact points for".
   Performs deep market research on companies, public figures, geographic territories, and sectors.
   Argument: target entity name + research scope (company / person / territory / sector).
-argument-hint: "<entity name> [company|person|territory|sector] [depth: quick|standard|deep]"
+argument-hint: "entity-name [company|person|territory|sector] [depth: quick|standard|deep]"
 model: opus
 context: fork
 allowed-tools: Read, Write, Edit, Glob, Grep, WebSearch

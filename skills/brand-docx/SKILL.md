@@ -1,5 +1,5 @@
 --- [EXPLICIT]
-name: brand-docx [EXPLICIT]
+name: brand-docx
 description:  [EXPLICIT]
   This skill should be used when the user asks to "generate a Word document", [EXPLICIT]
   "create a branded DOCX", "build a proposal in Word format", [EXPLICIT]

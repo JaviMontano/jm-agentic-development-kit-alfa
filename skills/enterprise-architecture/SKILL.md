@@ -1,5 +1,5 @@
 ---
-name: sofka-enterprise-architecture
+name: enterprise-architecture
 argument-hint: "project-or-system-name"
 description: 
   This skill should be used when the user asks to "map business capabilities",
@@ -7,7 +7,6 @@ description:
   "prioritize strategic initiatives", or mentions capability mapping, DDD domains, ARB, DORA metrics, or target operating model. [EXPLICIT]
   It generates enterprise architecture alignment artifacts including capability maps, domain decomposition, governance frameworks, technology radars, and strategic initiative roadmaps. [EXPLICIT]
   Use this skill whenever the user needs to align technology initiatives with business strategy, even if they don't explicitly ask for "enterprise architecture". [EXPLICIT]
-argument-hint: "project-or-system-name"
 model: opus
 context: fork
 allowed-tools:

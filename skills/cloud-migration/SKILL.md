@@ -1,5 +1,5 @@
 ---
-name: sofka-cloud-migration
+name: cloud-migration
 argument-hint: "project-or-system-name"
 description: 
   This skill should be used when the user asks to "plan a cloud migration",
@@ -9,7 +9,6 @@ description:
   wave planning, landing zone design, cutover execution, and post-migration optimization. [EXPLICIT]
   Use this skill whenever the user discusses moving workloads to the cloud,
   even if they don't explicitly ask for "cloud-migration". [EXPLICIT]
-argument-hint: "project-or-system-name"
 model: opus
 context: fork
 allowed-tools:

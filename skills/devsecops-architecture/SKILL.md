@@ -1,5 +1,5 @@
 ---
-name: sofka-devsecops-architecture
+name: devsecops-architecture
 argument-hint: "project-or-system-name"
 description: 
   This skill should be used when the user asks to "design the CI/CD pipeline",
@@ -11,7 +11,6 @@ description:
   automation. Use this skill whenever the conversation involves build pipelines,
   deployment security, or delivery automation, even if they don't explicitly
   ask for "devsecops architecture". [EXPLICIT]
-argument-hint: "project-or-system-name"
 model: opus
 context: fork
 allowed-tools:

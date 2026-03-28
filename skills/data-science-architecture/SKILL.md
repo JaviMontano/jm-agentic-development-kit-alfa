@@ -1,5 +1,5 @@
 ---
-name: sofka-data-science-architecture
+name: data-science-architecture
 argument-hint: "project-or-system-name"
 description: 
   This skill should be used when the user asks to "design an ML system",
@@ -10,7 +10,6 @@ description:
   pipelines. Use this skill whenever the conversation involves machine learning
   infrastructure or productionizing models, even if they don't explicitly ask for
   "data science architecture". [EXPLICIT]
-argument-hint: "project-or-system-name"
 model: opus
 context: fork
 allowed-tools:

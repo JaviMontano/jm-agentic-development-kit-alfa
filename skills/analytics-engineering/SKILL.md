@@ -1,5 +1,5 @@
 ---
-name: sofka-analytics-engineering
+name: analytics-engineering
 argument-hint: "project-or-system-name"
 description: 
   This skill should be used when the user asks to "design analytics models",
@@ -10,7 +10,6 @@ description:
   Use this skill whenever the user needs source-to-target mapping, materialization
   decisions, or transformation framework architecture, even if they don't explicitly
   ask for "analytics engineering". [EXPLICIT]
-argument-hint: "project-or-system-name"
 model: opus
 context: fork
 allowed-tools:

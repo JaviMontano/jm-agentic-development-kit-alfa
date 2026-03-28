@@ -1,5 +1,5 @@
 ---
-name: sofka-api-architecture
+name: api-architecture
 argument-hint: "project-or-system-name"
 description: 
   This skill should be used when the user asks to "design an API",
@@ -11,7 +11,6 @@ description:
   Use this skill whenever the user needs API design decisions, deprecation
   policies, or developer portal planning, even if they don't explicitly
   ask for "API architecture". [EXPLICIT]
-argument-hint: "project-or-system-name"
 model: opus
 context: fork
 allowed-tools:

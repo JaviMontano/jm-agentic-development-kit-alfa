@@ -11,7 +11,6 @@ description:
   step, stress-tests assumptions, tracks risk exposure, and feeds better insights back into
   each phase. Use this skill whenever a project involves uncertainty, assumptions, or
   financial estimates, even if they don't explicitly ask for "risk-controlling-dynamics". [EXPLICIT]
-argument-hint: "project-or-engagement-name"
 model: opus
 context: fork
 allowed-tools:

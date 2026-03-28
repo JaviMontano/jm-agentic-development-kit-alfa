@@ -1,5 +1,5 @@
 ---
-name: metodologia-output-engineering
+name: output-engineering
 author: Javier Montano · Comunidad MetodologIA
 argument-hint: "[source-file.md] [format: html|docx|pptx|xlsx|pdf|all] — e.g. './06_Roadmap.md html'"
 description: >

@@ -1,5 +1,5 @@
 ---
-name: metodologia-ai-conops
+name: ai-conops
 description: >
   Concept of Operations (CONOPS) for AI systems — system vision, stakeholder mapping, AI-human interaction spectrum,
   business value assessment, success metrics, and operational modes. This skill should be used when the user asks to

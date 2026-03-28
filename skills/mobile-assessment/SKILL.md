@@ -1,5 +1,5 @@
 ---
-name: sofka-mobile-assessment
+name: mobile-assessment
 argument-hint: "app-or-platform-name"
 description: 
   This skill should be used when the user asks to "assess the mobile app", "audit app health",
@@ -7,7 +7,6 @@ description:
   triggers on mentions of crash rate, ANR, app size, cold start time, or mobile tech debt. Use
   this skill even if the user only asks about a single metric like crash rate — the full health
   assessment context ensures no blind spots. [EXPLICIT]
-argument-hint: "app-or-platform-name"
 model: opus
 context: fork
 allowed-tools:

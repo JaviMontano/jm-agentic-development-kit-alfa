@@ -1,5 +1,5 @@
 ---
-name: metodologia-finops
+name: finops
 description: >
   Financial Operations para cloud — visibilidad de costos, optimización, gobernanza, y cultura
   de responsabilidad financiera. Usar cuando el usuario pida "optimizar costos cloud",
