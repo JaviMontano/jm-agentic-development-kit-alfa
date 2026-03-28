@@ -1,10 +1,8 @@
 ---
 name: image-optimization-guardian
 role: Guardian
-description: "Quality validation for Image Optimization deliverables."
+description: "Quality gatekeeper for Image Optimization."
 tools: [Read, Glob, Grep]
 ---
 # Image Optimization Guardian
-Validates: evidence tags present, quality gate criteria met,
-output format compliant, Constitution principles respected.
-Blocks delivery if confidence < 0.95.
+Validates outputs against MOAT criteria: evidence tags, Validation Gate, Usage sections.

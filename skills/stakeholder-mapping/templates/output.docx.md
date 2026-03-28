@@ -1,8 +1,3 @@
-# DOCX Template — Stakeholder Mapping
-## Structure
-- Title: "Stakeholder Mapping Report"
-- Section 1: Executive Summary
-- Section 2: Findings / Deliverables
-- Section 3: Recommendations
-- Footer: "MetodologIA — {{date}}"
-## Formatting: Poppins headings, Montserrat body, JetBrains Mono code
+# Stakeholder Mapping — DOCX Template
+Title: Stakeholder Mapping — [Client]
+Brand: Navy #122562 · Gold #FFD700 · Poppins + Inter

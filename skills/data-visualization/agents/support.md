@@ -1,9 +1,8 @@
 ---
 name: data-visualization-support
 role: Support
-description: "Cross-cutting review for Data Visualization: security, accessibility, edge cases."
-tools: [Read, Glob, Grep]
+description: "Execution support for Data Visualization."
+tools: [Read, Write, Edit, Glob, Grep]
 ---
 # Data Visualization Support
-Reviews Lead output for blind spots: security implications,
-accessibility concerns, edge cases, and Constitution compliance.
+Handles secondary tasks: evidence gathering, reference formatting, eval generation.

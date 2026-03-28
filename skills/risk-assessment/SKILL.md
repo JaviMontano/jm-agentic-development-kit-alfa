@@ -1,73 +1,49 @@
 ---
 name: risk-assessment
-author: JM Labs (Javier Montaño)
+description: Risk identification across 7 categories (technical, operational, security, scalability, data, team, timeline). Severity x likelihood. [EXPLICIT]
 version: 1.0.0
-description: >
-  Identifies, quantifies, and mitigates project and technical risks using
-  risk registers, probability/impact matrices, and mitigation strategies. [EXPLICIT]
-  Produces actionable risk management plans. [EXPLICIT]
-  Trigger: "risk register", "risk matrix", "mitigation", "risk assessment"
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
-  - Bash
+status: production
+owner: Javier Montaño
+tags: [analysis, risk, mitigation, register]
 ---
-
-# Risk Assessment
-
-> "Risk comes from not knowing what you are doing." — Warren Buffett
-
-## TL;DR
-
-Systematically identifies, quantifies, and plans mitigations for project and technical risks using risk registers and probability/impact matrices. Use this skill at project inception, before major milestones, or when uncertainty threatens delivery commitments. [EXPLICIT]
-
-## Procedure
-
-### Step 1: Discover
-- Brainstorm risks across categories: technical, schedule, resource, external, organizational
-- Review lessons learned from similar projects
-- Examine assumptions — each assumption is a potential risk if wrong
-- Check dependencies on third parties, APIs, and external systems
-
-### Step 2: Analyze
-- Score each risk on Probability (1-5) and Impact (1-5)
-- Calculate risk exposure: Probability × Impact
-- Classify risks: Critical (>15), High (10-15), Medium (5-9), Low (<5)
-- Identify risk triggers — early warning signs that a risk is materializing
-
-### Step 3: Execute
-- Create a risk register with: ID, description, category, probability, impact, exposure, owner, trigger, mitigation, contingency
-- Build a probability/impact heat map for visual communication
-- Define mitigation strategies: Avoid, Transfer, Mitigate, Accept
-- Establish risk review cadence and escalation thresholds
-
-### Step 4: Validate
-- Verify every high/critical risk has a named owner and active mitigation
-- Confirm mitigation strategies are actionable (budget, timeline, responsible party)
-- Check that risk triggers are observable and measurable
-- Review risk register completeness with cross-functional team
-
-## Quality Criteria
-
-- [ ] Risk register covers technical, schedule, resource, and external categories
-- [ ] Every risk has probability, impact, owner, and mitigation strategy
-- [ ] Critical risks have both mitigation and contingency plans
-- [ ] Risk triggers are defined for top 10 risks
-- [ ] Evidence tags applied to all claims
-
-## Anti-Patterns
-
-- Risk theater: maintaining a register nobody reads or updates
-- Mitigations that are just "monitor the risk" without concrete actions
-- Ignoring organizational and political risks
-
-## Related Skills
-
-- `feasibility-validation` — risk assessment informs feasibility scoring
-- `cost-estimation` — risk contingency feeds into effort estimates
-- `security-architecture` — technical security risks via STRIDE
+# risk-assessment {Analysis} (v1.0)
+> **"Analyze with evidence. Every claim tagged. Every finding actionable."**
+## Purpose
+Risk identification across 7 categories (technical, operational, security, scalability, data, team, timeline). Severity x likelihood. [EXPLICIT]
+**When to use:** During analysis mode (MAO DNA). Before architecture or development begins.
+## Core Principles
+1. **Law of Evidence:** Every finding tagged [CODE], [CONFIG], [DOC], [INFERENCE], or [ASSUMPTION] (R-001). [EXPLICIT]
+2. **Law of Completeness:** No analysis deliverable ships without covering all required sections. [EXPLICIT]
+3. **Law of Firebase Lens:** All assessments evaluated through Firebase/Google/Hostinger feasibility. [EXPLICIT]
+## Core Process
+### Phase 1: Gather
+1. Collect inputs (documents, code, conversations, existing systems). [EXPLICIT]
+2. Parse for requirements, constraints, and context. [EXPLICIT]
+### Phase 2: Analyze
+1. Apply domain-specific analysis methodology. [EXPLICIT]
+2. Tag all findings with evidence tags. [EXPLICIT]
+3. Score/evaluate using the skill's specific metrics. [EXPLICIT]
+### Phase 3: Document
+1. Produce the analysis deliverable in markdown. [EXPLICIT]
+2. Include evidence tag summary (% by tag type). [EXPLICIT]
+3. If >30% [ASSUMPTION], add WARNING banner. [EXPLICIT]
+## 3. Inputs / Outputs
+| Input | Type | Required | Description |
+|-------|------|----------|-------------|
+| Project context | Text/Files | Yes | What to analyze |
+| Output | Type | Description |
+|--------|------|-------------|
+| Analysis deliverable | Markdown | Evidence-tagged findings |
+## Validation Gate
+- [ ] All findings have evidence tags
+- [ ] Firebase feasibility assessed
+- [ ] Deliverable follows R-008 output standards
+- [ ] No implementation details (phase separation)
+- [ ] Actionable recommendations included
+## 5. Self-Correction Triggers
+> [!WARNING]
+> IF >30% claims are [ASSUMPTION] THEN add prominent WARNING banner.
+> IF analysis contains implementation details THEN move to plan (Art. 1.5 phase separation).
 
 ## Usage
 

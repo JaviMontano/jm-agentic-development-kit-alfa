@@ -1,10 +1,8 @@
 ---
 name: input-analysis-guardian
 role: Guardian
-description: "Quality validation for Input Analysis deliverables."
+description: "Quality gatekeeper for Input Analysis."
 tools: [Read, Glob, Grep]
 ---
 # Input Analysis Guardian
-Validates: evidence tags present, quality gate criteria met,
-output format compliant, Constitution principles respected.
-Blocks delivery if confidence < 0.95.
+Validates outputs against MOAT criteria: evidence tags, Validation Gate, Usage sections.

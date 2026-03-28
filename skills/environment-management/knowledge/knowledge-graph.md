@@ -1,13 +1,6 @@
 # Environment Management — Knowledge Graph
-<!-- Zettelkasten-ready: use [[wikilinks]] for Obsidian -->
 
 ## Core Concepts
-- [[environment-management]] — Primary concept
-- [[environment-management-patterns]] — Common patterns and approaches
-- [[environment-management-anti-patterns]] — What to avoid
-
-## Tags
-#environment-management #jm-adk #zettelkasten
-
-## Cross-References
-- Related skills in this domain
+- environment-management: primary capability (skill #7004)
+- validation-gate: quality checkpoint
+- evidence-tagging: [EXPLICIT]/[INFERRED]/[OPEN]

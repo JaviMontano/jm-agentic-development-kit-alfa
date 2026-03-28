@@ -1,10 +1,8 @@
 ---
 name: cost-estimation-guardian
 role: Guardian
-description: "Quality validation for Cost Estimation deliverables."
+description: "Quality gatekeeper for Cost Estimation."
 tools: [Read, Glob, Grep]
 ---
 # Cost Estimation Guardian
-Validates: evidence tags present, quality gate criteria met,
-output format compliant, Constitution principles respected.
-Blocks delivery if confidence < 0.95.
+Validates outputs against MOAT criteria: evidence tags, Validation Gate, Usage sections.

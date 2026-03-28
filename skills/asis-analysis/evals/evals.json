@@ -1,37 +1,9 @@
 [
-  {
-    "id": "asis-happy-path",
-    "type": "happy_path",
-    "input": "Run a full AS-IS analysis on our Java Spring Boot monolith",
-    "expected_behavior": "Skill activates and produces 10-section assessment: executive dashboard, technology inventory, code organization, C4 architecture, code quality metrics, tech debt inventory, NFR heatmap, security assessment, operational model, and risk register with recommendations",
-    "tags": ["full-analysis", "java", "monolith"]
-  },
-  {
-    "id": "asis-executive-variant",
-    "type": "happy_path",
-    "input": "Give me a quick technical health check of this codebase — executive summary only",
-    "expected_behavior": "Skill activates with executive variant (S0 + S5 + S9 + S10), producing executive dashboard, tech debt highlights, top risks, and prioritized recommendations",
-    "tags": ["executive", "quick", "health-check"]
-  },
-  {
-    "id": "asis-edge-case-no-tests",
-    "type": "edge_case",
-    "input": "Assess this legacy codebase that has zero test coverage and no CI/CD pipeline",
-    "expected_behavior": "Skill activates, flags test coverage as CRITICAL (0%), infers CI/CD from Dockerfiles and scripts, extrapolates quality risk via complexity metrics, and recommends test buildout as top priority",
-    "tags": ["no-tests", "no-cicd", "legacy"]
-  },
-  {
-    "id": "asis-tech-debt",
-    "type": "happy_path",
-    "input": "Evaluate tech debt in our microservices — we need to know what to fix first",
-    "expected_behavior": "Skill activates and produces categorized tech debt inventory (design, code, test, build, documentation, infrastructure, dependency) with severity scoring, business impact, and prioritized remediation pathways",
-    "tags": ["tech-debt", "prioritization", "microservices"]
-  },
-  {
-    "id": "asis-false-positive-design-future",
-    "type": "false_positive",
-    "input": "Design the future microservices architecture with ADRs and migration plan",
-    "expected_behavior": "Skill should NOT activate. This is a target-state (TO-BE) architecture design request. Should route to architecture-tobe skill instead.",
-    "tags": ["false-positive", "architecture-tobe"]
-  }
+  {"id": "asis-analysis-happy-path", "type": "happy_path", "input": "Run asis analysis on this project", "expected_behavior": "Skill activates and produces the expected asis analysis output following the defined process", "tags": ["basic", "activation"]},
+  {"id": "asis-analysis-explicit-trigger", "type": "happy_path", "input": "Apply asis analysis analysis", "expected_behavior": "Skill recognizes the trigger phrase and executes the asis analysis workflow", "tags": ["trigger", "recognition"]},
+  {"id": "asis-analysis-with-context", "type": "happy_path", "input": "Apply asis analysis to analyze the current codebase with detailed output", "expected_behavior": "Skill produces comprehensive asis analysis analysis with evidence-tagged findings", "tags": ["detailed", "comprehensive"]},
+  {"id": "asis-analysis-minimal-input", "type": "happy_path", "input": "Quick asis analysis", "expected_behavior": "Skill activates with minimal input, applies reasonable defaults", "tags": ["minimal", "defaults"]},
+  {"id": "asis-analysis-false-positive", "type": "false_positive", "input": "What is the weather forecast for tomorrow?", "expected_behavior": "Skill should NOT activate — this input has no relation to asis analysis", "tags": ["false_positive", "should-not-activate"]},
+  {"id": "asis-analysis-edge-empty-input", "type": "edge_case", "input": "Run asis analysis but I have no files or documentation yet", "expected_behavior": "Skill handles gracefully — requests minimum viable input or produces gap analysis", "tags": ["edge_case", "empty-input", "boundary"]},
+  {"id": "asis-analysis-edge-conflicting", "type": "edge_case", "input": "Apply asis analysis but requirements contradict each other", "expected_behavior": "Skill detects contradiction, flags with [OPEN] tag, proposes resolution", "tags": ["edge_case", "conflict", "corner"]}
 ]

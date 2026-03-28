@@ -2,25 +2,13 @@
 name: technical-feasibility-primary
 type: execution
 version: 2.0.0
-description: "Execute the Technical Feasibility workflow."
 triad:
   lead: "technical-feasibility-lead"
   support: "technical-feasibility-support"
   guardian: "technical-feasibility-guardian"
 ---
-
 # Technical Feasibility — Execute
-
-## Dynamic Parameters
-
-| Parameter | Description | Required | Filled By |
-|-----------|-------------|----------|-----------|
-| `{{task}}` | What to accomplish | Yes | User input |
-| `{{context}}` | Background and constraints | Yes | User or codebase |
-| `{{constraints}}` | Additional rules | No | Guardrails JSON |
-
-## Execution Steps
-1. Read SKILL.md `## When to Activate` — confirm this skill applies
-2. Read SKILL.md `## Validation Gate` — internalize quality criteria
-3. Execute the skill workflow per SKILL.md sections
-4. Validate output against Validation Gate before delivering
+1. Read SKILL.md `## When to Activate`
+2. Read SKILL.md `## Validation Gate`
+3. Execute skill workflow
+4. Validate against Validation Gate

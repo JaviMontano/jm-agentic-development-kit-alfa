@@ -1,9 +1,8 @@
 ---
 name: build-optimization-support
 role: Support
-description: "Cross-cutting review for Build Optimization: security, accessibility, edge cases."
-tools: [Read, Glob, Grep]
+description: "Execution support for Build Optimization."
+tools: [Read, Write, Edit, Glob, Grep]
 ---
 # Build Optimization Support
-Reviews Lead output for blind spots: security implications,
-accessibility concerns, edge cases, and Constitution compliance.
+Handles secondary tasks: evidence gathering, reference formatting, eval generation.

@@ -1,76 +1,73 @@
 ---
 name: hostinger-deployment
-author: JM Labs (Javier Montaño)
+description: Static site and Node.js deployment on Hostinger via SFTP/Git, cPanel/hPanel config, and PM2 process management
 version: 1.0.0
-description: >
-  Deploy websites to Hostinger with cPanel, FTP, .htaccess configuration,
-  DNS setup, SSL certificates, and PHP configuration. [EXPLICIT]
-  Trigger: "Hostinger", "cPanel", "FTP deploy", ".htaccess", "shared hosting"
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
-  - Bash
+status: production
+owner: Javier Montaño
+tags: [devops, hostinger, deployment, sftp, vps, pm2, cpanel]
 ---
 
-# Hostinger Deployment
+# 088 — Hostinger Deployment {DevOps}
 
-> "Not everything needs Kubernetes — sometimes cPanel and FTP get the job done." — Unknown
+## Purpose
+Deploy static sites and Node.js applications to Hostinger infrastructure. Configure SFTP/Git-based deployment pipelines, VPS hosting with PM2, and hPanel/cPanel management. [EXPLICIT]
 
-## TL;DR
+## Physics — 3 Immutable Laws
 
-Guides website deployment to Hostinger shared hosting — cPanel file management, FTP/SFTP upload, .htaccess configuration for SPAs and redirects, DNS setup, SSL certificate provisioning, and PHP configuration. Use when deploying static sites, WordPress, or PHP applications to Hostinger. [EXPLICIT]
+1. **Law of Reproducible Deploy**: Every deployment is scripted — no manual file uploads. SFTP scripts or Git hooks handle file transfer. [EXPLICIT]
+2. **Law of Zero Downtime**: PM2 handles graceful restarts. Static sites use atomic directory swaps. Users never see a broken state. [EXPLICIT]
+3. **Law of Environment Isolation**: Production config never touches development data. Separate `.env` files, separate database connections. [EXPLICIT]
 
-## Procedure
+## Protocol
 
-### Step 1: Discover
-- Log into Hostinger hPanel and identify the hosting plan and features
-- Check domain registration and DNS configuration status
-- Review PHP version and available extensions
-- Identify deployment method: hPanel file manager, FTP/SFTP, or Git
+### Phase 1 — Static Site Deployment
+1. Build locally: `npm run build` → `dist/` directory. [EXPLICIT]
+2. Configure SFTP credentials in CI secrets (host, user, SSH key). [EXPLICIT]
+3. Deploy via `rsync` or `lftp`: sync `dist/` to `public_html/`. [EXPLICIT]
+4. Verify `.htaccess` for SPA routing: `RewriteRule ^(.*)$ /index.html [L]`. [EXPLICIT]
 
-### Step 2: Analyze
-- Determine deployment strategy: manual upload vs automated (GitHub Actions + FTP)
-- Plan .htaccess rules for SPA routing, HTTPS redirect, and caching
-- Evaluate SSL setup: Hostinger free SSL or Let's Encrypt
-- Design directory structure under `public_html`
+### Phase 2 — Node.js VPS Deployment
+1. SSH into VPS. Install Node.js via `nvm`. Install PM2 globally. [EXPLICIT]
+2. Clone repo or pull via Git. Run `npm ci --production`. [EXPLICIT]
+3. Configure PM2 ecosystem file: `ecosystem.config.js` with `name`, `script`, `env`. [EXPLICIT]
+4. Start: `pm2 start ecosystem.config.js --env production`. Save: `pm2 save`. Setup startup: `pm2 startup`. [EXPLICIT]
 
-### Step 3: Execute
-- Build production assets locally (`npm run build`)
-- Upload `dist/` contents to `public_html/` via SFTP or hPanel file manager
-- Configure `.htaccess` for SPA routing: `RewriteRule . /index.html [L]`
-- Set up HTTPS redirect in `.htaccess`: `RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]`
-- Configure caching headers for static assets in `.htaccess`
-- Enable SSL certificate in Hostinger dashboard
-- Set up email accounts if needed (MX records)
-- Configure automated deployment via GitHub Actions with FTP action
+### Phase 3 — CI/CD Integration
+1. GitHub Actions workflow: build → test → deploy via SSH. [EXPLICIT]
+2. Use `appleboy/ssh-action` for remote commands. [EXPLICIT]
+3. PM2 pull and reload: `cd /app && git pull && npm ci && pm2 reload all`. [EXPLICIT]
+4. Verify deployment: HTTP health check on deployed URL. [EXPLICIT]
 
-### Step 4: Validate
-- Verify site loads correctly at the domain with HTTPS
-- Test SPA routing — all routes return the app (not 404)
-- Check SSL certificate is valid and auto-renewing
-- Confirm cache headers are set correctly for static assets
-- Test email delivery if MX records were configured
+## I/O
 
-## Quality Criteria
+| Input | Output |
+|-------|--------|
+| Built static files (`dist/`) | Files deployed to `public_html/` |
+| Node.js application source | PM2-managed process on VPS |
+| SFTP/SSH credentials | Automated deployment pipeline |
+| `ecosystem.config.js` | PM2 process configuration |
 
-- [ ] Site accessible via HTTPS with valid SSL certificate
-- [ ] .htaccess configured for SPA routing and HTTPS redirect
-- [ ] Static assets cached with appropriate Cache-Control headers
-- [ ] Automated deployment pipeline set up (not manual FTP uploads)
-- [ ] Evidence tags applied to all claims
+## Quality Gates — 5 Checks
 
-## Anti-Patterns
+1. **Build succeeds locally before deploy** — CI runs full build + test. [EXPLICIT]
+2. **SSH keys rotated quarterly** — no password-based SSH access. [EXPLICIT]
+3. **PM2 status shows online** — `pm2 status` verifies process running. [EXPLICIT]
+4. **Health check passes** — HTTP 200 on root URL after deploy. [EXPLICIT]
+5. **Rollback tested** — previous version deployable within 5 minutes. [EXPLICIT]
 
-- Uploading files manually via FTP every time (automate with CI/CD)
-- Forgetting .htaccess SPA rewrite (causes 404 on direct URL access)
-- Not enabling HTTPS (SEO penalty and security risk)
+## Edge Cases
 
-## Related Skills
+- **PHP coexistence**: Hostinger shared hosting may run PHP. Ensure `.htaccess` doesn't conflict with Node.js reverse proxy.
+- **SSL renewal**: Hostinger auto-renews Let's Encrypt. Verify cron job exists.
+- **Memory limits**: Shared hosting has RAM limits. Monitor PM2 memory with `pm2 monit`.
+- **File permissions**: Set `chmod 755` for directories, `644` for files in `public_html`.
 
-- `domain-management` — DNS configuration for Hostinger-hosted sites
-- `github-actions-ci` — automated deployment to Hostinger via FTP
+## Self-Correction Triggers
+
+- Deploy fails → check SSH connectivity, disk space, Node.js version.
+- PM2 process crashes → check logs `pm2 logs`, increase memory limit or fix crash.
+- SSL expired → re-run certbot or check Hostinger auto-renewal config.
+- Site returns 500 → check `.htaccess` rules, Node.js process status, error logs.
 
 ## Usage
 
@@ -85,11 +82,3 @@ Example invocations:
 - Assumes access to project artifacts (code, docs, configs) [EXPLICIT]
 - Requires English-language output unless otherwise specified [EXPLICIT]
 - Does not replace domain expert judgment for final decisions [EXPLICIT]
-
-## Edge Cases
-
-| Scenario | Handling |
-|----------|----------|
-| Empty or minimal input | Request clarification before proceeding |
-| Conflicting requirements | Flag conflicts explicitly, propose resolution |
-| Out-of-scope request | Redirect to appropriate skill or escalate |

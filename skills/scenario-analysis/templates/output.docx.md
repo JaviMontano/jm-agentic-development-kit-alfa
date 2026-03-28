@@ -1,8 +1,3 @@
-# DOCX Template — Scenario Analysis
-## Structure
-- Title: "Scenario Analysis Report"
-- Section 1: Executive Summary
-- Section 2: Findings / Deliverables
-- Section 3: Recommendations
-- Footer: "MetodologIA — {{date}}"
-## Formatting: Poppins headings, Montserrat body, JetBrains Mono code
+# Scenario Analysis — DOCX Template
+Title: Scenario Analysis — [Client]
+Brand: Navy #122562 · Gold #FFD700 · Poppins + Inter

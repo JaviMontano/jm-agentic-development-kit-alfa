@@ -1,9 +1,8 @@
 ---
 name: stakeholder-mapping-support
 role: Support
-description: "Cross-cutting review for Stakeholder Mapping: security, accessibility, edge cases."
-tools: [Read, Glob, Grep]
+description: "Execution support for Stakeholder Mapping."
+tools: [Read, Write, Edit, Glob, Grep]
 ---
 # Stakeholder Mapping Support
-Reviews Lead output for blind spots: security implications,
-accessibility concerns, edge cases, and Constitution compliance.
+Handles secondary tasks: evidence gathering, reference formatting, eval generation.

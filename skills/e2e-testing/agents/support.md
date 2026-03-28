@@ -1,9 +1,8 @@
 ---
 name: e2e-testing-support
 role: Support
-description: "Cross-cutting review for E2e Testing: security, accessibility, edge cases."
-tools: [Read, Glob, Grep]
+description: "Execution support for E2e Testing."
+tools: [Read, Write, Edit, Glob, Grep]
 ---
 # E2e Testing Support
-Reviews Lead output for blind spots: security implications,
-accessibility concerns, edge cases, and Constitution compliance.
+Handles secondary tasks: evidence gathering, reference formatting, eval generation.

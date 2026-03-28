@@ -1,34 +1,30 @@
 ---
 name: data-validation
-author: JM Labs (Javier Montaño)
+description: Client-side Zod/Yup schemas. Server-side Cloud Functions validation. Firestore rules validation. End-to-end type safety. [EXPLICIT]
 version: 1.0.0
-description: >
-  Schema validation, type checking, constraint enforcement, error handling. [EXPLICIT]
-  Trigger: "data validation"
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
-  - Bash
+status: production
+owner: Javier Montaño
+tags: [data, validation, zod, type-safety]
 ---
-# Data Validation
-> "Method over hacks."
-## TL;DR
-Schema validation, type checking, constraint enforcement, error handling. [EXPLICIT]
-## Procedure
-### Step 1: Discover
-- Gather context and requirements
-### Step 2: Analyze
-- Evaluate options per Constitution XIII/XIV
-### Step 3: Execute
-- Implement with evidence tags
-### Step 4: Validate
-- Verify quality criteria met
-## Quality Criteria
-- [ ] Evidence tags applied
-- [ ] Constitution-compliant
-- [ ] Actionable output
+# data-validation {Data} (v1.0)
+> **"Data is the product. Model it for queries, secure it with rules, back it up daily."**
+## Purpose
+Client-side Zod/Yup schemas. Server-side Cloud Functions validation. Firestore rules validation. End-to-end type safety. [EXPLICIT]
+**When to use:** Database design, data management, or analytics within Firebase ecosystem.
+## Core Principles
+1. **Law of Queries:** Design schema for read patterns. Firestore charges per read/write. [EXPLICIT]
+2. **Law of Rules:** Security rules are mandatory. No collection without rules. [EXPLICIT]
+3. **Law of Backups:** Production data gets scheduled backups. No exceptions. [EXPLICIT]
+## Core Process
+### Phase 1: Design data model from requirements.
+### Phase 2: Implement with security rules and indexes.
+### Phase 3: Test with emulator. Validate rules. Set up backups.
+## Validation Gate
+- [ ] Schema designed for actual query patterns
+- [ ] Security rules cover all collections
+- [ ] Indexes defined for compound queries
+- [ ] Backup strategy documented
+- [ ] No SQL-style normalized design in Firestore
 
 ## Usage
 

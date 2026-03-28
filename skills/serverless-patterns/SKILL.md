@@ -1,74 +1,51 @@
 ---
 name: serverless-patterns
-author: JM Labs (Javier Montaño)
+description: Fan-out (Firestore trigger to multiple ops). Saga (compensating transactions). Event sourcing with Firestore. [EXPLICIT]
 version: 1.0.0
-description: >
-  Apply serverless architecture patterns — cold start mitigation, connection
-  pooling, idempotency, fan-out/fan-in, and cost optimization. [EXPLICIT]
-  Trigger: "serverless", "cold start", "idempotency", "connection pooling"
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
-  - Bash
+status: production
+owner: Javier Montaño
+tags: [backend, serverless, fan-out, saga, event-sourcing]
 ---
-
-# Serverless Patterns
-
-> "Serverless is not about no servers — it's about no server management." — Unknown
-
-## TL;DR
-
-Guides serverless architecture patterns for Cloud Functions and similar platforms — cold start optimization, database connection management, idempotent function design, fan-out/fan-in patterns, and cost optimization strategies. Use when designing or optimizing serverless architectures. [EXPLICIT]
-
-## Procedure
-
-### Step 1: Discover
-- Profile current function cold start times and invocation frequency
-- Check database connection patterns (new connection per invocation?)
-- Review function memory allocation and timeout configurations
-- Identify functions with concurrency or ordering requirements
-
-### Step 2: Analyze
-- Categorize functions by latency sensitivity (user-facing vs background)
-- Evaluate connection pooling strategies for databases and external APIs
-- Design idempotency patterns for event-driven functions
-- Plan cost optimization (right-sizing memory, minimum instances)
-
-### Step 3: Execute
-- Initialize global-scope resources (DB connections, SDK clients) outside handler
-- Set minimum instances for latency-critical functions to avoid cold starts
-- Implement idempotency tokens/checks for all event-driven functions
-- Use fan-out pattern: one trigger spawns multiple parallel functions via PubSub
-- Apply the single-responsibility principle: one function per concern
-- Configure concurrency settings (Cloud Functions v2 supports multiple concurrent requests)
-- Implement circuit breaker pattern for external service calls
-
-### Step 4: Validate
-- Measure cold start times with and without minimum instances
-- Verify idempotent functions produce same result on duplicate invocations
-- Load test concurrent invocations to confirm scaling behavior
-- Review billing to ensure cost optimization measures are effective
-
-## Quality Criteria
-
-- [ ] Global-scope initialization for shared resources (no per-request SDK init)
-- [ ] Idempotent design for all event-driven functions
-- [ ] Minimum instances configured for user-facing latency-critical functions
-- [ ] Memory allocation right-sized based on actual usage profiling
-- [ ] Evidence tags applied to all claims
-
-## Anti-Patterns
-
-- Creating new database connections on every function invocation
-- Assuming functions execute in order (event-driven functions may run out of order)
-- Over-provisioning minimum instances (increased cost with no benefit)
-
-## Related Skills
-
-- `cloud-functions` — Cloud Functions are the primary serverless platform
-- `scheduled-functions` — scheduled serverless execution patterns
+# serverless-patterns {Backend} (v1.0)
+> **"Firebase Functions are your backend. Design them like microservices, deploy them like magic."**
+## Purpose
+Fan-out (Firestore trigger to multiple ops). Saga (compensating transactions). Event sourcing with Firestore. [EXPLICIT]
+**When to use:** Backend development within Firebase/Google ecosystem.
+## Core Principles
+1. **Law of Functions:** Each Cloud Function does ONE thing. Single responsibility. [EXPLICIT]
+2. **Law of Cold Start:** Minimize dependencies. Use lazy imports. Set min instances for critical functions. [EXPLICIT]
+3. **Law of Security:** Every HTTP function verifies Firebase ID tokens. No public endpoints without auth. [EXPLICIT]
+## Core Process
+### Phase 1: Design
+1. Map requirements to Cloud Functions triggers (HTTP, Firestore, Auth, Storage, scheduled). [EXPLICIT]
+2. Define input/output contracts for each function. [EXPLICIT]
+3. Design error handling and retry strategy. [EXPLICIT]
+### Phase 2: Implement
+1. Create function with proper trigger type. [EXPLICIT]
+2. Add auth middleware for HTTP functions. [EXPLICIT]
+3. Implement business logic with error handling. [EXPLICIT]
+4. Add Cloud Logging for observability. [EXPLICIT]
+### Phase 3: Test + Deploy
+1. Test with Firebase Emulator Suite. [EXPLICIT]
+2. Deploy with `firebase deploy --only functions`. [EXPLICIT]
+3. Verify in Firebase Console. [EXPLICIT]
+## 3. Inputs / Outputs
+| Input | Type | Required | Description |
+|-------|------|----------|-------------|
+| Requirements | Text/Spec | Yes | What the function does |
+| Output | Type | Description |
+|--------|------|-------------|
+| Cloud Function code | TypeScript | Deployable function |
+## Validation Gate
+- [ ] Single responsibility per function
+- [ ] Auth middleware on HTTP endpoints
+- [ ] Error handling with Cloud Logging
+- [ ] Emulator tests pass
+- [ ] No AWS/Azure services (R-002)
+## 5. Self-Correction Triggers
+> [!WARNING]
+> IF function has no auth middleware THEN add verifyIdToken check.
+> IF function imports 10+ dependencies THEN split or lazy-load to reduce cold start.
 
 ## Usage
 

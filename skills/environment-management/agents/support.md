@@ -1,9 +1,8 @@
 ---
 name: environment-management-support
 role: Support
-description: "Cross-cutting review for Environment Management: security, accessibility, edge cases."
-tools: [Read, Glob, Grep]
+description: "Execution support for Environment Management."
+tools: [Read, Write, Edit, Glob, Grep]
 ---
 # Environment Management Support
-Reviews Lead output for blind spots: security implications,
-accessibility concerns, edge cases, and Constitution compliance.
+Handles secondary tasks: evidence gathering, reference formatting, eval generation.

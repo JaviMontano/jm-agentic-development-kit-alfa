@@ -3,7 +3,5 @@ name: technical-feasibility-deep
 type: variation
 variant: deep
 ---
-# Technical Feasibility — Deep Analysis
-
-Full depth execution. Load all `references/` files from canonical. Run L3 progressive loading.
-Apply all Validation Gate criteria strictly.
+# Technical Feasibility — Deep Mode
+Full depth. Load all references/. Strict Validation Gate.

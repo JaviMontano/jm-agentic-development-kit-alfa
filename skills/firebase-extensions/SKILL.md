@@ -1,73 +1,51 @@
 ---
 name: firebase-extensions
-author: JM Labs (Javier Montaño)
+description: Configure Firebase Extensions: Stripe payments, SendGrid email, image resize, translation, Algolia search. [EXPLICIT]
 version: 1.0.0
-description: >
-  Install and configure Firebase Extensions for common tasks — Stripe payments,
-  Algolia search, image resizing, and translation services. [EXPLICIT]
-  Trigger: "firebase extension", "stripe extension", "algolia extension", "resize images"
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
-  - Bash
+status: production
+owner: Javier Montaño
+tags: [backend, extensions, stripe, sendgrid]
 ---
-
-# Firebase Extensions
-
-> "Don't build what's already been built — extend it." — Unknown
-
-## TL;DR
-
-Guides the selection, installation, and configuration of Firebase Extensions — pre-built solutions for common tasks like Stripe payments, Algolia search indexing, image resizing, email sending, and text translation. Use when a well-maintained extension can replace custom Cloud Function code. [EXPLICIT]
-
-## Procedure
-
-### Step 1: Discover
-- Browse Firebase Extensions marketplace for available solutions
-- Identify project needs that match existing extensions
-- Check extension requirements (Blaze plan, specific Firebase services)
-- Review extension source code and update frequency on GitHub
-
-### Step 2: Analyze
-- Evaluate extension vs custom implementation (maintenance burden, flexibility)
-- Check configuration parameters and their impact on billing
-- Plan integration points (Firestore collections, Storage paths, Auth events)
-- Assess extension limitations and whether they meet edge case requirements
-
-### Step 3: Execute
-- Install extension via Firebase CLI: `firebase ext:install firebase/firestore-stripe-payments`
-- Configure parameters (collection paths, API keys, feature toggles)
-- Set up required secrets (Stripe API key, Algolia credentials)
-- Test extension behavior in emulator or staging environment
-- Integrate extension output with existing application logic
-- Document extension configuration for team reference
-
-### Step 4: Validate
-- Verify extension triggers fire and produce expected results
-- Check billing impact in Firebase Console (extensions use Cloud Functions quota)
-- Confirm extension doesn't conflict with existing Cloud Functions
-- Test extension behavior with edge cases (large files, concurrent writes)
-
-## Quality Criteria
-
-- [ ] Extension configured with appropriate collection paths and parameters
-- [ ] Secrets stored via Firebase extension secret management
-- [ ] Extension behavior tested in staging before production deployment
-- [ ] Billing impact assessed and monitored
-- [ ] Evidence tags applied to all claims
-
-## Anti-Patterns
-
-- Installing extensions without understanding their Cloud Functions quota usage
-- Customizing extension code directly (fork instead; updates will overwrite changes)
-- Using extensions for critical paths without understanding their failure modes
-
-## Related Skills
-
-- `payment-integration` — Stripe extension handles subscription lifecycle
-- `image-optimization` — Resize Images extension for automatic thumbnails
+# firebase-extensions {Backend} (v1.0)
+> **"Firebase Functions are your backend. Design them like microservices, deploy them like magic."**
+## Purpose
+Configure Firebase Extensions: Stripe payments, SendGrid email, image resize, translation, Algolia search. [EXPLICIT]
+**When to use:** Backend development within Firebase/Google ecosystem.
+## Core Principles
+1. **Law of Functions:** Each Cloud Function does ONE thing. Single responsibility. [EXPLICIT]
+2. **Law of Cold Start:** Minimize dependencies. Use lazy imports. Set min instances for critical functions. [EXPLICIT]
+3. **Law of Security:** Every HTTP function verifies Firebase ID tokens. No public endpoints without auth. [EXPLICIT]
+## Core Process
+### Phase 1: Design
+1. Map requirements to Cloud Functions triggers (HTTP, Firestore, Auth, Storage, scheduled). [EXPLICIT]
+2. Define input/output contracts for each function. [EXPLICIT]
+3. Design error handling and retry strategy. [EXPLICIT]
+### Phase 2: Implement
+1. Create function with proper trigger type. [EXPLICIT]
+2. Add auth middleware for HTTP functions. [EXPLICIT]
+3. Implement business logic with error handling. [EXPLICIT]
+4. Add Cloud Logging for observability. [EXPLICIT]
+### Phase 3: Test + Deploy
+1. Test with Firebase Emulator Suite. [EXPLICIT]
+2. Deploy with `firebase deploy --only functions`. [EXPLICIT]
+3. Verify in Firebase Console. [EXPLICIT]
+## 3. Inputs / Outputs
+| Input | Type | Required | Description |
+|-------|------|----------|-------------|
+| Requirements | Text/Spec | Yes | What the function does |
+| Output | Type | Description |
+|--------|------|-------------|
+| Cloud Function code | TypeScript | Deployable function |
+## Validation Gate
+- [ ] Single responsibility per function
+- [ ] Auth middleware on HTTP endpoints
+- [ ] Error handling with Cloud Logging
+- [ ] Emulator tests pass
+- [ ] No AWS/Azure services (R-002)
+## 5. Self-Correction Triggers
+> [!WARNING]
+> IF function has no auth middleware THEN add verifyIdToken check.
+> IF function imports 10+ dependencies THEN split or lazy-load to reduce cold start.
 
 ## Usage
 

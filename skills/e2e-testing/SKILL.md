@@ -1,80 +1,73 @@
 ---
 name: e2e-testing
-author: JM Labs (Javier Montaño)
+description: Cypress/Playwright E2E testing with page object model, CI integration, and visual assertions
 version: 1.0.0
-description: >
-  Write end-to-end tests with Playwright or Cypress — covering user flow testing,
-  page objects, network mocking, and CI integration. [EXPLICIT]
-  Trigger: "e2e test", "Playwright", "Cypress", "user flow test"
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
-  - Bash
+status: production
+owner: Javier Montaño
+tags: [testing, e2e, cypress, playwright, page-object-model, ci, visual-assertions]
 ---
 
-# End-to-End Testing
+# 081 — E2E Testing {Testing}
 
-> "If a user can break it, an e2e test should find it first." — Unknown
+## Purpose
+Validate complete user journeys through the application using Cypress or Playwright. Ensure critical paths work end-to-end against a Firebase test environment with real UI interactions. [EXPLICIT]
 
-## TL;DR
+## Physics — 3 Immutable Laws
 
-Guides end-to-end test implementation with Playwright or Cypress — covering critical user flow testing, page object patterns, network request mocking, visual assertions, and CI integration. Use when you need to verify complete user journeys across your application. [EXPLICIT]
+1. **Law of User Truth**: E2E tests simulate real user behavior — clicks, navigation, form fills. No direct API calls or DOM manipulation shortcuts. [EXPLICIT]
+2. **Law of Critical Path**: Only test critical user journeys (auth, CRUD, payments). E2E is expensive — unit/integration cover the rest. [EXPLICIT]
+3. **Law of Stability**: E2E tests use explicit waits, data-testid selectors, and retry logic. No `cy.wait(5000)` or fragile CSS selectors. [EXPLICIT]
 
-## Procedure
+## Protocol
 
-### Step 1: Discover
-- Identify critical user flows to test (sign-up, purchase, core features)
-- Check existing e2e test infrastructure and framework
-- Review CI pipeline for e2e test execution capacity
-- Determine test environment requirements (staging, local, emulators)
+### Phase 1 — Framework Setup
+1. Choose framework: Playwright (multi-browser, auto-wait) or Cypress (DX, component testing). [EXPLICIT]
+2. Configure `playwright.config.ts` or `cypress.config.ts` with base URL pointing to Firebase emulator hosting. [EXPLICIT]
+3. Create `e2e/pages/` directory with Page Object Model classes. [EXPLICIT]
+4. Set up test user seeding via Auth emulator API. [EXPLICIT]
 
-### Step 2: Analyze
-- Choose framework: Playwright (multi-browser, fast) vs Cypress (developer experience)
-- Plan test scope: focus on critical paths, not exhaustive coverage
-- Design page object or component model for reusable selectors
-- Evaluate network mocking vs real API testing tradeoffs
+### Phase 2 — Test Authoring
+1. Define Page Objects: `LoginPage`, `DashboardPage`, `SettingsPage` — encapsulate selectors and actions. [EXPLICIT]
+2. Write test scenarios as user stories: `should login and see dashboard`. [EXPLICIT]
+3. Use `data-testid` attributes exclusively for element selection. [EXPLICIT]
+4. Add visual assertions: screenshot comparison at key states. [EXPLICIT]
 
-### Step 3: Execute
-- Set up Playwright/Cypress with TypeScript and project configuration
-- Create page objects encapsulating selectors and actions
-- Write tests for critical user flows using `data-testid` attributes
-- Implement network mocking for external API dependencies
-- Add visual assertions with screenshot comparison where appropriate
-- Configure parallel test execution for faster CI runs
-- Set up parallel browser matrix: Chromium + Firefox + WebKit for cross-browser coverage
-- Set up test retries for handling transient failures (not masking real bugs)
-- Configure post-deploy verification: run critical-path e2e suite against production URL
-  using environment variable for target URL (`BASE_URL=https://yourdomain.com`)
+### Phase 3 — CI Pipeline
+1. Run against Firebase emulator hosting (`firebase emulators:start --only hosting,auth,firestore`). [EXPLICIT]
+2. Execute in headless mode: `npx playwright test` or `npx cypress run`. [EXPLICIT]
+3. Generate HTML report + video recordings for failures. [EXPLICIT]
+4. Upload artifacts to CI (GitHub Actions `actions/upload-artifact`). [EXPLICIT]
 
-### Step 4: Validate
-- Run e2e suite against staging environment before production deploys
-- Check test execution time — target under 10 minutes for full suite
-- Verify tests are stable (no flaky failures over 10 consecutive runs)
-- Confirm tests fail when application behavior regresses
+## I/O
 
-## Quality Criteria
+| Input | Output |
+|-------|--------|
+| User journey specification | E2E test file with Page Object usage |
+| UI components with `data-testid` | Page Object Model class |
+| Firebase test environment | Test execution against emulators |
+| CI trigger | HTML report + failure videos + screenshots |
 
-- [ ] Critical user flows covered (sign-up, login, core feature, payment)
-- [ ] Page objects used for selector management and reusability
-- [ ] Tests use `data-testid` attributes, not CSS selectors or text content
-- [ ] E2e suite completes within CI time budget (typically under 15 minutes)
-- [ ] Evidence tags applied to all claims
+## Quality Gates — 5 Checks
 
-## Anti-Patterns
+1. **All critical paths covered** — login, CRUD, navigation, error states. [EXPLICIT]
+2. **Page Object Model enforced** — no raw selectors in test files. [EXPLICIT]
+3. **data-testid on all interactive elements** — no CSS/XPath selectors. [EXPLICIT]
+4. **CI passes 3 consecutive runs** — no flaky tests. [EXPLICIT]
+5. **Execution time < 5 minutes** — parallelize if exceeding. [EXPLICIT]
 
-- Testing every feature with e2e (should be unit/integration tests instead)
-- Using CSS selectors or XPath that break with styling changes
-- Ignoring flaky tests instead of fixing root causes
+## Edge Cases
 
-## Related Skills
+- **Auth token expiration**: Seed long-lived tokens or refresh mid-test.
+- **Network latency**: Use Playwright's `route.fulfill()` to mock slow endpoints.
+- **Responsive testing**: Run suite at mobile (375px) and desktop (1280px) viewports.
+- **File uploads**: Use Cypress `cy.fixture()` or Playwright `setInputFiles()`.
 
-- `test-strategy` — E2e tests are the top of the test pyramid
-- `accessibility-testing` — E2e tests can include a11y checks with axe integration
-- `dual-layer-verification` — E2e infrastructure reused for runtime security verification
-- `lighthouse-ci` — Performance verification in the same CI pipeline
-- `bdd-full-spectrum` — Gherkin scenarios drive e2e test generation
+## Self-Correction Triggers
+
+- Flaky test detected (fails 1/3 runs) → quarantine and fix within 24h.
+- E2E suite exceeds 5 min → split into parallel shards.
+- Page Object missing for new page → block PR until POM created.
+- Visual regression > 0.1% pixel diff → review and update baseline or fix.
 
 ## Usage
 
@@ -89,11 +82,3 @@ Example invocations:
 - Assumes access to project artifacts (code, docs, configs) [EXPLICIT]
 - Requires English-language output unless otherwise specified [EXPLICIT]
 - Does not replace domain expert judgment for final decisions [EXPLICIT]
-
-## Edge Cases
-
-| Scenario | Handling |
-|----------|----------|
-| Empty or minimal input | Request clarification before proceeding |
-| Conflicting requirements | Flag conflicts explicitly, propose resolution |
-| Out-of-scope request | Redirect to appropriate skill or escalate |

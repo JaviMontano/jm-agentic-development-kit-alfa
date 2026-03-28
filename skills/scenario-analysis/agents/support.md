@@ -1,9 +1,8 @@
 ---
 name: scenario-analysis-support
 role: Support
-description: "Cross-cutting review for Scenario Analysis: security, accessibility, edge cases."
-tools: [Read, Glob, Grep]
+description: "Execution support for Scenario Analysis."
+tools: [Read, Write, Edit, Glob, Grep]
 ---
 # Scenario Analysis Support
-Reviews Lead output for blind spots: security implications,
-accessibility concerns, edge cases, and Constitution compliance.
+Handles secondary tasks: evidence gathering, reference formatting, eval generation.

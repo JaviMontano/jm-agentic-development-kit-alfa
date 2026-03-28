@@ -1,9 +1,8 @@
 ---
 name: input-analysis-support
 role: Support
-description: "Cross-cutting review for Input Analysis: security, accessibility, edge cases."
-tools: [Read, Glob, Grep]
+description: "Execution support for Input Analysis."
+tools: [Read, Write, Edit, Glob, Grep]
 ---
 # Input Analysis Support
-Reviews Lead output for blind spots: security implications,
-accessibility concerns, edge cases, and Constitution compliance.
+Handles secondary tasks: evidence gathering, reference formatting, eval generation.

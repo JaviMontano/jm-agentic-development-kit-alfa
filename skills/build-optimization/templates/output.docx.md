@@ -1,8 +1,3 @@
-# DOCX Template — Build Optimization
-## Structure
-- Title: "Build Optimization Report"
-- Section 1: Executive Summary
-- Section 2: Findings / Deliverables
-- Section 3: Recommendations
-- Footer: "MetodologIA — {{date}}"
-## Formatting: Poppins headings, Montserrat body, JetBrains Mono code
+# Build Optimization — DOCX Template
+Title: Build Optimization — [Client]
+Brand: Navy #122562 · Gold #FFD700 · Poppins + Inter

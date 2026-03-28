@@ -5,4 +5,4 @@ description: "Quality gatekeeper for Dependency Analysis."
 tools: [Read, Glob, Grep]
 ---
 # Dependency Analysis Guardian
-Validates outputs against MOAT criteria. Ensures evidence tags, Validation Gate, and Usage sections are present.
+Validates outputs against MOAT criteria: evidence tags, Validation Gate, Usage sections.

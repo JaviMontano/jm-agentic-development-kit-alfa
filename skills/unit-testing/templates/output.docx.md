@@ -1,8 +1,3 @@
-# DOCX Template — Unit Testing
-## Structure
-- Title: "Unit Testing Report"
-- Section 1: Executive Summary
-- Section 2: Findings / Deliverables
-- Section 3: Recommendations
-- Footer: "MetodologIA — {{date}}"
-## Formatting: Poppins headings, Montserrat body, JetBrains Mono code
+# Unit Testing — DOCX Template
+Title: Unit Testing — [Client]
+Brand: Navy #122562 · Gold #FFD700 · Poppins + Inter

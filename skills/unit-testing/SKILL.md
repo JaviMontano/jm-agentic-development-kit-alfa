@@ -1,74 +1,72 @@
 ---
 name: unit-testing
-author: JM Labs (Javier Montaño)
+description: Jest/Vitest unit testing with Firebase emulator mocking, TDD workflow, and 80%+ coverage enforcement
 version: 1.0.0
-description: >
-  Write effective unit tests with Jest, Vitest, or Jasmine — including mocking,
-  fixtures, snapshot testing, and test organization patterns. [EXPLICIT]
-  Trigger: "unit test", "Jest", "Vitest", "mock", "test case"
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
-  - Bash
+status: production
+owner: Javier Montaño
+tags: [testing, jest, vitest, firebase, tdd, coverage, mocking]
 ---
 
-# Unit Testing
+# 079 — Unit Testing {Testing}
 
-> "A unit test should be like a good friend — honest, fast, and always there when you need them." — Unknown
+## Purpose
+Establish deterministic, fast-feedback unit test infrastructure using Jest or Vitest with Firebase service mocking. Enforce TDD red-green-refactor cycles and maintain coverage above 80% on all modules. [EXPLICIT]
 
-## TL;DR
+## Physics — 3 Immutable Laws
 
-Guides unit test implementation with Jest, Vitest, or Jasmine — covering test structure, mocking strategies, fixture management, snapshot testing, and test organization patterns. Use when writing or improving unit tests for functions, components, or modules. [EXPLICIT]
+1. **Law of Isolation**: Every unit test runs in complete isolation — no network, no Firestore, no real Auth. All Firebase services are mocked or emulated. [EXPLICIT]
+2. **Law of Speed**: The full unit suite executes in under 60 seconds. Any test exceeding 5s is a smell — refactor the dependency. [EXPLICIT]
+3. **Law of Determinism**: Same input always produces same output. No date-dependent, random, or order-dependent tests. Flaky = deleted. [EXPLICIT]
 
-## Procedure
+## Protocol
 
-### Step 1: Discover
-- Check existing test framework and configuration (Jest, Vitest, Jasmine)
-- Review test file naming conventions and directory structure
-- Identify modules with low or no test coverage
-- Check mock/stub patterns currently in use
+### Phase 1 — Setup
+1. Select runner: Vitest (Vite projects) or Jest (legacy/CRA). [EXPLICIT]
+2. Configure `vitest.config.ts` or `jest.config.ts` with `@testing-library/*` and Firebase mock paths. [EXPLICIT]
+3. Create `__mocks__/firebase/` with stubs for `auth`, `firestore`, `functions`, `storage`. [EXPLICIT]
+4. Set coverage thresholds in config: `{ branches: 80, functions: 80, lines: 80, statements: 80 }`. [EXPLICIT]
 
-### Step 2: Analyze
-- Determine what to test: pure logic, edge cases, error handling, state transitions
-- Plan mocking strategy: dependency injection vs module mocking vs spy
-- Evaluate test isolation requirements (each test independent, no shared state)
-- Identify test data needs (fixtures, factories, builders)
+### Phase 2 — TDD Execution
+1. Write failing test (RED) — assert expected behavior before implementation. [EXPLICIT]
+2. Write minimal code to pass (GREEN) — no gold-plating. [EXPLICIT]
+3. Refactor — extract, rename, simplify while tests stay green. [EXPLICIT]
+4. Run `vitest --coverage` or `jest --coverage` after each cycle. [EXPLICIT]
 
-### Step 3: Execute
-- Write tests following AAA pattern: Arrange, Act, Assert
-- Use descriptive test names: `it('should return empty array when no items match filter')`
-- Mock external dependencies (API calls, database, file system) at boundaries
-- Create test fixtures/factories for complex test data
-- Add snapshot tests for serializable outputs (use sparingly)
-- Group tests with `describe` blocks by feature or method
-- Configure coverage reporting with lcov and html reporters
+### Phase 3 — CI Gate
+1. Add test command to `package.json`: `"test:unit": "vitest run --coverage"`. [EXPLICIT]
+2. Fail CI if coverage drops below thresholds. [EXPLICIT]
+3. Generate coverage report artifact (lcov + HTML). [EXPLICIT]
 
-### Step 4: Validate
-- Run full test suite — all tests pass in isolation and together
-- Check coverage report for untested branches and edge cases
-- Verify mocks are reset between tests (no cross-test contamination)
-- Confirm tests fail for the right reasons (change code, test breaks meaningfully)
+## I/O
 
-## Quality Criteria
+| Input | Output |
+|-------|--------|
+| Source module (`.ts`/`.tsx`) | `*.test.ts` file with 3+ test cases per function |
+| Firebase service dependency | Mock file in `__mocks__/firebase/` |
+| Coverage config | `coverage/` report (lcov, HTML) |
+| CI pipeline trigger | Pass/fail with coverage delta |
 
-- [ ] Tests follow AAA pattern (Arrange, Act, Assert) with clear structure
-- [ ] Each test is independent — no reliance on test execution order
-- [ ] Mocks scoped to test level and reset in `beforeEach`/`afterEach`
-- [ ] Test names describe expected behavior, not implementation
-- [ ] Evidence tags applied to all claims
+## Quality Gates — 5 Checks
 
-## Anti-Patterns
+1. **Coverage >= 80%** on lines, branches, functions, statements. [EXPLICIT]
+2. **Zero flaky tests** — run suite 3x in CI, all must pass. [EXPLICIT]
+3. **No `any` in test files** — TypeScript strict mode applies to tests. [EXPLICIT]
+4. **Each test has exactly one assertion concept** — no multi-concern tests. [EXPLICIT]
+5. **Mock accuracy** — mocks mirror real Firebase SDK signatures (type-checked). [EXPLICIT]
 
-- Testing implementation details instead of behavior (brittle tests)
-- Excessive mocking that makes tests pass regardless of actual behavior
-- Sharing mutable state between tests (order-dependent failures)
+## Edge Cases
 
-## Related Skills
+- **Firestore Timestamps**: Mock `Timestamp.now()` with fixed value via `vi.useFakeTimers()`.
+- **Auth state changes**: Use `onAuthStateChanged` mock that emits controlled sequences.
+- **Cloud Functions callable**: Mock `httpsCallable` return with typed response objects.
+- **Environment variables**: Use `vi.stubEnv()` — never read real `.env` in tests.
 
-- `test-strategy` — unit tests are the base of the test pyramid
-- `linting-formatting` — ESLint plugin for test best practices
+## Self-Correction Triggers
+
+- Coverage drops below 80% → block merge, notify author.
+- Test execution time exceeds 60s → profile and split slow suites.
+- Snapshot tests exceed 20% of suite → convert to explicit assertions.
+- Mock drift detected (SDK update) → regenerate mocks from SDK types.
 
 ## Usage
 
@@ -83,11 +81,3 @@ Example invocations:
 - Assumes access to project artifacts (code, docs, configs) [EXPLICIT]
 - Requires English-language output unless otherwise specified [EXPLICIT]
 - Does not replace domain expert judgment for final decisions [EXPLICIT]
-
-## Edge Cases
-
-| Scenario | Handling |
-|----------|----------|
-| Empty or minimal input | Request clarification before proceeding |
-| Conflicting requirements | Flag conflicts explicitly, propose resolution |
-| Out-of-scope request | Redirect to appropriate skill or escalate |

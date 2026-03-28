@@ -4,6 +4,4 @@ type: variation
 variant: quick
 ---
 # Asis Analysis — Quick Mode
-
-Streamlined execution. Focus on TL;DR and primary output only.
-Apply Validation Gate but skip extended evidence tagging.
+Streamlined. TL;DR and primary output only.

@@ -1,73 +1,79 @@
 ---
 name: image-optimization
-author: JM Labs (Javier Montaño)
+description: WebP/AVIF format selection, responsive images with srcset, lazy loading, and Firebase Storage image resize extension
 version: 1.0.0
-description: >
-  Optimize images for web performance using modern formats (WebP, AVIF),
-  responsive srcset, lazy loading, and CDN delivery strategies. [EXPLICIT]
-  Trigger: "image optimization", "WebP", "AVIF", "lazy loading", "srcset"
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
-  - Bash
+status: production
+owner: Javier Montaño
+tags: [performance, images, webp, avif, srcset, lazy-loading, firebase-storage]
 ---
 
-# Image Optimization
+# 098 — Image Optimization {Performance}
 
-> "The fastest image is the one you don't load." — Addy Osmani
+## Purpose
+Minimize image payload while maintaining visual quality. Serve the optimal format, size, and resolution for each device and viewport through modern formats, responsive images, and automated processing. [EXPLICIT]
 
-## TL;DR
+## Physics — 3 Immutable Laws
 
-Guides comprehensive image optimization for web performance — converting to modern formats (WebP, AVIF), implementing responsive images with srcset and sizes, adding lazy loading, and configuring CDN delivery with caching. Use when images are the bottleneck in your page load performance (they usually are). [EXPLICIT]
+1. **Law of Format Efficiency**: AVIF > WebP > JPEG > PNG for photographic content. Always serve the most efficient format the browser supports. [EXPLICIT]
+2. **Law of Right-Sizing**: Never serve a 2000px image to a 375px viewport. Responsive images deliver the exact resolution needed. [EXPLICIT]
+3. **Law of Deferred Loading**: Images below the fold are lazy-loaded. Only above-the-fold hero images load eagerly. The browser decides when to fetch the rest. [EXPLICIT]
 
-## Procedure
+## Protocol
 
-### Step 1: Discover
-- Audit current image assets (count, sizes, formats, dimensions)
-- Measure image impact on page weight and LCP with Lighthouse
-- Check existing image pipeline (build-time optimization, CMS upload)
-- Identify hero/above-the-fold images vs below-the-fold content images
+### Phase 1 — Format Pipeline
+1. Source images stored as high-quality originals (JPEG/PNG) in Firebase Storage. [EXPLICIT]
+2. Install Firebase Extension: `storage-resize-images` — auto-generates resized variants. [EXPLICIT]
+3. Configure sizes: `[320, 640, 960, 1280, 1920]` widths. Formats: `[webp, avif]`. [EXPLICIT]
+4. Build-time alternative: `sharp` or `squoosh` CLI for static assets in `public/`. [EXPLICIT]
 
-### Step 2: Analyze
-- Determine optimal formats per use case (AVIF for photos, SVG for icons, WebP as fallback)
-- Calculate responsive breakpoints based on actual layout widths (not arbitrary)
-- Evaluate CDN options (Firebase Hosting, Cloudflare, imgix, Cloudinary)
-- Decide build-time vs runtime image processing strategy
+### Phase 2 — Responsive Image Markup
+1. Use `<picture>` element with `<source>` for format selection:
+   ```
+   <picture>
+     <source srcset="img.avif" type="image/avif">
+     <source srcset="img.webp" type="image/webp">
+     <img src="img.jpg" alt="description">
+   </picture>
+   ```
+2. Add `srcset` with width descriptors: `srcset="img-320.webp 320w, img-640.webp 640w"`. [EXPLICIT]
+3. Add `sizes` attribute: `sizes="(max-width: 768px) 100vw, 50vw"`. [EXPLICIT]
+4. Set explicit `width` and `height` attributes to prevent CLS. [EXPLICIT]
 
-### Step 3: Execute
-- Convert images to WebP/AVIF with quality optimization (80% quality typical sweet spot)
-- Implement `<picture>` element with format fallback chain (AVIF → WebP → JPEG)
-- Add `srcset` and `sizes` attributes matching actual rendered widths
-- Apply `loading="lazy"` to below-the-fold images, `fetchpriority="high"` to LCP image
-- Set up build pipeline (sharp, imagemin, or framework plugin) for automatic optimization
-- Configure CDN caching headers (`Cache-Control: public, max-age=31536000, immutable`)
+### Phase 3 — Loading Strategy
+1. Above-the-fold images: `loading="eager"`, `fetchpriority="high"`, preload in `<head>`. [EXPLICIT]
+2. Below-the-fold images: `loading="lazy"`, `decoding="async"`. [EXPLICIT]
+3. Background images: use `IntersectionObserver` for lazy loading CSS backgrounds. [EXPLICIT]
 
-### Step 4: Validate
-- Run Lighthouse — target zero "properly size images" warnings
-- Verify LCP image loads within 2.5 seconds on simulated 3G
-- Confirm lazy loading works (images don't load until scrolled into view)
-- Check that AVIF/WebP is served to supporting browsers, JPEG to others
+## I/O
 
-## Quality Criteria
+| Input | Output |
+|-------|--------|
+| Original image (JPEG/PNG) | Resized variants (320-1920px) in WebP + AVIF |
+| Firebase Storage upload | Auto-generated resized images via extension |
+| Image component | `<picture>` with srcset, sizes, lazy loading |
+| Build pipeline | Optimized static images in `dist/` |
 
-- [ ] All raster images served in at least WebP format with JPEG fallback
-- [ ] Responsive images use srcset with at least 3 size variants
-- [ ] LCP image is preloaded or has `fetchpriority="high"`
-- [ ] Total image weight per page is under 500KB for typical content pages
-- [ ] Evidence tags applied to all claims
+## Quality Gates — 5 Checks
 
-## Anti-Patterns
+1. **No images > 200KB** served to any device — resize or compress further. [EXPLICIT]
+2. **WebP/AVIF served** to supporting browsers — `<picture>` fallback for others. [EXPLICIT]
+3. **All images have `width`/`height`** — prevents CLS. [EXPLICIT]
+4. **Below-fold images lazy-loaded** — `loading="lazy"` present. [EXPLICIT]
+5. **Hero image preloaded** — `<link rel="preload">` in document head. [EXPLICIT]
 
-- Serving 2000px images in 300px containers (no srcset)
-- Lazy loading the LCP hero image (delays largest contentful paint)
-- Using CSS background-image for content images (no srcset, no alt text, no lazy loading)
+## Edge Cases
 
-## Related Skills
+- **SVG images**: Don't convert SVGs to raster. Optimize with `svgo` instead.
+- **User-uploaded images**: Process via Firebase Extension on upload — never serve originals.
+- **Animated images**: Use `<video>` for animations instead of GIF. MP4 is 90% smaller.
+- **High-DPI displays**: Serve 2x images for Retina (`srcset` with density descriptors).
 
-- `performance-testing` — measuring the impact of image optimization
-- `build-optimization` — integrating image processing into the build pipeline
+## Self-Correction Triggers
+
+- LCP image slow → check if preloaded, verify CDN cache, reduce image size.
+- CLS from images → add missing `width`/`height` attributes.
+- Storage costs rising → audit image sizes, remove unused resized variants.
+- AVIF not serving → verify `<picture>` source order (AVIF before WebP).
 
 ## Usage
 
@@ -82,11 +88,3 @@ Example invocations:
 - Assumes access to project artifacts (code, docs, configs) [EXPLICIT]
 - Requires English-language output unless otherwise specified [EXPLICIT]
 - Does not replace domain expert judgment for final decisions [EXPLICIT]
-
-## Edge Cases
-
-| Scenario | Handling |
-|----------|----------|
-| Empty or minimal input | Request clarification before proceeding |
-| Conflicting requirements | Flag conflicts explicitly, propose resolution |
-| Out-of-scope request | Redirect to appropriate skill or escalate |

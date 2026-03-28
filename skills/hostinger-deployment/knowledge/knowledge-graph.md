@@ -1,13 +1,6 @@
 # Hostinger Deployment — Knowledge Graph
-<!-- Zettelkasten-ready: use [[wikilinks]] for Obsidian -->
 
 ## Core Concepts
-- [[hostinger-deployment]] — Primary concept
-- [[hostinger-deployment-patterns]] — Common patterns and approaches
-- [[hostinger-deployment-anti-patterns]] — What to avoid
-
-## Tags
-#hostinger-deployment #jm-adk #zettelkasten
-
-## Cross-References
-- Related skills in this domain
+- hostinger-deployment: primary capability (skill #7001)
+- validation-gate: quality checkpoint
+- evidence-tagging: [EXPLICIT]/[INFERRED]/[OPEN]

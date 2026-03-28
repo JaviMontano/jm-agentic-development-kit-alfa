@@ -1,138 +1,68 @@
 ---
-name: apex-input-analysis
-description: >
-  Use when the user asks to "analyze project inputs", "process documents", "extract requirements",
-  "review project brief", "parse RFP content", or mentions input processing, document analysis,
-  requirement extraction, project brief analysis. Triggers on: analyzes project input documents,
-  extracts structured requirements from briefs, detects contradictions in source documents,
-  normalizes project inputs for planning, produces input completeness scorecard. [EXPLICIT]
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Glob
-  - Grep
-  - Bash
-  - WebFetch
+name: input-analysis
+description: Parse project inputs (RFPs, briefs, emails). Detect contradictions, gaps, ambiguities. Score completeness 0-100. [EXPLICIT]
+version: 1.0.0
+status: production
+owner: Javier Montaño
+tags: [analysis, input, requirements, completeness]
 ---
-
-# Project Input Processing & Document Analysis
-
-**TL;DR**: Analyzes project input documents (briefs, RFPs, SOWs, emails, meeting notes) to extract structured requirements, constraints, assumptions, stakeholders, and key decisions. Produces a normalized input digest that feeds the project charter and planning phases.
-
-## Principio Rector
-La calidad del proyecto es proporcional a la calidad de sus inputs. Documentos ambiguos, contradictorios o incompletos son la causa raíz de la mayoría de los fracasos en proyectos. Este skill transforma información no estructurada en insumos normalizados y verificables, identificando gaps antes de que se conviertan en riesgos. [EXPLICIT]
-
-## Assumptions & Limits
-- Assumes input documents are available in readable format (Markdown, PDF, DOCX, or plain text) [SUPUESTO]
-- Assumes at least one input document exists — cannot analyze from verbal-only briefings [SUPUESTO]
-- Breaks if input documents are in languages other than Spanish or English — translation must precede analysis [PLAN]
-- Scope limited to extraction and normalization; input validation requires stakeholder confirmation [STAKEHOLDER]
-- Does not generate requirements — extracts and structures what exists in source documents [PLAN]
-- Implicit requirements tagged as [INFERENCIA] require stakeholder confirmation before becoming [PLAN]
+# input-analysis {Analysis} (v1.0)
+> **"Analyze with evidence. Every claim tagged. Every finding actionable."**
+## Purpose
+Parse project inputs (RFPs, briefs, emails). Detect contradictions, gaps, ambiguities. Score completeness 0-100. [EXPLICIT]
+**When to use:** During analysis mode (MAO DNA). Before architecture or development begins.
+## Core Principles
+1. **Law of Evidence:** Every finding tagged [CODE], [CONFIG], [DOC], [INFERENCE], or [ASSUMPTION] (R-001). [EXPLICIT]
+2. **Law of Completeness:** No analysis deliverable ships without covering all required sections. [EXPLICIT]
+3. **Law of Firebase Lens:** All assessments evaluated through Firebase/Google/Hostinger feasibility. [EXPLICIT]
+## Core Process
+### Phase 1: Gather
+1. Collect inputs (documents, code, conversations, existing systems). [EXPLICIT]
+2. Parse for requirements, constraints, and context. [EXPLICIT]
+### Phase 2: Analyze
+1. Apply domain-specific analysis methodology. [EXPLICIT]
+2. Tag all findings with evidence tags. [EXPLICIT]
+3. Score/evaluate using the skill's specific metrics. [EXPLICIT]
+### Phase 3: Document
+1. Produce the analysis deliverable in markdown. [EXPLICIT]
+2. Include evidence tag summary (% by tag type). [EXPLICIT]
+3. If >30% [ASSUMPTION], add WARNING banner. [EXPLICIT]
+## 3. Inputs / Outputs
+| Input | Type | Required | Description |
+|-------|------|----------|-------------|
+| Project context | Text/Files | Yes | What to analyze |
+| Output | Type | Description |
+|--------|------|-------------|
+| Analysis deliverable | Markdown | Evidence-tagged findings |
+## Validation Gate
+- [ ] All findings have evidence tags
+- [ ] Firebase feasibility assessed
+- [ ] Deliverable follows R-008 output standards
+- [ ] No implementation details (phase separation)
+- [ ] Actionable recommendations included
+## 5. Self-Correction Triggers
+> [!WARNING]
+> IF >30% claims are [ASSUMPTION] THEN add prominent WARNING banner.
+> IF analysis contains implementation details THEN move to plan (Art. 1.5 phase separation).
 
 ## Usage
-```bash
-/pm:input-analysis $DOCUMENT_PATH --type=rfp
-/pm:input-analysis $PROJECT_DIR --type=multi-doc --detect-contradictions
-/pm:input-analysis $DOCUMENT_PATH --type=brief --output=backlog-ready
-```
-**Parameters:**
-| Parameter | Required | Description |
-|-----------|----------|-------------|
-| `$DOCUMENT_PATH` | Yes | Path to input document or project directory |
-| `--type` | No | `rfp` / `sow` / `brief` / `multi-doc` (default: `brief`) |
-| `--detect-contradictions` | No | Enable cross-document contradiction detection |
-| `--output` | No | Output format: `digest` / `backlog-ready` / `requirements-matrix` |
 
-## Service Type Routing
-`{TIPO_PROYECTO}` variants:
-- **Agile**: Inputs parsed into epics, user stories, and acceptance criteria; backlog-ready format with priority signals
-- **Waterfall**: Inputs mapped to formal requirements traceability matrix; scope statement and deliverable specifications extracted
-- **SAFe**: Inputs decomposed into capabilities, features, and enablers; aligned to value streams and PI objectives
-- **Hybrid**: Inputs classified by predictability — predictable components get formal specs, emergent components get story format
-- **Transformation**: Vision documents, maturity assessments, and change readiness surveys analyzed for organizational impact
-- **Portfolio**: Cross-project input consolidation; strategic alignment validation against portfolio investment themes
+Example invocations:
 
-## Before Analyzing Inputs
-1. Glob `*brief*`, `*rfp*`, `*sow*` in project directory — inventory all input documents [PLAN]
-2. Read document metadata — identify document dates, authors, and version status [PLAN]
-3. Check for prior input analysis — avoid re-analyzing already-processed documents [PLAN]
-4. Confirm input language — verify Spanish or English; flag other languages for translation [PLAN]
+- "/input-analysis" — Run the full input analysis workflow
+- "input analysis on this project" — Apply to current context
 
-## Entrada (Input Requirements)
-- Project brief, RFP, SOW, or request document (any format)
-- Supporting documents (emails, meeting minutes, prior analyses)
-- Organizational context documents
 
-## Proceso (Protocol)
-1. **Document inventory** — Catalog all input documents with metadata
-2. **Content extraction** — Parse key information: objectives, scope, constraints, stakeholders
-3. **Requirement identification** — Extract explicit and implicit requirements
-4. **Contradiction detection** — Flag conflicting statements across documents
-5. **Gap analysis** — Identify missing critical information
-6. **Stakeholder extraction** — Identify mentioned stakeholders and their roles
-7. **Assumption tagging** — Tag inferred information as [SUPUESTO] vs. [DOC]
-8. **Normalize output** — Produce structured input digest in standard format
+## Assumptions & Limits
+
+- Assumes access to project artifacts (code, docs, configs) [EXPLICIT]
+- Requires English-language output unless otherwise specified [EXPLICIT]
+- Does not replace domain expert judgment for final decisions [EXPLICIT]
 
 ## Edge Cases
-1. **Input documents contradict each other on scope** — Document both versions side-by-side; tag as critical gap; generate specific clarification questions for stakeholder review. [EXPLICIT]
-2. **Single-page brief with minimal information** — Extract what exists; produce gap analysis showing missing fields (budget, timeline, stakeholders, constraints); flag completeness score below 40%. [EXPLICIT]
-3. **Input documents older than 6 months** — Tag all extracted data as [SUPUESTO] pending reconfirmation; generate revalidation questionnaire for stakeholders. [EXPLICIT]
-4. **Technical jargon or domain-specific terminology** — Create glossary of extracted terms; flag terms requiring domain expert validation. [EXPLICIT]
-5. **Multiple versions of same document** — Use latest version as primary; document delta between versions; flag scope changes. [EXPLICIT]
 
-## Example: Good vs Bad
-
-**Good Input Analysis:**
-| Attribute | Value |
-|-----------|-------|
-| Document inventory | 6 documents cataloged with dates and authors [PLAN] |
-| Requirements extracted | 34 explicit, 12 implicit (tagged [INFERENCIA]) [PLAN] |
-| Contradictions | 3 contradictions flagged with document references [PLAN] |
-| Gaps identified | 8 missing fields with specific clarification questions [PLAN] |
-| Completeness score | 72% — sufficient for charter draft with noted gaps [METRIC] |
-
-**Bad Input Analysis:**
-"The project is about digital transformation for the client." — No structured extraction, no gap analysis, no contradiction detection, no completeness scoring. Planning proceeds on incomplete understanding. [EXPLICIT]
-
-## Salida (Deliverables)
-- `00_input_digest_{proyecto}_{WIP}.md` — Structured input analysis
-- Requirements extraction table (explicit vs. implicit)
-- Contradictions and gaps register
-- Stakeholder mentions matrix
-- Information completeness scorecard
-
-## Validation Gate
-- [ ] Every extraction tagged with source document and page/section reference
-- [ ] Zero misquotes or misinterpretations — direct quotes used for ambiguous content
-- [ ] All input documents analyzed — none skipped or partially processed
-- [ ] Contradictions explicitly flagged with both conflicting sources cited
-- [ ] Gaps have specific clarification questions, not generic "needs more info"
-- [ ] Digest readable without requiring access to original documents
-- [ ] Every item traces to source page/section with evidence tag
-- [ ] Ambiguities flagged as risks with severity rating
-- [ ] Completeness scorecard rates input quality on 0-100% scale
-- [ ] Input format appropriate for feeding chosen methodology deliverables
-
-## Escalation Triggers
-- More than 50% of critical information is [SUPUESTO]
-- Irreconcilable contradictions between input documents
-- No sponsor or decision-maker identifiable from inputs
-- Input documents older than 6 months without confirmation
-
-## Additional Resources
-
-| Resource | When to read | Location |
-|----------|-------------|----------|
-| Body of Knowledge | Before starting to understand standards and frameworks | `references/body-of-knowledge.md` |
-| State of the Art | When benchmarking against industry trends | `references/state-of-the-art.md` |
-| Knowledge Graph | To understand skill dependencies and data flow | `references/knowledge-graph.mmd` |
-| Use Case Prompts | For specific scenarios and prompt templates | `prompts/use-case-prompts.md` |
-| Metaprompts | To enhance output quality and reduce bias | `prompts/metaprompts.md` |
-| Sample Output | Reference for deliverable format and structure | `examples/sample-output.md` |
-
-## Output Configuration
-- **Language**: Spanish (Latin American, business register)
-- **Evidence**: [PLAN], [SCHEDULE], [METRIC], [INFERENCIA], [SUPUESTO], [STAKEHOLDER]
-- **Branding**: #2563EB royal blue, #F59E0B amber (NEVER green), #0F172A dark
+| Scenario | Handling |
+|----------|----------|
+| Empty or minimal input | Request clarification before proceeding |
+| Conflicting requirements | Flag conflicts explicitly, propose resolution |
+| Out-of-scope request | Redirect to appropriate skill or escalate |

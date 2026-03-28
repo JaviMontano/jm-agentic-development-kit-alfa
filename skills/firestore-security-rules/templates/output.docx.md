@@ -1,8 +1,3 @@
-# DOCX Template — Firestore Security Rules
-## Structure
-- Title: "Firestore Security Rules Report"
-- Section 1: Executive Summary
-- Section 2: Findings / Deliverables
-- Section 3: Recommendations
-- Footer: "MetodologIA — {{date}}"
-## Formatting: Poppins headings, Montserrat body, JetBrains Mono code
+# Firestore Security Rules — DOCX Template
+Title: Firestore Security Rules — [Client]
+Brand: Navy #122562 · Gold #FFD700 · Poppins + Inter
