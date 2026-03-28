@@ -1,27 +1,34 @@
 {
   "name": "jm-adk",
-  "version": "4.0.0",
-  "description": "JM Agentic Development Kit — 264 skills, 256 agents, 256 commands, automatic workspace management. Constitution-governed, triad-orchestrated, workspace-tracked. From intent to production with full traceability.",
+  "version": "5.0.0",
+  "description": "JM Agentic Development Kit — 496 skills, market research, CV, brand HTML, landing pages, progress tracking, discovery, architecture, security and more. Constitution-governed, triad-orchestrated, workspace-tracked. From intent to production with full traceability.",
   "author": {
     "name": "Javier Montaño (JM Labs)",
     "url": "https://metodologia.info"
   },
   "license": "MIT",
-  "homepage": "https://github.com/javimontano/jm-agentic-development-kit",
+  "homepage": "https://github.com/JaviMontano/jm-agentic-development-kit-alfa",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JaviMontano/jm-agentic-development-kit-alfa"
+  },
   "keywords": [
     "agentic-development",
+    "market-research",
+    "cv-enhancement",
+    "brand-html",
+    "landing-pages",
+    "discovery",
+    "architecture",
+    "security",
     "workspace-management",
-    "audit-trail",
     "firebase",
     "angular",
     "react",
-    "hostinger",
-    "html-css-js",
-    "google-ecosystem",
     "full-stack",
-    "discovery-to-deployment",
     "constitution-governed",
-    "triad-orchestration"
+    "triad-orchestration",
+    "jm-labs"
   ],
   "engines": {
     "claude-code": ">=1.0.0"

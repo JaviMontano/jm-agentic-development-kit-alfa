@@ -1,7 +1,7 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/JM--ADK-v4.0.0_Workspace-FFD700?style=for-the-badge&labelColor=122562" alt="Version" />
+  <img src="https://img.shields.io/badge/JM--ADK-v5.0.0-FFD700?style=for-the-badge&labelColor=122562" alt="Version" />
   <img src="https://img.shields.io/badge/Componentes-1036-FFD700?style=for-the-badge&labelColor=122562" alt="1036" />
-  <img src="https://img.shields.io/badge/Skills-264_(enriquecidos)-137DC5?style=for-the-badge&labelColor=122562" alt="Skills" />
+  <img src="https://img.shields.io/badge/Skills-495_MOAT-FFD700?style=for-the-badge&labelColor=122562" alt="495 Skills />
   <img src="https://img.shields.io/badge/Constitución-v6.0.0-FFD700?style=for-the-badge&labelColor=122562" alt="Constitución" />
 </p>
 
@@ -22,7 +22,7 @@
 
 ## Qué es
 
-Un entorno agéntico listo para trabajar. 264 habilidades especializadas, 256 agentes, y un orquestador (Pristino) que compone un equipo de 3 para cada tarea. Tú das la dirección. El kit ejecuta con método.
+Un entorno agéntico listo para trabajar. 495 habilidades especializadas, 256 agentes, y un orquestador (Pristino) que compone un equipo de 3 para cada tarea. Tú das la dirección. El kit ejecuta con método.
 
 **No es un chatbot.** Es un sistema gobernado: 18 principios constitucionales (Constitución v6.0.0), 4 puertas de calidad, trazabilidad de cada decisión, y aprendizaje continuo entre sesiones.
 
@@ -32,7 +32,7 @@ Un entorno agéntico listo para trabajar. 264 habilidades especializadas, 256 ag
 |------------|-----------|
 | La IA adivina qué quieres | La IA pregunta, analiza, valida antes de actuar |
 | Resultados inconsistentes | Mismo método siempre: analizar → diseñar → construir → probar → desplegar |
-| Un agente generalista hace todo | 264 especialistas, cada uno experto en lo suyo |
+| Un agente generalista hace todo | 495 especialistas, cada uno experto en lo suyo |
 | Sin control de calidad | 4 puertas obligatorias (G0→G1→G2→G3) |
 | Contexto perdido entre sesiones | Decisiones grabadas, insights extraídos, errores no repetidos |
 | Sin trazabilidad de tareas | Workspace automático: cada tarea crea su carpeta con tasklog, changelog, plan |
@@ -52,6 +52,27 @@ Un entorno agéntico listo para trabajar. 264 habilidades especializadas, 256 ag
 | Dashboard admin | `/jm-adk:create-dashboard` | Tablas, gráficos, filtros, CRUD | Firebase |
 
 **Stack**: HTML5, CSS3, JS, Angular 18+, React 19+, Firebase, Hostinger. Ecosistema Google.
+
+---
+
+## Instalación en Claude Code (1 comando)
+
+```bash
+# Opción recomendada: desde marketplace
+/plugin marketplace add JaviMontano/jm-agentic-development-kit-alfa
+/plugin install jm-adk
+```
+
+> Eso es todo. Claude Code descarga e instala los 495 skills.
+> Invoca cualquier skill: `/jm-adk:market-intelligence`, `/jm-adk:cv-enhancement`, `/jm-adk:html-brand`.
+
+**Alternativa: clonar localmente**
+
+```bash
+git clone https://github.com/JaviMontano/jm-agentic-development-kit-alfa.git
+cd jm-agentic-development-kit-alfa
+claude plugin add ./
+```
 
 ---
 
@@ -90,7 +111,7 @@ Solo necesario si quieres usar búsqueda BM25 avanzada. Descarga desde [python.o
 
 #### Paso 4: Instalar un lector de Markdown
 
-Recomendación: **[Obsidian](https://obsidian.md)** — es gratuito y funciona con grafos de conocimiento. Perfecto para navegar los 264 skills y sus wiklinks interconectados. Descarga desde [obsidian.md](https://obsidian.md) e instala normalmente.
+Recomendación: **[Obsidian](https://obsidian.md)** — es gratuito y funciona con grafos de conocimiento. Perfecto para navegar los 495 skills y sus wiklinks interconectados. Descarga desde [obsidian.md](https://obsidian.md) e instala normalmente.
 
 #### Paso 5: Instalar un IDE
 
@@ -112,8 +133,8 @@ Para verificar: `gh --version`.
 #### Paso 7: Clonar el repositorio
 
 ```bash
-git clone https://github.com/JaviMontano/jm-agentic-development-kit.git
-cd jm-agentic-development-kit
+git clone https://github.com/JaviMontano/jm-agentic-development-kit-alfa.git
+cd jm-agentic-development-kit-alfa
 ```
 
 Si usas Claude Code, agrega el plugin:
@@ -244,7 +265,7 @@ No es un archivo suelto. Cada skill contiene:
 ### Instalar (60 segundos)
 
 ```bash
-git clone https://github.com/JaviMontano/jm-agentic-development-kit.git
+git clone https://github.com/JaviMontano/jm-agentic-development-kit-alfa.git
 claude plugin add ./jm-agentic-development-kit
 ```
 
@@ -419,7 +440,7 @@ Template en: `references/brand/html-template.html`
 | [Getting Started](docs/getting-started.md) | Todos | Instalar y primer proyecto (5 min) |
 | [Landing Page](landing.html) | No técnicos | Qué es, para qué sirve, cómo empezar |
 | [Ejemplos](docs/examples/) | Todos | E-commerce, task manager, portfolio |
-| [Catálogo](docs/catalog.md) | Desarrolladores | Navegar los 264 skills y agents |
+| [Catálogo](docs/catalog.md) | Desarrolladores | Navegar los 495 skills y agents |
 | [Arquitectura](docs/architecture-diagram.md) | Desarrolladores | Pipeline, DSVSR, puertas, routing |
 | [Constitución](references/ontology/constitution-v6.0.0.md) | Gobernanza | 18 principios completos (renumerados 1-18) |
 | [PRISTINO.md](PRISTINO.md) | Avanzados | Alma del orquestador |
@@ -460,7 +481,7 @@ El kit fue auditado por 3 agentes QA en paralelo:
 
 | Auditor | Alcance | Issues encontrados | Resueltos |
 |---------|---------|-------------------|-----------|
-| Skills QA | 264 skills × ~12 archivos | 4 Medium, 6 Low | 4 Medium |
+| Skills QA | 495 skills × ~12 archivos | 4 Medium, 6 Low | 4 Medium |
 | Agents + Commands QA | 256 agents + 260 commands | 1 High, 1 Low, 3 Info | 1 High |
 | Prompts + System QA | 1,026 prompts + 10 archivos de sistema | 1 High, 3 Medium, 2 Low | 1 High, 1 Medium |
 
@@ -492,7 +513,7 @@ Co-creado con **Claude Code** (Anthropic) y **Pristino Agent** — colaboración
 # English Version
 
 <p align="center">
-  <img src="https://img.shields.io/badge/JM--ADK-v4.0.0_Workspace-FFD700?style=for-the-badge&labelColor=122562" alt="Version" />
+  <img src="https://img.shields.io/badge/JM--ADK-v5.0.0-FFD700?style=for-the-badge&labelColor=122562" alt="Version" />
   <img src="https://img.shields.io/badge/Components-1036-FFD700?style=for-the-badge&labelColor=122562" alt="1036" />
   <img src="https://img.shields.io/badge/Skills-264_(enriched)-137DC5?style=for-the-badge&labelColor=122562" alt="Skills" />
   <img src="https://img.shields.io/badge/Constitution-v6.0.0-FFD700?style=for-the-badge&labelColor=122562" alt="Constitution" />
@@ -583,7 +604,7 @@ Only needed if you want to use advanced BM25 search. Download from [python.org](
 
 #### Step 4: Install a Markdown reader
 
-Recommendation: **[Obsidian](https://obsidian.md)** — it's free and works with knowledge graphs. Perfect for navigating the 264 skills and their interconnected wikilinks. Download from [obsidian.md](https://obsidian.md) and install normally.
+Recommendation: **[Obsidian](https://obsidian.md)** — it's free and works with knowledge graphs. Perfect for navigating the 495 skills and their interconnected wikilinks. Download from [obsidian.md](https://obsidian.md) and install normally.
 
 #### Step 5: Install an IDE
 
@@ -605,8 +626,8 @@ To verify: `gh --version`.
 #### Step 7: Clone the repository
 
 ```bash
-git clone https://github.com/JaviMontano/jm-agentic-development-kit.git
-cd jm-agentic-development-kit
+git clone https://github.com/JaviMontano/jm-agentic-development-kit-alfa.git
+cd jm-agentic-development-kit-alfa
 ```
 
 If using Claude Code, add the plugin:
@@ -737,7 +758,7 @@ It's not a loose file. Each skill contains:
 ### Install (60 seconds)
 
 ```bash
-git clone https://github.com/JaviMontano/jm-agentic-development-kit.git
+git clone https://github.com/JaviMontano/jm-agentic-development-kit-alfa.git
 claude plugin add ./jm-agentic-development-kit
 ```
 
@@ -912,7 +933,7 @@ Template at: `references/brand/html-template.html`
 | [Getting Started](docs/getting-started.md) | Everyone | Install and first project (5 min) |
 | [Landing Page](landing.html) | Non-technical | What it is, what it's for, how to start |
 | [Examples](docs/examples/) | Everyone | E-commerce, task manager, portfolio |
-| [Catalog](docs/catalog.md) | Developers | Browse the 264 skills and agents |
+| [Catalog](docs/catalog.md) | Developers | Browse the 495 skills and agents |
 | [Architecture](docs/architecture-diagram.md) | Developers | Pipeline, DSVSR, gates, routing |
 | [Constitution](references/ontology/constitution-v6.0.0.md) | Governance | 18 complete principles (renumbered 1-18) |
 | [PRISTINO.md](PRISTINO.md) | Advanced | Orchestrator soul |
@@ -953,7 +974,7 @@ The kit was audited by 3 QA agents in parallel:
 
 | Auditor | Scope | Issues found | Resolved |
 |---------|-------|-------------|----------|
-| Skills QA | 264 skills × ~12 files | 4 Medium, 6 Low | 4 Medium |
+| Skills QA | 495 skills × ~12 files | 4 Medium, 6 Low | 4 Medium |
 | Agents + Commands QA | 256 agents + 260 commands | 1 High, 1 Low, 3 Info | 1 High |
 | Prompts + System QA | 1,026 prompts + 10 system files | 1 High, 3 Medium, 2 Low | 1 High, 1 Medium |
 
