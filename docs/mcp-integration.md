@@ -98,6 +98,22 @@ Add `.mcp.json` inside the JM-ADK plugin directory for servers that ship with th
 | **Lighthouse** | Performance/a11y auditing | `npx lighthouse-mcp-server` |
 | **Playwright** | E2E testing and screenshots | `npx @anthropic/playwright-mcp-server` |
 
+### For Google Workspace (Gmail, Calendar, Drive, Docs, Sheets, Slides)
+
+| Server | Purpose | Install |
+|--------|---------|---------|
+| **Gmail** | Email: search, send, drafts, labels, attachments | `npx @dev-hitesh-gupta/gmail-mcp-server` |
+| **Google Workspace** | Drive, Docs, Sheets, Slides, Calendar + Meet | `npx @piotr-agier/google-drive-mcp` |
+
+**Setup guide**: [`docs/google-workspace-mcp-setup.md`](./google-workspace-mcp-setup.md)
+
+**Project `.mcp.json`** already includes both servers. After OAuth2 setup, these tools are available:
+
+| MCP Server | Skills | Tools Count |
+|------------|--------|-------------|
+| `gmail` | `gmail-mcp` | 19 tools |
+| `google-workspace` | `google-calendar-mcp`, `google-drive-mcp`, `google-docs-mcp`, `google-sheets-mcp`, `google-slides-mcp` | Drive + Docs + Sheets + Slides + Calendar |
+
 ### For Deployment
 
 | Server | Purpose | Install |

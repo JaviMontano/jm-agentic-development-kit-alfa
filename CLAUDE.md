@@ -1,6 +1,6 @@
 # JM Agentic Development Kit (JM-ADK) v5.1.0
 
-> Convierte intención en resultados. 512 skills · market research · CV · brand HTML · discovery · architecture · security.
+> Convierte intención en resultados. 518 skills · market research · CV · brand HTML · discovery · architecture · security · Google Workspace MCP.
 
 ## Environment
 
@@ -206,3 +206,5 @@ Every deliverable includes: the ask (baseline) + 1 insight (non-obvious finding)
 | `hooks/hooks.json` | 5 hooks: SessionStart, UserPromptSubmit, PreToolUse, PostToolUse, Stop |
 | `.jm-adk.json` | Plugin config: workspace settings, hook toggles |
 | `scripts/workspace-manager.sh` | Workspace CRUD + gate + report operations |
+| `.mcp.json` | MCP servers: Gmail (19 tools) + Google Workspace (Drive/Docs/Sheets/Slides/Calendar) |
+| `docs/google-workspace-mcp-setup.md` | OAuth2 setup pipeline for Google Workspace MCPs |

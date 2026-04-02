@@ -1,8 +1,8 @@
 # Pristino Master Index
 
-<!-- Auto-generated. 512 Skills | Updated: 2026-03-27 -->
+<!-- Auto-generated. 518 Skills | Updated: 2026-04-02 -->
 
-## Skills (512)
+## Skills (518)
 
 | # | Skill | Description |
 |---|-------|-------------|
@@ -229,6 +229,12 @@
 | 221 | `google-apis-integration` | version: 1.0.0 |
 | 222 | `google-maps-integration` | Integrates Google Maps Platform APIs: Maps JavaScript API, markers and |
 | 223 | `google-workspace-apis` | Integrate Google Workspace APIs — Sheets, Docs, Drive, Calendar, and Gmail |
+| 223a | `gmail-mcp` | Gmail integration via MCP — search, send, draft, label, and manage emails directly from Claude Code. [EXPLICIT] |
+| 223b | `google-calendar-mcp` | Google Calendar integration via MCP — create, manage, and query events with Google Meet support. [EXPLICIT] |
+| 223c | `google-drive-mcp` | Google Drive integration via MCP — upload, download, organize, search, and share files. [EXPLICIT] |
+| 223d | `google-docs-mcp` | Google Docs integration via MCP — create, edit, and format documents with surgical operations. [EXPLICIT] |
+| 223e | `google-sheets-mcp` | Google Sheets integration via MCP — read, write, and manipulate spreadsheet data. [EXPLICIT] |
+| 223f | `google-slides-mcp` | Google Slides integration via MCP — create and manage presentations programmatically. [EXPLICIT] |
 | 224 | `governance-framework` | Use when the user asks to "define governance", "create governance model", |
 | 225 | `grid-systems` | CSS Grid patterns, magazine layouts, asymmetric grids, breakpoint design. [EXPLICIT] |
 | 226 | `guardrails-management` | Detect, confirm, store, and enforce user-declared guidelines, constraints, and |

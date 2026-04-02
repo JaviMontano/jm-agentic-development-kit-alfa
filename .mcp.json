@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "google-workspace": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@piotr-agier/google-drive-mcp"],
+      "env": {
+        "GOOGLE_DRIVE_OAUTH_CREDENTIALS": "${GOOGLE_WORKSPACE_CREDENTIALS_PATH}"
+      },
+      "description": "Google Workspace: Drive, Docs, Sheets, Slides, Calendar + Meet"
+    },
+    "gmail": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@dev-hitesh-gupta/gmail-mcp-server"],
+      "env": {
+        "GMAIL_MCP_CONFIG_DIR": "${GMAIL_MCP_CONFIG_DIR}"
+      },
+      "description": "Gmail: search, send, drafts, labels, attachments, threads (19 tools)"
+    }
+  }
+}
