@@ -19,7 +19,7 @@
     "autoSummary": true
   },
   "governance": {
-    "constitutionVersion": "5.2.0",
+    "constitutionVersion": "6.0.0",
     "qualityGates": true,
     "evidenceTags": true,
     "confidenceThreshold": 0.95

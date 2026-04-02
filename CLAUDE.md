@@ -1,4 +1,4 @@
-# JM Agentic Development Kit (JM-ADK) v5.0.0
+# JM Agentic Development Kit (JM-ADK) v5.1.0
 
 > Convierte intención en resultados. 512 skills · market research · CV · brand HTML · discovery · architecture · security.
 
@@ -151,7 +151,7 @@ Confidence threshold: ≥ 0.95. For every complex request:
 7. **Firebase-native** — managed services before custom
 8. **Read before write** — always read existing files first
 9. **Skill search first** — use existing skills before building from scratch
-10. **Constitution compliance** — validate against v5.2.0
+10. **Constitution compliance** — validate against v6.0.0
 11. **Workspace-first** — every artifact-producing task gets a workspace
 
 ## Quality Gates (Constitution v6.0.0)
