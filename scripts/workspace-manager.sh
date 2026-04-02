@@ -311,8 +311,8 @@ cmd_complete() {
     echo "ALREADY-COMPLETED: $ID"; return 0
   fi
 
-  sed -i '' 's/"status": "active"/"status": "completed"/' "$M"
-  sed -i '' "s/\"updated\": \"[^\"]*\"/\"updated\": \"$NOW_ISO\"/" "$M"
+  sed 's/"status": "active"/"status": "completed"/' "$M" > "$M.tmp" && mv "$M.tmp" "$M"
+  sed "s/\"updated\": \"[^\"]*\"/\"updated\": \"$NOW_ISO\"/" "$M" > "$M.tmp" && mv "$M.tmp" "$M"
 
   local TL="$WS_ROOT/$ID/tasklog.md"
   if [ -f "$TL" ]; then
@@ -323,7 +323,7 @@ cmd_complete() {
   fi
 
   local CUR; CUR=$(get_active)
-  [ "$CUR" = "$ID" ] && sed -i '' "s/\"activeWorkspace\": \"$ID\"/\"activeWorkspace\": null/" "$REGISTRY"
+  [ "$CUR" = "$ID" ] && { sed "s/\"activeWorkspace\": \"$ID\"/\"activeWorkspace\": null/" "$REGISTRY" > "$REGISTRY.tmp" && mv "$REGISTRY.tmp" "$REGISTRY"; }
 
   echo "WORKSPACE-COMPLETED: $ID"
 }
@@ -341,7 +341,7 @@ cmd_archive() {
 
   local AR; AR=$(json_num "$REGISTRY" "totalArchived")
   AR=$((AR + 1))
-  sed -i '' "s/\"totalArchived\": *[0-9]*/\"totalArchived\": $AR/" "$REGISTRY"
+  sed "s/\"totalArchived\": *[0-9]*/\"totalArchived\": $AR/" "$REGISTRY" > "$REGISTRY.tmp" && mv "$REGISTRY.tmp" "$REGISTRY"
 
   echo "WORKSPACE-ARCHIVED: $ID → archive/$ID"
 }
@@ -357,11 +357,11 @@ cmd_switch() {
   ensure_registry
   local PREV; PREV=$(get_active)
   if [ -n "$PREV" ] && [ "$PREV" != "null" ]; then
-    sed -i '' "s/\"activeWorkspace\": \"$PREV\"/\"activeWorkspace\": \"$ID\"/" "$REGISTRY"
+    sed "s/\"activeWorkspace\": \"$PREV\"/\"activeWorkspace\": \"$ID\"/" "$REGISTRY" > "$REGISTRY.tmp" && mv "$REGISTRY.tmp" "$REGISTRY"
   else
-    sed -i '' "s/\"activeWorkspace\":null/\"activeWorkspace\": \"$ID\"/" "$REGISTRY"
+    sed "s/\"activeWorkspace\":null/\"activeWorkspace\": \"$ID\"/" "$REGISTRY" > "$REGISTRY.tmp" && mv "$REGISTRY.tmp" "$REGISTRY"
     # Handle both null (no quotes) and "null" formats
-    sed -i '' "s/\"activeWorkspace\": null/\"activeWorkspace\": \"$ID\"/" "$REGISTRY"
+    sed "s/\"activeWorkspace\": null/\"activeWorkspace\": \"$ID\"/" "$REGISTRY" > "$REGISTRY.tmp" && mv "$REGISTRY.tmp" "$REGISTRY"
   fi
 
   echo "WORKSPACE-SWITCHED: $ID (previous: ${PREV:-none})"
@@ -378,8 +378,8 @@ cmd_reopen() {
     return 1
   fi
 
-  sed -i '' 's/"status": "completed"/"status": "active"/' "$M"
-  sed -i '' "s/\"updated\": \"[^\"]*\"/\"updated\": \"$NOW_ISO\"/" "$M"
+  sed 's/"status": "completed"/"status": "active"/' "$M" > "$M.tmp" && mv "$M.tmp" "$M"
+  sed "s/\"updated\": \"[^\"]*\"/\"updated\": \"$NOW_ISO\"/" "$M" > "$M.tmp" && mv "$M.tmp" "$M"
 
   # Set as active
   cmd_switch "switch" "$ID" 2>/dev/null
@@ -408,7 +408,7 @@ cmd_log() {
   local M="$WS_ROOT/$A/.workspace.json"
   if [ -f "$M" ]; then
     local C; C=$(json_num "$M" "toolCalls")
-    sed -i '' "s/\"toolCalls\": $C/\"toolCalls\": $((C + 1))/" "$M" 2>/dev/null
+    sed "s/\"toolCalls\": $C/\"toolCalls\": $((C + 1))/" "$M" > "$M.tmp" && mv "$M.tmp" "$M" 2>/dev/null
   fi
 }
 
@@ -434,7 +434,7 @@ cmd_gate() {
     echo "ALREADY-AT: $NEW"; return 0
   fi
 
-  sed -i '' "s/\"qualityGate\": \"$OLD\"/\"qualityGate\": \"$NEW\"/" "$M"
+  sed "s/\"qualityGate\": \"$OLD\"/\"qualityGate\": \"$NEW\"/" "$M" > "$M.tmp" && mv "$M.tmp" "$M"
   cmd_log "QualityGate" "$OLD → $NEW"
   echo "GATE-UPDATED: $OLD → $NEW (workspace: $A)"
 }

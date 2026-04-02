@@ -65,8 +65,30 @@ Guides integration with Google Workspace APIs — reading/writing Google Sheets,
 - Storing service account JSON keys in the repository
 - Making individual API calls when batch requests are available
 
+## MCP Integration
+
+This skill covers programmatic API integration patterns. For direct interactive access
+via MCP servers, use the specialized MCP skills:
+
+| Service | MCP Skill | MCP Server |
+|---------|-----------|------------|
+| Gmail | `gmail-mcp` | `gmail` |
+| Calendar | `google-calendar-mcp` | `google-workspace` |
+| Drive | `google-drive-mcp` | `google-workspace` |
+| Docs | `google-docs-mcp` | `google-workspace` |
+| Sheets | `google-sheets-mcp` | `google-workspace` |
+| Slides | `google-slides-mcp` | `google-workspace` |
+
+Setup guide: `docs/google-workspace-mcp-setup.md`
+
 ## Related Skills
 
+- `gmail-mcp` — direct Gmail access via MCP
+- `google-calendar-mcp` — direct Calendar access via MCP
+- `google-drive-mcp` — direct Drive access via MCP
+- `google-docs-mcp` — direct Docs access via MCP
+- `google-sheets-mcp` — direct Sheets access via MCP
+- `google-slides-mcp` — direct Slides access via MCP
 - `cloud-functions` — Workspace API calls typically run in Cloud Functions
 - `scheduled-functions` — automated Workspace workflows run on schedules
 

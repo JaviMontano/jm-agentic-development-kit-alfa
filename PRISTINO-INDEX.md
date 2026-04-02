@@ -1,8 +1,8 @@
 # Pristino Master Index
 
-<!-- Auto-generated. 512 Skills | Updated: 2026-03-27 -->
+<!-- Auto-generated. 524 Skills | Updated: 2026-04-02 -->
 
-## Skills (512)
+## Skills (524)
 
 | # | Skill | Description |
 |---|-------|-------------|
@@ -11,6 +11,7 @@
 | 3 | `accessibility-design` | Implements WCAG 2.1 AA accessibility patterns including ARIA roles, keyboard |
 | 4 | `accessibility-testing` | Test web accessibility with axe-core, screen reader testing, keyboard |
 | 5 | `accessibility-writing` | Alt text guidelines, plain language, reading level, inclusive language. [EXPLICIT] |
+| 5a | `acta-formal` | Formal meeting records (actas) with legal/corporate format, numbered sections, signatures. [EXPLICIT] |
 | 6 | `admin-dashboards` | Build admin dashboard interfaces with data tables, filters, charts, CRUD |
 | 7 | `agent-constitution-creator` | This skill should be used when the user asks to "create an agent constitution", [EXPLICIT] |
 | 8 | `agent-creator` | This skill should be used when the user asks to "create an agent", [EXPLICIT] |
@@ -211,6 +212,8 @@
 | 203 | `firestore-security-rules` | version: 1.0.0 |
 | 204 | `fix-common-issues` | Automatically fixes mechanical issues found during plugin validation, including JSON |
 | 205 | `flow-mapping` | version: 1.0.0 |
+| 205a | `folio-generator` | Numbered business documents with auto-incrementing IDs (COT, MEM, FAC, MIN). [EXPLICIT] |
+| 205b | `follow-up-email` | Personalized follow-up emails after meetings, extracting action items per person. [EXPLICIT] |
 | 206 | `font-optimization` | Optimize web font loading with subsetting, preloading, font-display strategies, |
 | 207 | `form-builder` | version: 1.0.0 |
 | 208 | `form-engineering` | Implements robust web forms with client and server validation, multi-step |
@@ -229,6 +232,12 @@
 | 221 | `google-apis-integration` | version: 1.0.0 |
 | 222 | `google-maps-integration` | Integrates Google Maps Platform APIs: Maps JavaScript API, markers and |
 | 223 | `google-workspace-apis` | Integrate Google Workspace APIs — Sheets, Docs, Drive, Calendar, and Gmail |
+| 223a | `gmail-mcp` | Gmail integration via MCP — search, send, draft, label, and manage emails directly from Claude Code. [EXPLICIT] |
+| 223b | `google-calendar-mcp` | Google Calendar integration via MCP — create, manage, and query events with Google Meet support. [EXPLICIT] |
+| 223c | `google-drive-mcp` | Google Drive integration via MCP — upload, download, organize, search, and share files. [EXPLICIT] |
+| 223d | `google-docs-mcp` | Google Docs integration via MCP — create, edit, and format documents with surgical operations. [EXPLICIT] |
+| 223e | `google-sheets-mcp` | Google Sheets integration via MCP — read, write, and manipulate spreadsheet data. [EXPLICIT] |
+| 223f | `google-slides-mcp` | Google Slides integration via MCP — create and manage presentations programmatically. [EXPLICIT] |
 | 224 | `governance-framework` | Use when the user asks to "define governance", "create governance model", |
 | 225 | `grid-systems` | CSS Grid patterns, magazine layouts, asymmetric grids, breakpoint design. [EXPLICIT] |
 | 226 | `guardrails-management` | Detect, confirm, store, and enforce user-declared guidelines, constraints, and |
@@ -283,6 +292,7 @@
 | 275 | `internationalization` | Implement internationalization (i18n) and localization (l10n) for web applications. [EXPLICIT] |
 | 276 | `interview-prep` | Triggers on "prepare for interview", "interview prep", "preparar entrevista", "mock interview". |
 | 277 | `invoice-generator` | Triggers on "create invoice", "invoice template", "factura", "generar factura". |
+| 277a | `inventory-management` | Basic inventory in Google Sheets — product catalog, stock tracking, low-stock alerts. [EXPLICIT] |
 | 278 | `javascript-patterns` | version: 1.0.0 |
 | 279 | `jmlabs-corporate-doc` | Triggers on "create corporate document", "make investor deck", "build partnership prospectus", |
 | 280 | `kit-orchestrator` | version: 1.0.0 |
@@ -332,6 +342,7 @@
 | 324 | `oauth-social-login` | version: 1.0.0 |
 | 325 | `observability` | This skill should be used when the user asks to "design observability", "set up monitoring", |
 | 326 | `okr-design` | OKR framework, alignment cascading, progress tracking, scoring. [EXPLICIT] |
+| 326a | `office-workflow-runner` | Orchestrates multi-skill office workflows — meeting→follow-up→calendar, sales→report, proposal→folio→email. [EXPLICIT] |
 | 327 | `onboarding-playbook` | Developer and team onboarding program design, knowledge transfer framework, and ramp-up metrics [EXPLICIT] |
 | 328 | `onboarding-ux` | User onboarding flows, activation metrics, time-to-value optimization. [EXPLICIT] |
 | 329 | `open-claude-security` | This skill should be used when the user asks to "design secure Claude Code environment", |
@@ -407,6 +418,7 @@
 | 399 | `rollback-strategy` | Blue-green, canary, feature flags, database rollback patterns. |
 | 400 | `rule-forge` | This skill should be used when the user asks to "create a rule", "define a constraint", |
 | 401 | `sales-collateral` | One-pagers, battle cards, ROI calculators, competitive positioning documents. [EXPLICIT] |
+| 401a | `sales-tracker` | Daily sales tracking in Google Sheets — transaction log, KPI dashboard, payment methods. [EXPLICIT] |
 | 402 | `scaffold-angular-app` | version: 1.0.0 |
 | 403 | `scaffold-html-css` | version: 1.0.0 |
 | 404 | `scaffold-react-app` | version: 1.0.0 |
