@@ -41,3 +41,7 @@ workspace/*
 
 # Logs
 *.log
+
+# Doc Factory runtime data
+.calibration.json
+.folio-tracker.json
