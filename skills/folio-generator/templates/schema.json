@@ -1,0 +1,42 @@
+{
+  "$id": "folio-v1.0.0",
+  "title": "Folio / Documento Numerado",
+  "description": "Schema for numbered business documents (quotations, memos, invoices)",
+  "type": "object",
+  "required": ["folio_id", "subject", "date"],
+  "properties": {
+    "folio_id": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}-\\d{4}-\\d{3}$",
+      "description": "Auto-generated PREFIX-YYYY-NNN"
+    },
+    "title": { "type": "string", "default": "Documento" },
+    "date": { "type": "string" },
+    "validity": { "type": "string", "default": "30 dias" },
+    "validity_days": { "type": "integer", "default": 30 },
+    "company_name": { "type": "string", "default": "MetodologIA · JM Labs" },
+    "company_address": { "type": "string" },
+    "recipient_name": { "type": "string" },
+    "recipient_company": { "type": "string" },
+    "subject": { "type": "string", "minLength": 1 },
+    "reference": { "type": "string" },
+    "body_content": { "type": "string", "description": "Main body HTML or text" },
+    "total_amount": { "type": "number" },
+    "currency": { "type": "string", "default": "MXN" },
+    "total_notes": { "type": "string", "description": "e.g. IVA incluido, precios en USD" },
+    "signer_name": { "type": "string" },
+    "signer_role": { "type": "string" },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "content": { "type": "string" }
+        }
+      }
+    }
+  },
+  "outputs": ["docx", "pdf", "html"],
+  "template_version": "1.0.0"
+}

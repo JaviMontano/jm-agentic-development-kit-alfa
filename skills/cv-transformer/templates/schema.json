@@ -1,0 +1,74 @@
+{
+  "$id": "cv-v1.0.0",
+  "title": "Curriculum Vitae",
+  "description": "Schema for professional CV/resume generation",
+  "type": "object",
+  "required": ["name", "title", "experience"],
+  "properties": {
+    "name": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "description": "Professional title/headline" },
+    "email": { "type": "string" },
+    "phone": { "type": "string" },
+    "location": { "type": "string" },
+    "linkedin": { "type": "string" },
+    "website": { "type": "string" },
+    "summary": { "type": "string", "description": "Professional summary 2-4 sentences" },
+    "experience": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["company", "role", "period"],
+        "properties": {
+          "company": { "type": "string" },
+          "role": { "type": "string" },
+          "period": { "type": "string" },
+          "location": { "type": "string" },
+          "achievements": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "education": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "institution": { "type": "string" },
+          "degree": { "type": "string" },
+          "period": { "type": "string" },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "certifications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "issuer": { "type": "string" },
+          "year": { "type": "string" }
+        }
+      }
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "language": { "type": "string" },
+          "level": { "type": "string" }
+        }
+      }
+    }
+  },
+  "outputs": ["docx", "pdf", "html"],
+  "template_version": "1.0.0"
+}

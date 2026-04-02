@@ -83,12 +83,33 @@ class HtmlEngine:
                 i.get('quantity', 0) * i.get('unit_price', 0)
                 for i in render_data['items']
             )
+        # Compute subtotal, tax, grand_total for invoice templates
+        if 'items' in render_data:
+            render_data.setdefault('subtotal', render_data.get('total', 0))
+            tax_rate = render_data.get('tax_rate', 0)
+            render_data.setdefault('tax_amount', render_data['subtotal'] * tax_rate)
+            render_data.setdefault('grand_total', render_data['subtotal'] + render_data.get('tax_amount', 0))
 
         if template_path and Path(template_path).exists():
             tmpl_dir = Path(template_path).parent
             tmpl_name = Path(template_path).name
-            env = Environment(loader=FileSystemLoader(str(tmpl_dir)))
-            template = env.get_template(tmpl_name)
+            tmpl_content = Path(template_path).read_text(encoding='utf-8')
+
+            # Auto-convert Handlebars syntax to Jinja2 if detected
+            if '{{#' in tmpl_content or '{{/' in tmpl_content:
+                import re
+                tmpl_content = re.sub(r'\{\{#each\s+(\w+)\}\}', r'{% for item in \1 %}', tmpl_content)
+                tmpl_content = tmpl_content.replace('{{/each}}', '{% endfor %}')
+                tmpl_content = re.sub(r'\{\{this\.(\w+)\}\}', r'{{ item.\1 }}', tmpl_content)
+                tmpl_content = tmpl_content.replace('{{this}}', '{{ item }}')
+                tmpl_content = re.sub(r'\{\{@index_plus_one\}\}', '{{ loop.index }}', tmpl_content)
+                # {{#if x}}...{{/if}}
+                tmpl_content = re.sub(r'\{\{#if\s+([\w.]+)\}\}', r'{% if \1 %}', tmpl_content)
+                tmpl_content = tmpl_content.replace('{{/if}}', '{% endif %}')
+                template = Template(tmpl_content)
+            else:
+                env = Environment(loader=FileSystemLoader(str(tmpl_dir)))
+                template = env.get_template(tmpl_name)
         else:
             template = Template(DEFAULT_TEMPLATE)
 

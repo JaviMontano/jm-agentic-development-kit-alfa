@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>{{ folio }} — Factura</title>
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 40px; color: #1a1a2e; }
+  .header { display: flex; justify-content: space-between; border-bottom: 3px solid #16213e; padding-bottom: 15px; margin-bottom: 25px; }
+  .company { font-size: 18px; font-weight: bold; color: #16213e; }
+  .company-detail { font-size: 11px; color: #666; }
+  .folio-box { text-align: right; }
+  .folio-id { font-size: 22px; font-weight: bold; color: #16213e; letter-spacing: 1px; }
+  .folio-date { font-size: 12px; color: #666; }
+  .client-box { background: #f5f5f5; padding: 15px; border-radius: 4px; margin-bottom: 20px; }
+  .client-box strong { color: #16213e; }
+  table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+  thead th { background: #16213e; color: white; padding: 10px 12px; text-align: left; font-size: 13px; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid #eee; font-size: 13px; }
+  tbody tr:hover { background: #f9f9f9; }
+  .text-right { text-align: right; }
+  .totals { margin-top: 20px; float: right; width: 300px; }
+  .totals table { margin: 0; }
+  .totals td { padding: 6px 12px; }
+  .totals .grand-total { font-size: 18px; font-weight: bold; color: #16213e; border-top: 2px solid #16213e; }
+  .notes { clear: both; margin-top: 80px; padding: 15px; background: #f9f9f9; border-left: 3px solid #16213e; font-size: 12px; }
+  .footer { text-align: center; font-size: 10px; color: #999; margin-top: 30px; border-top: 1px solid #e0e0e0; padding-top: 10px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <div class="company">{{ company_name | default('MetodologIA · JM Labs') }}</div>
+    {% if company_address %}<div class="company-detail">{{ company_address }}</div>{% endif %}
+    {% if company_rfc %}<div class="company-detail">RFC: {{ company_rfc }}</div>{% endif %}
+  </div>
+  <div class="folio-box">
+    <div class="folio-id">{{ folio }}</div>
+    <div class="folio-date">Fecha: {{ date }}</div>
+    {% if due_date %}<div class="folio-date">Vence: {{ due_date }}</div>{% endif %}
+  </div>
+</div>
+
+<div class="client-box">
+  <strong>Facturar a:</strong><br>
+  {{ client_name }}
+  {% if client_address %}<br>{{ client_address }}{% endif %}
+  {% if client_rfc %}<br>RFC: {{ client_rfc }}{% endif %}
+  {% if client_email %}<br>{{ client_email }}{% endif %}
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:5%">#</th>
+      <th style="width:50%">Descripcion</th>
+      <th style="width:10%" class="text-right">Cantidad</th>
+      <th style="width:15%" class="text-right">Precio Unit.</th>
+      <th style="width:20%" class="text-right">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in items %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ item.description }}</td>
+      <td class="text-right">{{ item.quantity }}</td>
+      <td class="text-right">{{ currency | default('$') }} {{ "%.2f" | format(item.unit_price) }}</td>
+      <td class="text-right">{{ currency | default('$') }} {{ "%.2f" | format(item.quantity * item.unit_price) }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="totals">
+  <table>
+    <tr><td>Subtotal</td><td class="text-right">{{ currency | default('$') }} {{ "%.2f" | format(subtotal) }}</td></tr>
+    {% if tax_rate %}<tr><td>IVA ({{ "%.0f" | format(tax_rate * 100) }}%)</td><td class="text-right">{{ currency | default('$') }} {{ "%.2f" | format(tax_amount) }}</td></tr>{% endif %}
+    <tr class="grand-total"><td><strong>Total</strong></td><td class="text-right"><strong>{{ currency | default('$') }} {{ "%.2f" | format(grand_total) }}</strong></td></tr>
+  </table>
+</div>
+
+{% if notes %}
+<div class="notes">
+  <strong>Notas:</strong> {{ notes }}
+  {% if payment_method %}<br><strong>Metodo de pago:</strong> {{ payment_method }}{% endif %}
+  {% if bank_account %}<br><strong>Cuenta:</strong> {{ bank_account }}{% endif %}
+</div>
+{% endif %}
+
+<div class="footer">
+  {{ folio }} | Generado {{ _generated_at }} | Este documento no es un comprobante fiscal
+</div>
+
+</body>
+</html>
