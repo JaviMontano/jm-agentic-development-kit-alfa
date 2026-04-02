@@ -98,21 +98,26 @@ Add `.mcp.json` inside the JM-ADK plugin directory for servers that ship with th
 | **Lighthouse** | Performance/a11y auditing | `npx lighthouse-mcp-server` |
 | **Playwright** | E2E testing and screenshots | `npx @anthropic/playwright-mcp-server` |
 
-### For Google Workspace (Gmail, Calendar, Drive, Docs, Sheets, Slides)
+### For Google Workspace (Gmail, Calendar, Drive, Docs, Sheets, Slides, Forms, Tasks, Contacts)
 
 | Server | Purpose | Install |
 |--------|---------|---------|
-| **Gmail** | Email: search, send, drafts, labels, attachments | `npx @dev-hitesh-gupta/gmail-mcp-server` |
-| **Google Workspace** | Drive, Docs, Sheets, Slides, Calendar + Meet | `npx @piotr-agier/google-drive-mcp` |
+| **workspace-mcp** | Unified: Gmail, Calendar, Drive, Docs, Sheets, Slides, Forms, Tasks, Contacts (90+ tools) | `uvx workspace-mcp` |
 
 **Setup guide**: [`docs/google-workspace-mcp-setup.md`](./google-workspace-mcp-setup.md)
 
-**Project `.mcp.json`** already includes both servers. After OAuth2 setup, these tools are available:
+**Project `.mcp.json`** includes the unified server with tool-tier `extended`. After OAuth2 setup, these skills are available:
 
-| MCP Server | Skills | Tools Count |
-|------------|--------|-------------|
-| `gmail` | `gmail-mcp` | 19 tools |
-| `google-workspace` | `google-calendar-mcp`, `google-drive-mcp`, `google-docs-mcp`, `google-sheets-mcp`, `google-slides-mcp` | Drive + Docs + Sheets + Slides + Calendar |
+| Skill | Google Service | Key Tools |
+|-------|---------------|-----------|
+| `gmail-mcp` | Gmail | search, send, draft, labels, filters |
+| `google-calendar-mcp` | Calendar | events, calendars, Meet, out-of-office |
+| `google-drive-mcp` | Drive | files, folders, search, share, permissions |
+| `google-docs-mcp` | Docs | create, edit, format, export, markdown |
+| `google-sheets-mcp` | Sheets | read, write, format, create |
+| `google-slides-mcp` | Slides | create, update, thumbnails |
+
+Office workflow skills (`follow-up-email`, `acta-formal`, `folio-generator`, `inventory-management`, `sales-tracker`) use these MCP tools through the `office-workflow-runner` orchestrator.
 
 ### For Deployment
 

@@ -8,11 +8,17 @@ description: >
   Trigger: "spreadsheet", "google sheets", "sheet data", "cells", "ranges"
 status: production
 tags: [mcp, google-sheets, spreadsheets, data, automation, google]
-mcp-server: google-workspace
+mcp-server: workspace-mcp
 allowed-tools:
   - Read
   - Write
   - Bash
+  - mcp__workspace-mcp__read_sheet_values
+  - mcp__workspace-mcp__modify_sheet_values
+  - mcp__workspace-mcp__create_spreadsheet
+  - mcp__workspace-mcp__list_spreadsheets
+  - mcp__workspace-mcp__get_spreadsheet_info
+  - mcp__workspace-mcp__format_sheet_range
 ---
 
 # Google Sheets MCP

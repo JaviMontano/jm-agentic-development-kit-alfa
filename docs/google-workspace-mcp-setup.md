@@ -1,12 +1,20 @@
-# Google Workspace + Gmail MCP Setup Guide
+# Google Workspace MCP Setup Guide
 
-> Pipeline paso a paso para conectar Claude Code con Gmail, Calendar, Drive, Docs, Sheets y Slides.
+> Pipeline paso a paso para conectar Claude Code con Gmail, Calendar, Drive, Docs, Sheets, Slides, Forms, Tasks y Contacts via un solo MCP server unificado.
+
+**Server**: [taylorwilsdon/google_workspace_mcp](https://github.com/taylorwilsdon/google_workspace_mcp)
+**Package**: `workspace-mcp` (PyPI) | **90+ tools** | **12 servicios Google**
 
 ## Requisitos Previos
 
-- Node.js 18+ instalado
+- Python 3.10+ con `uv` o `uvx` instalado
 - Cuenta de Google (Gmail)
 - Acceso a [Google Cloud Console](https://console.cloud.google.com)
+
+```bash
+# Instalar uv si no lo tienes
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
 
 ---
 
@@ -21,14 +29,17 @@
 
 En tu proyecto, ve a **APIs & Services > Library** y habilita:
 
-| API | Para |
-|-----|------|
-| Gmail API | Email: leer, enviar, borradores, etiquetas |
-| Google Drive API | Archivos, carpetas, busqueda |
-| Google Docs API | Crear/editar documentos |
-| Google Sheets API | Leer/escribir hojas de calculo |
-| Google Slides API | Presentaciones |
-| Google Calendar API | Eventos, calendario, Meet |
+| API | Servicio MCP | Tools |
+|-----|-------------|-------|
+| Gmail API | Gmail | search, send, draft, labels, filters |
+| Google Drive API | Drive | files, folders, search, share |
+| Google Docs API | Docs | create, edit, format, export |
+| Google Sheets API | Sheets | read, write, format, create |
+| Google Slides API | Slides | create, present, update |
+| Google Calendar API | Calendar | events, calendars, Meet |
+| Google Forms API | Forms | create, responses |
+| Google Tasks API | Tasks | lists, tasks, manage |
+| People API | Contacts | search, manage |
 
 ## Paso 3: Crear Credenciales OAuth 2.0
 
@@ -36,8 +47,8 @@ En tu proyecto, ve a **APIs & Services > Library** y habilita:
 2. Click **"+ Create Credentials"** > **"OAuth client ID"**
 3. Si es la primera vez, configura la **OAuth consent screen**:
    - User Type: **External** (o Internal si tienes Google Workspace org)
-   - App name: `JM-ADK MCP`
-   - Scopes: agregar los scopes de Gmail, Drive, Calendar, Docs, Sheets, Slides
+   - App name: `JM-ADK Workspace MCP`
+   - Scopes: agregar los scopes de todas las APIs habilitadas
    - Test users: agrega tu email
 4. Tipo de aplicacion: **Desktop app**
 5. Nombre: `jm-adk-desktop`
@@ -46,36 +57,20 @@ En tu proyecto, ve a **APIs & Services > Library** y habilita:
 
 ## Paso 4: Ubicar Credenciales
 
-### Para Google Workspace MCP (Drive/Docs/Sheets/Slides/Calendar)
-
 ```bash
 # Crea directorio de config
-mkdir -p ~/.config/google-drive-mcp
+mkdir -p ~/.config/workspace-mcp
 
 # Mueve el archivo descargado
-mv ~/Downloads/client_secret_*.json ~/.config/google-drive-mcp/gcp-oauth.keys.json
+mv ~/Downloads/client_secret_*.json ~/.config/workspace-mcp/credentials.json
 ```
 
-### Para Gmail MCP
-
-```bash
-# Crea directorio de config
-mkdir -p ~/.gmail-mcp
-
-# Copia las mismas credenciales (o crea unas separadas si prefieres)
-cp ~/.config/google-drive-mcp/gcp-oauth.keys.json ~/.gmail-mcp/credentials.json
-```
-
-## Paso 5: Configurar Variables de Entorno
+## Paso 5: Configurar Variable de Entorno
 
 Agrega a tu `.bashrc`, `.zshrc` o `.env`:
 
 ```bash
-# Google Workspace MCP (Drive, Docs, Sheets, Slides, Calendar)
-export GOOGLE_WORKSPACE_CREDENTIALS_PATH="$HOME/.config/google-drive-mcp/gcp-oauth.keys.json"
-
-# Gmail MCP
-export GMAIL_MCP_CONFIG_DIR="$HOME/.gmail-mcp"
+export GOOGLE_WORKSPACE_CREDENTIALS_PATH="$HOME/.config/workspace-mcp/credentials.json"
 ```
 
 Recarga tu shell:
@@ -85,23 +80,12 @@ source ~/.bashrc  # o ~/.zshrc
 
 ## Paso 6: Autenticar (Primera Vez)
 
-### Gmail MCP - Autenticacion
-
-```bash
-# Ejecuta el comando de auth
-npx @dev-hitesh-gupta/gmail-mcp-server auth
-```
-
-Esto abre tu navegador. Inicia sesion con tu cuenta de Gmail y acepta los permisos. El token se guarda en `~/.gmail-mcp/token.json`.
-
-### Google Workspace MCP - Autenticacion
-
 ```bash
 # La primera ejecucion abre el navegador automaticamente
-npx @piotr-agier/google-drive-mcp
+uvx workspace-mcp
 ```
 
-Acepta los permisos. El token se guarda en `~/.config/google-drive-mcp/tokens.json`.
+Inicia sesion con tu cuenta de Google y acepta los permisos. El token se guarda automaticamente y se renueva solo.
 
 ## Paso 7: Verificar en Claude Code
 
@@ -109,14 +93,13 @@ Acepta los permisos. El token se guarda en `~/.config/google-drive-mcp/tokens.js
 # Desde el directorio del proyecto
 cd /path/to/jm-agentic-development-kit-alfa
 
-# Verificar que los MCPs estan configurados
+# Verificar que el MCP esta configurado
 claude mcp list
 ```
 
 Deberias ver:
 ```
-google-workspace  stdio  @piotr-agier/google-drive-mcp
-gmail             stdio  @dev-hitesh-gupta/gmail-mcp-server
+workspace-mcp  stdio  uvx workspace-mcp --tool-tier extended ...
 ```
 
 ## Paso 8: Probar
@@ -127,66 +110,97 @@ En una sesion de Claude Code:
 "Lista mis ultimos 5 emails de Gmail"
 "Crea un evento en Calendar para manana a las 10am"
 "Lista los archivos en mi Drive"
+"Crea una hoja de calculo nueva"
 ```
 
 ---
 
-## Tools Disponibles
+## Tool Tiers
 
-### Gmail MCP (19 tools)
+El server soporta 3 niveles de herramientas (configurado en `.mcp.json`):
 
-| Tool | Descripcion |
-|------|-------------|
-| `gmail_search` | Buscar emails (sintaxis Gmail) |
-| `gmail_get_message` | Leer email completo por ID |
-| `gmail_send` | Enviar email (CC/BCC, threading) |
-| `gmail_get_thread` | Obtener hilo de conversacion |
-| `gmail_get_profile` | Info del perfil |
-| `gmail_create_draft` | Crear borrador |
-| `gmail_list_drafts` | Listar borradores |
-| `gmail_send_draft` | Enviar borrador existente |
-| `gmail_delete_draft` | Eliminar borrador |
-| `gmail_list_labels` | Listar etiquetas |
-| `gmail_create_label` | Crear etiqueta |
-| `gmail_delete_label` | Eliminar etiqueta |
-| `gmail_trash` | Mover a papelera |
-| `gmail_untrash` | Restaurar de papelera |
-| `gmail_mark_read` | Marcar como leido |
-| `gmail_mark_unread` | Marcar como no leido |
-| `gmail_modify_labels` | Modificar etiquetas |
-| `gmail_list_attachments` | Listar adjuntos |
-| `gmail_get_attachment` | Descargar adjunto (base64) |
+| Tier | Tools | Uso |
+|------|-------|-----|
+| `core` | ~40 | Lectura + operaciones basicas (CRUD) |
+| `extended` | ~65 | Core + labels, batch ops, formatting, search avanzado |
+| `complete` | ~90+ | Todo: comments, admin, headers/footers, debug |
 
-### Google Workspace MCP (Drive/Docs/Sheets/Slides/Calendar)
+Para cambiar tier, edita `.mcp.json`:
+```json
+"args": ["workspace-mcp", "--tool-tier", "complete"]
+```
 
-| Categoria | Operaciones |
-|-----------|-------------|
-| **Drive** | Crear, subir, descargar, mover, copiar, renombrar, eliminar archivos/carpetas |
-| **Drive Search** | Busqueda avanzada en Drive |
-| **Google Docs** | Insertar/eliminar texto, tablas, imagenes, comentarios |
-| **Google Sheets** | Leer/escribir celdas y rangos |
-| **Google Slides** | Crear presentaciones |
-| **Google Calendar** | CRUD eventos, integracion Google Meet |
-| **Shared Drives** | Acceso completo a drives compartidos |
-| **Rutas** | Navegacion por path (`/Work/Projects/file.doc`) |
+## Permisos Granulares
+
+Puedes controlar acceso por servicio:
+
+```bash
+# Solo lectura total
+uvx workspace-mcp --read-only
+
+# Permisos especificos por servicio
+uvx workspace-mcp --permissions gmail:send drive:readonly calendar:full
+```
+
+Niveles de permiso por servicio:
+- `readonly` — solo lectura
+- `organize` — lectura + labels/folders (Gmail, Drive)
+- `drafts` — organize + crear borradores (Gmail)
+- `send` — drafts + enviar emails (Gmail)
+- `full` — acceso completo
+
+---
+
+## Servicios y Skills MCP
+
+| Servicio | Skill ADK | Tools Principales |
+|----------|-----------|-------------------|
+| Gmail | `gmail-mcp` | search, send, draft, labels, filters |
+| Calendar | `google-calendar-mcp` | events, calendars, Meet, out-of-office |
+| Drive | `google-drive-mcp` | files, folders, search, share, permissions |
+| Docs | `google-docs-mcp` | create, edit, format, export PDF, markdown |
+| Sheets | `google-sheets-mcp` | read, write, format, create, formulas |
+| Slides | `google-slides-mcp` | create, update, thumbnails |
+| Forms | (futuro) | create, responses |
+| Tasks | (futuro) | lists, tasks, manage |
+| Contacts | (futuro) | search, manage |
 
 ---
 
 ## Seguridad
 
-- **NUNCA** commits `credentials.json`, `token.json` o `gcp-oauth.keys.json` al repo
-- Los archivos `.gitignore` ya excluyen `*.json` en directorios sensibles
+- **NUNCA** commits `credentials.json` o tokens al repo
 - Usa variables de entorno (`${VAR}`) en `.mcp.json`, nunca rutas hardcodeadas
-- Los tokens se renuevan automaticamente; si expiran, re-ejecuta el paso de auth
+- Usa `--read-only` cuando solo necesites consultar datos
+- Usa `--permissions` para limitar acceso por servicio
+- Los tokens se renuevan automaticamente
 - Revisa los scopes OAuth: usa el minimo necesario
+
+## Docker (Opcional)
+
+```bash
+# Para entornos de produccion o CI/CD
+docker run -p 8000:8000 \
+  -v ~/.config/workspace-mcp:/app/config \
+  -e GOOGLE_OAUTH_CREDENTIALS=/app/config/credentials.json \
+  workspace-mcp --transport streamable-http
+```
 
 ## Troubleshooting
 
 | Problema | Solucion |
 |----------|----------|
-| `Error: credentials not found` | Verifica `GOOGLE_WORKSPACE_CREDENTIALS_PATH` y `GMAIL_MCP_CONFIG_DIR` |
-| `Error: token expired` | Re-ejecuta el auth del paso 6 |
-| `Error: API not enabled` | Habilita la API en Google Cloud Console (paso 2) |
+| `uvx: command not found` | Instalar uv: `curl -LsSf https://astral.sh/uv/install.sh \| sh` |
+| `Error: credentials not found` | Verifica `GOOGLE_WORKSPACE_CREDENTIALS_PATH` apunta al JSON descargado |
+| `Error: token expired` | Re-ejecuta `uvx workspace-mcp` (reabre navegador) |
+| `Error: API not enabled` | Habilita la API faltante en Google Cloud Console (paso 2) |
 | `Error: access denied` | Agrega tu email como test user en OAuth consent screen |
 | MCP no aparece en `claude mcp list` | Verifica que `.mcp.json` esta en la raiz del proyecto |
-| `Error: -32600` | Autentica primero antes de usar tools |
+| `OAUTHLIB_INSECURE_TRANSPORT` | Normal en desarrollo local (HTTP). No aplica en produccion (HTTPS) |
+
+---
+
+Sources:
+- [taylorwilsdon/google_workspace_mcp](https://github.com/taylorwilsdon/google_workspace_mcp)
+- [workspacemcp.com](https://workspacemcp.com/)
+- [Claude Code MCP Docs](https://code.claude.com/docs/en/mcp)

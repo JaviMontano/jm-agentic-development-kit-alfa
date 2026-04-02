@@ -1,6 +1,6 @@
 # JM Agentic Development Kit (JM-ADK) v5.1.0
 
-> Convierte intención en resultados. 518 skills · market research · CV · brand HTML · discovery · architecture · security · Google Workspace MCP.
+> Convierte intención en resultados. 524 skills · market research · CV · brand HTML · discovery · architecture · security · Google Workspace MCP · office workflows.
 
 ## Environment
 

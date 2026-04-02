@@ -1,22 +1,18 @@
 {
   "mcpServers": {
-    "google-workspace": {
+    "workspace-mcp": {
       "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "@piotr-agier/google-drive-mcp"],
+      "command": "uvx",
+      "args": [
+        "workspace-mcp",
+        "--tool-tier", "extended",
+        "--tools", "gmail", "drive", "calendar", "docs", "sheets", "slides", "forms", "tasks", "contacts"
+      ],
       "env": {
-        "GOOGLE_DRIVE_OAUTH_CREDENTIALS": "${GOOGLE_WORKSPACE_CREDENTIALS_PATH}"
+        "GOOGLE_OAUTH_CREDENTIALS": "${GOOGLE_WORKSPACE_CREDENTIALS_PATH}",
+        "OAUTHLIB_INSECURE_TRANSPORT": "1"
       },
-      "description": "Google Workspace: Drive, Docs, Sheets, Slides, Calendar + Meet"
-    },
-    "gmail": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "@dev-hitesh-gupta/gmail-mcp-server"],
-      "env": {
-        "GMAIL_MCP_CONFIG_DIR": "${GMAIL_MCP_CONFIG_DIR}"
-      },
-      "description": "Gmail: search, send, drafts, labels, attachments, threads (19 tools)"
+      "description": "Google Workspace unified: Gmail, Calendar, Drive, Docs, Sheets, Slides, Forms, Tasks, Contacts (90+ tools)"
     }
   }
 }

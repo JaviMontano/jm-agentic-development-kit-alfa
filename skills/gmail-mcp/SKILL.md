@@ -8,30 +8,22 @@ description: >
   Trigger: "email", "gmail", "send email", "check inbox", "drafts", "email labels"
 status: production
 tags: [mcp, gmail, email, automation, google]
-mcp-server: gmail
+mcp-server: workspace-mcp
 allowed-tools:
   - Read
   - Write
   - Bash
-  - mcp__gmail__gmail_search
-  - mcp__gmail__gmail_get_message
-  - mcp__gmail__gmail_send
-  - mcp__gmail__gmail_get_thread
-  - mcp__gmail__gmail_get_profile
-  - mcp__gmail__gmail_create_draft
-  - mcp__gmail__gmail_list_drafts
-  - mcp__gmail__gmail_send_draft
-  - mcp__gmail__gmail_delete_draft
-  - mcp__gmail__gmail_list_labels
-  - mcp__gmail__gmail_create_label
-  - mcp__gmail__gmail_delete_label
-  - mcp__gmail__gmail_trash
-  - mcp__gmail__gmail_untrash
-  - mcp__gmail__gmail_mark_read
-  - mcp__gmail__gmail_mark_unread
-  - mcp__gmail__gmail_modify_labels
-  - mcp__gmail__gmail_list_attachments
-  - mcp__gmail__gmail_get_attachment
+  - mcp__workspace-mcp__search_gmail_messages
+  - mcp__workspace-mcp__get_gmail_message_content
+  - mcp__workspace-mcp__get_gmail_messages_content_batch
+  - mcp__workspace-mcp__send_gmail_message
+  - mcp__workspace-mcp__get_gmail_thread_content
+  - mcp__workspace-mcp__modify_gmail_message_labels
+  - mcp__workspace-mcp__list_gmail_labels
+  - mcp__workspace-mcp__manage_gmail_label
+  - mcp__workspace-mcp__manage_gmail_filter
+  - mcp__workspace-mcp__list_gmail_filters
+  - mcp__workspace-mcp__draft_gmail_message
 ---
 
 # Gmail MCP

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Acta de Reunion — {{acta_number}}</title>
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 40px; color: #1a1a2e; line-height: 1.6; }
+  .header { text-align: center; border-bottom: 3px solid #16213e; padding-bottom: 20px; margin-bottom: 30px; }
+  .header h1 { font-size: 24px; color: #16213e; margin: 0; letter-spacing: 2px; }
+  .header .acta-number { font-size: 14px; color: #666; margin-top: 5px; }
+  .section { margin-bottom: 25px; }
+  .section h2 { font-size: 16px; color: #16213e; border-bottom: 1px solid #e0e0e0; padding-bottom: 5px; }
+  .meta-table, .attendees-table, .agreements-table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+  .meta-table td { padding: 6px 12px; border: 1px solid #ddd; }
+  .meta-table td:first-child { font-weight: bold; width: 30%; background: #f5f5f5; }
+  .attendees-table th, .agreements-table th { background: #16213e; color: white; padding: 8px 12px; text-align: left; font-size: 13px; }
+  .attendees-table td, .agreements-table td { padding: 6px 12px; border: 1px solid #ddd; font-size: 13px; }
+  .attendees-table tr:nth-child(even), .agreements-table tr:nth-child(even) { background: #f9f9f9; }
+  .signatures { margin-top: 60px; display: flex; justify-content: space-between; }
+  .signature-block { text-align: center; width: 40%; }
+  .signature-line { border-top: 1px solid #333; margin-top: 60px; padding-top: 5px; }
+  .footer { text-align: center; font-size: 11px; color: #999; margin-top: 40px; border-top: 1px solid #e0e0e0; padding-top: 10px; }
+  .quorum { background: #e8f5e9; padding: 8px 15px; border-radius: 4px; font-size: 13px; margin: 10px 0; }
+  .agenda-item { margin: 10px 0; padding-left: 15px; border-left: 3px solid #16213e; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>ACTA DE REUNION</h1>
+  <div class="acta-number">{{acta_number}}</div>
+</div>
+
+<!-- I. DATOS GENERALES -->
+<div class="section">
+  <h2>I. Datos Generales</h2>
+  <table class="meta-table">
+    <tr><td>Fecha</td><td>{{date}}</td></tr>
+    <tr><td>Hora</td><td>{{start_time}} — {{end_time}}</td></tr>
+    <tr><td>Lugar</td><td>{{location}}</td></tr>
+    <tr><td>Tipo de Reunion</td><td>{{meeting_type}}</td></tr>
+    <tr><td>Convocante</td><td>{{convener_name}} — {{convener_role}}</td></tr>
+  </table>
+</div>
+
+<!-- II. LISTA DE ASISTENCIA -->
+<div class="section">
+  <h2>II. Lista de Asistencia</h2>
+  <table class="attendees-table">
+    <thead>
+      <tr><th>#</th><th>Nombre</th><th>Cargo</th><th>Asistencia</th><th>Firma</th></tr>
+    </thead>
+    <tbody>
+      {{#each attendees}}
+      <tr>
+        <td>{{@index_plus_one}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.role}}</td>
+        <td>{{this.attendance}}</td>
+        <td>___________</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <div class="quorum">Quorum: {{quorum_count}}/{{total_invited}} ({{quorum_status}})</div>
+</div>
+
+<!-- III. ORDEN DEL DIA -->
+<div class="section">
+  <h2>III. Orden del Dia</h2>
+  {{#each agenda_items}}
+  <div class="agenda-item">
+    <strong>{{@index_plus_one}}.</strong> {{this}}
+  </div>
+  {{/each}}
+</div>
+
+<!-- IV. DESARROLLO DE LA SESION -->
+<div class="section">
+  <h2>IV. Desarrollo de la Sesion</h2>
+  {{development_content}}
+</div>
+
+<!-- V. ACUERDOS -->
+<div class="section">
+  <h2>V. Acuerdos</h2>
+  <table class="agreements-table">
+    <thead>
+      <tr><th>#</th><th>Acuerdo</th><th>Responsable</th><th>Fecha Limite</th><th>Estado</th></tr>
+    </thead>
+    <tbody>
+      {{#each agreements}}
+      <tr>
+        <td>{{@index_plus_one}}</td>
+        <td>{{this.description}}</td>
+        <td>{{this.responsible}}</td>
+        <td>{{this.deadline}}</td>
+        <td>{{this.status}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+<!-- VI. ASUNTOS VARIOS -->
+<div class="section">
+  <h2>VI. Asuntos Varios</h2>
+  {{misc_content}}
+</div>
+
+<!-- VII. CIERRE -->
+<div class="section">
+  <h2>VII. Cierre</h2>
+  <p>Se da por concluida la reunion a las <strong>{{end_time}}</strong>.</p>
+  <p>Proxima reunion programada: <strong>{{next_meeting}}</strong></p>
+</div>
+
+<!-- VIII. FIRMAS -->
+<div class="signatures">
+  <div class="signature-block">
+    <div class="signature-line">
+      {{president_name}}<br>
+      <small>Presidente de la sesion</small>
+    </div>
+  </div>
+  <div class="signature-block">
+    <div class="signature-line">
+      {{secretary_name}}<br>
+      <small>Secretario de actas</small>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Documento generado automaticamente — {{acta_number}} | Pagina 1 de 1
+</div>
+
+</body>
+</html>

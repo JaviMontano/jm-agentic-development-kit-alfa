@@ -8,11 +8,20 @@ description: >
   Trigger: "drive", "google drive", "upload file", "share file", "drive search"
 status: production
 tags: [mcp, google-drive, files, storage, automation, google]
-mcp-server: google-workspace
+mcp-server: workspace-mcp
 allowed-tools:
   - Read
   - Write
   - Bash
+  - mcp__workspace-mcp__search_drive_files
+  - mcp__workspace-mcp__get_drive_file_content
+  - mcp__workspace-mcp__create_drive_file
+  - mcp__workspace-mcp__create_drive_folder
+  - mcp__workspace-mcp__list_drive_items
+  - mcp__workspace-mcp__copy_drive_file
+  - mcp__workspace-mcp__update_drive_file
+  - mcp__workspace-mcp__manage_drive_access
+  - mcp__workspace-mcp__get_drive_shareable_link
 ---
 
 # Google Drive MCP

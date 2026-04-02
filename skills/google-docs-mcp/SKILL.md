@@ -8,11 +8,19 @@ description: >
   Trigger: "google doc", "create document", "edit doc", "document"
 status: production
 tags: [mcp, google-docs, documents, content, automation, google]
-mcp-server: google-workspace
+mcp-server: workspace-mcp
 allowed-tools:
   - Read
   - Write
   - Bash
+  - mcp__workspace-mcp__get_doc_content
+  - mcp__workspace-mcp__create_doc
+  - mcp__workspace-mcp__modify_doc_text
+  - mcp__workspace-mcp__search_docs
+  - mcp__workspace-mcp__find_and_replace_doc
+  - mcp__workspace-mcp__insert_doc_elements
+  - mcp__workspace-mcp__get_doc_as_markdown
+  - mcp__workspace-mcp__export_doc_to_pdf
 ---
 
 # Google Docs MCP

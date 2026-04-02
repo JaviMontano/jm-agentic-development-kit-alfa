@@ -8,11 +8,16 @@ description: >
   Trigger: "slides", "presentation", "google slides", "deck"
 status: production
 tags: [mcp, google-slides, presentations, automation, google]
-mcp-server: google-workspace
+mcp-server: workspace-mcp
 allowed-tools:
   - Read
   - Write
   - Bash
+  - mcp__workspace-mcp__create_presentation
+  - mcp__workspace-mcp__get_presentation
+  - mcp__workspace-mcp__batch_update_presentation
+  - mcp__workspace-mcp__get_page
+  - mcp__workspace-mcp__get_page_thumbnail
 ---
 
 # Google Slides MCP

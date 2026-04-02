@@ -8,11 +8,15 @@ description: >
   Trigger: "calendar", "schedule", "meeting", "event", "agenda", "google meet"
 status: production
 tags: [mcp, google-calendar, scheduling, automation, google]
-mcp-server: google-workspace
+mcp-server: workspace-mcp
 allowed-tools:
   - Read
   - Write
   - Bash
+  - mcp__workspace-mcp__list_calendars
+  - mcp__workspace-mcp__get_events
+  - mcp__workspace-mcp__manage_event
+  - mcp__workspace-mcp__manage_out_of_office
 ---
 
 # Google Calendar MCP
