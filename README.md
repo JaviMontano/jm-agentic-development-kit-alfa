@@ -47,7 +47,6 @@ git clone https://github.com/JaviMontano/jm-adk-alfa.git && cd jm-adk-alfa
 | [**mao-discovery-framework**](https://github.com/JaviMontano/mao-discovery-framework) | MAO Discovery Framework |
 | [**mao-pm-apex**](https://github.com/JaviMontano/mao-pm-apex) | PM APEX |
 | [**mao-sovereign-architect**](https://github.com/JaviMontano/mao-sovereign-architect) | Sovereign Architect |
-| [**playbook-forge**](https://github.com/JaviMontano/playbook-forge) | Playbook Forge |
 
 ## 👤 Autor
 
@@ -97,7 +96,6 @@ Complete agentic development kit. Includes 5 plugins, automatic workspace, and s
 | [**mao-discovery-framework**](https://github.com/JaviMontano/mao-discovery-framework) | MAO Discovery Framework |
 | [**mao-pm-apex**](https://github.com/JaviMontano/mao-pm-apex) | PM APEX |
 | [**mao-sovereign-architect**](https://github.com/JaviMontano/mao-sovereign-architect) | Sovereign Architect |
-| [**playbook-forge**](https://github.com/JaviMontano/playbook-forge) | Playbook Forge |
 
 ---
 
